@@ -3,9 +3,9 @@
 
 \begin{document}
 
-\title{CitiBike and Data}
+\title{Implementation of methods to predict demand, shortages, and evaluation of Resource allocation in the CitiBike System}
 
-\author{Rohan Pitre, Conrad de Peuter}
+\author{Rohan Pitre, Conrad de Peuter (cld2167}
 
 \maketitle
 
@@ -55,7 +55,7 @@ Why do you think it's a good approach and will be successful?}
 \item We will evaluate these prediction methods to see which one provides the best predictions in an efficient manner.
 \item With our predictive model in place, we will modify current methods to measure imbalance and optimize resource allocation to use our predicted demand rather than a fixed demand. 
 \item We will also evaluate the CitiBike bike angels program. This gives incentives to people who take trips to balance the system. 
-\item Visualize our predictions and imbalance of the system on a dashboard. 
+\item We will then build a dashboard to view both historical demand and live demand using CitiBike's live data stream.
 \end{enumerate}
 
 \section{(Best Case) Impact}
@@ -63,7 +63,7 @@ Why do you think it's a good approach and will be successful?}
 \emph{In the best-case scenario, what would be the impact statement (ideal outcome and conclusion) for this project?} 
 \end{quote}
 
-We have an all-inclusive dashboard which clearly shows all predictions and the effectiveness of rebalancing strategies. 
+In the best case scenario we are able to identify methods which accurately predict demand. In addition, we build and publish online an all-inclusive dashboard which clearly shows all predictions and the effectiveness of rebalancing strategies. 
 
 \section{Milestones}
 \begin{quote}
@@ -71,12 +71,13 @@ We have an all-inclusive dashboard which clearly shows all predictions and the e
 \end{quote}
 
 \begin{enumerate}
-  \item Identify the list of statistics that we can reasonably compute and store in tens of kilobytes of space.
-  \item Develop a cost model for individual operators and show that the model is correlated with reality by running them on synthetic datasets based on what existing IMS customer use.
-  \item Develop a cost model for a full query plan.
-  \item Derive an estimate of the size of the full plan space for a given query plan and show that it is infeasibly large.
-  \item Develop dynamic programming heuristic to search the plan space.
-  \item Run experiments on synthetic datasets to compare the optimizer-picked query plans with hand-optimized query plans.
+  \item Implement various predictive algorithms from literature
+  \item Train models predictive models using these algorithms and Citibike's open data 
+  \item Use models to predict shortages and excess supply in the system
+  \item Using the demand-prediction models, we will evaluate CitiBike's current resource allocation methods
+  \item Set up Spark Streaming infrastructure, using citibike's live feed, and use trained models to predict areas where demand may not be met
+  \item Build dashboard showing historical and real-time system allocation
+  \item Evaluate CitiBike's angels program using methods from literature
 \end{enumerate}
 
 \section{Obstacles}
@@ -86,22 +87,29 @@ Note that major obstacles are situations where you would consider \textbf{killin
 Minor obstacles are things that would delay the project or increase the overall cost in energy, time, people, and money.}
 \end{quote}
 
+\begin{itemize}
+ \item We do not have any control over the restocking strategies CitiBike uses, thus we can only evaluate how they are doing compared to hypothetical system layouts we simulate. We are unable to see the true effectiveness of various restocking strategies from literature.
+
+\end{itemize}
+
+
 \subsection{Major obstacles} 
 
 \begin{itemize}
-  \item If we cannot show decent correlation between individual operator cost models and reality, then the rest of the project may not work.  We will also need to define what ``decent'' means.
+  \item A major obstacle would be if the models we use do not accurately predict system imbalances. If the prediction methods we implement from literature do not accurately predict demand, then we will not be able to go forward with the optimization evaluation. In this scenario we will still be able to build a live-web dashboard showing resource allocation across the city.
 \end{itemize}
 
 \subsection{Minor obstacles}
 
 \begin{itemize}
-  \item We may not have access to computing resources to run any experiments, in which case we will need to focus on theoretical aspects of the work.  This could reduce the impact of the project, however showing that an optimizer is \emph{possible} is still a contribution.
+  \item Running the live system on spark streaming becomes too expensive.
 \end{itemize}
 
 
 \section{Additional Resources}
 \begin{quote}
 \emph{What additional resources do you need to complete this project?}
+We will need to use some cloud computing infrastructure to complete this project. In addition we will need to have Spark Streaming working.
 \end{quote}
 
 \begin{itemize}
@@ -115,14 +123,21 @@ Minor obstacles are things that would delay the project or increase the overall 
 \end{quote}
 
 \begin{itemize}
-\item \emph{Background for the project:} This work builds on prior work on relational algebra and the relational model~\cite{codd1970relational}, and on new relational database systems~\cite{stonebraker1976design,astrahan1976system}
+\item \emph{Background for the project:} Chen et al. introduce a Dynamic Cluster-based approach to predicting over-demand stations \cite{chen}.  Li. et al. introduce a Gradient Boosting Regression tree model to predict the rate of demand going to and from an individual station.  Zhang et al. introduce a regression model for individual trip destination and length predictions~ \cite{zhang},. 
 
-\item \emph{Work the project relies and builds on: } Some preliminary work has suggested a language for specifying query plans~\cite{lorie1979access} that we could borrow from.  Also, Recent work~\cite{bayer2002organization} on different ways to store and index data lend credence to the need for different cost models for access data in relations.
+Freund et al. consider the problem of optimal dock capacity \cite{freund} we 
+
+
+
+\item \emph{Work the project relies and builds on: } Some preliminary work has suggested a language for specifying query plans~that we could borrow from.  Also, Recent work~nt ways to store and index data lend credence to the need for different cost models for access data in relations.
+
+Schuijbroek et al. investigate optimal routing for system rebalancing in bike shares \cite{schu}. We plan on using their approach to evaluate the Citi Angels program.
+
+Parikh et al. introduce a Markov Model to predict optimal restocking levels of a system \cite{parikh}. We will use this to evaluate how CitiBike restocks it's system.
 
 \item \emph{Direct competitors: } We could not find existing works on alternative techniques to automatically optimize query plans.
 
-\item \emph{Alternatives to achieve the broader goal: } As stated above, IMS and CODASYL~\cite{taylor1976codasyl} are the main alternative data management systems, but they do not have any automated query optimization.
-
+\item \emph{Alternatives to achieve the broader goal: } We would like to use a combination of the above methods to find an algorithm which accurately predicts the flow of bicycles around the city.
  \end{itemize}
 
 
@@ -132,8 +147,23 @@ Minor obstacles are things that would delay the project or increase the overall 
 In other words, what is the minimum finding that would make this project a success and publishable?}
 \end{quote}
 
-Simply developing a set of cost models and search heuristics for query plans should be publishable, because an automated optimizer of any sort does not yet exist.  
 
-\bibliographystyle{abbrv}
+This project will be a success if we can predict systems shortages ahead of time. After the models are fit, we will use them to predict real-time data. If our model is able to correctly predict outages ahead of time, it will be a success. If this is possible, our web visualization will be useful for riders who expect to use the system, and the system operators who control the bike stocking.
+
+\begin{thebibliography}{2}
+\bibitem{zhang}  Zhang, J., Pan, X., Li, M., \& Yu, P. S. (2016). Bicycle-Sharing System Analysis and Trip Prediction. 2016 17th IEEE International Conference on Mobile Data Management (MDM). doi:10.1109/mdm.2016.35
+\bibitem{chen}Chen, L., Jakubowicz, J., Zhang, D., Wang, L., Yang, D., Ma, X., . . . Nguyen, T. (2016). Dynamic cluster-based over-demand prediction in bike sharing systems. Proceedings of the 2016 ACM International Joint Conference on Pervasive and Ubiquitous Computing - UbiComp '16. doi:10.1145/2971648.2971652
+\bibitem{li} Li, Y., Zheng, Y., Zhang, H., \& Chen, L. (2015). Traffic Prediction in a Bike-Sharing System. Proceedings of the 23rd ACM International Conference on Advances in Geographical Information Systems.
+
+\bibitem{freund} Freund, D., Henderson, S. G., \& Shmoys, D. B. (2016). Minimizing Multimodular Functions and Allocating Capacity in Bike-Sharing Systems. arXiv preprint arXiv:1611.09304.
+
+\bibitem{schu}Schuijbroek, J., Hampshire, R., \& van Hoeve, W. J. (2013). Inventory rebalancing and vehicle routing in bike sharing systems.
+Chicago	
+
+\bibitem{parikh} Parikh, P., \& Ukkusuri, S. V. (2014, August). Estimation of Optimal Inventory Levels at Stations of a Bicycle Sharing System. In Transportation Research Board 94th Annual Meeting (No. 15-5170).
+
+
+\end{thebibliography}
+
 \bibliography{prospectus}
 \end{document}
