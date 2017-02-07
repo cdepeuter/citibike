@@ -1,0 +1,139 @@
+\documentclass{proc}
+\usepackage{url}
+
+\begin{document}
+
+\title{CitiBike and Data}
+
+\author{Rohan Pitre, Conrad de Peuter}
+
+\maketitle
+
+\section{Abstract / Introduction}
+
+\emph{1. What opportunities/changes that make this work useful and timely?
+2. Why existing approaches fail to make use of these opportunities?
+3. How do you propose to do better?
+4. Why this problem is relevant to the course?
+(1-2 sentences each)} 
+
+Bike sharing systems are growing in popularity across the world. One main issue with bike sharing systems is station imbalance. This means that there are times when a rider goes to a station to pick up a bike and no stations are available, or that a rider goes to a station to return his bike and no docks are available. Data driven approaches are being used more and more to help the operations of bike sharing more efficient. 
+
+Currently, there is a lot of literature about predicting the demand of bike sharing systems and how to solve the optimization problems of rebalancing bikes at each station. However, these two methods haven't been applied simultaneously. Methods to solve the optimization problems assume a fixed demand rate which do not accurately represent how demand actually behaves. Furthermore, there are many heatmaps and dashboards depicting the current state of CitiBike, but none of these resources show predictions of future demand.
+
+Our work will focus on integrating more realistic methods to predict demand in conjunction with quantitatively assessing strategies to rebalance the system. In particular, we will try to improve current methods to evaluate how balanced the system is by estimating out-of-stock events, as well as methods to assign routes to vehicles to move docks and bikes to have a more balanced system. Finally, we will explore approaches to encourage current riders to rebalance the system through promotions.
+
+This problem is relevant to the course because we would like to build a system that can do this analysis in real-time. The current literature focuses on offline analysis and making these methods more efficient. Our goal is to integrate the current methods into one system that could potentially be used as a tool by bike-sharing systems to make decisions. 
+
+
+\section{One Sentence Summary}
+\begin{quote}
+\emph{Describe your project in one sentence, in other words, your hypothesis.}
+\end{quote}
+
+We will use methods to predict demand of CitiBike in New York City and use the results to improve rebalancing by using more realistic predictions. Our hypothesis is that incorporating predictions and operations in one system will improve efficiency. 
+
+\section{Audience and Needs}
+\begin{quote}
+\emph{Who are the audiences for this project? 
+How does it meet their needs? 
+What happens if their needs remain unmet?}
+\end{quote}
+
+This project will impact the academic community as well as decision makers of bike sharing systems. The community will benefit because our work will validate currently proposed methods to predict demand and allocate resources optimally. 
+
+Decision makers at CitiBike will benefit from having a fully integrated system that includes predictions of demand as well as suggestions on how to allocate resources. Additionally, we hope to create a dashboard visualizing our results in real-time which provides an interface for decision-makers to use. Finally, a major focus of this project is to design the architecture to make this analysis scalable. 
+
+\section{Approach}
+\begin{quote}
+\emph{What is your approach?
+Why do you think it's a good approach and will be successful?}
+\end{quote}
+
+\begin{enumerate}
+\item We will implement methods to predict demand of riders that relies on historical data. These methods include basic time-series models (ARIMA) as well as more advanced methods that include clustering and gradient boosting trees. 
+\item We will evaluate these prediction methods to see which one provides the best predictions in an efficient manner.
+\item With our predictive model in place, we will modify current methods to measure imbalance and optimize resource allocation to use our predicted demand rather than a fixed demand. 
+\item We will also evaluate the CitiBike bike angels program. This gives incentives to people who take trips to balance the system. 
+\item Visualize our predictions and imbalance of the system on a dashboard. 
+\end{enumerate}
+
+\section{(Best Case) Impact}
+\begin{quote}
+\emph{In the best-case scenario, what would be the impact statement (ideal outcome and conclusion) for this project?} 
+\end{quote}
+
+We have an all-inclusive dashboard which clearly shows all predictions and the effectiveness of rebalancing strategies. 
+
+\section{Milestones}
+\begin{quote}
+\emph{List all major milestones for this project}
+\end{quote}
+
+\begin{enumerate}
+  \item Identify the list of statistics that we can reasonably compute and store in tens of kilobytes of space.
+  \item Develop a cost model for individual operators and show that the model is correlated with reality by running them on synthetic datasets based on what existing IMS customer use.
+  \item Develop a cost model for a full query plan.
+  \item Derive an estimate of the size of the full plan space for a given query plan and show that it is infeasibly large.
+  \item Develop dynamic programming heuristic to search the plan space.
+  \item Run experiments on synthetic datasets to compare the optimizer-picked query plans with hand-optimized query plans.
+\end{enumerate}
+
+\section{Obstacles}
+\begin{quote}
+\emph{What are the major and minor obstacles that could happen? 
+Note that major obstacles are situations where you would consider \textbf{killing} the project. 
+Minor obstacles are things that would delay the project or increase the overall cost in energy, time, people, and money.}
+\end{quote}
+
+\subsection{Major obstacles} 
+
+\begin{itemize}
+  \item If we cannot show decent correlation between individual operator cost models and reality, then the rest of the project may not work.  We will also need to define what ``decent'' means.
+\end{itemize}
+
+\subsection{Minor obstacles}
+
+\begin{itemize}
+  \item We may not have access to computing resources to run any experiments, in which case we will need to focus on theoretical aspects of the work.  This could reduce the impact of the project, however showing that an optimizer is \emph{possible} is still a contribution.
+\end{itemize}
+
+
+\section{Additional Resources}
+\begin{quote}
+\emph{What additional resources do you need to complete this project?}
+\end{quote}
+
+\begin{itemize}
+  \item Some computational time to run our optimizer algorithm to generate some query plans.
+  \item Access to a machine where we can install and run experiments using our current database prototype.
+ \end{itemize}
+ 
+\section{Literature Review}
+\begin{quote}
+\emph{List 5 major publications that are most relevant to this project, and how they are related.}
+\end{quote}
+
+\begin{itemize}
+\item \emph{Background for the project:} This work builds on prior work on relational algebra and the relational model~\cite{codd1970relational}, and on new relational database systems~\cite{stonebraker1976design,astrahan1976system}
+
+\item \emph{Work the project relies and builds on: } Some preliminary work has suggested a language for specifying query plans~\cite{lorie1979access} that we could borrow from.  Also, Recent work~\cite{bayer2002organization} on different ways to store and index data lend credence to the need for different cost models for access data in relations.
+
+\item \emph{Direct competitors: } We could not find existing works on alternative techniques to automatically optimize query plans.
+
+\item \emph{Alternatives to achieve the broader goal: } As stated above, IMS and CODASYL~\cite{taylor1976codasyl} are the main alternative data management systems, but they do not have any automated query optimization.
+
+ \end{itemize}
+
+
+\section{Define Success}
+\begin{quote}
+\emph{When / How do you know if you have succeeded in this project?
+In other words, what is the minimum finding that would make this project a success and publishable?}
+\end{quote}
+
+Simply developing a set of cost models and search heuristics for query plans should be publishable, because an automated optimizer of any sort does not yet exist.  
+
+\bibliographystyle{abbrv}
+\bibliography{prospectus}
+\end{document}
