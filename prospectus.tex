@@ -11,11 +11,7 @@
 
 \section{Abstract / Introduction}
 
-\emph{1. What opportunities/changes that make this work useful and timely?
-2. Why existing approaches fail to make use of these opportunities?
-3. How do you propose to do better?
-4. Why this problem is relevant to the course?
-(1-2 sentences each)} 
+
 
 Bike sharing systems are growing in popularity across the world. One main issue with bike sharing systems is station imbalance. This means that there are times when a rider goes to a station to pick up a bike and no stations are available, or that a rider goes to a station to return his bike and no docks are available. Data driven approaches are being used more and more to help the operations of bike sharing more efficient. 
 
@@ -27,28 +23,17 @@ This problem is relevant to the course because we would like to build a system t
 
 
 \section{One Sentence Summary}
-\begin{quote}
-\emph{Describe your project in one sentence, in other words, your hypothesis.}
-\end{quote}
+
 
 We will use methods to predict demand of CitiBike in New York City and use the results to improve rebalancing by using more realistic predictions. Our hypothesis is that incorporating predictions and operations in one system will improve efficiency. 
 
 \section{Audience and Needs}
-\begin{quote}
-\emph{Who are the audiences for this project? 
-How does it meet their needs? 
-What happens if their needs remain unmet?}
-\end{quote}
 
 This project will impact the academic community as well as decision makers of bike sharing systems. The community will benefit because our work will validate currently proposed methods to predict demand and allocate resources optimally. 
 
 Decision makers at CitiBike will benefit from having a fully integrated system that includes predictions of demand as well as suggestions on how to allocate resources. Additionally, we hope to create a dashboard visualizing our results in real-time which provides an interface for decision-makers to use. Finally, a major focus of this project is to design the architecture to make this analysis scalable. 
 
 \section{Approach}
-\begin{quote}
-\emph{What is your approach?
-Why do you think it's a good approach and will be successful?}
-\end{quote}
 
 \begin{enumerate}
 \item We will implement methods to predict demand of riders that relies on historical data. These methods include basic time-series models (ARIMA) as well as more advanced methods that include clustering and gradient boosting trees. 
@@ -59,39 +44,21 @@ Why do you think it's a good approach and will be successful?}
 \end{enumerate}
 
 \section{(Best Case) Impact}
-\begin{quote}
-\emph{In the best-case scenario, what would be the impact statement (ideal outcome and conclusion) for this project?} 
-\end{quote}
 
-In the best case scenario we are able to identify methods which accurately predict demand. In addition, we build and publish online an all-inclusive dashboard which clearly shows all predictions and the effectiveness of rebalancing strategies. 
+
+In the best case scenario we are able to identify methods which accurately predict demand in the system. In addition we will be able to provide insight which may improve CitiBike's resource allocation. Finally, we build and publish online an all-inclusive dashboard which clearly shows all predictions and the effectiveness of rebalancing strategies both historically and in real-time.
 
 \section{Milestones}
-\begin{quote}
-\emph{List all major milestones for this project}
-\end{quote}
 
 \begin{enumerate}
-  \item Implement various predictive algorithms from literature
-  \item Train models predictive models using these algorithms and Citibike's open data 
-  \item Use models to predict shortages and excess supply in the system
-  \item Using the demand-prediction models, we will evaluate CitiBike's current resource allocation methods
-  \item Set up Spark Streaming infrastructure, using citibike's live feed, and use trained models to predict areas where demand may not be met
+  \item Train models using algorithms from literataure and CitiBike's open data to predict demand in the system, using historical data as validation.
+  \item Incorporating predicted demand levels into resource optimization models from literature we will evaluate CitiBike's current resource allocation methods
+  \item Set up Spark Streaming infrastructure using CitiBike's live feed, and use trained models in real-time predict areas where demand may not be met
   \item Build dashboard showing historical and real-time system allocation
   \item Evaluate CitiBike's angels program using methods from literature
 \end{enumerate}
 
 \section{Obstacles}
-\begin{quote}
-\emph{What are the major and minor obstacles that could happen? 
-Note that major obstacles are situations where you would consider \textbf{killing} the project. 
-Minor obstacles are things that would delay the project or increase the overall cost in energy, time, people, and money.}
-\end{quote}
-
-\begin{itemize}
- \item We do not have any control over the restocking strategies CitiBike uses, thus we can only evaluate how they are doing compared to hypothetical system layouts we simulate. We are unable to see the true effectiveness of various restocking strategies from literature.
-
-\end{itemize}
-
 
 \subsection{Major obstacles} 
 
@@ -102,53 +69,43 @@ Minor obstacles are things that would delay the project or increase the overall 
 \subsection{Minor obstacles}
 
 \begin{itemize}
-  \item Running the live system on spark streaming becomes too expensive.
+ \item We do not have any control over the restocking strategies CitiBike uses, thus we can only evaluate how they are doing compared to hypothetical system layouts we simulate. We are unable to see the true effectiveness of various restocking strategies from literature.
+  \item Running a large scale optimization problem may require proprietary software.
 \end{itemize}
 
 
 \section{Additional Resources}
-\begin{quote}
-\emph{What additional resources do you need to complete this project?}
-We will need to use some cloud computing infrastructure to complete this project. In addition we will need to have Spark Streaming working.
-\end{quote}
 
 \begin{itemize}
   \item Some computational time to run our optimizer algorithm to generate some query plans.
   \item Access to a machine where we can install and run experiments using our current database prototype.
+  \item We will need to use some cloud computing infrastructure to complete this project. In addition we will need to have Spark Streaming working.
  \end{itemize}
  
 \section{Literature Review}
-\begin{quote}
-\emph{List 5 major publications that are most relevant to this project, and how they are related.}
-\end{quote}
+
 
 \begin{itemize}
-\item \emph{Background for the project:} Chen et al. introduce a Dynamic Cluster-based approach to predicting over-demand stations \cite{chen}.  Li. et al. introduce a Gradient Boosting Regression tree model to predict the rate of demand going to and from an individual station.  Zhang et al. introduce a regression model for individual trip destination and length predictions~ \cite{zhang},. 
+\item \emph{Background for the project:} Chen et al. introduce a Dynamic Cluster-based approach to predicting over-demand stations \cite{chen}.  Li. et al. introduce a Gradient Boosting Regression tree model to predict the rate of demand going to and from an individual station.  Zhang et al. introduce a regression model for individual trip destination and length predictions~ \cite{zhang},. We plan on implementing these methods to find which are best at predicting demand in the system.
 
-Freund et al. consider the problem of optimal dock capacity \cite{freund} we 
+
 
 
 
 \item \emph{Work the project relies and builds on: } Some preliminary work has suggested a language for specifying query plans~that we could borrow from.  Also, Recent work~nt ways to store and index data lend credence to the need for different cost models for access data in relations.
 
+
+
+Parikh et al. introduce a Markov Model to predict optimal restocking levels of a system \cite{parikh}. Freund et al. consider the problem of optimal dock capacity \cite{freund}.Raviv et al. also have an approach to determinig optimal inventory methods. We will use these approaches to evaluate how CitiBike restocks it's system.
+
 Schuijbroek et al. investigate optimal routing for system rebalancing in bike shares \cite{schu}. We plan on using their approach to evaluate the Citi Angels program.
-
-Parikh et al. introduce a Markov Model to predict optimal restocking levels of a system \cite{parikh}. We will use this to evaluate how CitiBike restocks it's system.
-
-\item \emph{Direct competitors: } We could not find existing works on alternative techniques to automatically optimize query plans.
-
-\item \emph{Alternatives to achieve the broader goal: } We would like to use a combination of the above methods to find an algorithm which accurately predicts the flow of bicycles around the city.
- \end{itemize}
+\end{itemize}
 
 
 \section{Define Success}
-\begin{quote}
-\emph{When / How do you know if you have succeeded in this project?
-In other words, what is the minimum finding that would make this project a success and publishable?}
-\end{quote}
 
 
-This project will be a success if we can predict systems shortages ahead of time. After the models are fit, we will use them to predict real-time data. If our model is able to correctly predict outages ahead of time, it will be a success. If this is possible, our web visualization will be useful for riders who expect to use the system, and the system operators who control the bike stocking.
+This project will be a success if we can accurately predict systems shortages ahead of time. After the models are fit, we will use them to predict real-time data. With better demand prediction we will be able to evaluate current resource allocation methods. If our model is able to correctly predict outages ahead of time, it will be a success. Finally, our web visualization will be useful for riders who expect to use the system, and the system operators who control the bike stocking.
 
 \begin{thebibliography}{2}
 \bibitem{zhang}  Zhang, J., Pan, X., Li, M., \& Yu, P. S. (2016). Bicycle-Sharing System Analysis and Trip Prediction. 2016 17th IEEE International Conference on Mobile Data Management (MDM). doi:10.1109/mdm.2016.35
@@ -161,6 +118,8 @@ This project will be a success if we can predict systems shortages ahead of time
 Chicago	
 
 \bibitem{parikh} Parikh, P., \& Ukkusuri, S. V. (2014, August). Estimation of Optimal Inventory Levels at Stations of a Bicycle Sharing System. In Transportation Research Board 94th Annual Meeting (No. 15-5170).
+
+\bibitem{raviv} Raviv, T., \& Kolka, O. (2013). Optimal inventory management of a bike-sharing station. IIE Transactions, 45(10), 1077-1093.
 
 
 \end{thebibliography}
