@@ -1,2 +1,2 @@
-*.csv
-*.zip
+/data/(.*).csv
+/data/(.*).zip
