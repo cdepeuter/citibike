@@ -1,0 +1,19 @@
+{
+  "name": "citibike",
+  "version": "1.0.0",
+  "description": "Bikeshare data analysis",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdepeuter/citibike.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdepeuter/citibike/issues"
+  },
+  "homepage": "https://github.com/cdepeuter/citibike#readme"
+}
