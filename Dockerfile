@@ -15,7 +15,6 @@ ENV HADOOP_VERSION 2.7
 # get python
 RUN apt-get -yqq install python-pip python-dev
 
-#TODO add all python libs
 
 
 # get npm
