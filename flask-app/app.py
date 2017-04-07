@@ -22,6 +22,10 @@ def map():
         return render_template('dc_test.html')
     elif city == "nyc":
         return render_template('nyc_test.html')
+    elif city == "reactnyc":
+        return render_template('index-nyc.html')
+    elif city == "leaflet":
+        return render_template('leaflet.html')
 
     return "specify a city"
 

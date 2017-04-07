@@ -14,6 +14,21 @@ module.exports = {
                 presets: ['es2015', 'react']
             }
         },
+        { 
+            test: /\.css$/, 
+            loader: "style-loader!css-loader" 
+        },
+        {
+            test: /\.json$/,
+            loader: 'json'
+          },
+          {
+            test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,
+            loader: 'file',
+            query: {
+              name: 'static/media/[name].[hash:8].[ext]'
+            }
+          },
         ]
     }
 };
