@@ -24,10 +24,13 @@
     "json-loader": "^0.5.4",
     "leaflet": "^1.0.3",
     "lodash": "^4.17.4",
+    "mapbox-gl": "^0.35.0",
     "path": "^0.12.7",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-leaflet": "^1.1.5",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
     "style-loader": "^0.16.1",
     "superagent": "^1.6.1"
   },
@@ -42,6 +45,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-1": "^6.24.1",
     "css-loader": "^0.28.0",
+    "redux-devtools": "^3.3.2",
     "style-loader": "^0.16.1",
     "webpack": "^1.12.9"
   }

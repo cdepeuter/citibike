@@ -1,0 +1,68 @@
+import React, { Component } from 'react';
+import { Map, CircleMarker, Popup} from 'react-leaflet'
+import { createStore } from 'redux'
+
+
+class StationLayer extends React.Component {
+
+    constructor(props) {
+	    super(props);
+	    this.state = {
+	     	stations : []
+	    }
+	    
+	  }
+
+
+	  componentDidMount() {
+	  	//fetch data again?
+	  	this.getData();
+	  	console.log("station layer mounted");
+	  	setInterval(
+	      () => { this.getData(); },
+	      120000 
+	    );
+	  }
+
+	  componentDidUpdate(){
+	  	console.log("updated");
+	  	//console.log(this.state.stations);
+	  }
+
+	  getData() {
+	  	console.log("Fetching station data");
+	  	fetch("http://localhost:5000/stations")
+	        .then( (response) => {
+            return response.json() })   
+                .then( (json) => {
+                	//TODO check if valid json
+                    this.setState({stations: json});
+                });
+	  }
+     
+
+    render() {
+       console.log("Constructing station layer");
+       let markers = this.state.stations.map((station) =>
+	       	<CircleMarker center={[station.lat, station.lon]} color={station.status_color} radius={5}>
+	          <Popup>
+	            <span>{station.name}
+	            <br/>
+	           	Available: {station.num_bikes_available}
+	           	<br/>
+	           	Capacity: {station.capacity}
+	           	</span>
+	          </Popup>
+	        </CircleMarker>
+       );
+
+        return (
+        	<div>
+        		{markers}
+        	</div>
+         
+      )
+    }
+}
+
+export default StationLayer;
