@@ -43692,7 +43692,11 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA";
+	// light bg
+	//const leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA"
+	
+	//dark bg
+	var leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/dark-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA";
 	
 	var NYCTileLayer = function (_Component) {
 	  _inherits(NYCTileLayer, _Component);
@@ -53965,7 +53969,7 @@
 													var markers = this.state.stations.map(function (station) {
 																	return _react2.default.createElement(
 																					_reactLeaflet.CircleMarker,
-																					{ center: [station.lat, station.lon], color: station.status_color, radius: 5 },
+																					{ center: [station.lat, station.lon], color: station.status_color, fillColor: station.score_color, fillOpacity: '1', radius: 5 },
 																					_react2.default.createElement(
 																									_reactLeaflet.Popup,
 																									null,
@@ -53978,7 +53982,10 @@
 																													station.num_bikes_available,
 																													_react2.default.createElement('br', null),
 																													'Capacity: ',
-																													station.capacity
+																													station.capacity,
+																													_react2.default.createElement('br', null),
+																													'Bike Angels Score: ',
+																													station.score
 																									)
 																					)
 																	);

@@ -21,17 +21,15 @@ stations_array = station_json["data"]["stations"]
 stations = pd.DataFrame.from_records(stations_array)
 stations.drop(['region_id', 'rental_methods', "eightd_has_key_dispenser"], axis=1, inplace=True)
 
-# get color range
+# get color range for station status and bike angels
 red = Color("red")
+black = Color("black")
 colors = list(red.range_to(Color("green"),101))
+score_colors = list(black.range_to(Color("white"),5))
 
-###########
-### APP ###
-###########
 @app.route('/')
 def index():
     return "hi this is the index"
-
 
 @app.route("/map")
 def map():
@@ -65,15 +63,31 @@ class Stations(Resource):
 		station_status = pd.DataFrame.from_records(station_status_array)
 		station_status.drop(["eightd_has_available_keys", "last_reported", "is_installed", "is_renting", "is_returning"], axis=1, inplace=True)
 
-		
+		# add bike angels score
+		bike_angels_url = "https://bikeangels-api.citibikenyc.com/bikeangels/v1/geojson_scores"
+		angels_status_req = requests.get(bike_angels_url)
 
-		station_status = pd.merge(station_status, stations, on = 'station_id')
+		angels_status_json = json.loads(angels_status_req.text)
+
+		angels_station_array = angels_status_json["features"]
+
+		angels_stations = [{"station_id" : str(stat["properties"]["id"]), "score": stat["properties"]["score"]}  for stat in angels_station_array]
+		angels_stations_df = pd.DataFrame.from_records(angels_stations)
+
+
+
+		station_status = station_status.merge(stations, on = 'station_id')
+		station_status = station_status.merge(angels_stations_df, on = 'station_id',  how='left')
+		
+		station_status.score.fillna(0, inplace=True)
 
 		# get color
 		station_status["pct_available"] = round(100 * station_status["num_bikes_available"] / station_status["capacity"])
-		station_status["pct_available"].fillna(0, inplace=True)
+		station_status.pct_available.fillna(0, inplace=True)
 
 		station_status["status_color"] = station_status["pct_available"].map(lambda x: colors[int(x)].hex)
+		station_status["score_color"] = station_status["score"].map(lambda x: score_colors[int(x)+2].hex)
+
 
 		return station_status.to_dict(orient='records')
 

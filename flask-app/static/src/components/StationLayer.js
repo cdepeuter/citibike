@@ -44,13 +44,15 @@ class StationLayer extends React.Component {
     render() {
        console.log("Constructing station layer");
        let markers = this.state.stations.map((station) =>
-	       	<CircleMarker center={[station.lat, station.lon]} color={station.status_color} radius={5}>
+	       	<CircleMarker center={[station.lat, station.lon]} color={station.status_color} fillColor={station.score_color} fillOpacity="1" radius={5}>
 	          <Popup>
 	            <span>{station.name}
 	            <br/>
 	           	Available: {station.num_bikes_available}
 	           	<br/>
 	           	Capacity: {station.capacity}
+	           	<br/>
+	           	Bike Angels Score: {station.score}
 	           	</span>
 	          </Popup>
 	        </CircleMarker>
