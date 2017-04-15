@@ -31,7 +31,7 @@ class StationLayer extends React.Component {
 
 	  getData() {
 	  	console.log("Fetching station data");
-	  	fetch("http://localhost:5000/stations")
+	  	fetch("http://0.0.0.0:5000/stations")
 	        .then( (response) => {
             return response.json() })   
                 .then( (json) => {
