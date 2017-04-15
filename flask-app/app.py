@@ -83,8 +83,9 @@ class Stations(Resource):
 
 		# get color
 		station_status["pct_available"] = 100 * station_status["num_bikes_available"] / station_status["capacity"]
-		station_status["pct_available"] = station_status["pct_available"].map(round)		
 		station_status.pct_available.fillna(0, inplace=True)
+		station_status["pct_available"] = station_status["pct_available"].map(round)		
+		
 
 		station_status["status_color"] = station_status["pct_available"].map(lambda x: colors[int(x)].hex)
 		station_status["score_color"] = station_status["score"].map(lambda x: score_colors[int(x)+2].hex)

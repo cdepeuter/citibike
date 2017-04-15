@@ -3,12 +3,6 @@ Flask-Migrate==2.0.0
 Flask-RESTful==0.3.5
 Flask-Restless==0.17.0
 Flask-Script==2.0.5
-Flask-SQLAlchemy==2.1
-folium==0.3.0
-jupyter==1.0.0
-jupyter-client==4.3.0
-jupyter-console==5.0.0
-jupyter-core==4.1.0
 matplotlib==1.5.3
 networkx==1.9
 numpy==1.11.2
