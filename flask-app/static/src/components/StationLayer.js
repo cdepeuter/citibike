@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Map, CircleMarker, Popup} from 'react-leaflet'
-import { createStore } from 'redux'
-
+import 'whatwg-fetch'; 
 
 class StationLayer extends React.Component {
 
