@@ -3,8 +3,8 @@ Flask-Migrate==2.0.0
 Flask-RESTful==0.3.5
 Flask-Restless==0.17.0
 Flask-Script==2.0.5
+Flask-Cache==0.13.1
 matplotlib==1.5.3
-networkx==1.9
 numpy==1.11.2
 pandas==0.18.1
 plotly==2.0.5

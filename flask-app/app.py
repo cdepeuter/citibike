@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request, render_template
 from flask_restful import Resource, Api
+from flask_cache import Cache
 import sys
 import requests
 import json
@@ -8,24 +9,28 @@ from colour import Color
 
 
 app = Flask(__name__)
+
+# set up api and caching
 api = Api(app)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
-# get stations
-#TODO generalize this for cities
-station_url = "https://gbfs.citibikenyc.com/gbfs/en/station_information.json"
-stations = requests.get(station_url)
+with app.app_context():
+	# set context for future api calls
+	station_url = "https://gbfs.citibikenyc.com/gbfs/en/station_information.json"
+	stations = requests.get(station_url)
 
-station_json = json.loads(stations.text)
-stations_array = station_json["data"]["stations"]
+	station_json = json.loads(stations.text)
+	stations_array = station_json["data"]["stations"]
 
-stations = pd.DataFrame.from_records(stations_array)
-stations.drop(['region_id', 'rental_methods', "eightd_has_key_dispenser"], axis=1, inplace=True)
+	stations = pd.DataFrame.from_records(stations_array)
+	stations.drop(['region_id', 'rental_methods', "eightd_has_key_dispenser"], axis=1, inplace=True)
 
-# get color range for station status and bike angels
-red = Color("red")
-black = Color("black")
-colors = list(red.range_to(Color("green"),101))
-score_colors = list(black.range_to(Color("white"),5))
+	# get color range for station status and bike angels
+	red = Color("red")
+	black = Color("black")
+	colors = list(red.range_to(Color("green"),101))
+	score_colors = list(black.range_to(Color("white"),5))
+
 
 @app.route('/')
 def index():
@@ -46,11 +51,8 @@ def map():
 
     return "specify a city"
 
-
 class Stations(Resource):
-
-
-
+	@cache.cached(timeout=50)
 	def get(self):
 		# get current status and merge that with stations
 		status_url = "https://gbfs.citibikenyc.com/gbfs/en/station_status.json"
