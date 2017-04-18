@@ -9,9 +9,7 @@ class StationLayer extends React.Component {
 	    this.state = {
 	     	stations : []
 	    }
-	    
 	  }
-
 
 	  componentDidMount() {
 	  	//fetch data again?
@@ -29,16 +27,12 @@ class StationLayer extends React.Component {
 	  }
 
 	  getData() {
-	  	console.log("Fetching station data");
-	  	fetch("/stations")
-	        .then( (response) => {
-            return response.json() })   
+	  	fetch("/stations").then( (response) => {
+        	return response.json() })   
                 .then( (json) => {
-                	//TODO check if valid json
-                	if(!!json && json.stations){
-                		this.setState({stations: json.stations});
-                	}
-                    
+					if(!!json && json.stations){
+						this.setState({stations: json.stations});
+					} 
                 });
 	  }
      

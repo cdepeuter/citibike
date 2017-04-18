@@ -94,7 +94,7 @@ class Stations(Resource):
 		station_status["status_color"] = station_status["pct_available"].map(lambda x: colors[int(x)].hex)
 		station_status["score_color"] = station_status["score"].map(lambda x: score_colors[int(x)+2].hex)
 
-		response_json = {"time" : str(datetime.datetime.now()), "stations" : station_status.to_dict(orient='records')}
+		response_json = {"time" : datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "stations" : station_status.to_dict(orient='records')}
 
 
 		return response_json
