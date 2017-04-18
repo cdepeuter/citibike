@@ -86,6 +86,7 @@ class Stations(Resource):
 
 		# get color
 		station_status["pct_available"] = 100 * station_status["num_bikes_available"] / station_status["capacity"]
+		station_status.loc[station_status["pct_available"] > 100, "pct_available"] = 100
 		station_status.pct_available.fillna(0, inplace=True)
 		station_status["pct_available"] = station_status["pct_available"].map(round)		
 		
