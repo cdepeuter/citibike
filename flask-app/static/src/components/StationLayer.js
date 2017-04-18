@@ -35,7 +35,10 @@ class StationLayer extends React.Component {
             return response.json() })   
                 .then( (json) => {
                 	//TODO check if valid json
-                    this.setState({stations: json});
+                	if(!!json && json.stations){
+                		this.setState({stations: json.stations});
+                	}
+                    
                 });
 	  }
      
