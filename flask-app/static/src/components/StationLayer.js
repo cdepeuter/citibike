@@ -14,16 +14,14 @@ class StationLayer extends React.Component {
 	  componentDidMount() {
 	  	//fetch data again?
 	  	this.getData();
-	  	console.log("station layer mounted");
-	  	setInterval(
-	      () => { this.getData(); },
-	      120000 
-	    );
+		setInterval(
+			() => { this.getData(); },
+			120000 
+		);
 	  }
 
 	  componentDidUpdate(){
 	  	console.log("updated");
-	  	//console.log(this.state.stations);
 	  }
 
 	  getData() {
@@ -36,11 +34,9 @@ class StationLayer extends React.Component {
                 });
 	  }
      
-
     render() {
-       console.log("Constructing station layer");
        let markers = this.state.stations.map((station) =>
-	       	<CircleMarker center={[station.lat, station.lon]} color={station.status_color} fillColor={station.score_color} fillOpacity="1" radius={5}>
+	       	<CircleMarker center={[station.lat, station.lon]} color={ this.props.view == "Bike Angels" ? station.status_color : station.score_color} fillColor={ this.props.view == "Bike Angels" ? station.score_color : station.status_color} fillOpacity="1" radius={5}>
 	          <Popup>
 	            <span>{station.name}
 	            <br/>

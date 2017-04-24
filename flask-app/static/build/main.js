@@ -42,7 +42,7 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -50,21 +50,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactDom = __webpack_require__(36);
+	var _reactDom = __webpack_require__(32);
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _NYCMap = __webpack_require__(182);
+	var _NYCTileLayer = __webpack_require__(183);
 	
-	var _NYCMap2 = _interopRequireDefault(_NYCMap);
-	
-	var _LeafletMap = __webpack_require__(183);
-	
-	var _LeafletMap2 = _interopRequireDefault(_LeafletMap);
-	
-	var _LeafletMap3 = __webpack_require__(188);
-	
-	var _LeafletMap4 = _interopRequireDefault(_LeafletMap3);
+	var _NYCTileLayer2 = _interopRequireDefault(_NYCTileLayer);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -73,19 +65,19 @@
 	//ReactDOM.render(<NYCMap  />, document.getElementById("map"));
 	
 	//For leaflet example
-	_reactDom2.default.render(_react2.default.createElement(_LeafletMap4.default, null), document.getElementById("container"));
+	_reactDom2.default.render(_react2.default.createElement(_NYCTileLayer2.default, null), document.getElementById("container"));
 
-/***/ }),
+/***/ },
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	module.exports = __webpack_require__(2);
 
-/***/ }),
+/***/ },
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -108,9 +100,9 @@
 	var ReactDOMFactories = __webpack_require__(24);
 	var ReactElement = __webpack_require__(9);
 	var ReactPropTypes = __webpack_require__(29);
-	var ReactVersion = __webpack_require__(34);
+	var ReactVersion = __webpack_require__(30);
 	
-	var onlyChild = __webpack_require__(35);
+	var onlyChild = __webpack_require__(31);
 	var warning = __webpack_require__(11);
 	
 	var createElement = ReactElement.createElement;
@@ -118,9 +110,7 @@
 	var cloneElement = ReactElement.cloneElement;
 	
 	if (process.env.NODE_ENV !== 'production') {
-	  var canDefineProperty = __webpack_require__(13);
 	  var ReactElementValidator = __webpack_require__(25);
-	  var didWarnPropTypesDeprecated = false;
 	  createElement = ReactElementValidator.createElement;
 	  createFactory = ReactElementValidator.createFactory;
 	  cloneElement = ReactElementValidator.cloneElement;
@@ -176,25 +166,12 @@
 	  __spread: __spread
 	};
 	
-	// TODO: Fix tests so that this deprecation warning doesn't cause failures.
-	if (process.env.NODE_ENV !== 'production') {
-	  if (canDefineProperty) {
-	    Object.defineProperty(React, 'PropTypes', {
-	      get: function get() {
-	        process.env.NODE_ENV !== 'production' ? warning(didWarnPropTypesDeprecated, 'Accessing PropTypes via the main React package is deprecated. Use ' + 'the prop-types package from npm instead.') : void 0;
-	        didWarnPropTypesDeprecated = true;
-	        return ReactPropTypes;
-	      }
-	    });
-	  }
-	}
-	
 	module.exports = React;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 3 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -378,9 +355,9 @@
 	    return 0;
 	};
 
-/***/ }),
+/***/ },
 /* 4 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/*
 	object-assign
@@ -473,9 +450,9 @@
 		return to;
 	};
 
-/***/ }),
+/***/ },
 /* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -667,9 +644,9 @@
 	
 	module.exports = ReactChildren;
 
-/***/ }),
+/***/ },
 /* 6 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -784,9 +761,9 @@
 	module.exports = PooledClass;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 7 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -827,9 +804,9 @@
 	
 	module.exports = reactProdInvariant;
 
-/***/ }),
+/***/ },
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -888,9 +865,9 @@
 	module.exports = invariant;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -1236,9 +1213,9 @@
 	module.exports = ReactElement;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 10 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -1272,9 +1249,9 @@
 	
 	module.exports = ReactCurrentOwner;
 
-/***/ }),
+/***/ },
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -1344,9 +1321,9 @@
 	module.exports = warning;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 12 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -1387,9 +1364,9 @@
 	
 	module.exports = emptyFunction;
 
-/***/ }),
+/***/ },
 /* 13 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -1418,9 +1395,9 @@
 	module.exports = canDefineProperty;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 14 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -1442,9 +1419,9 @@
 	
 	module.exports = REACT_ELEMENT_TYPE;
 
-/***/ }),
+/***/ },
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -1625,9 +1602,9 @@
 	module.exports = traverseAllChildren;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 16 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -1670,9 +1647,9 @@
 	
 	module.exports = getIteratorFn;
 
-/***/ }),
+/***/ },
 /* 17 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -1733,9 +1710,9 @@
 	
 	module.exports = KeyEscapeUtils;
 
-/***/ }),
+/***/ },
 /* 18 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -1858,9 +1835,9 @@
 	module.exports = ReactComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 19 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015-present, Facebook, Inc.
@@ -1959,9 +1936,9 @@
 	module.exports = ReactNoopUpdateQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 20 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -1984,9 +1961,9 @@
 	module.exports = emptyObject;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 21 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -2030,9 +2007,9 @@
 	
 	module.exports = ReactPureComponent;
 
-/***/ }),
+/***/ },
 /* 22 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -2188,6 +2165,7 @@
 	   *   }
 	   *
 	   * @return {ReactComponent}
+	   * @nosideeffects
 	   * @required
 	   */
 	  render: 'DEFINE_ONCE',
@@ -2643,8 +2621,6 @@
 	var ReactClassComponent = function ReactClassComponent() {};
 	_assign(ReactClassComponent.prototype, ReactComponent.prototype, ReactClassMixin);
 	
-	var didWarnDeprecated = false;
-	
 	/**
 	 * Module for creating composite components.
 	 *
@@ -2661,11 +2637,6 @@
 	   * @public
 	   */
 	  createClass: function createClass(spec) {
-	    if (process.env.NODE_ENV !== 'production') {
-	      process.env.NODE_ENV !== 'production' ? warning(didWarnDeprecated, '%s: React.createClass is deprecated and will be removed in version 16. ' + 'Use plain JavaScript classes instead. If you\'re not yet ready to ' + 'migrate, create-react-class is available on npm as a ' + 'drop-in replacement.', spec && spec.displayName || 'A Component') : void 0;
-	      didWarnDeprecated = true;
-	    }
-	
 	    // To keep our warnings more understandable, we'll use a little hack here to
 	    // ensure that Constructor.name !== 'Constructor'. This makes sure we don't
 	    // unnecessarily identify a class without displayName as 'Constructor'.
@@ -2759,9 +2730,9 @@
 	module.exports = ReactClass;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 23 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -2789,9 +2760,9 @@
 	module.exports = ReactPropTypeLocationNames;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 24 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -2964,9 +2935,9 @@
 	module.exports = ReactDOMFactories;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 25 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -3005,16 +2976,6 @@
 	    if (name) {
 	      return ' Check the render method of `' + name + '`.';
 	    }
-	  }
-	  return '';
-	}
-	
-	function getSourceInfoErrorAddendum(elementProps) {
-	  if (elementProps !== null && elementProps !== undefined && elementProps.__source !== undefined) {
-	    var source = elementProps.__source;
-	    var fileName = source.fileName.replace(/^.*[\\\/]/, '');
-	    var lineNumber = source.lineNumber;
-	    return ' Check your code at ' + fileName + ':' + lineNumber + '.';
 	  }
 	  return '';
 	}
@@ -3149,16 +3110,7 @@
 	        if (type === undefined || (typeof type === 'undefined' ? 'undefined' : _typeof(type)) === 'object' && type !== null && Object.keys(type).length === 0) {
 	          info += ' You likely forgot to export your component from the file ' + 'it\'s defined in.';
 	        }
-	
-	        var sourceInfo = getSourceInfoErrorAddendum(props);
-	        if (sourceInfo) {
-	          info += sourceInfo;
-	        } else {
-	          info += getDeclarationErrorAddendum();
-	        }
-	
-	        info += ReactComponentTreeHook.getCurrentStackAddendum();
-	
+	        info += getDeclarationErrorAddendum();
 	        process.env.NODE_ENV !== 'production' ? warning(false, 'React.createElement: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', type == null ? type : typeof type === 'undefined' ? 'undefined' : _typeof(type), info) : void 0;
 	      }
 	    }
@@ -3224,9 +3176,9 @@
 	module.exports = ReactElementValidator;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 26 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2016-present, Facebook, Inc.
@@ -3564,9 +3516,9 @@
 	module.exports = ReactComponentTreeHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 27 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -3658,9 +3610,9 @@
 	module.exports = checkReactTypeSpec;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 28 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -3679,59 +3631,9 @@
 	
 	module.exports = ReactPropTypesSecret;
 
-/***/ }),
+/***/ },
 /* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 */
-	
-	'use strict';
-	
-	var _require = __webpack_require__(9),
-	    isValidElement = _require.isValidElement;
-	
-	var factory = __webpack_require__(30);
-	
-	module.exports = factory(isValidElement);
-
-/***/ }),
-/* 30 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-	
-	'use strict';
-	
-	// React 15.5 references this module, and assumes PropTypes are still callable in production.
-	// Therefore we re-export development-only version with all the PropTypes checks here.
-	// However if one is migrating to the `prop-types` npm library, they will go through the
-	// `index.js` entry point, and it will branch depending on the environment.
-	
-	var factory = __webpack_require__(31);
-	module.exports = function (isValidElement) {
-	  // It is still allowed in 15.5.
-	  var throwOnDirectAccess = false;
-	  return factory(isValidElement, throwOnDirectAccess);
-	};
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -3740,556 +3642,439 @@
 	 * This source code is licensed under the BSD-style license found in the
 	 * LICENSE file in the root directory of this source tree. An additional grant
 	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
 	 */
 	
 	'use strict';
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
+	var ReactElement = __webpack_require__(9);
+	var ReactPropTypeLocationNames = __webpack_require__(23);
+	var ReactPropTypesSecret = __webpack_require__(28);
+	
 	var emptyFunction = __webpack_require__(12);
-	var invariant = __webpack_require__(8);
+	var getIteratorFn = __webpack_require__(16);
 	var warning = __webpack_require__(11);
 	
-	var ReactPropTypesSecret = __webpack_require__(32);
-	var checkPropTypes = __webpack_require__(33);
+	/**
+	 * Collection of methods that allow declaration and validation of props that are
+	 * supplied to React components. Example usage:
+	 *
+	 *   var Props = require('ReactPropTypes');
+	 *   var MyArticle = React.createClass({
+	 *     propTypes: {
+	 *       // An optional string prop named "description".
+	 *       description: Props.string,
+	 *
+	 *       // A required enum prop named "category".
+	 *       category: Props.oneOf(['News','Photos']).isRequired,
+	 *
+	 *       // A prop named "dialog" that requires an instance of Dialog.
+	 *       dialog: Props.instanceOf(Dialog).isRequired
+	 *     },
+	 *     render: function() { ... }
+	 *   });
+	 *
+	 * A more formal specification of how these methods are used:
+	 *
+	 *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
+	 *   decl := ReactPropTypes.{type}(.isRequired)?
+	 *
+	 * Each and every declaration produces a function with the same signature. This
+	 * allows the creation of custom validation functions. For example:
+	 *
+	 *  var MyLink = React.createClass({
+	 *    propTypes: {
+	 *      // An optional string or URI prop named "href".
+	 *      href: function(props, propName, componentName) {
+	 *        var propValue = props[propName];
+	 *        if (propValue != null && typeof propValue !== 'string' &&
+	 *            !(propValue instanceof URI)) {
+	 *          return new Error(
+	 *            'Expected a string or an URI for ' + propName + ' in ' +
+	 *            componentName
+	 *          );
+	 *        }
+	 *      }
+	 *    },
+	 *    render: function() {...}
+	 *  });
+	 *
+	 * @internal
+	 */
 	
-	module.exports = function (isValidElement, throwOnDirectAccess) {
-	  /* global Symbol */
-	  var ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
-	  var FAUX_ITERATOR_SYMBOL = '@@iterator'; // Before Symbol spec.
+	var ANONYMOUS = '<<anonymous>>';
 	
-	  /**
-	   * Returns the iterator method function contained on the iterable object.
-	   *
-	   * Be sure to invoke the function with the iterable as context:
-	   *
-	   *     var iteratorFn = getIteratorFn(myIterable);
-	   *     if (iteratorFn) {
-	   *       var iterator = iteratorFn.call(myIterable);
-	   *       ...
-	   *     }
-	   *
-	   * @param {?object} maybeIterable
-	   * @return {?function}
-	   */
-	  function getIteratorFn(maybeIterable) {
-	    var iteratorFn = maybeIterable && (ITERATOR_SYMBOL && maybeIterable[ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL]);
-	    if (typeof iteratorFn === 'function') {
-	      return iteratorFn;
-	    }
+	var ReactPropTypes = {
+	  array: createPrimitiveTypeChecker('array'),
+	  bool: createPrimitiveTypeChecker('boolean'),
+	  func: createPrimitiveTypeChecker('function'),
+	  number: createPrimitiveTypeChecker('number'),
+	  object: createPrimitiveTypeChecker('object'),
+	  string: createPrimitiveTypeChecker('string'),
+	  symbol: createPrimitiveTypeChecker('symbol'),
+	
+	  any: createAnyTypeChecker(),
+	  arrayOf: createArrayOfTypeChecker,
+	  element: createElementTypeChecker(),
+	  instanceOf: createInstanceTypeChecker,
+	  node: createNodeChecker(),
+	  objectOf: createObjectOfTypeChecker,
+	  oneOf: createEnumTypeChecker,
+	  oneOfType: createUnionTypeChecker,
+	  shape: createShapeTypeChecker
+	};
+	
+	/**
+	 * inlined Object.is polyfill to avoid requiring consumers ship their own
+	 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+	 */
+	/*eslint-disable no-self-compare*/
+	function is(x, y) {
+	  // SameValue algorithm
+	  if (x === y) {
+	    // Steps 1-5, 7-10
+	    // Steps 6.b-6.e: +0 != -0
+	    return x !== 0 || 1 / x === 1 / y;
+	  } else {
+	    // Step 6.a: NaN == NaN
+	    return x !== x && y !== y;
 	  }
+	}
+	/*eslint-enable no-self-compare*/
 	
-	  /**
-	   * Collection of methods that allow declaration and validation of props that are
-	   * supplied to React components. Example usage:
-	   *
-	   *   var Props = require('ReactPropTypes');
-	   *   var MyArticle = React.createClass({
-	   *     propTypes: {
-	   *       // An optional string prop named "description".
-	   *       description: Props.string,
-	   *
-	   *       // A required enum prop named "category".
-	   *       category: Props.oneOf(['News','Photos']).isRequired,
-	   *
-	   *       // A prop named "dialog" that requires an instance of Dialog.
-	   *       dialog: Props.instanceOf(Dialog).isRequired
-	   *     },
-	   *     render: function() { ... }
-	   *   });
-	   *
-	   * A more formal specification of how these methods are used:
-	   *
-	   *   type := array|bool|func|object|number|string|oneOf([...])|instanceOf(...)
-	   *   decl := ReactPropTypes.{type}(.isRequired)?
-	   *
-	   * Each and every declaration produces a function with the same signature. This
-	   * allows the creation of custom validation functions. For example:
-	   *
-	   *  var MyLink = React.createClass({
-	   *    propTypes: {
-	   *      // An optional string or URI prop named "href".
-	   *      href: function(props, propName, componentName) {
-	   *        var propValue = props[propName];
-	   *        if (propValue != null && typeof propValue !== 'string' &&
-	   *            !(propValue instanceof URI)) {
-	   *          return new Error(
-	   *            'Expected a string or an URI for ' + propName + ' in ' +
-	   *            componentName
-	   *          );
-	   *        }
-	   *      }
-	   *    },
-	   *    render: function() {...}
-	   *  });
-	   *
-	   * @internal
-	   */
+	/**
+	 * We use an Error-like object for backward compatibility as people may call
+	 * PropTypes directly and inspect their output. However we don't use real
+	 * Errors anymore. We don't inspect their stack anyway, and creating them
+	 * is prohibitively expensive if they are created too often, such as what
+	 * happens in oneOfType() for any type before the one that matched.
+	 */
+	function PropTypeError(message) {
+	  this.message = message;
+	  this.stack = '';
+	}
+	// Make `instanceof Error` still work for returned errors.
+	PropTypeError.prototype = Error.prototype;
 	
-	  var ANONYMOUS = '<<anonymous>>';
-	
-	  // Important!
-	  // Keep this list in sync with production version in `./factoryWithThrowingShims.js`.
-	  var ReactPropTypes = {
-	    array: createPrimitiveTypeChecker('array'),
-	    bool: createPrimitiveTypeChecker('boolean'),
-	    func: createPrimitiveTypeChecker('function'),
-	    number: createPrimitiveTypeChecker('number'),
-	    object: createPrimitiveTypeChecker('object'),
-	    string: createPrimitiveTypeChecker('string'),
-	    symbol: createPrimitiveTypeChecker('symbol'),
-	
-	    any: createAnyTypeChecker(),
-	    arrayOf: createArrayOfTypeChecker,
-	    element: createElementTypeChecker(),
-	    instanceOf: createInstanceTypeChecker,
-	    node: createNodeChecker(),
-	    objectOf: createObjectOfTypeChecker,
-	    oneOf: createEnumTypeChecker,
-	    oneOfType: createUnionTypeChecker,
-	    shape: createShapeTypeChecker
-	  };
-	
-	  /**
-	   * inlined Object.is polyfill to avoid requiring consumers ship their own
-	   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
-	   */
-	  /*eslint-disable no-self-compare*/
-	  function is(x, y) {
-	    // SameValue algorithm
-	    if (x === y) {
-	      // Steps 1-5, 7-10
-	      // Steps 6.b-6.e: +0 != -0
-	      return x !== 0 || 1 / x === 1 / y;
-	    } else {
-	      // Step 6.a: NaN == NaN
-	      return x !== x && y !== y;
-	    }
+	function createChainableTypeChecker(validate) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    var manualPropTypeCallCache = {};
 	  }
-	  /*eslint-enable no-self-compare*/
-	
-	  /**
-	   * We use an Error-like object for backward compatibility as people may call
-	   * PropTypes directly and inspect their output. However, we don't use real
-	   * Errors anymore. We don't inspect their stack anyway, and creating them
-	   * is prohibitively expensive if they are created too often, such as what
-	   * happens in oneOfType() for any type before the one that matched.
-	   */
-	  function PropTypeError(message) {
-	    this.message = message;
-	    this.stack = '';
-	  }
-	  // Make `instanceof Error` still work for returned errors.
-	  PropTypeError.prototype = Error.prototype;
-	
-	  function createChainableTypeChecker(validate) {
+	  function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
+	    componentName = componentName || ANONYMOUS;
+	    propFullName = propFullName || propName;
 	    if (process.env.NODE_ENV !== 'production') {
-	      var manualPropTypeCallCache = {};
-	      var manualPropTypeWarningCount = 0;
-	    }
-	    function checkType(isRequired, props, propName, componentName, location, propFullName, secret) {
-	      componentName = componentName || ANONYMOUS;
-	      propFullName = propFullName || propName;
-	
-	      if (secret !== ReactPropTypesSecret) {
-	        if (throwOnDirectAccess) {
-	          // New behavior only for users of `prop-types` package
-	          invariant(false, 'Calling PropTypes validators directly is not supported by the `prop-types` package. ' + 'Use `PropTypes.checkPropTypes()` to call them. ' + 'Read more at http://fb.me/use-check-prop-types');
-	        } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
-	          // Old behavior for people using React.PropTypes
-	          var cacheKey = componentName + ':' + propName;
-	          if (!manualPropTypeCallCache[cacheKey] &&
-	          // Avoid spamming the console because they are often not actionable except for lib authors
-	          manualPropTypeWarningCount < 3) {
-	            warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will throw in the standalone `prop-types` package. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName);
-	            manualPropTypeCallCache[cacheKey] = true;
-	            manualPropTypeWarningCount++;
-	          }
+	      if (secret !== ReactPropTypesSecret && typeof console !== 'undefined') {
+	        var cacheKey = componentName + ':' + propName;
+	        if (!manualPropTypeCallCache[cacheKey]) {
+	          process.env.NODE_ENV !== 'production' ? warning(false, 'You are manually calling a React.PropTypes validation ' + 'function for the `%s` prop on `%s`. This is deprecated ' + 'and will not work in production with the next major version. ' + 'You may be seeing this warning due to a third-party PropTypes ' + 'library. See https://fb.me/react-warning-dont-call-proptypes ' + 'for details.', propFullName, componentName) : void 0;
+	          manualPropTypeCallCache[cacheKey] = true;
 	        }
 	      }
-	      if (props[propName] == null) {
-	        if (isRequired) {
-	          if (props[propName] === null) {
-	            return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
-	          }
-	          return new PropTypeError('The ' + location + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
-	        }
-	        return null;
-	      } else {
-	        return validate(props, propName, componentName, location, propFullName);
-	      }
 	    }
-	
-	    var chainedCheckType = checkType.bind(null, false);
-	    chainedCheckType.isRequired = checkType.bind(null, true);
-	
-	    return chainedCheckType;
-	  }
-	
-	  function createPrimitiveTypeChecker(expectedType) {
-	    function validate(props, propName, componentName, location, propFullName, secret) {
-	      var propValue = props[propName];
-	      var propType = getPropType(propValue);
-	      if (propType !== expectedType) {
-	        // `propValue` being instance of, say, date/regexp, pass the 'object'
-	        // check, but we can offer a more precise error message here rather than
-	        // 'of type `object`'.
-	        var preciseType = getPreciseType(propValue);
-	
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+	    if (props[propName] == null) {
+	      var locationName = ReactPropTypeLocationNames[location];
+	      if (isRequired) {
+	        if (props[propName] === null) {
+	          return new PropTypeError('The ' + locationName + ' `' + propFullName + '` is marked as required ' + ('in `' + componentName + '`, but its value is `null`.'));
+	        }
+	        return new PropTypeError('The ' + locationName + ' `' + propFullName + '` is marked as required in ' + ('`' + componentName + '`, but its value is `undefined`.'));
 	      }
 	      return null;
+	    } else {
+	      return validate(props, propName, componentName, location, propFullName);
 	    }
-	    return createChainableTypeChecker(validate);
 	  }
 	
-	  function createAnyTypeChecker() {
-	    return createChainableTypeChecker(emptyFunction.thatReturnsNull);
+	  var chainedCheckType = checkType.bind(null, false);
+	  chainedCheckType.isRequired = checkType.bind(null, true);
+	
+	  return chainedCheckType;
+	}
+	
+	function createPrimitiveTypeChecker(expectedType) {
+	  function validate(props, propName, componentName, location, propFullName, secret) {
+	    var propValue = props[propName];
+	    var propType = getPropType(propValue);
+	    if (propType !== expectedType) {
+	      var locationName = ReactPropTypeLocationNames[location];
+	      // `propValue` being instance of, say, date/regexp, pass the 'object'
+	      // check, but we can offer a more precise error message here rather than
+	      // 'of type `object`'.
+	      var preciseType = getPreciseType(propValue);
+	
+	      return new PropTypeError('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + preciseType + '` supplied to `' + componentName + '`, expected ') + ('`' + expectedType + '`.'));
+	    }
+	    return null;
+	  }
+	  return createChainableTypeChecker(validate);
+	}
+	
+	function createAnyTypeChecker() {
+	  return createChainableTypeChecker(emptyFunction.thatReturns(null));
+	}
+	
+	function createArrayOfTypeChecker(typeChecker) {
+	  function validate(props, propName, componentName, location, propFullName) {
+	    if (typeof typeChecker !== 'function') {
+	      return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+	    }
+	    var propValue = props[propName];
+	    if (!Array.isArray(propValue)) {
+	      var locationName = ReactPropTypeLocationNames[location];
+	      var propType = getPropType(propValue);
+	      return new PropTypeError('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
+	    }
+	    for (var i = 0; i < propValue.length; i++) {
+	      var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+	      if (error instanceof Error) {
+	        return error;
+	      }
+	    }
+	    return null;
+	  }
+	  return createChainableTypeChecker(validate);
+	}
+	
+	function createElementTypeChecker() {
+	  function validate(props, propName, componentName, location, propFullName) {
+	    var propValue = props[propName];
+	    if (!ReactElement.isValidElement(propValue)) {
+	      var locationName = ReactPropTypeLocationNames[location];
+	      var propType = getPropType(propValue);
+	      return new PropTypeError('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+	    }
+	    return null;
+	  }
+	  return createChainableTypeChecker(validate);
+	}
+	
+	function createInstanceTypeChecker(expectedClass) {
+	  function validate(props, propName, componentName, location, propFullName) {
+	    if (!(props[propName] instanceof expectedClass)) {
+	      var locationName = ReactPropTypeLocationNames[location];
+	      var expectedClassName = expectedClass.name || ANONYMOUS;
+	      var actualClassName = getClassName(props[propName]);
+	      return new PropTypeError('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
+	    }
+	    return null;
+	  }
+	  return createChainableTypeChecker(validate);
+	}
+	
+	function createEnumTypeChecker(expectedValues) {
+	  if (!Array.isArray(expectedValues)) {
+	    process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
+	    return emptyFunction.thatReturnsNull;
 	  }
 	
-	  function createArrayOfTypeChecker(typeChecker) {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      if (typeof typeChecker !== 'function') {
-	        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside arrayOf.');
+	  function validate(props, propName, componentName, location, propFullName) {
+	    var propValue = props[propName];
+	    for (var i = 0; i < expectedValues.length; i++) {
+	      if (is(propValue, expectedValues[i])) {
+	        return null;
 	      }
-	      var propValue = props[propName];
-	      if (!Array.isArray(propValue)) {
-	        var propType = getPropType(propValue);
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an array.'));
-	      }
-	      for (var i = 0; i < propValue.length; i++) {
-	        var error = typeChecker(propValue, i, componentName, location, propFullName + '[' + i + ']', ReactPropTypesSecret);
+	    }
+	
+	    var locationName = ReactPropTypeLocationNames[location];
+	    var valuesString = JSON.stringify(expectedValues);
+	    return new PropTypeError('Invalid ' + locationName + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+	  }
+	  return createChainableTypeChecker(validate);
+	}
+	
+	function createObjectOfTypeChecker(typeChecker) {
+	  function validate(props, propName, componentName, location, propFullName) {
+	    if (typeof typeChecker !== 'function') {
+	      return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+	    }
+	    var propValue = props[propName];
+	    var propType = getPropType(propValue);
+	    if (propType !== 'object') {
+	      var locationName = ReactPropTypeLocationNames[location];
+	      return new PropTypeError('Invalid ' + locationName + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
+	    }
+	    for (var key in propValue) {
+	      if (propValue.hasOwnProperty(key)) {
+	        var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
 	        if (error instanceof Error) {
 	          return error;
 	        }
 	      }
-	      return null;
 	    }
-	    return createChainableTypeChecker(validate);
+	    return null;
+	  }
+	  return createChainableTypeChecker(validate);
+	}
+	
+	function createUnionTypeChecker(arrayOfTypeCheckers) {
+	  if (!Array.isArray(arrayOfTypeCheckers)) {
+	    process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+	    return emptyFunction.thatReturnsNull;
 	  }
 	
-	  function createElementTypeChecker() {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      var propValue = props[propName];
-	      if (!isValidElement(propValue)) {
-	        var propType = getPropType(propValue);
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected a single ReactElement.'));
+	  function validate(props, propName, componentName, location, propFullName) {
+	    for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
+	      var checker = arrayOfTypeCheckers[i];
+	      if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
+	        return null;
 	      }
-	      return null;
 	    }
-	    return createChainableTypeChecker(validate);
+	
+	    var locationName = ReactPropTypeLocationNames[location];
+	    return new PropTypeError('Invalid ' + locationName + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
 	  }
+	  return createChainableTypeChecker(validate);
+	}
 	
-	  function createInstanceTypeChecker(expectedClass) {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      if (!(props[propName] instanceof expectedClass)) {
-	        var expectedClassName = expectedClass.name || ANONYMOUS;
-	        var actualClassName = getClassName(props[propName]);
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + actualClassName + '` supplied to `' + componentName + '`, expected ') + ('instance of `' + expectedClassName + '`.'));
-	      }
-	      return null;
+	function createNodeChecker() {
+	  function validate(props, propName, componentName, location, propFullName) {
+	    if (!isNode(props[propName])) {
+	      var locationName = ReactPropTypeLocationNames[location];
+	      return new PropTypeError('Invalid ' + locationName + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
 	    }
-	    return createChainableTypeChecker(validate);
+	    return null;
 	  }
+	  return createChainableTypeChecker(validate);
+	}
 	
-	  function createEnumTypeChecker(expectedValues) {
-	    if (!Array.isArray(expectedValues)) {
-	      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
-	      return emptyFunction.thatReturnsNull;
+	function createShapeTypeChecker(shapeTypes) {
+	  function validate(props, propName, componentName, location, propFullName) {
+	    var propValue = props[propName];
+	    var propType = getPropType(propValue);
+	    if (propType !== 'object') {
+	      var locationName = ReactPropTypeLocationNames[location];
+	      return new PropTypeError('Invalid ' + locationName + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
 	    }
-	
-	    function validate(props, propName, componentName, location, propFullName) {
-	      var propValue = props[propName];
-	      for (var i = 0; i < expectedValues.length; i++) {
-	        if (is(propValue, expectedValues[i])) {
-	          return null;
-	        }
+	    for (var key in shapeTypes) {
+	      var checker = shapeTypes[key];
+	      if (!checker) {
+	        continue;
 	      }
-	
-	      var valuesString = JSON.stringify(expectedValues);
-	      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of value `' + propValue + '` ' + ('supplied to `' + componentName + '`, expected one of ' + valuesString + '.'));
+	      var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
+	      if (error) {
+	        return error;
+	      }
 	    }
-	    return createChainableTypeChecker(validate);
+	    return null;
 	  }
+	  return createChainableTypeChecker(validate);
+	}
 	
-	  function createObjectOfTypeChecker(typeChecker) {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      if (typeof typeChecker !== 'function') {
-	        return new PropTypeError('Property `' + propFullName + '` of component `' + componentName + '` has invalid PropType notation inside objectOf.');
+	function isNode(propValue) {
+	  switch (typeof propValue === 'undefined' ? 'undefined' : _typeof(propValue)) {
+	    case 'number':
+	    case 'string':
+	    case 'undefined':
+	      return true;
+	    case 'boolean':
+	      return !propValue;
+	    case 'object':
+	      if (Array.isArray(propValue)) {
+	        return propValue.every(isNode);
 	      }
-	      var propValue = props[propName];
-	      var propType = getPropType(propValue);
-	      if (propType !== 'object') {
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type ' + ('`' + propType + '` supplied to `' + componentName + '`, expected an object.'));
-	      }
-	      for (var key in propValue) {
-	        if (propValue.hasOwnProperty(key)) {
-	          var error = typeChecker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-	          if (error instanceof Error) {
-	            return error;
-	          }
-	        }
-	      }
-	      return null;
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-	
-	  function createUnionTypeChecker(arrayOfTypeCheckers) {
-	    if (!Array.isArray(arrayOfTypeCheckers)) {
-	      process.env.NODE_ENV !== 'production' ? warning(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
-	      return emptyFunction.thatReturnsNull;
-	    }
-	
-	    function validate(props, propName, componentName, location, propFullName) {
-	      for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
-	        var checker = arrayOfTypeCheckers[i];
-	        if (checker(props, propName, componentName, location, propFullName, ReactPropTypesSecret) == null) {
-	          return null;
-	        }
-	      }
-	
-	      return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`.'));
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-	
-	  function createNodeChecker() {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      if (!isNode(props[propName])) {
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` supplied to ' + ('`' + componentName + '`, expected a ReactNode.'));
-	      }
-	      return null;
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-	
-	  function createShapeTypeChecker(shapeTypes) {
-	    function validate(props, propName, componentName, location, propFullName) {
-	      var propValue = props[propName];
-	      var propType = getPropType(propValue);
-	      if (propType !== 'object') {
-	        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-	      }
-	      for (var key in shapeTypes) {
-	        var checker = shapeTypes[key];
-	        if (!checker) {
-	          continue;
-	        }
-	        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret);
-	        if (error) {
-	          return error;
-	        }
-	      }
-	      return null;
-	    }
-	    return createChainableTypeChecker(validate);
-	  }
-	
-	  function isNode(propValue) {
-	    switch (typeof propValue === 'undefined' ? 'undefined' : _typeof(propValue)) {
-	      case 'number':
-	      case 'string':
-	      case 'undefined':
+	      if (propValue === null || ReactElement.isValidElement(propValue)) {
 	        return true;
-	      case 'boolean':
-	        return !propValue;
-	      case 'object':
-	        if (Array.isArray(propValue)) {
-	          return propValue.every(isNode);
-	        }
-	        if (propValue === null || isValidElement(propValue)) {
-	          return true;
-	        }
+	      }
 	
-	        var iteratorFn = getIteratorFn(propValue);
-	        if (iteratorFn) {
-	          var iterator = iteratorFn.call(propValue);
-	          var step;
-	          if (iteratorFn !== propValue.entries) {
-	            while (!(step = iterator.next()).done) {
-	              if (!isNode(step.value)) {
-	                return false;
-	              }
-	            }
-	          } else {
-	            // Iterator will provide entry [k,v] tuples rather than values.
-	            while (!(step = iterator.next()).done) {
-	              var entry = step.value;
-	              if (entry) {
-	                if (!isNode(entry[1])) {
-	                  return false;
-	                }
-	              }
+	      var iteratorFn = getIteratorFn(propValue);
+	      if (iteratorFn) {
+	        var iterator = iteratorFn.call(propValue);
+	        var step;
+	        if (iteratorFn !== propValue.entries) {
+	          while (!(step = iterator.next()).done) {
+	            if (!isNode(step.value)) {
+	              return false;
 	            }
 	          }
 	        } else {
-	          return false;
+	          // Iterator will provide entry [k,v] tuples rather than values.
+	          while (!(step = iterator.next()).done) {
+	            var entry = step.value;
+	            if (entry) {
+	              if (!isNode(entry[1])) {
+	                return false;
+	              }
+	            }
+	          }
 	        }
-	
-	        return true;
-	      default:
+	      } else {
 	        return false;
-	    }
-	  }
-	
-	  function isSymbol(propType, propValue) {
-	    // Native Symbol.
-	    if (propType === 'symbol') {
-	      return true;
-	    }
-	
-	    // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
-	    if (propValue['@@toStringTag'] === 'Symbol') {
-	      return true;
-	    }
-	
-	    // Fallback for non-spec compliant Symbols which are polyfilled.
-	    if (typeof Symbol === 'function' && propValue instanceof Symbol) {
-	      return true;
-	    }
-	
-	    return false;
-	  }
-	
-	  // Equivalent of `typeof` but with special handling for array and regexp.
-	  function getPropType(propValue) {
-	    var propType = typeof propValue === 'undefined' ? 'undefined' : _typeof(propValue);
-	    if (Array.isArray(propValue)) {
-	      return 'array';
-	    }
-	    if (propValue instanceof RegExp) {
-	      // Old webkits (at least until Android 4.0) return 'function' rather than
-	      // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
-	      // passes PropTypes.object.
-	      return 'object';
-	    }
-	    if (isSymbol(propType, propValue)) {
-	      return 'symbol';
-	    }
-	    return propType;
-	  }
-	
-	  // This handles more types than `getPropType`. Only used for error messages.
-	  // See `createPrimitiveTypeChecker`.
-	  function getPreciseType(propValue) {
-	    var propType = getPropType(propValue);
-	    if (propType === 'object') {
-	      if (propValue instanceof Date) {
-	        return 'date';
-	      } else if (propValue instanceof RegExp) {
-	        return 'regexp';
 	      }
-	    }
-	    return propType;
-	  }
 	
-	  // Returns class name of the object, if any.
-	  function getClassName(propValue) {
-	    if (!propValue.constructor || !propValue.constructor.name) {
-	      return ANONYMOUS;
-	    }
-	    return propValue.constructor.name;
-	  }
-	
-	  ReactPropTypes.checkPropTypes = checkPropTypes;
-	  ReactPropTypes.PropTypes = ReactPropTypes;
-	
-	  return ReactPropTypes;
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-	
-	'use strict';
-	
-	var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
-	
-	module.exports = ReactPropTypesSecret;
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-	
-	'use strict';
-	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
-	if (process.env.NODE_ENV !== 'production') {
-	  var invariant = __webpack_require__(8);
-	  var warning = __webpack_require__(11);
-	  var ReactPropTypesSecret = __webpack_require__(32);
-	  var loggedTypeFailures = {};
-	}
-	
-	/**
-	 * Assert that the values match with the type specs.
-	 * Error messages are memorized and will only be shown once.
-	 *
-	 * @param {object} typeSpecs Map of name to a ReactPropType
-	 * @param {object} values Runtime values that need to be type-checked
-	 * @param {string} location e.g. "prop", "context", "child context"
-	 * @param {string} componentName Name of the component for error messages.
-	 * @param {?Function} getStack Returns the component stack.
-	 * @private
-	 */
-	function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    for (var typeSpecName in typeSpecs) {
-	      if (typeSpecs.hasOwnProperty(typeSpecName)) {
-	        var error;
-	        // Prop type validation may throw. In case they do, we don't want to
-	        // fail the render phase where it didn't fail before. So we log it.
-	        // After these have been cleaned up, we'll let them throw.
-	        try {
-	          // This is intentionally an invariant that gets caught. It's the same
-	          // behavior as without this statement except with a better message.
-	          invariant(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', location, typeSpecName);
-	          error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
-	        } catch (ex) {
-	          error = ex;
-	        }
-	        warning(!error || error instanceof Error, '%s: type specification of %s `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error === 'undefined' ? 'undefined' : _typeof(error));
-	        if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-	          // Only monitor this failure once because there tends to be a lot of the
-	          // same error.
-	          loggedTypeFailures[error.message] = true;
-	
-	          var stack = getStack ? getStack() : '';
-	
-	          warning(false, 'Failed %s type: %s%s', location, error.message, stack != null ? stack : '');
-	        }
-	      }
-	    }
+	      return true;
+	    default:
+	      return false;
 	  }
 	}
 	
-	module.exports = checkPropTypes;
+	function isSymbol(propType, propValue) {
+	  // Native Symbol.
+	  if (propType === 'symbol') {
+	    return true;
+	  }
+	
+	  // 19.4.3.5 Symbol.prototype[@@toStringTag] === 'Symbol'
+	  if (propValue['@@toStringTag'] === 'Symbol') {
+	    return true;
+	  }
+	
+	  // Fallback for non-spec compliant Symbols which are polyfilled.
+	  if (typeof Symbol === 'function' && propValue instanceof Symbol) {
+	    return true;
+	  }
+	
+	  return false;
+	}
+	
+	// Equivalent of `typeof` but with special handling for array and regexp.
+	function getPropType(propValue) {
+	  var propType = typeof propValue === 'undefined' ? 'undefined' : _typeof(propValue);
+	  if (Array.isArray(propValue)) {
+	    return 'array';
+	  }
+	  if (propValue instanceof RegExp) {
+	    // Old webkits (at least until Android 4.0) return 'function' rather than
+	    // 'object' for typeof a RegExp. We'll normalize this here so that /bla/
+	    // passes PropTypes.object.
+	    return 'object';
+	  }
+	  if (isSymbol(propType, propValue)) {
+	    return 'symbol';
+	  }
+	  return propType;
+	}
+	
+	// This handles more types than `getPropType`. Only used for error messages.
+	// See `createPrimitiveTypeChecker`.
+	function getPreciseType(propValue) {
+	  var propType = getPropType(propValue);
+	  if (propType === 'object') {
+	    if (propValue instanceof Date) {
+	      return 'date';
+	    } else if (propValue instanceof RegExp) {
+	      return 'regexp';
+	    }
+	  }
+	  return propType;
+	}
+	
+	// Returns class name of the object, if any.
+	function getClassName(propValue) {
+	  if (!propValue.constructor || !propValue.constructor.name) {
+	    return ANONYMOUS;
+	  }
+	  return propValue.constructor.name;
+	}
+	
+	module.exports = ReactPropTypes;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 34 */
-/***/ (function(module, exports) {
+/***/ },
+/* 30 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -4303,11 +4088,11 @@
 	
 	'use strict';
 	
-	module.exports = '15.5.4';
+	module.exports = '15.4.2';
 
-/***/ }),
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -4348,17 +4133,17 @@
 	module.exports = onlyChild;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 36 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	module.exports = __webpack_require__(37);
+	module.exports = __webpack_require__(33);
 
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -4374,17 +4159,17 @@
 	
 	'use strict';
 	
-	var ReactDOMComponentTree = __webpack_require__(38);
-	var ReactDefaultInjection = __webpack_require__(42);
-	var ReactMount = __webpack_require__(170);
+	var ReactDOMComponentTree = __webpack_require__(34);
+	var ReactDefaultInjection = __webpack_require__(39);
+	var ReactMount = __webpack_require__(171);
 	var ReactReconciler = __webpack_require__(63);
 	var ReactUpdates = __webpack_require__(60);
-	var ReactVersion = __webpack_require__(175);
+	var ReactVersion = __webpack_require__(176);
 	
-	var findDOMNode = __webpack_require__(176);
-	var getHostComponentFromComposite = __webpack_require__(177);
-	var renderSubtreeIntoContainer = __webpack_require__(178);
-	var warning = __webpack_require__(11);
+	var findDOMNode = __webpack_require__(177);
+	var getHostComponentFromComposite = __webpack_require__(178);
+	var renderSubtreeIntoContainer = __webpack_require__(179);
+	var warning = __webpack_require__(47);
 	
 	ReactDefaultInjection.inject();
 	
@@ -4423,7 +4208,7 @@
 	}
 	
 	if (process.env.NODE_ENV !== 'production') {
-	  var ExecutionEnvironment = __webpack_require__(52);
+	  var ExecutionEnvironment = __webpack_require__(51);
 	  if (ExecutionEnvironment.canUseDOM && window.top === window.self) {
 	
 	    // First check if devtools is not installed
@@ -4460,9 +4245,9 @@
 	
 	if (process.env.NODE_ENV !== 'production') {
 	  var ReactInstrumentation = __webpack_require__(66);
-	  var ReactDOMUnknownPropertyHook = __webpack_require__(179);
-	  var ReactDOMNullInputValuePropHook = __webpack_require__(180);
-	  var ReactDOMInvalidARIAHook = __webpack_require__(181);
+	  var ReactDOMUnknownPropertyHook = __webpack_require__(180);
+	  var ReactDOMNullInputValuePropHook = __webpack_require__(181);
+	  var ReactDOMInvalidARIAHook = __webpack_require__(182);
 	
 	  ReactInstrumentation.debugTool.addHook(ReactDOMUnknownPropertyHook);
 	  ReactInstrumentation.debugTool.addHook(ReactDOMNullInputValuePropHook);
@@ -4472,9 +4257,9 @@
 	module.exports = ReactDOM;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 38 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -4488,12 +4273,12 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var DOMProperty = __webpack_require__(40);
-	var ReactDOMComponentFlags = __webpack_require__(41);
+	var DOMProperty = __webpack_require__(36);
+	var ReactDOMComponentFlags = __webpack_require__(38);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 	var Flags = ReactDOMComponentFlags;
@@ -4672,9 +4457,9 @@
 	module.exports = ReactDOMComponentTree;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 39 */
-/***/ (function(module, exports) {
+/***/ },
+/* 35 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -4715,9 +4500,9 @@
 	
 	module.exports = reactProdInvariant;
 
-/***/ }),
-/* 40 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -4731,9 +4516,9 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	function checkMask(value, bitmask) {
 	  return (value & bitmask) === bitmask;
@@ -4930,9 +4715,70 @@
 	module.exports = DOMProperty;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 41 */
-/***/ (function(module, exports) {
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 */
+	
+	'use strict';
+	
+	/**
+	 * Use invariant() to assert state which your program assumes to be true.
+	 *
+	 * Provide sprintf-style format (only %s is supported) and arguments
+	 * to provide information about what broke and what you were
+	 * expecting.
+	 *
+	 * The invariant message will be stripped in production, but the invariant
+	 * will remain to ensure logic does not differ in production.
+	 */
+	
+	var validateFormat = function validateFormat(format) {};
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  validateFormat = function validateFormat(format) {
+	    if (format === undefined) {
+	      throw new Error('invariant requires an error message argument');
+	    }
+	  };
+	}
+	
+	function invariant(condition, format, a, b, c, d, e, f) {
+	  validateFormat(format);
+	
+	  if (!condition) {
+	    var error;
+	    if (format === undefined) {
+	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+	    } else {
+	      var args = [a, b, c, d, e, f];
+	      var argIndex = 0;
+	      error = new Error(format.replace(/%s/g, function () {
+	        return args[argIndex++];
+	      }));
+	      error.name = 'Invariant Violation';
+	    }
+	
+	    error.framesToPop = 1; // we don't care about invariant's own frame
+	    throw error;
+	  }
+	}
+	
+	module.exports = invariant;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 38 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2015-present, Facebook, Inc.
@@ -4952,9 +4798,9 @@
 	
 	module.exports = ReactDOMComponentFlags;
 
-/***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -4968,25 +4814,25 @@
 	
 	'use strict';
 	
-	var ARIADOMPropertyConfig = __webpack_require__(43);
-	var BeforeInputEventPlugin = __webpack_require__(44);
+	var ARIADOMPropertyConfig = __webpack_require__(40);
+	var BeforeInputEventPlugin = __webpack_require__(41);
 	var ChangeEventPlugin = __webpack_require__(59);
 	var DefaultEventPluginOrder = __webpack_require__(76);
 	var EnterLeaveEventPlugin = __webpack_require__(77);
 	var HTMLDOMPropertyConfig = __webpack_require__(82);
 	var ReactComponentBrowserEnvironment = __webpack_require__(83);
 	var ReactDOMComponent = __webpack_require__(96);
-	var ReactDOMComponentTree = __webpack_require__(38);
-	var ReactDOMEmptyComponent = __webpack_require__(141);
-	var ReactDOMTreeTraversal = __webpack_require__(142);
-	var ReactDOMTextComponent = __webpack_require__(143);
-	var ReactDefaultBatchingStrategy = __webpack_require__(144);
-	var ReactEventListener = __webpack_require__(145);
-	var ReactInjection = __webpack_require__(148);
-	var ReactReconcileTransaction = __webpack_require__(149);
-	var SVGDOMPropertyConfig = __webpack_require__(157);
-	var SelectEventPlugin = __webpack_require__(158);
-	var SimpleEventPlugin = __webpack_require__(159);
+	var ReactDOMComponentTree = __webpack_require__(34);
+	var ReactDOMEmptyComponent = __webpack_require__(142);
+	var ReactDOMTreeTraversal = __webpack_require__(143);
+	var ReactDOMTextComponent = __webpack_require__(144);
+	var ReactDefaultBatchingStrategy = __webpack_require__(145);
+	var ReactEventListener = __webpack_require__(146);
+	var ReactInjection = __webpack_require__(149);
+	var ReactReconcileTransaction = __webpack_require__(150);
+	var SVGDOMPropertyConfig = __webpack_require__(158);
+	var SelectEventPlugin = __webpack_require__(159);
+	var SimpleEventPlugin = __webpack_require__(160);
 	
 	var alreadyInjected = false;
 	
@@ -5042,9 +4888,9 @@
 	  inject: inject
 	};
 
-/***/ }),
-/* 43 */
-/***/ (function(module, exports) {
+/***/ },
+/* 40 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -5120,9 +4966,9 @@
 	
 	module.exports = ARIADOMPropertyConfig;
 
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 41 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present Facebook, Inc.
@@ -5138,9 +4984,9 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var EventPropagators = __webpack_require__(45);
-	var ExecutionEnvironment = __webpack_require__(52);
-	var FallbackCompositionState = __webpack_require__(53);
+	var EventPropagators = __webpack_require__(42);
+	var ExecutionEnvironment = __webpack_require__(51);
+	var FallbackCompositionState = __webpack_require__(52);
 	var SyntheticCompositionEvent = __webpack_require__(56);
 	var SyntheticInputEvent = __webpack_require__(58);
 	
@@ -5511,9 +5357,9 @@
 	
 	module.exports = BeforeInputEventPlugin;
 
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -5527,12 +5373,12 @@
 	
 	'use strict';
 	
-	var EventPluginHub = __webpack_require__(46);
-	var EventPluginUtils = __webpack_require__(48);
+	var EventPluginHub = __webpack_require__(43);
+	var EventPluginUtils = __webpack_require__(45);
 	
-	var accumulateInto = __webpack_require__(50);
-	var forEachAccumulated = __webpack_require__(51);
-	var warning = __webpack_require__(11);
+	var accumulateInto = __webpack_require__(49);
+	var forEachAccumulated = __webpack_require__(50);
+	var warning = __webpack_require__(47);
 	
 	var getListener = EventPluginHub.getListener;
 	
@@ -5650,9 +5496,9 @@
 	module.exports = EventPropagators;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -5668,15 +5514,15 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var EventPluginRegistry = __webpack_require__(47);
-	var EventPluginUtils = __webpack_require__(48);
-	var ReactErrorUtils = __webpack_require__(49);
+	var EventPluginRegistry = __webpack_require__(44);
+	var EventPluginUtils = __webpack_require__(45);
+	var ReactErrorUtils = __webpack_require__(46);
 	
-	var accumulateInto = __webpack_require__(50);
-	var forEachAccumulated = __webpack_require__(51);
-	var invariant = __webpack_require__(8);
+	var accumulateInto = __webpack_require__(49);
+	var forEachAccumulated = __webpack_require__(50);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * Internal store for event listeners
@@ -5935,9 +5781,9 @@
 	module.exports = EventPluginHub;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 44 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -5952,9 +5798,9 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * Injectable ordering of event plugins.
@@ -6195,9 +6041,9 @@
 	module.exports = EventPluginRegistry;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 45 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -6211,12 +6057,12 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var ReactErrorUtils = __webpack_require__(49);
+	var ReactErrorUtils = __webpack_require__(46);
 	
-	var invariant = __webpack_require__(8);
-	var warning = __webpack_require__(11);
+	var invariant = __webpack_require__(37);
+	var warning = __webpack_require__(47);
 	
 	/**
 	 * Injected dependencies:
@@ -6426,9 +6272,9 @@
 	module.exports = EventPluginUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 46 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -6497,6 +6343,7 @@
 	      var evtType = 'react-' + name;
 	      fakeNode.addEventListener(evtType, boundFunc, false);
 	      var evt = document.createEvent('Event');
+	      // $FlowFixMe https://github.com/facebook/flow/issues/2336
 	      evt.initEvent(evtType, false, false);
 	      fakeNode.dispatchEvent(evt);
 	      fakeNode.removeEventListener(evtType, boundFunc, false);
@@ -6507,9 +6354,124 @@
 	module.exports = ReactErrorUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 47 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2014-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 */
+	
+	'use strict';
+	
+	var emptyFunction = __webpack_require__(48);
+	
+	/**
+	 * Similar to invariant but only logs a warning if the condition is not met.
+	 * This can be used to log issues in development environments in critical
+	 * paths. Removing the logging code for production environments will keep the
+	 * same logic and follow the same code paths.
+	 */
+	
+	var warning = emptyFunction;
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  (function () {
+	    var printWarning = function printWarning(format) {
+	      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	        args[_key - 1] = arguments[_key];
+	      }
+	
+	      var argIndex = 0;
+	      var message = 'Warning: ' + format.replace(/%s/g, function () {
+	        return args[argIndex++];
+	      });
+	      if (typeof console !== 'undefined') {
+	        console.error(message);
+	      }
+	      try {
+	        // --- Welcome to debugging React ---
+	        // This error was thrown as a convenience so that you can use this stack
+	        // to find the callsite that caused this warning to fire.
+	        throw new Error(message);
+	      } catch (x) {}
+	    };
+	
+	    warning = function warning(condition, format) {
+	      if (format === undefined) {
+	        throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+	      }
+	
+	      if (format.indexOf('Failed Composite propType: ') === 0) {
+	        return; // Ignore CompositeComponent proptype check.
+	      }
+	
+	      if (!condition) {
+	        for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+	          args[_key2 - 2] = arguments[_key2];
+	        }
+	
+	        printWarning.apply(undefined, [format].concat(args));
+	      }
+	    };
+	  })();
+	}
+	
+	module.exports = warning;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 48 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * 
+	 */
+	
+	function makeEmptyFunction(arg) {
+	  return function () {
+	    return arg;
+	  };
+	}
+	
+	/**
+	 * This function accepts and discards inputs; it has no side effects. This is
+	 * primarily useful idiomatically for overridable function endpoints which
+	 * always need to be callable, since JS lacks a null-call idiom ala Cocoa.
+	 */
+	var emptyFunction = function emptyFunction() {};
+	
+	emptyFunction.thatReturns = makeEmptyFunction;
+	emptyFunction.thatReturnsFalse = makeEmptyFunction(false);
+	emptyFunction.thatReturnsTrue = makeEmptyFunction(true);
+	emptyFunction.thatReturnsNull = makeEmptyFunction(null);
+	emptyFunction.thatReturnsThis = function () {
+	  return this;
+	};
+	emptyFunction.thatReturnsArgument = function (arg) {
+	  return arg;
+	};
+	
+	module.exports = emptyFunction;
+
+/***/ },
+/* 49 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -6524,9 +6486,9 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * Accumulates items that must not be null or undefined into the first one. This
@@ -6570,9 +6532,9 @@
 	module.exports = accumulateInto;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 51 */
-/***/ (function(module, exports) {
+/***/ },
+/* 50 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -6605,9 +6567,9 @@
 	
 	module.exports = forEachAccumulated;
 
-/***/ }),
-/* 52 */
-/***/ (function(module, exports) {
+/***/ },
+/* 51 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -6645,9 +6607,9 @@
 	
 	module.exports = ExecutionEnvironment;
 
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 52 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -6661,7 +6623,7 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
 	var PooledClass = __webpack_require__(54);
 	
@@ -6744,9 +6706,104 @@
 	
 	module.exports = FallbackCompositionState;
 
-/***/ }),
+/***/ },
+/* 53 */
+/***/ function(module, exports) {
+
+	/*
+	object-assign
+	(c) Sindre Sorhus
+	@license MIT
+	*/
+	
+	'use strict';
+	/* eslint-disable no-unused-vars */
+	
+	var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+	
+	function toObject(val) {
+		if (val === null || val === undefined) {
+			throw new TypeError('Object.assign cannot be called with null or undefined');
+		}
+	
+		return Object(val);
+	}
+	
+	function shouldUseNative() {
+		try {
+			if (!Object.assign) {
+				return false;
+			}
+	
+			// Detect buggy property enumeration order in older V8 versions.
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+			var test1 = new String('abc'); // eslint-disable-line no-new-wrappers
+			test1[5] = 'de';
+			if (Object.getOwnPropertyNames(test1)[0] === '5') {
+				return false;
+			}
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test2 = {};
+			for (var i = 0; i < 10; i++) {
+				test2['_' + String.fromCharCode(i)] = i;
+			}
+			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+				return test2[n];
+			});
+			if (order2.join('') !== '0123456789') {
+				return false;
+			}
+	
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test3 = {};
+			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+				test3[letter] = letter;
+			});
+			if (Object.keys(Object.assign({}, test3)).join('') !== 'abcdefghijklmnopqrst') {
+				return false;
+			}
+	
+			return true;
+		} catch (err) {
+			// We don't expect any of the above to throw, but better to be safe.
+			return false;
+		}
+	}
+	
+	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+		var from;
+		var to = toObject(target);
+		var symbols;
+	
+		for (var s = 1; s < arguments.length; s++) {
+			from = Object(arguments[s]);
+	
+			for (var key in from) {
+				if (hasOwnProperty.call(from, key)) {
+					to[key] = from[key];
+				}
+			}
+	
+			if (getOwnPropertySymbols) {
+				symbols = getOwnPropertySymbols(from);
+				for (var i = 0; i < symbols.length; i++) {
+					if (propIsEnumerable.call(from, symbols[i])) {
+						to[symbols[i]] = from[symbols[i]];
+					}
+				}
+			}
+		}
+	
+		return to;
+	};
+
+/***/ },
 /* 54 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -6761,9 +6818,9 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * Static poolers. Several custom versions for each potential number of
@@ -6861,9 +6918,9 @@
 	module.exports = PooledClass;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 55 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -6877,7 +6934,7 @@
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	
 	var contentKey = null;
 	
@@ -6898,9 +6955,9 @@
 	
 	module.exports = getTextContentAccessor;
 
-/***/ }),
+/***/ },
 /* 56 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -6938,9 +6995,9 @@
 	
 	module.exports = SyntheticCompositionEvent;
 
-/***/ }),
+/***/ },
 /* 57 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -6954,12 +7011,12 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
 	var PooledClass = __webpack_require__(54);
 	
-	var emptyFunction = __webpack_require__(12);
-	var warning = __webpack_require__(11);
+	var emptyFunction = __webpack_require__(48);
+	var warning = __webpack_require__(47);
 	
 	var didWarnForAddedNewProperty = false;
 	var isProxySupported = typeof Proxy === 'function';
@@ -7211,9 +7268,9 @@
 	}
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 58 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -7252,9 +7309,9 @@
 	
 	module.exports = SyntheticInputEvent;
 
-/***/ }),
+/***/ },
 /* 59 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -7268,10 +7325,10 @@
 	
 	'use strict';
 	
-	var EventPluginHub = __webpack_require__(46);
-	var EventPropagators = __webpack_require__(45);
-	var ExecutionEnvironment = __webpack_require__(52);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var EventPluginHub = __webpack_require__(43);
+	var EventPropagators = __webpack_require__(42);
+	var ExecutionEnvironment = __webpack_require__(51);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var ReactUpdates = __webpack_require__(60);
 	var SyntheticEvent = __webpack_require__(57);
 	
@@ -7523,26 +7580,6 @@
 	  }
 	}
 	
-	function handleControlledInputBlur(inst, node) {
-	  // TODO: In IE, inst is occasionally null. Why?
-	  if (inst == null) {
-	    return;
-	  }
-	
-	  // Fiber and ReactDOM keep wrapper state in separate places
-	  var state = inst._wrapperState || node._wrapperState;
-	
-	  if (!state || !state.controlled || node.type !== 'number') {
-	    return;
-	  }
-	
-	  // If controlled, assign the value attribute to the current value on blur
-	  var value = '' + node.value;
-	  if (node.getAttribute('value') !== value) {
-	    node.setAttribute('value', value);
-	  }
-	}
-	
 	/**
 	 * This plugin creates an `onChange` event that normalizes change events
 	 * across form elements. This event fires at a time when it's possible to
@@ -7591,20 +7628,15 @@
 	    if (handleEventFunc) {
 	      handleEventFunc(topLevelType, targetNode, targetInst);
 	    }
-	
-	    // When blurring, set the value attribute for number inputs
-	    if (topLevelType === 'topBlur') {
-	      handleControlledInputBlur(targetInst, targetNode);
-	    }
 	  }
 	
 	};
 	
 	module.exports = ChangeEventPlugin;
 
-/***/ }),
+/***/ },
 /* 60 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -7618,8 +7650,8 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39),
-	    _assign = __webpack_require__(4);
+	var _prodInvariant = __webpack_require__(35),
+	    _assign = __webpack_require__(53);
 	
 	var CallbackQueue = __webpack_require__(61);
 	var PooledClass = __webpack_require__(54);
@@ -7627,7 +7659,7 @@
 	var ReactReconciler = __webpack_require__(63);
 	var Transaction = __webpack_require__(72);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	var dirtyComponents = [];
 	var updateBatchNumber = 0;
@@ -7858,9 +7890,9 @@
 	module.exports = ReactUpdates;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 61 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -7875,7 +7907,7 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
 	function _classCallCheck(instance, Constructor) {
 	  if (!(instance instanceof Constructor)) {
@@ -7885,7 +7917,7 @@
 	
 	var PooledClass = __webpack_require__(54);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * A specialized pseudo-event module to help keep track of components waiting to
@@ -7982,9 +8014,9 @@
 	module.exports = PooledClass.addPoolingTo(CallbackQueue);
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 62 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -8008,9 +8040,9 @@
 	
 	module.exports = ReactFeatureFlags;
 
-/***/ }),
+/***/ },
 /* 63 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -8027,7 +8059,7 @@
 	var ReactRef = __webpack_require__(64);
 	var ReactInstrumentation = __webpack_require__(66);
 	
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	/**
 	 * Helper to call ReactRef.attachRefs with this composite component, split out
@@ -8181,9 +8213,9 @@
 	module.exports = ReactReconciler;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 64 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -8276,9 +8308,9 @@
 	
 	module.exports = ReactRef;
 
-/***/ }),
+/***/ },
 /* 65 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -8293,9 +8325,9 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * @param {?object} object
@@ -8375,9 +8407,9 @@
 	module.exports = ReactOwner;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 66 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2016-present, Facebook, Inc.
@@ -8404,9 +8436,9 @@
 	module.exports = { debugTool: debugTool };
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 67 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2016-present, Facebook, Inc.
@@ -8426,10 +8458,10 @@
 	var ReactInvalidSetStateWarningHook = __webpack_require__(68);
 	var ReactHostOperationHistoryHook = __webpack_require__(69);
 	var ReactComponentTreeHook = __webpack_require__(26);
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	
 	var performanceNow = __webpack_require__(70);
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	var hooks = [];
 	var didHookThrowForEvent = {};
@@ -8590,7 +8622,9 @@
 	}
 	
 	var lastMarkTimeStamp = 0;
-	var canUsePerformanceMeasure = typeof performance !== 'undefined' && typeof performance.mark === 'function' && typeof performance.clearMarks === 'function' && typeof performance.measure === 'function' && typeof performance.clearMeasures === 'function';
+	var canUsePerformanceMeasure =
+	// $FlowFixMe https://github.com/facebook/flow/issues/2345
+	typeof performance !== 'undefined' && typeof performance.mark === 'function' && typeof performance.clearMarks === 'function' && typeof performance.measure === 'function' && typeof performance.clearMeasures === 'function';
 	
 	function shouldMark(debugID) {
 	  if (!_isProfiling || !canUsePerformanceMeasure) {
@@ -8770,9 +8804,9 @@
 	module.exports = ReactDebugTool;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 68 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2016-present, Facebook, Inc.
@@ -8787,7 +8821,7 @@
 	
 	'use strict';
 	
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	if (process.env.NODE_ENV !== 'production') {
 	  var processingChildContext = false;
@@ -8812,9 +8846,9 @@
 	module.exports = ReactInvalidSetStateWarningHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 69 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2016-present, Facebook, Inc.
@@ -8850,9 +8884,9 @@
 	
 	module.exports = ReactHostOperationHistoryHook;
 
-/***/ }),
+/***/ },
 /* 70 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -8888,9 +8922,9 @@
 	
 	module.exports = performanceNow;
 
-/***/ }),
+/***/ },
 /* 71 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -8905,7 +8939,7 @@
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	
 	var performance;
 	
@@ -8915,9 +8949,9 @@
 	
 	module.exports = performance || {};
 
-/***/ }),
+/***/ },
 /* 72 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -8932,9 +8966,9 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	var OBSERVED_ERROR = {};
 	
@@ -9145,9 +9179,9 @@
 	module.exports = TransactionImpl;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 73 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9184,9 +9218,9 @@
 	
 	module.exports = getEventTarget;
 
-/***/ }),
+/***/ },
 /* 74 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9200,7 +9234,7 @@
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	
 	var useHasFeature;
 	if (ExecutionEnvironment.canUseDOM) {
@@ -9248,9 +9282,9 @@
 	
 	module.exports = isEventSupported;
 
-/***/ }),
+/***/ },
 /* 75 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9303,9 +9337,9 @@
 	
 	module.exports = isTextInputElement;
 
-/***/ }),
+/***/ },
 /* 76 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9333,9 +9367,9 @@
 	
 	module.exports = DefaultEventPluginOrder;
 
-/***/ }),
+/***/ },
 /* 77 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9349,8 +9383,8 @@
 	
 	'use strict';
 	
-	var EventPropagators = __webpack_require__(45);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var EventPropagators = __webpack_require__(42);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var SyntheticMouseEvent = __webpack_require__(78);
 	
 	var eventTypes = {
@@ -9437,9 +9471,9 @@
 	
 	module.exports = EnterLeaveEventPlugin;
 
-/***/ }),
+/***/ },
 /* 78 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9513,9 +9547,9 @@
 	
 	module.exports = SyntheticMouseEvent;
 
-/***/ }),
+/***/ },
 /* 79 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9576,9 +9610,9 @@
 	
 	module.exports = SyntheticUIEvent;
 
-/***/ }),
+/***/ },
 /* 80 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9607,9 +9641,9 @@
 	
 	module.exports = ViewportMetrics;
 
-/***/ }),
+/***/ },
 /* 81 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9654,9 +9688,9 @@
 	
 	module.exports = getEventModifierState;
 
-/***/ }),
+/***/ },
 /* 82 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9670,7 +9704,7 @@
 	
 	'use strict';
 	
-	var DOMProperty = __webpack_require__(40);
+	var DOMProperty = __webpack_require__(36);
 	
 	var MUST_USE_PROPERTY = DOMProperty.injection.MUST_USE_PROPERTY;
 	var HAS_BOOLEAN_VALUE = DOMProperty.injection.HAS_BOOLEAN_VALUE;
@@ -9865,38 +9899,14 @@
 	    htmlFor: 'for',
 	    httpEquiv: 'http-equiv'
 	  },
-	  DOMPropertyNames: {},
-	  DOMMutationMethods: {
-	    value: function value(node, _value) {
-	      if (_value == null) {
-	        return node.removeAttribute('value');
-	      }
-	
-	      // Number inputs get special treatment due to some edge cases in
-	      // Chrome. Let everything else assign the value attribute as normal.
-	      // https://github.com/facebook/react/issues/7253#issuecomment-236074326
-	      if (node.type !== 'number' || node.hasAttribute('value') === false) {
-	        node.setAttribute('value', '' + _value);
-	      } else if (node.validity && !node.validity.badInput && node.ownerDocument.activeElement !== node) {
-	        // Don't assign an attribute if validation reports bad
-	        // input. Chrome will clear the value. Additionally, don't
-	        // operate on inputs that have focus, otherwise Chrome might
-	        // strip off trailing decimal places and cause the user's
-	        // cursor position to jump to the beginning of the input.
-	        //
-	        // In ReactDOMInput, we have an onBlur event that will trigger
-	        // this function again when focus is lost.
-	        node.setAttribute('value', '' + _value);
-	      }
-	    }
-	  }
+	  DOMPropertyNames: {}
 	};
 	
 	module.exports = HTMLDOMPropertyConfig;
 
-/***/ }),
+/***/ },
 /* 83 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9928,9 +9938,9 @@
 	
 	module.exports = ReactComponentBrowserEnvironment;
 
-/***/ }),
+/***/ },
 /* 84 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -9946,7 +9956,7 @@
 	
 	var DOMLazyTree = __webpack_require__(85);
 	var Danger = __webpack_require__(91);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var ReactInstrumentation = __webpack_require__(66);
 	
 	var createMicrosoftUnsafeLocalFunction = __webpack_require__(88);
@@ -10158,9 +10168,9 @@
 	module.exports = DOMChildrenOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 85 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2015-present, Facebook, Inc.
@@ -10280,9 +10290,9 @@
 	
 	module.exports = DOMLazyTree;
 
-/***/ }),
+/***/ },
 /* 86 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -10304,9 +10314,9 @@
 	
 	module.exports = DOMNamespaces;
 
-/***/ }),
+/***/ },
 /* 87 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -10320,7 +10330,7 @@
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	var DOMNamespaces = __webpack_require__(86);
 	
 	var WHITESPACE_TEST = /^[ \r\n\t\f]/;
@@ -10406,9 +10416,9 @@
 	
 	module.exports = setInnerHTML;
 
-/***/ }),
+/***/ },
 /* 88 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -10442,9 +10452,9 @@
 	
 	module.exports = createMicrosoftUnsafeLocalFunction;
 
-/***/ }),
+/***/ },
 /* 89 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -10458,7 +10468,7 @@
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	var escapeTextContentForBrowser = __webpack_require__(90);
 	var setInnerHTML = __webpack_require__(87);
 	
@@ -10498,9 +10508,9 @@
 	
 	module.exports = setTextContent;
 
-/***/ }),
+/***/ },
 /* 90 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2016-present, Facebook, Inc.
@@ -10625,9 +10635,9 @@
 	
 	module.exports = escapeTextContentForBrowser;
 
-/***/ }),
+/***/ },
 /* 91 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -10641,14 +10651,14 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
 	var DOMLazyTree = __webpack_require__(85);
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	
 	var createNodesFromMarkup = __webpack_require__(92);
-	var emptyFunction = __webpack_require__(12);
-	var invariant = __webpack_require__(8);
+	var emptyFunction = __webpack_require__(48);
+	var invariant = __webpack_require__(37);
 	
 	var Danger = {
 	
@@ -10678,9 +10688,9 @@
 	module.exports = Danger;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 92 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
@@ -10697,11 +10707,11 @@
 	
 	/*eslint-disable fb-www/unsafe-html*/
 	
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	
 	var createArrayFromMixed = __webpack_require__(93);
 	var getMarkupWrap = __webpack_require__(94);
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * Dummy container used to render all markup.
@@ -10767,9 +10777,9 @@
 	module.exports = createNodesFromMarkup;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 93 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
@@ -10786,7 +10796,7 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * Convert array-like objects to arrays.
@@ -10901,9 +10911,9 @@
 	module.exports = createArrayFromMixed;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 94 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
@@ -10919,9 +10929,9 @@
 	
 	/*eslint-disable fb-www/unsafe-html */
 	
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * Dummy container used to detect which wraps are necessary.
@@ -11001,9 +11011,9 @@
 	module.exports = getMarkupWrap;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 95 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -11018,7 +11028,7 @@
 	'use strict';
 	
 	var DOMChildrenOperations = __webpack_require__(84);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	
 	/**
 	 * Operations used to process updates to DOM nodes.
@@ -11039,9 +11049,9 @@
 	
 	module.exports = ReactDOMIDOperations;
 
-/***/ }),
+/***/ },
 /* 96 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -11059,35 +11069,35 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _prodInvariant = __webpack_require__(39),
-	    _assign = __webpack_require__(4);
+	var _prodInvariant = __webpack_require__(35),
+	    _assign = __webpack_require__(53);
 	
 	var AutoFocusUtils = __webpack_require__(97);
 	var CSSPropertyOperations = __webpack_require__(99);
 	var DOMLazyTree = __webpack_require__(85);
 	var DOMNamespaces = __webpack_require__(86);
-	var DOMProperty = __webpack_require__(40);
+	var DOMProperty = __webpack_require__(36);
 	var DOMPropertyOperations = __webpack_require__(107);
-	var EventPluginHub = __webpack_require__(46);
-	var EventPluginRegistry = __webpack_require__(47);
+	var EventPluginHub = __webpack_require__(43);
+	var EventPluginRegistry = __webpack_require__(44);
 	var ReactBrowserEventEmitter = __webpack_require__(109);
-	var ReactDOMComponentFlags = __webpack_require__(41);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentFlags = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var ReactDOMInput = __webpack_require__(112);
 	var ReactDOMOption = __webpack_require__(115);
 	var ReactDOMSelect = __webpack_require__(116);
 	var ReactDOMTextarea = __webpack_require__(117);
 	var ReactInstrumentation = __webpack_require__(66);
 	var ReactMultiChild = __webpack_require__(118);
-	var ReactServerRenderingTransaction = __webpack_require__(137);
+	var ReactServerRenderingTransaction = __webpack_require__(138);
 	
-	var emptyFunction = __webpack_require__(12);
+	var emptyFunction = __webpack_require__(48);
 	var escapeTextContentForBrowser = __webpack_require__(90);
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	var isEventSupported = __webpack_require__(74);
-	var shallowEqual = __webpack_require__(127);
-	var validateDOMNesting = __webpack_require__(140);
-	var warning = __webpack_require__(11);
+	var shallowEqual = __webpack_require__(128);
+	var validateDOMNesting = __webpack_require__(141);
+	var warning = __webpack_require__(47);
 	
 	var Flags = ReactDOMComponentFlags;
 	var deleteListener = EventPluginHub.deleteListener;
@@ -12047,9 +12057,9 @@
 	module.exports = ReactDOMComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 97 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -12063,7 +12073,7 @@
 	
 	'use strict';
 	
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	
 	var focusNode = __webpack_require__(98);
 	
@@ -12075,9 +12085,9 @@
 	
 	module.exports = AutoFocusUtils;
 
-/***/ }),
+/***/ },
 /* 98 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -12106,9 +12116,9 @@
 	
 	module.exports = focusNode;
 
-/***/ }),
+/***/ },
 /* 99 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -12123,14 +12133,14 @@
 	'use strict';
 	
 	var CSSProperty = __webpack_require__(100);
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	var ReactInstrumentation = __webpack_require__(66);
 	
 	var camelizeStyleName = __webpack_require__(101);
 	var dangerousStyleValue = __webpack_require__(103);
 	var hyphenateStyleName = __webpack_require__(104);
 	var memoizeStringOnly = __webpack_require__(106);
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	var processStyleName = memoizeStringOnly(function (styleName) {
 	  return hyphenateStyleName(styleName);
@@ -12320,9 +12330,9 @@
 	module.exports = CSSPropertyOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 100 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -12472,9 +12482,9 @@
 	
 	module.exports = CSSProperty;
 
-/***/ }),
+/***/ },
 /* 101 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -12516,9 +12526,9 @@
 	
 	module.exports = camelizeStyleName;
 
-/***/ }),
+/***/ },
 /* 102 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -12552,9 +12562,9 @@
 	
 	module.exports = camelize;
 
-/***/ }),
+/***/ },
 /* 103 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -12569,7 +12579,7 @@
 	'use strict';
 	
 	var CSSProperty = __webpack_require__(100);
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	var isUnitlessNumber = CSSProperty.isUnitlessNumber;
 	var styleWarnings = {};
@@ -12636,9 +12646,9 @@
 	module.exports = dangerousStyleValue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 104 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -12679,9 +12689,9 @@
 	
 	module.exports = hyphenateStyleName;
 
-/***/ }),
+/***/ },
 /* 105 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -12716,9 +12726,9 @@
 	
 	module.exports = hyphenate;
 
-/***/ }),
+/***/ },
 /* 106 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -12750,9 +12760,9 @@
 	
 	module.exports = memoizeStringOnly;
 
-/***/ }),
+/***/ },
 /* 107 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -12766,12 +12776,12 @@
 	
 	'use strict';
 	
-	var DOMProperty = __webpack_require__(40);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var DOMProperty = __webpack_require__(36);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var ReactInstrumentation = __webpack_require__(66);
 	
 	var quoteAttributeValueForBrowser = __webpack_require__(108);
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
 	var illegalAttributeNameCache = {};
@@ -12992,9 +13002,9 @@
 	module.exports = DOMPropertyOperations;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 108 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -13022,9 +13032,9 @@
 	
 	module.exports = quoteAttributeValueForBrowser;
 
-/***/ }),
+/***/ },
 /* 109 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -13038,9 +13048,9 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
-	var EventPluginRegistry = __webpack_require__(47);
+	var EventPluginRegistry = __webpack_require__(44);
 	var ReactEventEmitterMixin = __webpack_require__(110);
 	var ViewportMetrics = __webpack_require__(80);
 	
@@ -13354,9 +13364,9 @@
 	
 	module.exports = ReactBrowserEventEmitter;
 
-/***/ }),
+/***/ },
 /* 110 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -13370,7 +13380,7 @@
 	
 	'use strict';
 	
-	var EventPluginHub = __webpack_require__(46);
+	var EventPluginHub = __webpack_require__(43);
 	
 	function runEventQueueInBatch(events) {
 	  EventPluginHub.enqueueEvents(events);
@@ -13391,9 +13401,9 @@
 	
 	module.exports = ReactEventEmitterMixin;
 
-/***/ }),
+/***/ },
 /* 111 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -13407,7 +13417,7 @@
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	
 	/**
 	 * Generate a mapping of standard vendor prefixes using the defined style property and event name.
@@ -13496,9 +13506,9 @@
 	
 	module.exports = getVendorPrefixedEventName;
 
-/***/ }),
+/***/ },
 /* 112 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -13512,16 +13522,16 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39),
-	    _assign = __webpack_require__(4);
+	var _prodInvariant = __webpack_require__(35),
+	    _assign = __webpack_require__(53);
 	
 	var DOMPropertyOperations = __webpack_require__(107);
 	var LinkedValueUtils = __webpack_require__(113);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var ReactUpdates = __webpack_require__(60);
 	
-	var invariant = __webpack_require__(8);
-	var warning = __webpack_require__(11);
+	var invariant = __webpack_require__(37);
+	var warning = __webpack_require__(47);
 	
 	var didWarnValueLink = false;
 	var didWarnCheckedLink = false;
@@ -13614,9 +13624,12 @@
 	      initialChecked: props.checked != null ? props.checked : props.defaultChecked,
 	      initialValue: props.value != null ? props.value : defaultValue,
 	      listeners: null,
-	      onChange: _handleChange.bind(inst),
-	      controlled: isControlled(props)
+	      onChange: _handleChange.bind(inst)
 	    };
+	
+	    if (process.env.NODE_ENV !== 'production') {
+	      inst._wrapperState.controlled = isControlled(props);
+	    }
 	  },
 	
 	  updateWrapper: function updateWrapper(inst) {
@@ -13645,24 +13658,14 @@
 	    var node = ReactDOMComponentTree.getNodeFromInstance(inst);
 	    var value = LinkedValueUtils.getValue(props);
 	    if (value != null) {
-	      if (value === 0 && node.value === '') {
-	        node.value = '0';
-	        // Note: IE9 reports a number inputs as 'text', so check props instead.
-	      } else if (props.type === 'number') {
-	        // Simulate `input.valueAsNumber`. IE9 does not support it
-	        var valueAsNumber = parseFloat(node.value, 10) || 0;
 	
-	        // eslint-disable-next-line
-	        if (value != valueAsNumber) {
-	          // Cast `value` to a string to ensure the value is set correctly. While
-	          // browsers typically do this as necessary, jsdom doesn't.
-	          node.value = '' + value;
-	        }
-	        // eslint-disable-next-line
-	      } else if (value != node.value) {
-	        // Cast `value` to a string to ensure the value is set correctly. While
-	        // browsers typically do this as necessary, jsdom doesn't.
-	        node.value = '' + value;
+	      // Cast `value` to a string to ensure the value is set correctly. While
+	      // browsers typically do this as necessary, jsdom doesn't.
+	      var newValue = '' + value;
+	
+	      // To avoid side effects (such as losing text selection), only set value if changed
+	      if (newValue !== node.value) {
+	        node.value = newValue;
 	      }
 	    } else {
 	      if (props.value == null && props.defaultValue != null) {
@@ -13786,9 +13789,9 @@
 	module.exports = ReactDOMInput;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 113 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -13802,16 +13805,13 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
-	
-	var ReactPropTypesSecret = __webpack_require__(114);
-	var propTypesFactory = __webpack_require__(30);
+	var _prodInvariant = __webpack_require__(35);
 	
 	var React = __webpack_require__(2);
-	var PropTypes = propTypesFactory(React.isValidElement);
+	var ReactPropTypesSecret = __webpack_require__(114);
 	
-	var invariant = __webpack_require__(8);
-	var warning = __webpack_require__(11);
+	var invariant = __webpack_require__(37);
+	var warning = __webpack_require__(47);
 	
 	var hasReadOnlyValue = {
 	  'button': true,
@@ -13849,7 +13849,7 @@
 	    }
 	    return new Error('You provided a `checked` prop to a form field without an ' + '`onChange` handler. This will render a read-only field. If ' + 'the field should be mutable use `defaultChecked`. Otherwise, ' + 'set either `onChange` or `readOnly`.');
 	  },
-	  onChange: PropTypes.func
+	  onChange: React.PropTypes.func
 	};
 	
 	var loggedTypeFailures = {};
@@ -13929,9 +13929,9 @@
 	module.exports = LinkedValueUtils;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 114 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -13950,9 +13950,9 @@
 	
 	module.exports = ReactPropTypesSecret;
 
-/***/ }),
+/***/ },
 /* 115 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -13966,13 +13966,13 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
 	var React = __webpack_require__(2);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var ReactDOMSelect = __webpack_require__(116);
 	
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	var didWarnInvalidOptionChildren = false;
 	
 	function flattenChildren(children) {
@@ -14078,9 +14078,9 @@
 	module.exports = ReactDOMOption;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 116 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -14094,13 +14094,13 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
 	var LinkedValueUtils = __webpack_require__(113);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var ReactUpdates = __webpack_require__(60);
 	
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	var didWarnValueLink = false;
 	var didWarnValueDefaultValue = false;
@@ -14283,9 +14283,9 @@
 	module.exports = ReactDOMSelect;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 117 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -14299,15 +14299,15 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39),
-	    _assign = __webpack_require__(4);
+	var _prodInvariant = __webpack_require__(35),
+	    _assign = __webpack_require__(53);
 	
 	var LinkedValueUtils = __webpack_require__(113);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var ReactUpdates = __webpack_require__(60);
 	
-	var invariant = __webpack_require__(8);
-	var warning = __webpack_require__(11);
+	var invariant = __webpack_require__(37);
+	var warning = __webpack_require__(47);
 	
 	var didWarnValueLink = false;
 	var didWarnValDefaultVal = false;
@@ -14448,9 +14448,9 @@
 	module.exports = ReactDOMTextarea;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 118 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -14464,7 +14464,7 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
 	var ReactComponentEnvironment = __webpack_require__(119);
 	var ReactInstanceMap = __webpack_require__(120);
@@ -14474,9 +14474,9 @@
 	var ReactReconciler = __webpack_require__(63);
 	var ReactChildReconciler = __webpack_require__(121);
 	
-	var emptyFunction = __webpack_require__(12);
-	var flattenChildren = __webpack_require__(136);
-	var invariant = __webpack_require__(8);
+	var emptyFunction = __webpack_require__(48);
+	var flattenChildren = __webpack_require__(137);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * Make an update for markup to be rendered and inserted at a supplied index.
@@ -14903,9 +14903,9 @@
 	module.exports = ReactMultiChild;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 119 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -14920,9 +14920,9 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	var injected = false;
 	
@@ -14954,9 +14954,9 @@
 	module.exports = ReactComponentEnvironment;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 120 */
-/***/ (function(module, exports) {
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -15006,9 +15006,9 @@
 	
 	module.exports = ReactInstanceMap;
 
-/***/ }),
+/***/ },
 /* 121 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -15025,10 +15025,10 @@
 	var ReactReconciler = __webpack_require__(63);
 	
 	var instantiateReactComponent = __webpack_require__(122);
-	var KeyEscapeUtils = __webpack_require__(132);
-	var shouldUpdateReactComponent = __webpack_require__(128);
-	var traverseAllChildren = __webpack_require__(133);
-	var warning = __webpack_require__(11);
+	var KeyEscapeUtils = __webpack_require__(133);
+	var shouldUpdateReactComponent = __webpack_require__(129);
+	var traverseAllChildren = __webpack_require__(134);
+	var warning = __webpack_require__(47);
 	
 	var ReactComponentTreeHook;
 	
@@ -15165,9 +15165,9 @@
 	module.exports = ReactChildReconciler;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 122 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -15183,21 +15183,24 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _prodInvariant = __webpack_require__(39),
-	    _assign = __webpack_require__(4);
+	var _prodInvariant = __webpack_require__(35),
+	    _assign = __webpack_require__(53);
 	
 	var ReactCompositeComponent = __webpack_require__(123);
-	var ReactEmptyComponent = __webpack_require__(129);
-	var ReactHostComponent = __webpack_require__(130);
+	var ReactEmptyComponent = __webpack_require__(130);
+	var ReactHostComponent = __webpack_require__(131);
 	
-	var getNextDebugID = __webpack_require__(131);
-	var invariant = __webpack_require__(8);
-	var warning = __webpack_require__(11);
+	var getNextDebugID = __webpack_require__(132);
+	var invariant = __webpack_require__(37);
+	var warning = __webpack_require__(47);
 	
 	// To avoid a cyclic dependency, we create the final class in this module
 	var ReactCompositeComponentWrapper = function ReactCompositeComponentWrapper(element) {
 	  this.construct(element);
 	};
+	_assign(ReactCompositeComponentWrapper.prototype, ReactCompositeComponent, {
+	  _instantiateReactComponent: instantiateReactComponent
+	});
 	
 	function getDeclarationErrorAddendum(owner) {
 	  if (owner) {
@@ -15294,16 +15297,12 @@
 	  return instance;
 	}
 	
-	_assign(ReactCompositeComponentWrapper.prototype, ReactCompositeComponent, {
-	  _instantiateReactComponent: instantiateReactComponent
-	});
-	
 	module.exports = instantiateReactComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 123 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -15319,13 +15318,13 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _prodInvariant = __webpack_require__(39),
-	    _assign = __webpack_require__(4);
+	var _prodInvariant = __webpack_require__(35),
+	    _assign = __webpack_require__(53);
 	
 	var React = __webpack_require__(2);
 	var ReactComponentEnvironment = __webpack_require__(119);
 	var ReactCurrentOwner = __webpack_require__(10);
-	var ReactErrorUtils = __webpack_require__(49);
+	var ReactErrorUtils = __webpack_require__(46);
 	var ReactInstanceMap = __webpack_require__(120);
 	var ReactInstrumentation = __webpack_require__(66);
 	var ReactNodeTypes = __webpack_require__(124);
@@ -15335,11 +15334,11 @@
 	  var checkReactTypeSpec = __webpack_require__(125);
 	}
 	
-	var emptyObject = __webpack_require__(20);
-	var invariant = __webpack_require__(8);
-	var shallowEqual = __webpack_require__(127);
-	var shouldUpdateReactComponent = __webpack_require__(128);
-	var warning = __webpack_require__(11);
+	var emptyObject = __webpack_require__(127);
+	var invariant = __webpack_require__(37);
+	var shallowEqual = __webpack_require__(128);
+	var shouldUpdateReactComponent = __webpack_require__(129);
+	var warning = __webpack_require__(47);
 	
 	var CompositeTypes = {
 	  ImpureClass: 0,
@@ -15823,7 +15822,7 @@
 	    if (childContext) {
 	      !(_typeof(Component.childContextTypes) === 'object') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().', this.getName() || 'ReactCompositeComponent') : _prodInvariant('107', this.getName() || 'ReactCompositeComponent') : void 0;
 	      if (process.env.NODE_ENV !== 'production') {
-	        this._checkContextTypes(Component.childContextTypes, childContext, 'child context');
+	        this._checkContextTypes(Component.childContextTypes, childContext, 'childContext');
 	      }
 	      for (var name in childContext) {
 	        !(name in Component.childContextTypes) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getChildContext(): key "%s" is not defined in childContextTypes.', this.getName() || 'ReactCompositeComponent', name) : _prodInvariant('108', this.getName() || 'ReactCompositeComponent', name) : void 0;
@@ -16210,9 +16209,9 @@
 	module.exports = ReactCompositeComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 124 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -16227,11 +16226,11 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
 	var React = __webpack_require__(2);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	var ReactNodeTypes = {
 	  HOST: 0,
@@ -16255,9 +16254,9 @@
 	module.exports = ReactNodeTypes;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 125 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -16273,13 +16272,13 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
 	var ReactPropTypeLocationNames = __webpack_require__(126);
 	var ReactPropTypesSecret = __webpack_require__(114);
 	
-	var invariant = __webpack_require__(8);
-	var warning = __webpack_require__(11);
+	var invariant = __webpack_require__(37);
+	var warning = __webpack_require__(47);
 	
 	var ReactComponentTreeHook;
 	
@@ -16349,9 +16348,9 @@
 	module.exports = checkReactTypeSpec;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 126 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -16379,9 +16378,34 @@
 	module.exports = ReactPropTypeLocationNames;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
+/***/ },
 /* 127 */
-/***/ (function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 */
+	
+	'use strict';
+	
+	var emptyObject = {};
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  Object.freeze(emptyObject);
+	}
+	
+	module.exports = emptyObject;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 128 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -16453,9 +16477,9 @@
 	
 	module.exports = shallowEqual;
 
-/***/ }),
-/* 128 */
-/***/ (function(module, exports) {
+/***/ },
+/* 129 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -16501,9 +16525,9 @@
 	
 	module.exports = shouldUpdateReactComponent;
 
-/***/ }),
-/* 129 */
-/***/ (function(module, exports) {
+/***/ },
+/* 130 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -16535,9 +16559,9 @@
 	
 	module.exports = ReactEmptyComponent;
 
-/***/ }),
-/* 130 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 131 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -16551,9 +16575,9 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	var genericComponentClass = null;
 	var textComponentClass = null;
@@ -16608,9 +16632,9 @@
 	module.exports = ReactHostComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 131 */
-/***/ (function(module, exports) {
+/***/ },
+/* 132 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -16633,9 +16657,9 @@
 	
 	module.exports = getNextDebugID;
 
-/***/ }),
-/* 132 */
-/***/ (function(module, exports) {
+/***/ },
+/* 133 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -16696,9 +16720,9 @@
 	
 	module.exports = KeyEscapeUtils;
 
-/***/ }),
-/* 133 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 134 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -16714,15 +16738,15 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
 	var ReactCurrentOwner = __webpack_require__(10);
-	var REACT_ELEMENT_TYPE = __webpack_require__(134);
+	var REACT_ELEMENT_TYPE = __webpack_require__(135);
 	
-	var getIteratorFn = __webpack_require__(135);
-	var invariant = __webpack_require__(8);
-	var KeyEscapeUtils = __webpack_require__(132);
-	var warning = __webpack_require__(11);
+	var getIteratorFn = __webpack_require__(136);
+	var invariant = __webpack_require__(37);
+	var KeyEscapeUtils = __webpack_require__(133);
+	var warning = __webpack_require__(47);
 	
 	var SEPARATOR = '.';
 	var SUBSEPARATOR = ':';
@@ -16879,9 +16903,9 @@
 	module.exports = traverseAllChildren;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 134 */
-/***/ (function(module, exports) {
+/***/ },
+/* 135 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -16903,9 +16927,9 @@
 	
 	module.exports = REACT_ELEMENT_TYPE;
 
-/***/ }),
-/* 135 */
-/***/ (function(module, exports) {
+/***/ },
+/* 136 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -16948,9 +16972,9 @@
 	
 	module.exports = getIteratorFn;
 
-/***/ }),
-/* 136 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 137 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -16967,9 +16991,9 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var KeyEscapeUtils = __webpack_require__(132);
-	var traverseAllChildren = __webpack_require__(133);
-	var warning = __webpack_require__(11);
+	var KeyEscapeUtils = __webpack_require__(133);
+	var traverseAllChildren = __webpack_require__(134);
+	var warning = __webpack_require__(47);
 	
 	var ReactComponentTreeHook;
 	
@@ -17031,9 +17055,9 @@
 	module.exports = flattenChildren;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 137 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 138 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -17047,12 +17071,12 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
 	var PooledClass = __webpack_require__(54);
 	var Transaction = __webpack_require__(72);
 	var ReactInstrumentation = __webpack_require__(66);
-	var ReactServerUpdateQueue = __webpack_require__(138);
+	var ReactServerUpdateQueue = __webpack_require__(139);
 	
 	/**
 	 * Executed within the scope of the `Transaction` instance. Consider these as
@@ -17126,9 +17150,9 @@
 	module.exports = ReactServerRenderingTransaction;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 138 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 139 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015-present, Facebook, Inc.
@@ -17149,9 +17173,9 @@
 	  }
 	}
 	
-	var ReactUpdateQueue = __webpack_require__(139);
+	var ReactUpdateQueue = __webpack_require__(140);
 	
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	function warnNoop(publicInstance, callerName) {
 	  if (process.env.NODE_ENV !== 'production') {
@@ -17269,9 +17293,9 @@
 	module.exports = ReactServerUpdateQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 139 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 140 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015-present, Facebook, Inc.
@@ -17287,15 +17311,15 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
 	var ReactCurrentOwner = __webpack_require__(10);
 	var ReactInstanceMap = __webpack_require__(120);
 	var ReactInstrumentation = __webpack_require__(66);
 	var ReactUpdates = __webpack_require__(60);
 	
-	var invariant = __webpack_require__(8);
-	var warning = __webpack_require__(11);
+	var invariant = __webpack_require__(37);
+	var warning = __webpack_require__(47);
 	
 	function enqueueUpdate(internalInstance) {
 	  ReactUpdates.enqueueUpdate(internalInstance);
@@ -17445,7 +17469,7 @@
 	   * @param {object} completeState Next state.
 	   * @internal
 	   */
-	  enqueueReplaceState: function enqueueReplaceState(publicInstance, completeState, callback) {
+	  enqueueReplaceState: function enqueueReplaceState(publicInstance, completeState) {
 	    var internalInstance = getInternalInstanceReadyForUpdate(publicInstance, 'replaceState');
 	
 	    if (!internalInstance) {
@@ -17454,16 +17478,6 @@
 	
 	    internalInstance._pendingStateQueue = [completeState];
 	    internalInstance._pendingReplaceState = true;
-	
-	    // Future-proof 15.5
-	    if (callback !== undefined && callback !== null) {
-	      ReactUpdateQueue.validateCallback(callback, 'replaceState');
-	      if (internalInstance._pendingCallbacks) {
-	        internalInstance._pendingCallbacks.push(callback);
-	      } else {
-	        internalInstance._pendingCallbacks = [callback];
-	      }
-	    }
 	
 	    enqueueUpdate(internalInstance);
 	  },
@@ -17512,9 +17526,9 @@
 	module.exports = ReactUpdateQueue;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 140 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 141 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015-present, Facebook, Inc.
@@ -17528,10 +17542,10 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
-	var emptyFunction = __webpack_require__(12);
-	var warning = __webpack_require__(11);
+	var emptyFunction = __webpack_require__(48);
+	var warning = __webpack_require__(47);
 	
 	var validateDOMNesting = emptyFunction;
 	
@@ -17742,11 +17756,16 @@
 	      case 'section':
 	      case 'summary':
 	      case 'ul':
+	
 	      case 'pre':
 	      case 'listing':
+	
 	      case 'table':
+	
 	      case 'hr':
+	
 	      case 'xmp':
+	
 	      case 'h1':
 	      case 'h2':
 	      case 'h3':
@@ -17894,9 +17913,9 @@
 	module.exports = validateDOMNesting;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 141 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 142 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2014-present, Facebook, Inc.
@@ -17910,10 +17929,10 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
 	var DOMLazyTree = __webpack_require__(85);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	
 	var ReactDOMEmptyComponent = function ReactDOMEmptyComponent(instantiate) {
 	  // ReactCompositeComponent uses this:
@@ -17958,9 +17977,9 @@
 	
 	module.exports = ReactDOMEmptyComponent;
 
-/***/ }),
-/* 142 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 143 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2015-present, Facebook, Inc.
@@ -17974,9 +17993,9 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * Return the lowest common ancestor of A and B, or null if they are in
@@ -18099,9 +18118,9 @@
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 143 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 144 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -18115,16 +18134,16 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39),
-	    _assign = __webpack_require__(4);
+	var _prodInvariant = __webpack_require__(35),
+	    _assign = __webpack_require__(53);
 	
 	var DOMChildrenOperations = __webpack_require__(84);
 	var DOMLazyTree = __webpack_require__(85);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	
 	var escapeTextContentForBrowser = __webpack_require__(90);
-	var invariant = __webpack_require__(8);
-	var validateDOMNesting = __webpack_require__(140);
+	var invariant = __webpack_require__(37);
+	var validateDOMNesting = __webpack_require__(141);
 	
 	/**
 	 * Text nodes violate a couple assumptions that React makes about components:
@@ -18268,9 +18287,9 @@
 	module.exports = ReactDOMTextComponent;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 144 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 145 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -18284,12 +18303,12 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
 	var ReactUpdates = __webpack_require__(60);
 	var Transaction = __webpack_require__(72);
 	
-	var emptyFunction = __webpack_require__(12);
+	var emptyFunction = __webpack_require__(48);
 	
 	var RESET_BATCHED_UPDATES = {
 	  initialize: emptyFunction,
@@ -18340,9 +18359,9 @@
 	
 	module.exports = ReactDefaultBatchingStrategy;
 
-/***/ }),
-/* 145 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 146 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -18356,16 +18375,16 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
-	var EventListener = __webpack_require__(146);
-	var ExecutionEnvironment = __webpack_require__(52);
+	var EventListener = __webpack_require__(147);
+	var ExecutionEnvironment = __webpack_require__(51);
 	var PooledClass = __webpack_require__(54);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var ReactUpdates = __webpack_require__(60);
 	
 	var getEventTarget = __webpack_require__(73);
-	var getUnboundedScrollPosition = __webpack_require__(147);
+	var getUnboundedScrollPosition = __webpack_require__(148);
 	
 	/**
 	 * Find the deepest React component completely containing the root of the
@@ -18499,9 +18518,9 @@
 	
 	module.exports = ReactEventListener;
 
-/***/ }),
-/* 146 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 147 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
@@ -18523,7 +18542,7 @@
 	 * @typechecks
 	 */
 	
-	var emptyFunction = __webpack_require__(12);
+	var emptyFunction = __webpack_require__(48);
 	
 	/**
 	 * Upstream version of event listener. Does not take into account specific
@@ -18588,9 +18607,9 @@
 	module.exports = EventListener;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 147 */
-/***/ (function(module, exports) {
+/***/ },
+/* 148 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright (c) 2013-present, Facebook, Inc.
@@ -18631,9 +18650,9 @@
 	
 	module.exports = getUnboundedScrollPosition;
 
-/***/ }),
-/* 148 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 149 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -18647,13 +18666,13 @@
 	
 	'use strict';
 	
-	var DOMProperty = __webpack_require__(40);
-	var EventPluginHub = __webpack_require__(46);
-	var EventPluginUtils = __webpack_require__(48);
+	var DOMProperty = __webpack_require__(36);
+	var EventPluginHub = __webpack_require__(43);
+	var EventPluginUtils = __webpack_require__(45);
 	var ReactComponentEnvironment = __webpack_require__(119);
-	var ReactEmptyComponent = __webpack_require__(129);
+	var ReactEmptyComponent = __webpack_require__(130);
 	var ReactBrowserEventEmitter = __webpack_require__(109);
-	var ReactHostComponent = __webpack_require__(130);
+	var ReactHostComponent = __webpack_require__(131);
 	var ReactUpdates = __webpack_require__(60);
 	
 	var ReactInjection = {
@@ -18669,9 +18688,9 @@
 	
 	module.exports = ReactInjection;
 
-/***/ }),
-/* 149 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 150 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -18685,15 +18704,15 @@
 	
 	'use strict';
 	
-	var _assign = __webpack_require__(4);
+	var _assign = __webpack_require__(53);
 	
 	var CallbackQueue = __webpack_require__(61);
 	var PooledClass = __webpack_require__(54);
 	var ReactBrowserEventEmitter = __webpack_require__(109);
-	var ReactInputSelection = __webpack_require__(150);
+	var ReactInputSelection = __webpack_require__(151);
 	var ReactInstrumentation = __webpack_require__(66);
 	var Transaction = __webpack_require__(72);
-	var ReactUpdateQueue = __webpack_require__(139);
+	var ReactUpdateQueue = __webpack_require__(140);
 	
 	/**
 	 * Ensures that, when possible, the selection range (currently selected text
@@ -18852,9 +18871,9 @@
 	module.exports = ReactReconcileTransaction;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 150 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 151 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -18868,11 +18887,11 @@
 	
 	'use strict';
 	
-	var ReactDOMSelection = __webpack_require__(151);
+	var ReactDOMSelection = __webpack_require__(152);
 	
-	var containsNode = __webpack_require__(153);
+	var containsNode = __webpack_require__(154);
 	var focusNode = __webpack_require__(98);
-	var getActiveElement = __webpack_require__(156);
+	var getActiveElement = __webpack_require__(157);
 	
 	function isInDocument(node) {
 	  return containsNode(document.documentElement, node);
@@ -18980,9 +18999,9 @@
 	
 	module.exports = ReactInputSelection;
 
-/***/ }),
-/* 151 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 152 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -18996,9 +19015,9 @@
 	
 	'use strict';
 	
-	var ExecutionEnvironment = __webpack_require__(52);
+	var ExecutionEnvironment = __webpack_require__(51);
 	
-	var getNodeForCharacterOffset = __webpack_require__(152);
+	var getNodeForCharacterOffset = __webpack_require__(153);
 	var getTextContentAccessor = __webpack_require__(55);
 	
 	/**
@@ -19196,9 +19215,9 @@
 	
 	module.exports = ReactDOMSelection;
 
-/***/ }),
-/* 152 */
-/***/ (function(module, exports) {
+/***/ },
+/* 153 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -19274,9 +19293,9 @@
 	
 	module.exports = getNodeForCharacterOffset;
 
-/***/ }),
-/* 153 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 154 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -19291,7 +19310,7 @@
 	 * 
 	 */
 	
-	var isTextNode = __webpack_require__(154);
+	var isTextNode = __webpack_require__(155);
 	
 	/*eslint-disable no-bitwise */
 	
@@ -19318,9 +19337,9 @@
 	
 	module.exports = containsNode;
 
-/***/ }),
-/* 154 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 155 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -19335,7 +19354,7 @@
 	 * @typechecks
 	 */
 	
-	var isNode = __webpack_require__(155);
+	var isNode = __webpack_require__(156);
 	
 	/**
 	 * @param {*} object The object to check.
@@ -19347,9 +19366,9 @@
 	
 	module.exports = isTextNode;
 
-/***/ }),
-/* 155 */
-/***/ (function(module, exports) {
+/***/ },
+/* 156 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -19379,9 +19398,9 @@
 	
 	module.exports = isNode;
 
-/***/ }),
-/* 156 */
-/***/ (function(module, exports) {
+/***/ },
+/* 157 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -19423,9 +19442,9 @@
 	
 	module.exports = getActiveElement;
 
-/***/ }),
-/* 157 */
-/***/ (function(module, exports) {
+/***/ },
+/* 158 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -19729,9 +19748,9 @@
 	
 	module.exports = SVGDOMPropertyConfig;
 
-/***/ }),
-/* 158 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -19745,15 +19764,15 @@
 	
 	'use strict';
 	
-	var EventPropagators = __webpack_require__(45);
-	var ExecutionEnvironment = __webpack_require__(52);
-	var ReactDOMComponentTree = __webpack_require__(38);
-	var ReactInputSelection = __webpack_require__(150);
+	var EventPropagators = __webpack_require__(42);
+	var ExecutionEnvironment = __webpack_require__(51);
+	var ReactDOMComponentTree = __webpack_require__(34);
+	var ReactInputSelection = __webpack_require__(151);
 	var SyntheticEvent = __webpack_require__(57);
 	
-	var getActiveElement = __webpack_require__(156);
+	var getActiveElement = __webpack_require__(157);
 	var isTextInputElement = __webpack_require__(75);
-	var shallowEqual = __webpack_require__(127);
+	var shallowEqual = __webpack_require__(128);
 	
 	var skipSelectionChangeEvent = ExecutionEnvironment.canUseDOM && 'documentMode' in document && document.documentMode <= 11;
 	
@@ -19924,9 +19943,9 @@
 	
 	module.exports = SelectEventPlugin;
 
-/***/ }),
-/* 159 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -19941,26 +19960,26 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
-	var EventListener = __webpack_require__(146);
-	var EventPropagators = __webpack_require__(45);
-	var ReactDOMComponentTree = __webpack_require__(38);
-	var SyntheticAnimationEvent = __webpack_require__(160);
-	var SyntheticClipboardEvent = __webpack_require__(161);
+	var EventListener = __webpack_require__(147);
+	var EventPropagators = __webpack_require__(42);
+	var ReactDOMComponentTree = __webpack_require__(34);
+	var SyntheticAnimationEvent = __webpack_require__(161);
+	var SyntheticClipboardEvent = __webpack_require__(162);
 	var SyntheticEvent = __webpack_require__(57);
-	var SyntheticFocusEvent = __webpack_require__(162);
-	var SyntheticKeyboardEvent = __webpack_require__(163);
+	var SyntheticFocusEvent = __webpack_require__(163);
+	var SyntheticKeyboardEvent = __webpack_require__(164);
 	var SyntheticMouseEvent = __webpack_require__(78);
-	var SyntheticDragEvent = __webpack_require__(166);
-	var SyntheticTouchEvent = __webpack_require__(167);
-	var SyntheticTransitionEvent = __webpack_require__(168);
+	var SyntheticDragEvent = __webpack_require__(167);
+	var SyntheticTouchEvent = __webpack_require__(168);
+	var SyntheticTransitionEvent = __webpack_require__(169);
 	var SyntheticUIEvent = __webpack_require__(79);
-	var SyntheticWheelEvent = __webpack_require__(169);
+	var SyntheticWheelEvent = __webpack_require__(170);
 	
-	var emptyFunction = __webpack_require__(12);
-	var getEventCharCode = __webpack_require__(164);
-	var invariant = __webpack_require__(8);
+	var emptyFunction = __webpack_require__(48);
+	var getEventCharCode = __webpack_require__(165);
+	var invariant = __webpack_require__(37);
 	
 	/**
 	 * Turns
@@ -20157,9 +20176,9 @@
 	module.exports = SimpleEventPlugin;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 160 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20200,9 +20219,9 @@
 	
 	module.exports = SyntheticAnimationEvent;
 
-/***/ }),
-/* 161 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20242,9 +20261,9 @@
 	
 	module.exports = SyntheticClipboardEvent;
 
-/***/ }),
-/* 162 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 163 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20282,9 +20301,9 @@
 	
 	module.exports = SyntheticFocusEvent;
 
-/***/ }),
-/* 163 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 164 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20300,8 +20319,8 @@
 	
 	var SyntheticUIEvent = __webpack_require__(79);
 	
-	var getEventCharCode = __webpack_require__(164);
-	var getEventKey = __webpack_require__(165);
+	var getEventCharCode = __webpack_require__(165);
+	var getEventKey = __webpack_require__(166);
 	var getEventModifierState = __webpack_require__(81);
 	
 	/**
@@ -20370,9 +20389,9 @@
 	
 	module.exports = SyntheticKeyboardEvent;
 
-/***/ }),
-/* 164 */
-/***/ (function(module, exports) {
+/***/ },
+/* 165 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20424,9 +20443,9 @@
 	
 	module.exports = getEventCharCode;
 
-/***/ }),
-/* 165 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 166 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20440,7 +20459,7 @@
 	
 	'use strict';
 	
-	var getEventCharCode = __webpack_require__(164);
+	var getEventCharCode = __webpack_require__(165);
 	
 	/**
 	 * Normalization of deprecated HTML5 `key` values
@@ -20530,9 +20549,9 @@
 	
 	module.exports = getEventKey;
 
-/***/ }),
-/* 166 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 167 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20570,9 +20589,9 @@
 	
 	module.exports = SyntheticDragEvent;
 
-/***/ }),
-/* 167 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20619,9 +20638,9 @@
 	
 	module.exports = SyntheticTouchEvent;
 
-/***/ }),
-/* 168 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 169 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20662,9 +20681,9 @@
 	
 	module.exports = SyntheticTransitionEvent;
 
-/***/ }),
-/* 169 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 170 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20720,9 +20739,9 @@
 	
 	module.exports = SyntheticWheelEvent;
 
-/***/ }),
-/* 170 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 171 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -20736,30 +20755,30 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
 	var DOMLazyTree = __webpack_require__(85);
-	var DOMProperty = __webpack_require__(40);
+	var DOMProperty = __webpack_require__(36);
 	var React = __webpack_require__(2);
 	var ReactBrowserEventEmitter = __webpack_require__(109);
 	var ReactCurrentOwner = __webpack_require__(10);
-	var ReactDOMComponentTree = __webpack_require__(38);
-	var ReactDOMContainerInfo = __webpack_require__(171);
-	var ReactDOMFeatureFlags = __webpack_require__(172);
+	var ReactDOMComponentTree = __webpack_require__(34);
+	var ReactDOMContainerInfo = __webpack_require__(172);
+	var ReactDOMFeatureFlags = __webpack_require__(173);
 	var ReactFeatureFlags = __webpack_require__(62);
 	var ReactInstanceMap = __webpack_require__(120);
 	var ReactInstrumentation = __webpack_require__(66);
-	var ReactMarkupChecksum = __webpack_require__(173);
+	var ReactMarkupChecksum = __webpack_require__(174);
 	var ReactReconciler = __webpack_require__(63);
-	var ReactUpdateQueue = __webpack_require__(139);
+	var ReactUpdateQueue = __webpack_require__(140);
 	var ReactUpdates = __webpack_require__(60);
 	
-	var emptyObject = __webpack_require__(20);
+	var emptyObject = __webpack_require__(127);
 	var instantiateReactComponent = __webpack_require__(122);
-	var invariant = __webpack_require__(8);
+	var invariant = __webpack_require__(37);
 	var setInnerHTML = __webpack_require__(87);
-	var shouldUpdateReactComponent = __webpack_require__(128);
-	var warning = __webpack_require__(11);
+	var shouldUpdateReactComponent = __webpack_require__(129);
+	var warning = __webpack_require__(47);
 	
 	var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
 	var ROOT_ATTR_NAME = DOMProperty.ROOT_ATTRIBUTE_NAME;
@@ -21263,9 +21282,9 @@
 	module.exports = ReactMount;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 171 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 172 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21279,7 +21298,7 @@
 	
 	'use strict';
 	
-	var validateDOMNesting = __webpack_require__(140);
+	var validateDOMNesting = __webpack_require__(141);
 	
 	var DOC_NODE_TYPE = 9;
 	
@@ -21301,9 +21320,9 @@
 	module.exports = ReactDOMContainerInfo;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 172 */
-/***/ (function(module, exports) {
+/***/ },
+/* 173 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21324,9 +21343,9 @@
 	
 	module.exports = ReactDOMFeatureFlags;
 
-/***/ }),
-/* 173 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 174 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21340,7 +21359,7 @@
 	
 	'use strict';
 	
-	var adler32 = __webpack_require__(174);
+	var adler32 = __webpack_require__(175);
 	
 	var TAG_END = /\/?>/;
 	var COMMENT_START = /^<\!\-\-/;
@@ -21378,9 +21397,9 @@
 	
 	module.exports = ReactMarkupChecksum;
 
-/***/ }),
-/* 174 */
-/***/ (function(module, exports) {
+/***/ },
+/* 175 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21426,9 +21445,9 @@
 	
 	module.exports = adler32;
 
-/***/ }),
-/* 175 */
-/***/ (function(module, exports) {
+/***/ },
+/* 176 */
+/***/ function(module, exports) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21442,11 +21461,11 @@
 	
 	'use strict';
 	
-	module.exports = '15.5.4';
+	module.exports = '15.4.2';
 
-/***/ }),
-/* 176 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 177 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21460,15 +21479,15 @@
 	
 	'use strict';
 	
-	var _prodInvariant = __webpack_require__(39);
+	var _prodInvariant = __webpack_require__(35);
 	
 	var ReactCurrentOwner = __webpack_require__(10);
-	var ReactDOMComponentTree = __webpack_require__(38);
+	var ReactDOMComponentTree = __webpack_require__(34);
 	var ReactInstanceMap = __webpack_require__(120);
 	
-	var getHostComponentFromComposite = __webpack_require__(177);
-	var invariant = __webpack_require__(8);
-	var warning = __webpack_require__(11);
+	var getHostComponentFromComposite = __webpack_require__(178);
+	var invariant = __webpack_require__(37);
+	var warning = __webpack_require__(47);
 	
 	/**
 	 * Returns the DOM node rendered by this element.
@@ -21509,9 +21528,9 @@
 	module.exports = findDOMNode;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 177 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 178 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21543,9 +21562,9 @@
 	
 	module.exports = getHostComponentFromComposite;
 
-/***/ }),
-/* 178 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21559,13 +21578,13 @@
 	
 	'use strict';
 	
-	var ReactMount = __webpack_require__(170);
+	var ReactMount = __webpack_require__(171);
 	
 	module.exports = ReactMount.renderSubtreeIntoContainer;
 
-/***/ }),
-/* 179 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21579,11 +21598,11 @@
 	
 	'use strict';
 	
-	var DOMProperty = __webpack_require__(40);
-	var EventPluginRegistry = __webpack_require__(47);
+	var DOMProperty = __webpack_require__(36);
+	var EventPluginRegistry = __webpack_require__(44);
 	var ReactComponentTreeHook = __webpack_require__(26);
 	
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	if (process.env.NODE_ENV !== 'production') {
 	  var reactProps = {
@@ -21680,9 +21699,9 @@
 	module.exports = ReactDOMUnknownPropertyHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 180 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 181 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21698,7 +21717,7 @@
 	
 	var ReactComponentTreeHook = __webpack_require__(26);
 	
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	var didWarnValueNull = false;
 	
@@ -21728,9 +21747,9 @@
 	module.exports = ReactDOMNullInputValuePropHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 181 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2013-present, Facebook, Inc.
@@ -21744,10 +21763,10 @@
 	
 	'use strict';
 	
-	var DOMProperty = __webpack_require__(40);
+	var DOMProperty = __webpack_require__(36);
 	var ReactComponentTreeHook = __webpack_require__(26);
 	
-	var warning = __webpack_require__(11);
+	var warning = __webpack_require__(47);
 	
 	var warnedProperties = {};
 	var rARIA = new RegExp('^(aria)-[' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -21826,71 +21845,9 @@
 	module.exports = ReactDOMInvalidARIAHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 182 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	console.log("het");
-	
-	var NYCMap = function (_React$Component) {
-	    _inherits(NYCMap, _React$Component);
-	
-	    function NYCMap() {
-	        _classCallCheck(this, NYCMap);
-	
-	        return _possibleConstructorReturn(this, (NYCMap.__proto__ || Object.getPrototypeOf(NYCMap)).apply(this, arguments));
-	    }
-	
-	    _createClass(NYCMap, [{
-	        key: "render",
-	        value: function render() {
-	            console.log("doing things");
-	
-	            return _react2.default.createElement(
-	                "div",
-	                { className: "intro" },
-	                _react2.default.createElement(
-	                    "h3",
-	                    null,
-	                    "This is weird"
-	                ),
-	                _react2.default.createElement(
-	                    "div",
-	                    null,
-	                    "my anme isk h l;sadfsfasfd  conrad"
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return NYCMap;
-	}(_react2.default.Component);
-	
-	exports.default = NYCMap;
-
-/***/ }),
+/***/ },
 /* 183 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -21904,17 +21861,17 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _leaflet = __webpack_require__(184);
+	var _reactLeaflet = __webpack_require__(184);
 	
-	var _leaflet2 = _interopRequireDefault(_leaflet);
+	var _StationLayer = __webpack_require__(401);
 	
-	var _Filter = __webpack_require__(186);
+	var _StationLayer2 = _interopRequireDefault(_StationLayer);
 	
-	var _Filter2 = _interopRequireDefault(_Filter);
+	var _Legend = __webpack_require__(403);
 	
-	var _bk_subway_entrances = __webpack_require__(187);
+	var _Legend2 = _interopRequireDefault(_Legend);
 	
-	var _bk_subway_entrances2 = _interopRequireDefault(_bk_subway_entrances);
+	var _redux = __webpack_require__(404);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21923,263 +21880,311 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// postCSS import of Leaflet's CSS
-	//import 'leaflet/dist/leaflet.css';
-	// using webpack json loader we can import our geojson file like this
+	
+	// light bg
+	//const leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA"
+	
+	//dark bg
+	var leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/dark-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA";
+	
+	// get state, use for showing predictions vs bike angels
+	// window.store = createStore();
+	// store.subscribe(() =>{
+	//   console.log(store.getState());
+	// })  
 	
 	
-	// import local components Filter and ForkMe
+	var NYCTileLayer = function (_Component) {
+	  _inherits(NYCTileLayer, _Component);
 	
-	// store the map configuration properties in an object,
-	// we could also move this to a separate file & import it if desired.
+	  function NYCTileLayer(props) {
+	    _classCallCheck(this, NYCTileLayer);
 	
-	// store the map configuration properties in an object,
-	// we could also move this to a separate file & import it if desired.
-	var config = {};
-	config.params = {
-	  center: [40.655769, -73.938503],
-	  zoomControl: false,
-	  zoom: 13,
-	  maxZoom: 19,
-	  minZoom: 11,
-	  scrollwheel: false,
-	  legends: true,
-	  infoControl: false,
-	  attributionControl: true
-	};
-	config.tileLayer = {
-	  uri: 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-	  params: {
-	    minZoom: 11,
-	    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-	    id: '',
-	    accessToken: ''
-	  }
-	};
-	
-	// array to store unique names of Brooklyn subway lines,
-	// this eventually gets passed down to the Filter component
-	var subwayLineNames = [];
-	
-	var LeafletMap = function (_Component) {
-	  _inherits(LeafletMap, _Component);
-	
-	  function LeafletMap(props) {
-	    _classCallCheck(this, LeafletMap);
-	
-	    var _this = _possibleConstructorReturn(this, (LeafletMap.__proto__ || Object.getPrototypeOf(LeafletMap)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (NYCTileLayer.__proto__ || Object.getPrototypeOf(NYCTileLayer)).call(this, props));
 	
 	    _this.state = {
-	      map: null,
-	      tileLayer: null,
-	      geojsonLayer: null,
-	      geojson: null,
-	      subwayLinesFilter: '*',
-	      numEntrances: null
+	      lat: 40.736255,
+	      lng: -73.9690297,
+	      zoom: 12,
+	      bluemarble: false,
+	      view: 'Bike Angels'
 	    };
-	    _this._mapNode = null;
-	    _this.updateMap = _this.updateMap.bind(_this);
-	    _this.onEachFeature = _this.onEachFeature.bind(_this);
-	    _this.pointToLayer = _this.pointToLayer.bind(_this);
-	    _this.filterFeatures = _this.filterFeatures.bind(_this);
-	    _this.filterGeoJSONLayer = _this.filterGeoJSONLayer.bind(_this);
+	    _this.handleViewChange = _this.handleViewChange.bind(_this);
 	    return _this;
 	  }
 	
-	  _createClass(LeafletMap, [{
+	  _createClass(NYCTileLayer, [{
+	    key: 'handleViewChange',
+	    value: function handleViewChange() {
+	      this.setState({
+	        view: this.state.view === 'Bike Angels' ? 'Predictions' : 'Bike Angels'
+	      });
+	    }
+	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      // code to run just after the component "mounts" / DOM elements are created
-	      // we could make an AJAX request for the GeoJSON data here if it wasn't stored locally
-	      this.getData();
-	      // create the Leaflet map object
-	      if (!this.state.map) this.init(this._mapNode);
-	    }
-	  }, {
-	    key: 'componentDidUpdate',
-	    value: function componentDidUpdate(prevProps, prevState) {
-	      // code to run when the component receives new props or state
-	      // check to see if geojson is stored, map is created, and geojson overlay needs to be added
-	      if (this.state.geojson && this.state.map && !this.state.geojsonLayer) {
-	        // add the geojson overlay
-	        this.addGeoJSONLayer(this.state.geojson);
-	      }
-	
-	      // check to see if the subway lines filter has changed
-	      if (this.state.subwayLinesFilter !== prevState.subwayLinesFilter) {
-	        // filter / re-render the geojson overlay
-	        this.filterGeoJSONLayer();
-	      }
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      // code to run just before unmounting the component
-	      // this destroys the Leaflet map object & related event listeners
-	      this.state.map.remove();
-	    }
-	  }, {
-	    key: 'getData',
-	    value: function getData() {
-	      // could also be an AJAX request that results in setting state with the geojson data
-	      // for simplicity sake we are just importing the geojson data using webpack's json loader
-	      this.setState({
-	        numEntrances: _bk_subway_entrances2.default.features.length,
-	        geojson: _bk_subway_entrances2.default
-	      });
-	    }
-	  }, {
-	    key: 'updateMap',
-	    value: function updateMap(e) {
-	      var subwayLine = e.target.value;
-	      // change the subway line filter
-	      if (subwayLine === "All lines") {
-	        subwayLine = "*";
-	      }
-	      // update our state with the new filter value
-	      this.setState({
-	        subwayLinesFilter: subwayLine
-	      });
-	    }
-	  }, {
-	    key: 'addGeoJSONLayer',
-	    value: function addGeoJSONLayer(geojson) {
-	      // create a native Leaflet GeoJSON SVG Layer to add as an interactive overlay to the map
-	      // an options object is passed to define functions for customizing the layer
-	      var geojsonLayer = _leaflet2.default.geoJson(geojson, {
-	        onEachFeature: this.onEachFeature,
-	        pointToLayer: this.pointToLayer,
-	        filter: this.filterFeatures
-	      });
-	      // add our GeoJSON layer to the Leaflet map object
-	      geojsonLayer.addTo(this.state.map);
-	      // store the Leaflet GeoJSON layer in our component state for use later
-	      this.setState({ geojsonLayer: geojsonLayer });
-	      // fit the geographic extent of the GeoJSON layer within the map's bounds / viewport
-	      this.zoomToFeature(geojsonLayer);
-	    }
-	  }, {
-	    key: 'filterGeoJSONLayer',
-	    value: function filterGeoJSONLayer() {
-	      // clear the geojson layer of its data
-	      this.state.geojsonLayer.clearLayers();
-	      // re-add the geojson so that it filters out subway lines which do not match state.filter
-	      this.state.geojsonLayer.addData(_bk_subway_entrances2.default);
-	      // fit the map to the new geojson layer's geographic extent
-	      this.zoomToFeature(this.state.geojsonLayer);
-	    }
-	  }, {
-	    key: 'zoomToFeature',
-	    value: function zoomToFeature(target) {
-	      // pad fitBounds() so features aren't hidden under the Filter UI element
-	      var fitBoundsParams = {
-	        paddingTopLeft: [200, 10],
-	        paddingBottomRight: [10, 10]
-	      };
-	      // set the map's center & zoom so that it fits the geographic extent of the layer
-	      this.state.map.fitBounds(target.getBounds(), fitBoundsParams);
-	    }
-	  }, {
-	    key: 'filterFeatures',
-	    value: function filterFeatures(feature, layer) {
-	      // filter the subway entrances based on the map's current search filter
-	      // returns true only if the filter value matches the value of feature.properties.LINE
-	      var test = feature.properties.LINE.split('-').indexOf(this.state.subwayLinesFilter);
-	      if (this.state.subwayLinesFilter === '*' || test !== -1) {
-	        return true;
-	      }
-	    }
-	  }, {
-	    key: 'pointToLayer',
-	    value: function pointToLayer(feature, latlng) {
-	      // renders our GeoJSON points as circle markers, rather than Leaflet's default image markers
-	      // parameters to style the GeoJSON markers
-	      var markerParams = {
-	        radius: 4,
-	        fillColor: 'orange',
-	        color: '#fff',
-	        weight: 1,
-	        opacity: 0.5,
-	        fillOpacity: 0.8
-	      };
-	
-	      return _leaflet2.default.circleMarker(latlng, markerParams);
-	    }
-	  }, {
-	    key: 'onEachFeature',
-	    value: function onEachFeature(feature, layer) {
-	      if (feature.properties && feature.properties.NAME && feature.properties.LINE) {
-	
-	        // if the array for unique subway line names has not been made, create it
-	        // there are 19 unique names total
-	        if (subwayLineNames.length < 19) {
-	
-	          // add subway line name if it doesn't yet exist in the array
-	          feature.properties.LINE.split('-').forEach(function (line, index) {
-	            if (subwayLineNames.indexOf(line) === -1) subwayLineNames.push(line);
-	          });
-	
-	          // on the last GeoJSON feature
-	          if (this.state.geojson.features.indexOf(feature) === this.state.numEntrances - 1) {
-	            // use sort() to put our values in alphanumeric order
-	            subwayLineNames.sort();
-	            // finally add a value to represent all of the subway lines
-	            subwayLineNames.unshift('All lines');
-	          }
-	        }
-	
-	        // assemble the HTML for the markers' popups (Leaflet's bindPopup method doesn't accept React JSX)
-	        var popupContent = '<h3>' + feature.properties.NAME + '</h3>\n        <strong>Access to MTA lines: </strong>' + feature.properties.LINE;
-	
-	        // add our popups
-	        layer.bindPopup(popupContent);
-	      }
-	    }
-	  }, {
-	    key: 'init',
-	    value: function init(id) {
-	      if (this.state.map) return;
-	      // this function creates the Leaflet map object and is called after the Map component mounts
-	      var map = _leaflet2.default.map(id, config.params);
-	      _leaflet2.default.control.zoom({ position: "bottomleft" }).addTo(map);
-	      _leaflet2.default.control.scale({ position: "bottomleft" }).addTo(map);
-	
-	      // a TileLayer is used as the "basemap"
-	      var tileLayer = _leaflet2.default.tileLayer(config.tileLayer.uri, config.tileLayer.params).addTo(map);
-	
-	      // set our state to include the tile layer
-	      this.setState({ map: map, tileLayer: tileLayer });
+	      console.log("Tile layer mounted");
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
-	
-	      var subwayLinesFilter = this.state.subwayLinesFilter;
-	
 	      return _react2.default.createElement(
-	        'div',
-	        { id: 'mapUI' },
-	
-	        /* render the Filter component only after the subwayLines array has been created */
-	        subwayLineNames.length && _react2.default.createElement(_Filter2.default, { lines: subwayLineNames,
-	          curFilter: subwayLinesFilter,
-	          filterLines: this.updateMap }),
-	        _react2.default.createElement('div', { ref: function ref(node) {
-	            return _this2._mapNode = node;
-	          }, id: 'map' })
+	        _reactLeaflet.Map,
+	        {
+	          center: [this.state.lat, this.state.lng],
+	          zoom: this.state.zoom,
+	          onClick: this.onClick },
+	        _react2.default.createElement(_reactLeaflet.TileLayer, {
+	          layers: this.state.bluemarble ? 'nasa:bluemarble' : 'ne:ne',
+	          url: leafletUrl
+	        }),
+	        _react2.default.createElement(_StationLayer2.default, { view: this.state.view }),
+	        _react2.default.createElement(_Legend2.default, { view: this.state.view, changeView: this.handleViewChange })
 	      );
 	    }
 	  }]);
 	
-	  return LeafletMap;
+	  return NYCTileLayer;
 	}(_react.Component);
 	
-	exports.default = LeafletMap;
+	exports.default = NYCTileLayer;
 
-/***/ }),
+/***/ },
 /* 184 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.ZoomControl = exports.WMSTileLayer = exports.Tooltip = exports.TileLayer = exports.ScaleControl = exports.Rectangle = exports.Popup = exports.Polyline = exports.Polygon = exports.Path = exports.Pane = exports.Marker = exports.MapLayer = exports.MapControl = exports.MapComponent = exports.Map = exports.LayersControl = exports.LayerGroup = exports.ImageOverlay = exports.GridLayer = exports.GeoJSON = exports.FeatureGroup = exports.CircleMarker = exports.Circle = exports.AttributionControl = exports.PropTypes = undefined;
+	
+	var _types = __webpack_require__(185);
+	
+	var _PropTypes = _interopRequireWildcard(_types);
+	
+	var _AttributionControl2 = __webpack_require__(195);
+	
+	var _AttributionControl3 = _interopRequireDefault(_AttributionControl2);
+	
+	var _Circle2 = __webpack_require__(197);
+	
+	var _Circle3 = _interopRequireDefault(_Circle2);
+	
+	var _CircleMarker2 = __webpack_require__(372);
+	
+	var _CircleMarker3 = _interopRequireDefault(_CircleMarker2);
+	
+	var _FeatureGroup2 = __webpack_require__(373);
+	
+	var _FeatureGroup3 = _interopRequireDefault(_FeatureGroup2);
+	
+	var _GeoJSON2 = __webpack_require__(374);
+	
+	var _GeoJSON3 = _interopRequireDefault(_GeoJSON2);
+	
+	var _GridLayer2 = __webpack_require__(375);
+	
+	var _GridLayer3 = _interopRequireDefault(_GridLayer2);
+	
+	var _ImageOverlay2 = __webpack_require__(376);
+	
+	var _ImageOverlay3 = _interopRequireDefault(_ImageOverlay2);
+	
+	var _LayerGroup2 = __webpack_require__(377);
+	
+	var _LayerGroup3 = _interopRequireDefault(_LayerGroup2);
+	
+	var _LayersControl2 = __webpack_require__(378);
+	
+	var _LayersControl3 = _interopRequireDefault(_LayersControl2);
+	
+	var _Map2 = __webpack_require__(379);
+	
+	var _Map3 = _interopRequireDefault(_Map2);
+	
+	var _MapComponent2 = __webpack_require__(321);
+	
+	var _MapComponent3 = _interopRequireDefault(_MapComponent2);
+	
+	var _MapControl2 = __webpack_require__(196);
+	
+	var _MapControl3 = _interopRequireDefault(_MapControl2);
+	
+	var _MapLayer2 = __webpack_require__(320);
+	
+	var _MapLayer3 = _interopRequireDefault(_MapLayer2);
+	
+	var _Marker2 = __webpack_require__(388);
+	
+	var _Marker3 = _interopRequireDefault(_Marker2);
+	
+	var _Pane2 = __webpack_require__(389);
+	
+	var _Pane3 = _interopRequireDefault(_Pane2);
+	
+	var _Path2 = __webpack_require__(198);
+	
+	var _Path3 = _interopRequireDefault(_Path2);
+	
+	var _Polygon2 = __webpack_require__(392);
+	
+	var _Polygon3 = _interopRequireDefault(_Polygon2);
+	
+	var _Polyline2 = __webpack_require__(393);
+	
+	var _Polyline3 = _interopRequireDefault(_Polyline2);
+	
+	var _Popup2 = __webpack_require__(394);
+	
+	var _Popup3 = _interopRequireDefault(_Popup2);
+	
+	var _Rectangle2 = __webpack_require__(395);
+	
+	var _Rectangle3 = _interopRequireDefault(_Rectangle2);
+	
+	var _ScaleControl2 = __webpack_require__(396);
+	
+	var _ScaleControl3 = _interopRequireDefault(_ScaleControl2);
+	
+	var _TileLayer2 = __webpack_require__(397);
+	
+	var _TileLayer3 = _interopRequireDefault(_TileLayer2);
+	
+	var _Tooltip2 = __webpack_require__(398);
+	
+	var _Tooltip3 = _interopRequireDefault(_Tooltip2);
+	
+	var _WMSTileLayer2 = __webpack_require__(399);
+	
+	var _WMSTileLayer3 = _interopRequireDefault(_WMSTileLayer2);
+	
+	var _ZoomControl2 = __webpack_require__(400);
+	
+	var _ZoomControl3 = _interopRequireDefault(_ZoomControl2);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+	
+	function _interopRequireWildcard(obj) {
+	  if (obj && obj.__esModule) {
+	    return obj;
+	  } else {
+	    var newObj = {};if (obj != null) {
+	      for (var key in obj) {
+	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+	      }
+	    }newObj.default = obj;return newObj;
+	  }
+	}
+	
+	exports.PropTypes = _PropTypes;
+	exports.AttributionControl = _AttributionControl3.default;
+	exports.Circle = _Circle3.default;
+	exports.CircleMarker = _CircleMarker3.default;
+	exports.FeatureGroup = _FeatureGroup3.default;
+	exports.GeoJSON = _GeoJSON3.default;
+	exports.GridLayer = _GridLayer3.default;
+	exports.ImageOverlay = _ImageOverlay3.default;
+	exports.LayerGroup = _LayerGroup3.default;
+	exports.LayersControl = _LayersControl3.default;
+	exports.Map = _Map3.default;
+	exports.MapComponent = _MapComponent3.default;
+	exports.MapControl = _MapControl3.default;
+	exports.MapLayer = _MapLayer3.default;
+	exports.Marker = _Marker3.default;
+	exports.Pane = _Pane3.default;
+	exports.Path = _Path3.default;
+	exports.Polygon = _Polygon3.default;
+	exports.Polyline = _Polyline3.default;
+	exports.Popup = _Popup3.default;
+	exports.Rectangle = _Rectangle3.default;
+	exports.ScaleControl = _ScaleControl3.default;
+	exports.TileLayer = _TileLayer3.default;
+	exports.Tooltip = _Tooltip3.default;
+	exports.WMSTileLayer = _WMSTileLayer3.default;
+	exports.ZoomControl = _ZoomControl3.default;
+
+/***/ },
+/* 185 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.map = exports.layerContainer = exports.latlngList = exports.latlng = exports.controlPosition = exports.children = exports.bounds = undefined;
+	
+	var _bounds2 = __webpack_require__(186);
+	
+	var _bounds3 = _interopRequireDefault(_bounds2);
+	
+	var _children2 = __webpack_require__(191);
+	
+	var _children3 = _interopRequireDefault(_children2);
+	
+	var _controlPosition2 = __webpack_require__(192);
+	
+	var _controlPosition3 = _interopRequireDefault(_controlPosition2);
+	
+	var _latlng2 = __webpack_require__(190);
+	
+	var _latlng3 = _interopRequireDefault(_latlng2);
+	
+	var _latlngList2 = __webpack_require__(189);
+	
+	var _latlngList3 = _interopRequireDefault(_latlngList2);
+	
+	var _layerContainer2 = __webpack_require__(193);
+	
+	var _layerContainer3 = _interopRequireDefault(_layerContainer2);
+	
+	var _map2 = __webpack_require__(194);
+	
+	var _map3 = _interopRequireDefault(_map2);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+	
+	exports.bounds = _bounds3.default;
+	exports.children = _children3.default;
+	exports.controlPosition = _controlPosition3.default;
+	exports.latlng = _latlng3.default;
+	exports.latlngList = _latlngList3.default;
+	exports.layerContainer = _layerContainer3.default;
+	exports.map = _map3.default;
+
+/***/ },
+/* 186 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _leaflet = __webpack_require__(187);
+	
+	var _latlngList = __webpack_require__(189);
+	
+	var _latlngList2 = _interopRequireDefault(_latlngList);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+	
+	exports.default = _react.PropTypes.oneOfType([_react.PropTypes.instanceOf(_leaflet.LatLngBounds), _latlngList2.default]);
+
+/***/ },
+/* 187 */
+/***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {'use strict';
 	
@@ -35349,11 +35354,11 @@
 		};
 	})(window, document);
 	//# sourceMappingURL=leaflet-src.map
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(185)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(188)(module)))
 
-/***/ }),
-/* 185 */
-/***/ (function(module, exports) {
+/***/ },
+/* 188 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -35368,8584 +35373,9 @@
 		return module;
 	};
 
-/***/ }),
-/* 186 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	// the UI component for filtering the subway entrances by subway line
-	exports.default = function (props) {
-	  var lines = props.lines,
-	      filterLines = props.filterLines;
-	
-	  // this is the JSX that will become the Filter UI in the DOM, notice it looks pretty similar to HTML
-	  // notice in the select element onChange is set to the updateFilter method
-	  // thus when a user selects a new subway line to view, the component passes the new filter value
-	  // to the parent component, Map, which reloads the GeoJSON data with the current filter value
-	
-	  return _react2.default.createElement(
-	    "div",
-	    { className: "filterSubwayLines" },
-	    _react2.default.createElement("hr", null),
-	    _react2.default.createElement(
-	      "h3",
-	      null,
-	      "Brooklyn Subway Entrances"
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "A ",
-	      _react2.default.createElement(
-	        "a",
-	        { href: "http://leafletjs.com/" },
-	        "Leaflet"
-	      ),
-	      " & ",
-	      _react2.default.createElement(
-	        "a",
-	        { href: "https://facebook.github.io/react/" },
-	        "React"
-	      ),
-	      " demo"
-	    ),
-	    _react2.default.createElement(
-	      "p",
-	      null,
-	      "Filter Entrances by Subway Line"
-	    ),
-	    _react2.default.createElement(
-	      "select",
-	      { defaultValue: "*",
-	        type: "select",
-	        name: "filterlines",
-	        onChange: function onChange(e) {
-	          return filterLines(e);
-	        } },
-	      lines.map(function (line, i) {
-	        return _react2.default.createElement(
-	          "option",
-	          { value: line, key: i },
-	          line
-	        );
-	      }, undefined)
-	    )
-	  );
-	};
-
-/***/ }),
-/* 187 */
-/***/ (function(module, exports) {
-
-	module.exports = {
-		"type": "FeatureCollection",
-		"crs": {
-			"type": "name",
-			"properties": {
-				"name": "urn:ogc:def:crs:OGC:1.3:CRS84"
-			}
-		},
-		"features": [
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & Bergen St At Ne Corner (To Manhattan And Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.990271999345,
-						40.68672799798186
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Court St & Montague St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99067800092551,
-						40.693724998853824
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Court St & Montague St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99059199910174,
-						40.69364199830557
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Clinton St & Montague St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99253735670216,
-						40.69439278619724
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Empire Blvd At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96224891524794,
-						40.66272702490513
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Union St At Sw Corner (To Bay Ridge And Coney Island Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98339416860586,
-						40.67716401982004
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Union St At Se Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98308231248129,
-						40.67705130249777
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Union St At Se Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98298999689491,
-						40.67719475725075
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Bergen St At Sw Corner (To New Lots And Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97520899978223,
-						40.680698998820716
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Lawrence St & Willoughby St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98621464356312,
-						40.69204378033577
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Lawrence St & Willoughby St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98611377110988,
-						40.69225808275378
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Hoyt St & Fulton St At Sw Corner (To New Lots And Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98527100203843,
-						40.69044899949936
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bridge St & Fulton St At Ne Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98525500098741,
-						40.690895000985456
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Duffield St & Fulton St At Nw Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98455099831335,
-						40.69044199978965
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Duffield St & Fulton St At Ne Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98434700123391,
-						40.6904070012903
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bridge St & Willoughby St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98536143707845,
-						40.692095268651904
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bridge St & Willoughby St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98519673727048,
-						40.69223460552541
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Fleet St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98215994535106,
-						40.69150846830401
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Pacific St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97887100036486,
-						40.68392499970442
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ashland Pl & Hanson Pl At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9777473721409,
-						40.68515478067875
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Lawrence St & Willoughby St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98619067598592,
-						40.69235626218396
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & President St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99439275050348,
-						40.68111619771327
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Washington Ave & Eastern Pkwy At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9643753351117,
-						40.671877589168474
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Washington Ave & Eastern Pkwy At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96415217771613,
-						40.672136072953684
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Franklin Ave & Eastern Pkwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95788689859808,
-						40.670342315957214
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Franklin Ave & Eastern Pkwy At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95764559614624,
-						40.67074069740063
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Franklin Ave & Fulton St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9556977801989,
-						40.681034582896984
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Franklin Ave & Eastern Pkwy At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95772031852488,
-						40.67092629191872
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jay St & York St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98665300010569,
-						40.701321000802906
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & De Kalb Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98136070410504,
-						40.68986435448498
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Red Cross Pl & Adams St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98891297877691,
-						40.69916116507983
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Sands St & Adams St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98827070482115,
-						40.6992582163469
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Court St & Joralemon St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99060228648777,
-						40.69260407882958
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1515 Foster Avenue (Enter From Newkirk Ave Pz)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96278299980686,
-						40.63504200136832
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4902 12 Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99461199974412,
-						40.63637500016795
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "486 Clinton Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96711601775702,
-						40.6836771053233
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1175 Mc Donald Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97577719583627,
-						40.62456386442829
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1122 Broadway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92966699843994,
-						40.693671999425135
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "502 Broadway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95054470540002,
-						40.705471106092574
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "101 Avenue I",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97603746598148,
-						40.626144819589754
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "102 Beverly Road",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.979240000291,
-						40.642715000331116
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1490 Fulton Street (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94135896317181,
-						40.67977756234482
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "295 Broadway (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95800999870633,
-						40.70858900012303
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "573 Lafayette Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95165440346264,
-						40.69002469276321
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "462 Flatbush Avenue (Enter From Lincoln Rd)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96204895828335,
-						40.66085836863899
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1720 Broadway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91127400116414,
-						40.68318099966718
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "856 Fulton Street (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96709508202686,
-						40.68338825648386
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "2154 Fulton Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91063400120161,
-						40.678054001603535
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "626 Manhattan Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9505920010289,
-						40.72371499892522
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "344 Classon Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96014953442194,
-						40.68876289999111
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "602 Marcy Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9490800007543,
-						40.69397899865605
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "2137 Nostrand Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.947506333769,
-						40.63303428402544
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "70 6 Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97476299907719,
-						40.680675001002655
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Flatbush Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94792800132875,
-						40.633251000513745
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Flatbush Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9475060006649,
-						40.63285800006752
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Church Ave At Se Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9494160019812,
-						40.65066300045499
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & President St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9504739989778,
-						40.66812800125502
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Eastern Pkwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95038899956997,
-						40.66980399988718
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Marcy Ave & Myrtle Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94942299979303,
-						40.6954389990995
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Schenectady Ave & Eastern Pkwy At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9337889978624,
-						40.669026998712184
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Utica Ave & Eastern Pkwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93102884258523,
-						40.66868013627365
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Broadway & Myrtle Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93545257818683,
-						40.6968516007581
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bedford Ave & N 7th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95768700008624,
-						40.71771900031754
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Union Ave & Flushing Ave At Ne Corner (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94991300024378,
-						40.699965998695944
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Hewes St & Broadway At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9523439991448,
-						40.706626998957034
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Union Ave & Metropolitan Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G-L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95144499828145,
-						40.71376800063806
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Lorimer St & Broadway At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94668799966198,
-						40.70331300087223
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flushing Ave & Broadway At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94223514768174,
-						40.700594897340935
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Manhattan Ave & Norman Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9519059997464,
-						40.72547799962843
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Manhattan Ave & Nassau Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95092800217598,
-						40.72380999879607
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Graham Ave & Metropolitan Ave At Se Corner (To Canarsie Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94424800028872,
-						40.71444900089845
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Grand St & Bushwick Ave At Ne Corner (To Canarsie Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94089200026191,
-						40.71203499947078
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Morgan Ave & Harrison Pl At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93198899990747,
-						40.70623400127996
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Manhattan Ave & India St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95441499902394,
-						40.73227000056846
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Rutland Rd & E. 98th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92266300185749,
-						40.66493200024914
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Saratoga Ave & Livonia Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91534499862769,
-						40.66167500018803
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Glenwood Rd & Rockaway Pkwy At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90249800177592,
-						40.64554500028139
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ralph Ave & Fulton St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92151693036432,
-						40.67871396342231
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Hopkinson Ave & Fulton St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91376868348286,
-						40.67859229102089
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Palmetto St & Broadway At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92156500030634,
-						40.68906799832869
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jefferson Ave & Broadway At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91729500042564,
-						40.68693299937414
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Linden St & Broadway At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92294800070026,
-						40.69014099908946
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Snediker Ave & New York Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90280546750267,
-						40.675697692948006
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Alabama Av & Fulton St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89958599960195,
-						40.67676900018608
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Pennsylvania Ave & Liberty Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89666899992548,
-						40.6742389989469
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Lirr Bay Ridge Divide & Wilson Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90467903920928,
-						40.6887872655043
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Van Siclen Ave & Pitkin Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89015300083128,
-						40.67250600083791
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ashford St & Livonia Av At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.88328999733967,
-						40.66628099897129
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Shepherd Ave & Pitkin Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.88066499770733,
-						40.67400099862256
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Euclid Ave & Pitkin Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.87208699833067,
-						40.67526799914697
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Euclid Ave & Pitkin Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.87208599904869,
-						40.67548800070325
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Starr St & Wyckoff Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92211900046024,
-						40.706014000504695
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Dekalb Ave & Wycoff Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91927300007242,
-						40.70415299878411
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stanhope St & Wycoff Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91795899946132,
-						40.703341998439846
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stanhope St & Wycoff Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91760600034993,
-						40.7034609989603
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jefferson St & Wyckoff Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92372300191911,
-						40.707242000854094
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Starr St & Wyckoff Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92193099834589,
-						40.706216000224934
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flushing Ave & Broadway At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9419950198558,
-						40.70062927028095
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Halsey St & Wycoff Ave At Sw Corner (To Canarsie Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90526431360593,
-						40.69571223872556
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Utica Ave & Fulton St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92972548923301,
-						40.67948676649215
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Washington Ave & Lafayette Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96567001116816,
-						40.68835779190531
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Clinton Ave & Lafayette Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9678861313876,
-						40.687833179043125
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bedford Ave & Lafayette Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95496904143361,
-						40.68933063052093
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bedford Ave & Lafayette Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9552896139574,
-						40.689552695502904
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Utica Ave & Eastern Pkwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93072282160216,
-						40.6686643677579
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "St. Pauls Pl & Caton Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96283995945814,
-						40.65145774843053
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "8th St & Surf Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97699869586549,
-						40.575498515311914
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 10th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-F-G-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98947403268637,
-						40.66985037503273
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue J At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97615660805829,
-						40.62452780809102
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Alabama Av & Fulton St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89958599960195,
-						40.67676900018608
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Turnbull Ave & E 105th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89917839424558,
-						40.65142051885968
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "908 Fulton Street (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96455532671958,
-						40.68282586367286
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "36 Bond Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98421600202515,
-						40.68839599968082
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "368 Jay Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98744207534969,
-						40.69296750848466
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "133 Greenpoint Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95443199956473,
-						40.73030999886691
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "101 Church Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97933299989008,
-						40.64321499944599
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "134 India Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95475099829228,
-						40.73221600074083
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1173 50 Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99499500026099,
-						40.63603000015941
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1725 Broadway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91106300128197,
-						40.683467001180595
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "45 Court Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99030083110785,
-						40.6923073030493
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "265 Broadway (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95898896816412,
-						40.708913561694075
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1654 77 Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00062923052496,
-						40.614166372086416
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "233 Livonia Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90910200135177,
-						40.66271199929337
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1673 79 Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00098399880318,
-						40.612822999764965
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "344 Graham Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94427100048489,
-						40.71468699970119
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "69 East 98 Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92284199963517,
-						40.66514700161198
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1518 Cortelyou Road",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96396799890618,
-						40.64127900093814
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "100 Ditmas Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.977849999665,
-						40.63544100033274
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "543 Metropolitan Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G-L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95085376361492,
-						40.71419832531006
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "493 Clinton Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96674715231113,
-						40.68362885884388
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "7514 4 Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.02550719859238,
-						40.63030285404066
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "3001 Foster Avenue (Enter (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9481969983931,
-						40.63988700057162
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1663 Atlantic Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93216023958321,
-						40.67925555004778
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1280 Fulton Street (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94939086982968,
-						40.680244671461516
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "551 Driggs Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95617599985562,
-						40.7170220008993
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "819 8 Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97887299914947,
-						40.66575999933668
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "102 Brighton Beach Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96767999993205,
-						40.576160999566035
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "85 Cedar Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92651300158626,
-						40.697854999228404
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "3001 Church Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94942400187,
-						40.65094899938515
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "235 Bushwick Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93968200010704,
-						40.70778700076278
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "35 Hoyt Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98594100191964,
-						40.68908499824722
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "3001 Avenue H",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94731835841758,
-						40.631735054284434
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1548 Bay Ridge Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99848999862103,
-						40.620292999262176
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Intersection Of Harrison Place And Bogart Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93366583733746,
-						40.70607345278083
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "45 Court Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99065429840303,
-						40.69238251110161
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1550 71 Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99924100058153,
-						40.6189349988567
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "23 Avenue I",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97652360416377,
-						40.62608168250633
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4405 New Utrecht Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99415800084657,
-						40.64038399900692
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "463 Bergen Street (To New Lots And Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97549800115777,
-						40.68104499908451
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "299 Broadway (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95772000148906,
-						40.708504999619734
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "326 7 Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98166499922857,
-						40.667113000397485
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1561 Broadway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91571990298658,
-						40.68605409515433
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "6908 New Utrecht Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99880299779174,
-						40.620370000086375
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1231 Nostrand Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95001299923622,
-						40.65719700046987
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "78 Clinton Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99262239455359,
-						40.69422188819344
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "361 Classon Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95980936396589,
-						40.68878497532583
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "2 Hemlock Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.87332899841383,
-						40.68945399903654
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1029 Mc Donald Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97646341090199,
-						40.62866531264806
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "300 Broadway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95813500078324,
-						40.70835100074751
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1039 44 Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9944700007828,
-						40.641169999876986
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4 Ave (Between 35 St And 36 St)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00417500071379,
-						40.65430100030489
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "628 Manhattan Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95071700161357,
-						40.72390500040952
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1276 Fulton Street (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94970701309265,
-						40.68028492453145
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "2152 Fulton Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91088900196817,
-						40.67814000042906
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "770 Livonia Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.88834499936151,
-						40.66547600046889
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "101 Brighton Beach Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96793799888677,
-						40.57647599993225
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "625 Livonia Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89389199834378,
-						40.66491500011823
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "2843 Church Avenue (To Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94977600198403,
-						40.65093099965059
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "574 Lorimer Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G-L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94927499906106,
-						40.714207000944796
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "158 Greenpoint Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9540870002624,
-						40.73010100017495
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "36 Lawrence Avenue (Enter From Parkville Av)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97699703781744,
-						40.62847571220427
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "51 Clark Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99315800109838,
-						40.69757899977327
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "969 62 Street (Enter From Ft Hamilton Py)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00658000166979,
-						40.632185998595574
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1623 De Kalb Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9191940009895,
-						40.704481001364925
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "3069 Brighton 7 Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96048399964629,
-						40.57797499978718
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "6003 4 Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01841199975168,
-						40.640590000126565
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1340 Greene Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91858400155589,
-						40.698689998668364
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "368 Jay Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98743261793305,
-						40.693039401770434
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1506 Avenue J",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96104838219517,
-						40.62499960652017
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "2914 Beverly Road (To Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9491149997005,
-						40.64501000136614
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "586 Lafayette Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9516060581731,
-						40.68968436722571
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "657 Carlton Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97224061968438,
-						40.67732278750551
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "462 Flatbush Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96228475969859,
-						40.66248248456289
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "3327 Fulton Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.87284700007855,
-						40.68358599992121
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "692 Parkside Avenue (To Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9503499983174,
-						40.65614899998756
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1842 Nostrand Avenue (To Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94864900101301,
-						40.64074500113132
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "902 8 Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97949100113375,
-						40.66567699955893
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1289 Fulton Street (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94974897877592,
-						40.68054169381219
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4910 New Utrecht Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99494800094625,
-						40.63639299822704
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "7102 16 Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99893600035327,
-						40.61876800130878
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "170 Marcy Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95794666407116,
-						40.70871487135128
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "957 Fulton Street (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96462888555759,
-						40.68324310217584
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "2222 Pitkin Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89038600180496,
-						40.672500999449696
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "2084 Fulton Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91366799921896,
-						40.678279001579995
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "104 Van Siclen Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89173000078124,
-						40.677756000466836
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "956 Mc Donald Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97734022841172,
-						40.630418029319785
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1713 Church Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96351254201583,
-						40.64940010849599
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1518 Avenue H",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96147689056467,
-						40.62992973441596
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1551 71 Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99917800078616,
-						40.61919700025053
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "214 Cleveland Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.88571000099151,
-						40.679697999583716
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "3000 Church Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94925085983962,
-						40.6505183672775
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "183 Bedford Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95757699779762,
-						40.71785600059198
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "623 Manhattan Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95085799878089,
-						40.72366099977811
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "95 Bushwick Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94057800064945,
-						40.712130001348704
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1 Boerum Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95005856295388,
-						40.70558186414428
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "275 Kings Highway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98042479068303,
-						40.60533859236715
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "302 Broadway (To Queens And Canarsie Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95786899969939,
-						40.708231001537676
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1 Greene Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97327999957497,
-						40.68607800016572
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "368 Jay Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98751302347227,
-						40.69239954985418
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "394 Broadway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95437100003046,
-						40.70707399903361
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "2848 Church Avenue (To Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94972100011081,
-						40.650662999414116
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "624 Livonia Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89419700016936,
-						40.66459999868004
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "632 Ashford Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.88335199824549,
-						40.666471999674215
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "469 Bergen Street (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.974966001454,
-						40.68094300114393
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1492 Fulton Street (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94109549552005,
-						40.67976940414776
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1512 Beverly Road",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96453699916287,
-						40.64425699989554
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1772 Broadway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90993799881112,
-						40.68238800089063
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "2059 Fulton Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91072300061315,
-						40.67842000039481
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Oxford St & Fulton Ave At Ne Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97276900079379,
-						40.68579199911451
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Flatbush Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94738940953454,
-						40.632761807317955
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Flatbush Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94781900181707,
-						40.63326900191124
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Flatbush Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94749899902867,
-						40.63246500008891
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Newkirk Ave At Sw Corner (To Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94857999788114,
-						40.63988099930649
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Church Ave At Nw Corner (To Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94972900172608,
-						40.65105000058953
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Sterling St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95104900022558,
-						40.66327900063121
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & President St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95083400096561,
-						40.668169999247844
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Eastern Pkwy At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95067000125773,
-						40.66981599952892
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Kingston Ave & Eastern Pkwy At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94234699949618,
-						40.669371000002826
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Kingston Ave & Eastern Pkwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94207299863524,
-						40.66935899933978
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Schenectady Ave & Eastern Pkwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9337890013939,
-						40.668812999200846
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Utica Ave & Eastern Pkwy At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93135600067282,
-						40.66870399971787
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Utica Ave & Eastern Pkwy At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93137200021033,
-						40.66891300008579
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Utica Ave & Eastern Pkwy At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9311870429666,
-						40.66890287949127
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Patchen Ave & Broadway At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92790294624857,
-						40.692995074337716
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Patchen Ave & Broadway At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92814326415971,
-						40.692802585198294
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Union Ave & Flushing Ave At Sw Corner (To Downtown Brooklyn Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9502599596191,
-						40.699684231596365
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Hooper St & Broadway At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95430100067588,
-						40.707271000946896
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Hewes St & Broadway At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95243100020248,
-						40.70641799899537
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Union Ave & Metropolitan Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G-L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95175000112197,
-						40.713768000168244
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Union Ave & Metropolitan Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G-L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9517190004399,
-						40.713929000405194
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Moore St & Broadway At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94826800124376,
-						40.70419499988617
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Moore St & Broadway At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94812699984087,
-						40.70439700036667
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Lorimer St & Broadway At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.946546998528,
-						40.70351499944176
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flushing Ave & Broadway At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94168099952164,
-						40.700843999069136
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Manhattan Ave & Greenpoint Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95438500036732,
-						40.73007799985735
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Manhattan Ave & Norman Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95164800140816,
-						40.72555599997967
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Graham Ave & Metropolitan Ave At Nw Corner (To Canarsie Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94449799798755,
-						40.71442500116089
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Graham Ave & Metropolitan Ave At Sw Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94456099936035,
-						40.71461600083565
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Montrose Ave & Bushwick Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94005000109702,
-						40.7077399997659
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Grand St & Bushwick Ave At Nw Corner (To Canarsie Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94075899736588,
-						40.711825999709504
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Grand St & Bushwick Ave At Sw Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94043000138194,
-						40.711904000413284
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Myrtle Ave & Cedar St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9263639992745,
-						40.698062999191265
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Morgan Ave & Harrison Pl At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93167600061261,
-						40.70630600033713
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Morgan Ave & Harrison Pl At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93173899865985,
-						40.70646000012975
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Rutland Rd & E. 98th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92309299773821,
-						40.6649149990958
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Saratoga Ave & Livonia Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91554900021019,
-						40.6614069993355
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Saratoga Ave & Livonia Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91531399937132,
-						40.66152599849642
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Rockaway Ave & Livonia Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90877300145544,
-						40.662437998951354
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Powell St & Livonia Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9028120007929,
-						40.66331500100572
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Powell St & Livonia Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90247499950979,
-						40.663398001113606
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ralph Ave & Mac Dougal St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92187026734402,
-						40.67916352551823
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ralph Ave & Fulton St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92144199931744,
-						40.67898400042914
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Rockaway Ave & Fulton St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91097099888249,
-						40.67846000104367
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Palmetto St & Broadway At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92142400074796,
-						40.68930000041714
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jefferson Ave & Broadway At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9174670008114,
-						40.68674199861275
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Linden St & Broadway At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92309700019328,
-						40.68995699889492
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Weirfield St & Broadway At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91587267210537,
-						40.68587452069055
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Chauncey St & Broadway At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90971000110831,
-						40.68266800050343
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Snediker Ave & New York Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90267063691408,
-						40.675657265342394
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Snediker Ave & New York Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90263499873075,
-						40.675394001204396
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Georgia Av & Fulton St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.8991799996073,
-						40.67683400102481
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Pennsylvania Ave & Liberty Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89629400191548,
-						40.674284998971736
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Pennsylvania Ave & Liberty Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89633100146338,
-						40.67456499965552
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Van Siclen Ave & Livonia Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.88862600155174,
-						40.66570800156212
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Van Siclen Ave & Pitkin Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89045999821998,
-						40.67287799967677
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Van Siclen Ave & Pitkin Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.8902500012854,
-						40.67286699897058
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Shepherd Ave & Pitkin Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.88086800208467,
-						40.673960998567594
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Shepherd Ave & Pitkin Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.88093500069417,
-						40.67426400127883
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Shepherd Ave & Pitkin Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.88074699987318,
-						40.67429299908203
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Norwood Ave & Fulton St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.8790090013777,
-						40.6818060013103
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Euclid Ave & Pitkin Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.87178199941046,
-						40.675262000130616
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Euclid Ave & Pitkin Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.87175800026667,
-						40.675530001271035
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Pine St & Fulton St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.87276999884902,
-						40.683406999430034
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Myrtle Ave & Greene Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "M"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91870899975461,
-						40.69891000148414
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Dekalb Ave & Wycoff Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91945199938418,
-						40.70432600063959
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Dekalb Ave & Wycoff Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91904499901914,
-						40.70439099911397
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stanhope St & Wycoff Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91773199891304,
-						40.70325899956977
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stanhope St & Wycoff Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.91774699969278,
-						40.703549999276476
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jefferson St & Wyckoff Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92391100023188,
-						40.70711099999317
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Starr St & Wyckoff Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92229899950924,
-						40.70604899953105
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Starr St & Wyckoff Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92206399953697,
-						40.706304999502095
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Fulton St & Van Sinderen Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-J-Z-L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90381712887276,
-						40.678429237417475
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "De Sales Pl & Bushwick Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90505925036426,
-						40.682251709799324
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Marcy Ave & Broadway At Sw Corner (To Queens And Canarsie Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95822816219852,
-						40.708208750645895
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Halsey St & Wycoff Ave At Se Corner (To Canarsie Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90546886596499,
-						40.69583855166719
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Portland Ave & Fulton Ave At Nw Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97461919698138,
-						40.686511277256315
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Clinton Ave & Fulton Ave At Se Corner (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96673679408653,
-						40.68326780288462
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Throop Ave & Fulton St At Nw Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94048392771846,
-						40.68010607418579
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Utica Ave & Fulton St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92985242136147,
-						40.67904555449425
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stuyvesant Ave & Fulton St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93230739462548,
-						40.67964076080282
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Washington Ave & Lafayette Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96557301363119,
-						40.687987866958636
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Clinton Ave & Lafayette Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96763330764941,
-						40.688121626707044
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Classon Ave & Lafayette Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96019797723538,
-						40.68901444745654
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bedford Ave & Lafayette Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95500775235361,
-						40.689574779283305
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bedford Ave & Lafayette Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95522175065472,
-						40.68930113842649
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Union Ave & Broadway At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95040876807437,
-						40.705256506332596
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Union Ave & Broadway At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9500685268534,
-						40.70525635924383
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "8th St & 86th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97858263908479,
-						40.59267167261655
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ocean Ave & Parkside Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.961651082569,
-						40.655237002016264
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Avenue H At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96185456233661,
-						40.629570383636455
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Nostrand Ave & Flatbush Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9472723182793,
-						40.63265150116946
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Prospect Expwy & Fort Hamilton Pkwy At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97585101972054,
-						40.64990341474203
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & 18th Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9767472897424,
-						40.63063471863269
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "5th Ave & 95th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.03079527205864,
-						40.61596364309519
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Georgia Av & Fulton St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.8991799996073,
-						40.67683400102481
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "South Portland Ave & Fulton St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97475740825305,
-						40.68731703463505
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "South Portland Ave & Fulton St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97470890773171,
-						40.6870802910309
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Grant Ave & Pitkin Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.86549099868596,
-						40.67673499883755
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Crescent St & Jamaica Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.87357900009755,
-						40.68961499884538
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Van Sinderen Ave & New Lots Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89933376126876,
-						40.659013942586185
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Lirr Bay Ridge Divide & Sutter Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90192123504319,
-						40.66861061001006
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Fort Greene Pl & Lafayette Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9767109105947,
-						40.687125102107146
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 95th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.03137299817091,
-						40.616034001240145
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 93th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.03064699920421,
-						40.61759500111044
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 86th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.02855400073167,
-						40.622622999974965
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 85th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.02820299912881,
-						40.62346900099552
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 77th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.0257349999093,
-						40.629538999733
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "18th Ave & 85th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00189800177446,
-						40.607689000958054
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "20th Ave & 86th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99844399855884,
-						40.60457900176501
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "New Utrecht Ave & 77th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00028498510449,
-						40.61401823169993
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "20th Ave & 86th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99802200064998,
-						40.60463899927797
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bay Pkwy & 86th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9940359994188,
-						40.601921998737566
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bay Pkwy & 86th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99387199844978,
-						40.602119000281775
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bay Pkwy & 86th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99358300065742,
-						40.601945999257104
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "11th Ave & 62nd St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00413999882919,
-						40.630559998337446
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "New Utrecht Ave & 62nd St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9968680003806,
-						40.625632999311925
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "14th Ave & 61st St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99694199849732,
-						40.62711299995293
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "14th Ave & 61st St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99670799953971,
-						40.62736900041404
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "New Utrecht Ave & 55th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99561499935582,
-						40.631549000429985
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "New Utrecht Ave & 55th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99528899992406,
-						40.63156899933627
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stillwell Ave & Surf Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-F-N-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98095100090309,
-						40.57633299991504
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "8th St & Surf Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97688031265952,
-						40.57577762743629
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "West 6th St & Neptune Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9744429141307,
-						40.58057552857068
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stillwell Ave & Bay 50th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98373099865118,
-						40.58799499945818
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stillwell Ave & Bay 50th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9837939996576,
-						40.58832900085504
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stillwell Ave & Bay 50th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.983513001017,
-						40.58841799866744
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "25th Ave & 86th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98719099941191,
-						40.59776399958227
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "25th Ave & 86th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9869720008835,
-						40.59796699934267
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue X At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97425499869293,
-						40.590510001404894
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "8th St & Avenue U At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9789400002264,
-						40.59643899976017
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ocean Pkwy & Brighton Beach Rd At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96933599769515,
-						40.576571999449214
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ocean Pkwy & Brighton Beach Rd At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96901599968015,
-						40.57657799936893
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Branch 6 St & Brighton Beach Rd At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96189099909344,
-						40.577368001146716
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Branch 6 St & Brighton Beach Rd At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96196100094342,
-						40.57765999959029
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Branch 6 St & Brighton Beach Rd At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9617189993707,
-						40.577706998983935
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Branch 7 St & Brighton Beach Rd At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96018000007663,
-						40.57772500032836
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Gravesend Neck Rd At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97365200158129,
-						40.59509100088242
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue U At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9734499038058,
-						40.596847192185244
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue U At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97315290369816,
-						40.59682919373078
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "7th St & Highlawn Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98019899920038,
-						40.60321200021319
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue N At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97418399839681,
-						40.61431900035828
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue N At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97387100157853,
-						40.61432400029021
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "20th Ave & 64th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98490200138298,
-						40.61736000134777
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue M At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97424499861457,
-						40.61614100062071
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Bay Pkwy At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9755019991591,
-						40.620852999402864
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Bay Pkwy At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97547899969224,
-						40.62115699913737
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue S At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97235899984028,
-						40.602195998868815
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Kings Hwy At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97241300053896,
-						40.60403099907842
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue P At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97311500141657,
-						40.60860599851207
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Kings Hwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95798130275202,
-						40.60877652867414
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Kings Hwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95769800073539,
-						40.60891099871693
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Avenue M At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95946318868404,
-						40.618018416556765
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Avenue J At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96084243671902,
-						40.62514078130293
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "14th St & Voorhies Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95429599919777,
-						40.5857679985869
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Gravesend Neck Rd At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95511999838199,
-						40.595019999444474
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Avenue U At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95606399989674,
-						40.59894699977308
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Bay Ridge Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.023602001001,
-						40.63476299876881
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 68th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.02329000125376,
-						40.63549599966365
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 59th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01787299989354,
-						40.64162000037163
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 59th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01761500061536,
-						40.64144199957317
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 59th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01748199995323,
-						40.64157899874836
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "8th Ave & 62nd St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01080707020832,
-						40.63443977892479
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 53rd St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01438599884061,
-						40.64455799990579
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 53rd St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01458099914804,
-						40.644653000001924
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 45th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00970200053224,
-						40.64941299967096
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 45th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00951500088138,
-						40.649596998193445
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 45th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00924900088674,
-						40.64950799845544
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "New Utrecht Ave & 45th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9944700013581,
-						40.64033599999935
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "New Utrecht Ave & 44th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99407899987933,
-						40.64118799963272
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 36th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00448799988834,
-						40.65449200050046
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 25th St At Sw Corner (To Bay Ridge And Coney Island Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99823099841167,
-						40.66047799963025
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Prospect Ave At Se Corner (To Bay Ridge And Coney Island Onl",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99323199941857,
-						40.66529100028869
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Prospect Ave At Sw Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99295900026335,
-						40.665107001337304
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & 9th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9973215522111,
-						40.67461580495764
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Ditmas Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97820199919364,
-						40.635424000325344
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Cortelyou Rd At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97816999960448,
-						40.63699599997154
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Church Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9795450005514,
-						40.642630998478865
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Albemarle Rd At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97999800145733,
-						40.644942000445106
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Prospect Ave & Greenwood Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97609299938358,
-						40.651803999602784
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Prospect Ave & Reeve Pl At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9759130005566,
-						40.65260799849736
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Prospect Park West & 16th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97968334822565,
-						40.66015157380244
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Howard Pl & Windsor Pl At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97996199932005,
-						40.65944699966402
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Prospect Park West & Prospect Park Southwest At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97899199908,
-						40.66076300057976
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Prospect Park West & 14th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97967199831116,
-						40.66143000009662
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ocean Ave & Woodruff Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96192730781712,
-						40.6541416844168
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 9th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-F-G-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98876500213916,
-						40.67054500015041
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 9th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-F-G-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9884600008059,
-						40.67040700072814
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "7th Ave & 9th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98145399931423,
-						40.66667199958344
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "8th Ave & 9th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9790140011858,
-						40.66549200086751
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Portland Ave & Fulton Ave At Se Corner (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9742940011479,
-						40.68606699954951
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Portland Ave & Fulton Ave At Ne Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97436200133012,
-						40.6864729988049
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Oxford St & Fulton Ave At Sw Corner (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97343099997022,
-						40.6857289982736
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Court St & Joralemon St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99118969843585,
-						40.69251708107845
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jay St & Willoughby St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98740440307638,
-						40.69239594269398
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jay St & Willoughby St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9875083206853,
-						40.69230608672259
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jay St & Metrotech Walk At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98734762370253,
-						40.6929603074934
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jay St & Metrotech Walk At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98716813921426,
-						40.69306812909813
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jay St & Fulton St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9874139954654,
-						40.691608699039136
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jay St & Fulton St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98726288147455,
-						40.69155476227218
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & De Kalb Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98131665229879,
-						40.689782865461765
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ashland Pl & Hanson Pl At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9778860788367,
-						40.684956926029734
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Plaza Street East At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97091864177301,
-						40.67525289832632
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Plaza Street West At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97112089221287,
-						40.67520581655584
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Franklin Ave & Park Pl At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95787512190697,
-						40.67448541084767
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Franklin Ave & Fulton St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95560891292745,
-						40.681198650330934
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Livingston St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98047665829746,
-						40.68803089332936
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Livingston St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98033388006053,
-						40.68816539562323
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & 2nd St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99570721666946,
-						40.67920119227756
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & President St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99433339392476,
-						40.68079700225647
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & Warren St At Ne Corner (To Manhattan And Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99111400072394,
-						40.68544699954011
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & Bergen St At Sw Corner (To Coney Island Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99060999982892,
-						40.68673399884102
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & Bergen St At Nw Corner (To Coney Island Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99051300083079,
-						40.68687600078993
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "9 Greene Avenue (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97298699982613,
-						40.685981000012795
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "926 Broadway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.93573600077879,
-						40.69702299917756
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "101 Brighton Beach Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96767200180336,
-						40.576518000066145
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1117 Broadway",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.92947099956058,
-						40.69388599855453
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "214 North 7 Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95630099997905,
-						40.71684300040597
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1293 Fulton Street (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9494433538542,
-						40.6805255114807
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "820 8 Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97925599962116,
-						40.66599899914354
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "566 Lorimer Street",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G-L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94922899967767,
-						40.71393900047551
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "349 Liberty Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.89671399794386,
-						40.674462001042116
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "3010 Beverly Road (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94879500053098,
-						40.6450339994979
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "567 Marcy Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94907099990101,
-						40.695503999226
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "1021 Nostrand Avenue",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95067400162985,
-						40.6632380010149
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "266 Broadway (To Queens And Canarsie Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J-M-Z"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95912625963498,
-						40.708699640042596
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Van Sinderen Ave & Livonia Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90058384566265,
-						40.663615610461605
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "18th Ave & 85th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00157000119047,
-						40.607820001507086
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Court St & Joralemon St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99106492490726,
-						40.69262785743934
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Throop Ave & Fulton St At Ne Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.94006249829239,
-						40.679953410297195
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Fort Greene Pl & Lafayette Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97626384982726,
-						40.68714720440037
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Autumn Ave & Jamaica Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "J"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.87161399949245,
-						40.69020299999552
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Turnbull Ave & E 105th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.8989102807564,
-						40.651208783588494
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Van Sinderen Ave & Livonia Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90052578004953,
-						40.663348429427955
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Lirr Bay Ridge Divide & Belmont Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "L"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.90231906910675,
-						40.66978335334711
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 95th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.03122500268294,
-						40.61617100136493
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 93th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.03029500085195,
-						40.61752899987891
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 86th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.02832000022066,
-						40.6225449982756
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 77th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.02545299849396,
-						40.62947999969076
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "18th Ave & 85th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.0015070000522,
-						40.60764700019783
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "New Utrecht Ave & 79th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00059300157811,
-						40.61284099986835
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "20th Ave & 86th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99825599892102,
-						40.60446000130921
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "20th Ave & 86th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99826400081989,
-						40.60478200157134
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bay Pkwy & 86th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99378599916156,
-						40.60177900042475
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "New Utrecht Ave & 71st St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99884999897104,
-						40.61895199977483
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "17th Ave & 64th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9914920021462,
-						40.62132100048817
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "14th Ave & 61st St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99651199936531,
-						40.62718400104436
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "63rd St & 15th Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99594600051856,
-						40.6242769997115
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "New Utrecht Ave & 55th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99531900006005,
-						40.63140400064207
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stillwell Ave & Mermaid Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-F-N-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98111500074668,
-						40.57695199984592
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "West 6th St & Neptune Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97477776116285,
-						40.580547353254886
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Stillwell Ave & Bay 50th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98348899890328,
-						40.58813200163674
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "25th Ave & 86th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98740200128056,
-						40.59788300131545
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "25th Ave & 86th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98719899856542,
-						40.598092000384014
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue X At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97402099980415,
-						40.59039700015686
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "8th St & Avenue T At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97933499911892,
-						40.598512000722664
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Ocean Pkwy & Brighton Beach Rd At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96800800069745,
-						40.57617299822582
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Branch 6 St & Brighton Beach Rd At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96165599986479,
-						40.57742200040372
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Branch 7 St & Brighton Beach Rd At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96038299806062,
-						40.57768300069233
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Gravesend Neck Rd At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9733470016793,
-						40.595072998661756
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bay Pkwy & 66th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98220100108206,
-						40.613076998180446
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "8th St & Avenue O At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9816180013458,
-						40.61054399916612
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "18th Ave & 64th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98940199934019,
-						40.620037000460094
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue M At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97451900139326,
-						40.61609999862894
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Bay Pkwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97512700053133,
-						40.62087700082284
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue S At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97267200151451,
-						40.602094999304434
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Kings Hwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97207699871463,
-						40.604006999872745
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Avenue P At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97290399887319,
-						40.609040999359955
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Kings Hwy At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95782299878464,
-						40.609053999279254
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Avenue H At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.96191600172904,
-						40.62988699878131
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Sheepshead Bay Rd At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9541930001223,
-						40.58733999929578
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "15th St & Avenue U At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95601000044282,
-						40.59877999941434
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Bay Ridge Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.02332899994738,
-						40.63473400028418
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 60th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01876400174723,
-						40.64070900124848
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 59th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.0177319992678,
-						40.641739999381386
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 53rd St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01476899760746,
-						40.64453400061219
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 53rd St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01458099984639,
-						40.64437899862439
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 52nd St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.01365900078002,
-						40.645676999274485
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 45th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00944399804824,
-						40.649305000614724
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "New Utrecht Ave & 50th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99465800106434,
-						40.63613700151558
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "9th Ave & New Utrecht Ave At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99449599885749,
-						40.646313000487055
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 36th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-74.00429299809566,
-						40.65464700095859
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 25th St At Se Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99797299934355,
-						40.660299998861724
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Prospect Ave At Ne Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99271415978258,
-						40.6653159732961
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Cortelyou Rd At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97849900075138,
-						40.636984000974486
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Church Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97966199893379,
-						40.64313200091204
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Mcdonald Ave & Albemarle Rd At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97972400148767,
-						40.645020000924475
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Prospect Ave & Greenwood Ave At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97567899873717,
-						40.65158299907646
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Prospect Park West & Prospect Park Southwest At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97953899855746,
-						40.6607329996137
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Prospect Park West & 14th St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97931999976075,
-						40.66131100103494
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & 10th St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-F-G-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9891371237141,
-						40.669954548879616
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "7th Ave & 9th St At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98182200120338,
-						40.66686300082288
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "7th Ave & 9th St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98125800003852,
-						40.66689299893496
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Portland Ave & Fulton Ave At Sw Corner (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97451199851308,
-						40.686153000744135
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Oxford St & Fulton Ave At Sw Corner (To Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97286699994898,
-						40.68558599949446
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Cadman Plaza West & Montague St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9901082733939,
-						40.69382665120776
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jay St & Metrotech Walk At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9873428842496,
-						40.69303579539925
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jay St & Willoughby St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98723440598198,
-						40.69228448593895
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & De Kalb Ave At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98124736250568,
-						40.6898691274089
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Pacific St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97852155001328,
-						40.68374094192214
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Plaza Street East At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97092692967978,
-						40.675180630745
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Plaza Street West At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97103425206167,
-						40.67514294994285
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Livingston St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98051742072862,
-						40.68811109991207
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Livingston St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98028292250582,
-						40.68808260214098
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & 2nd St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99525019617374,
-						40.67933356645513
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & President St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9941286102337,
-						40.680915414409135
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & Warren St At Nw Corner (To Coney Island Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99148200207962,
-						40.68559599967456
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Smith St & Bergen St At Se Corner (To Manhattan And Queens Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "F-G"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99040000007535,
-						40.68662500100655
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Clinton St & Montague St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99269217336405,
-						40.69444226975883
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Clark St & Henry St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99303300206873,
-						40.697650999473026
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Union St At Sw Corner (To Bay Ridge And Coney Island Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "D-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98330487585227,
-						40.67730096942455
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Bergen St At Sw Corner (To New Lots And Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97565500223587,
-						40.6808719988773
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Lawrence St & Willoughby St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98612936687373,
-						40.692123928438626
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bridge St & Fulton St At Nw Corner (To Manhattan Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98543499845614,
-						40.69093099900301
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Elm Pl & Fulton St At Sw Corner (To New Lots And Flatbush Only)",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9842149997731,
-						40.69004899896908
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Bridge St & Willoughby St At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98521792528899,
-						40.6920755264192
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Fleet St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98239904353483,
-						40.691527617040684
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "4th Ave & Pacific St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97847300119126,
-						40.683828000237334
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Jay St & Willoughby St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C-F"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.987418587306,
-						40.692306076947574
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & Park Pl At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-Q"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.97281389730722,
-						40.67743924017835
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Franklin Ave & Eastern Pkwy At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95903500413857,
-						40.670545300393904
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Franklin Ave & Eastern Pkwy At Se Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95773960109115,
-						40.670471996288434
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Franklin Ave & Park Pl At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "S"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.95781102855159,
-						40.67470428975069
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Flatbush Ave & De Kalb Ave At Sw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "B-D-N-Q-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.98153071607813,
-						40.689864381896015
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Cadman Plaza West & Cranberry St At Nw Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "A-C"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.9914011492816,
-						40.69942682444365
-					]
-				}
-			},
-			{
-				"type": "Feature",
-				"properties": {
-					"NAME": "Court St & Joralemon St At Ne Corner",
-					"URL": "http://www.mta.info/nyct/service/",
-					"LINE": "2-3-4-5-N-R"
-				},
-				"geometry": {
-					"type": "Point",
-					"coordinates": [
-						-73.99014068194474,
-						40.69255985816795
-					]
-				}
-			}
-		]
-	};
-
-/***/ }),
-/* 188 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactLeaflet = __webpack_require__(189);
-	
-	var _StationLayer = __webpack_require__(406);
-	
-	var _StationLayer2 = _interopRequireDefault(_StationLayer);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	// light bg
-	//const leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA"
-	
-	//dark bg
-	var leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/dark-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA";
-	
-	var NYCTileLayer = function (_Component) {
-	  _inherits(NYCTileLayer, _Component);
-	
-	  function NYCTileLayer(props) {
-	    _classCallCheck(this, NYCTileLayer);
-	
-	    var _this = _possibleConstructorReturn(this, (NYCTileLayer.__proto__ || Object.getPrototypeOf(NYCTileLayer)).call(this, props));
-	
-	    _this.state = {
-	      lat: 40.736255,
-	      lng: -73.9690297,
-	      zoom: 12,
-	      bluemarble: false
-	    };
-	    //this.onClick = this.onClick.bind(this);
-	    return _this;
-	  }
-	
-	  _createClass(NYCTileLayer, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      // code to run just after the component "mounts" / DOM elements are created
-	      // we could make an AJAX request for the GeoJSON data here if it wasn't stored locally
-	      //this.getData();
-	      // create the Leaflet map object
-	      //if (!this.state.map) this.init(this._mapNode);
-	      console.log("Tile layer mounted");
-	    }
-	  }, {
-	    key: 'getData',
-	    value: function getData() {
-	      // could also be an AJAX request that results in setting state with the geojson data
-	      // for simplicity sake we are just importing the geojson data using webpack's json loader
-	      // this.setState({
-	      //   numEntrances: geojson.features.length,
-	      //   geojson
-	      // });
-	
-	      console.log("update data");
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        _reactLeaflet.Map,
-	        {
-	          center: [this.state.lat, this.state.lng],
-	          zoom: this.state.zoom,
-	          onClick: this.onClick },
-	        _react2.default.createElement(_reactLeaflet.TileLayer, {
-	          layers: this.state.bluemarble ? 'nasa:bluemarble' : 'ne:ne',
-	          url: leafletUrl
-	        }),
-	        _react2.default.createElement(_StationLayer2.default, null)
-	      );
-	    }
-	  }]);
-	
-	  return NYCTileLayer;
-	}(_react.Component);
-	
-	exports.default = NYCTileLayer;
-
-/***/ }),
+/***/ },
 /* 189 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.ZoomControl = exports.WMSTileLayer = exports.Tooltip = exports.TileLayer = exports.ScaleControl = exports.Rectangle = exports.Popup = exports.Polyline = exports.Polygon = exports.Path = exports.Pane = exports.Marker = exports.MapLayer = exports.MapControl = exports.MapComponent = exports.Map = exports.LayersControl = exports.LayerGroup = exports.ImageOverlay = exports.GridLayer = exports.GeoJSON = exports.FeatureGroup = exports.CircleMarker = exports.Circle = exports.AttributionControl = exports.PropTypes = undefined;
-	
-	var _propTypes = __webpack_require__(190);
-	
-	var _PropTypes = _interopRequireWildcard(_propTypes);
-	
-	var _AttributionControl2 = __webpack_require__(200);
-	
-	var _AttributionControl3 = _interopRequireDefault(_AttributionControl2);
-	
-	var _Circle2 = __webpack_require__(202);
-	
-	var _Circle3 = _interopRequireDefault(_Circle2);
-	
-	var _CircleMarker2 = __webpack_require__(377);
-	
-	var _CircleMarker3 = _interopRequireDefault(_CircleMarker2);
-	
-	var _FeatureGroup2 = __webpack_require__(378);
-	
-	var _FeatureGroup3 = _interopRequireDefault(_FeatureGroup2);
-	
-	var _GeoJSON2 = __webpack_require__(379);
-	
-	var _GeoJSON3 = _interopRequireDefault(_GeoJSON2);
-	
-	var _GridLayer2 = __webpack_require__(380);
-	
-	var _GridLayer3 = _interopRequireDefault(_GridLayer2);
-	
-	var _ImageOverlay2 = __webpack_require__(381);
-	
-	var _ImageOverlay3 = _interopRequireDefault(_ImageOverlay2);
-	
-	var _LayerGroup2 = __webpack_require__(382);
-	
-	var _LayerGroup3 = _interopRequireDefault(_LayerGroup2);
-	
-	var _LayersControl2 = __webpack_require__(383);
-	
-	var _LayersControl3 = _interopRequireDefault(_LayersControl2);
-	
-	var _Map2 = __webpack_require__(384);
-	
-	var _Map3 = _interopRequireDefault(_Map2);
-	
-	var _MapComponent2 = __webpack_require__(326);
-	
-	var _MapComponent3 = _interopRequireDefault(_MapComponent2);
-	
-	var _MapControl2 = __webpack_require__(201);
-	
-	var _MapControl3 = _interopRequireDefault(_MapControl2);
-	
-	var _MapLayer2 = __webpack_require__(325);
-	
-	var _MapLayer3 = _interopRequireDefault(_MapLayer2);
-	
-	var _Marker2 = __webpack_require__(393);
-	
-	var _Marker3 = _interopRequireDefault(_Marker2);
-	
-	var _Pane2 = __webpack_require__(394);
-	
-	var _Pane3 = _interopRequireDefault(_Pane2);
-	
-	var _Path2 = __webpack_require__(203);
-	
-	var _Path3 = _interopRequireDefault(_Path2);
-	
-	var _Polygon2 = __webpack_require__(397);
-	
-	var _Polygon3 = _interopRequireDefault(_Polygon2);
-	
-	var _Polyline2 = __webpack_require__(398);
-	
-	var _Polyline3 = _interopRequireDefault(_Polyline2);
-	
-	var _Popup2 = __webpack_require__(399);
-	
-	var _Popup3 = _interopRequireDefault(_Popup2);
-	
-	var _Rectangle2 = __webpack_require__(400);
-	
-	var _Rectangle3 = _interopRequireDefault(_Rectangle2);
-	
-	var _ScaleControl2 = __webpack_require__(401);
-	
-	var _ScaleControl3 = _interopRequireDefault(_ScaleControl2);
-	
-	var _TileLayer2 = __webpack_require__(402);
-	
-	var _TileLayer3 = _interopRequireDefault(_TileLayer2);
-	
-	var _Tooltip2 = __webpack_require__(403);
-	
-	var _Tooltip3 = _interopRequireDefault(_Tooltip2);
-	
-	var _WMSTileLayer2 = __webpack_require__(404);
-	
-	var _WMSTileLayer3 = _interopRequireDefault(_WMSTileLayer2);
-	
-	var _ZoomControl2 = __webpack_require__(405);
-	
-	var _ZoomControl3 = _interopRequireDefault(_ZoomControl2);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-	
-	function _interopRequireWildcard(obj) {
-	  if (obj && obj.__esModule) {
-	    return obj;
-	  } else {
-	    var newObj = {};if (obj != null) {
-	      for (var key in obj) {
-	        if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-	      }
-	    }newObj.default = obj;return newObj;
-	  }
-	}
-	
-	exports.PropTypes = _PropTypes;
-	exports.AttributionControl = _AttributionControl3.default;
-	exports.Circle = _Circle3.default;
-	exports.CircleMarker = _CircleMarker3.default;
-	exports.FeatureGroup = _FeatureGroup3.default;
-	exports.GeoJSON = _GeoJSON3.default;
-	exports.GridLayer = _GridLayer3.default;
-	exports.ImageOverlay = _ImageOverlay3.default;
-	exports.LayerGroup = _LayerGroup3.default;
-	exports.LayersControl = _LayersControl3.default;
-	exports.Map = _Map3.default;
-	exports.MapComponent = _MapComponent3.default;
-	exports.MapControl = _MapControl3.default;
-	exports.MapLayer = _MapLayer3.default;
-	exports.Marker = _Marker3.default;
-	exports.Pane = _Pane3.default;
-	exports.Path = _Path3.default;
-	exports.Polygon = _Polygon3.default;
-	exports.Polyline = _Polyline3.default;
-	exports.Popup = _Popup3.default;
-	exports.Rectangle = _Rectangle3.default;
-	exports.ScaleControl = _ScaleControl3.default;
-	exports.TileLayer = _TileLayer3.default;
-	exports.Tooltip = _Tooltip3.default;
-	exports.WMSTileLayer = _WMSTileLayer3.default;
-	exports.ZoomControl = _ZoomControl3.default;
-
-/***/ }),
-/* 190 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.map = exports.layerContainer = exports.latlngList = exports.latlng = exports.controlPosition = exports.children = exports.bounds = undefined;
-	
-	var _bounds2 = __webpack_require__(191);
-	
-	var _bounds3 = _interopRequireDefault(_bounds2);
-	
-	var _children2 = __webpack_require__(196);
-	
-	var _children3 = _interopRequireDefault(_children2);
-	
-	var _controlPosition2 = __webpack_require__(197);
-	
-	var _controlPosition3 = _interopRequireDefault(_controlPosition2);
-	
-	var _latlng2 = __webpack_require__(195);
-	
-	var _latlng3 = _interopRequireDefault(_latlng2);
-	
-	var _latlngList2 = __webpack_require__(194);
-	
-	var _latlngList3 = _interopRequireDefault(_latlngList2);
-	
-	var _layerContainer2 = __webpack_require__(198);
-	
-	var _layerContainer3 = _interopRequireDefault(_layerContainer2);
-	
-	var _map2 = __webpack_require__(199);
-	
-	var _map3 = _interopRequireDefault(_map2);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-	
-	exports.bounds = _bounds3.default;
-	exports.children = _children3.default;
-	exports.controlPosition = _controlPosition3.default;
-	exports.latlng = _latlng3.default;
-	exports.latlngList = _latlngList3.default;
-	exports.layerContainer = _layerContainer3.default;
-	exports.map = _map3.default;
-
-/***/ }),
-/* 191 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -43953,126 +35383,9 @@
 	  value: true
 	});
 	
-	var _leaflet = __webpack_require__(184);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes = __webpack_require__(192);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _latlngList = __webpack_require__(194);
-	
-	var _latlngList2 = _interopRequireDefault(_latlngList);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-	
-	exports.default = _propTypes2.default.oneOfType([_propTypes2.default.instanceOf(_leaflet.LatLngBounds), _latlngList2.default]);
-
-/***/ }),
-/* 192 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-	
-	if (process.env.NODE_ENV !== 'production') {
-	  var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol.for && Symbol.for('react.element') || 0xeac7;
-	
-	  var isValidElement = function isValidElement(object) {
-	    return (typeof object === 'undefined' ? 'undefined' : _typeof(object)) === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-	  };
-	
-	  // By explicitly using `prop-types` you are opting into new development behavior.
-	  // http://fb.me/prop-types-in-prod
-	  var throwOnDirectAccess = true;
-	  module.exports = __webpack_require__(31)(isValidElement, throwOnDirectAccess);
-	} else {
-	  // By explicitly using `prop-types` you are opting into new production behavior.
-	  // http://fb.me/prop-types-in-prod
-	  module.exports = __webpack_require__(193)();
-	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ }),
-/* 193 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-present, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-	
-	'use strict';
-	
-	var emptyFunction = __webpack_require__(12);
-	var invariant = __webpack_require__(8);
-	
-	module.exports = function () {
-	  // Important!
-	  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
-	  function shim() {
-	    invariant(false, 'Calling PropTypes validators directly is not supported by the `prop-types` package. ' + 'Use PropTypes.checkPropTypes() to call them. ' + 'Read more at http://fb.me/use-check-prop-types');
-	  };
-	  shim.isRequired = shim;
-	  function getShim() {
-	    return shim;
-	  };
-	  var ReactPropTypes = {
-	    array: shim,
-	    bool: shim,
-	    func: shim,
-	    number: shim,
-	    object: shim,
-	    string: shim,
-	    symbol: shim,
-	
-	    any: shim,
-	    arrayOf: getShim,
-	    element: shim,
-	    instanceOf: getShim,
-	    node: shim,
-	    objectOf: getShim,
-	    oneOf: getShim,
-	    oneOfType: getShim,
-	    shape: getShim
-	  };
-	
-	  ReactPropTypes.checkPropTypes = emptyFunction;
-	  ReactPropTypes.PropTypes = ReactPropTypes;
-	
-	  return ReactPropTypes;
-	};
-
-/***/ }),
-/* 194 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _propTypes = __webpack_require__(192);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _latlng = __webpack_require__(195);
+	var _latlng = __webpack_require__(190);
 	
 	var _latlng2 = _interopRequireDefault(_latlng);
 	
@@ -44080,11 +35393,11 @@
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
 	
-	exports.default = _propTypes2.default.arrayOf(_latlng2.default);
+	exports.default = _react.PropTypes.arrayOf(_latlng2.default);
 
-/***/ }),
-/* 195 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -44092,31 +35405,25 @@
 	  value: true
 	});
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-	
-	exports.default = _propTypes2.default.oneOfType([
+	exports.default = _react.PropTypes.oneOfType([
 	// [Number, Number]
-	_propTypes2.default.arrayOf(_propTypes2.default.number),
+	_react.PropTypes.arrayOf(_react.PropTypes.number),
 	// {lat: Number, lng: Number}
-	_propTypes2.default.shape({
-	  lat: _propTypes2.default.number,
-	  lng: _propTypes2.default.number
+	_react.PropTypes.shape({
+	  lat: _react.PropTypes.number,
+	  lng: _react.PropTypes.number
 	}),
 	// {lat: Number, lon: Number}
-	_propTypes2.default.shape({
-	  lat: _propTypes2.default.number,
-	  lon: _propTypes2.default.number
+	_react.PropTypes.shape({
+	  lat: _react.PropTypes.number,
+	  lon: _react.PropTypes.number
 	})]);
 
-/***/ }),
-/* 196 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 191 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -44124,19 +35431,13 @@
 	  value: true
 	});
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-	
-	exports.default = _propTypes2.default.oneOfType([_propTypes2.default.arrayOf(_propTypes2.default.node), _propTypes2.default.node]);
+	exports.default = _react.PropTypes.oneOfType([_react.PropTypes.arrayOf(_react.PropTypes.node), _react.PropTypes.node]);
 
-/***/ }),
-/* 197 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 192 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -44144,19 +35445,13 @@
 	  value: true
 	});
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-	
-	exports.default = _propTypes2.default.oneOf(['topleft', 'topright', 'bottomleft', 'bottomright']);
+	exports.default = _react.PropTypes.oneOf(['topleft', 'topright', 'bottomleft', 'bottomright']);
 
-/***/ }),
-/* 198 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 193 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -44164,22 +35459,16 @@
 	  value: true
 	});
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-	
-	exports.default = _propTypes2.default.shape({
-	  addLayer: _propTypes2.default.func.isRequired,
-	  removeLayer: _propTypes2.default.func.isRequired
+	exports.default = _react.PropTypes.shape({
+	  addLayer: _react.PropTypes.func.isRequired,
+	  removeLayer: _react.PropTypes.func.isRequired
 	});
 
-/***/ }),
-/* 199 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 194 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -44187,21 +35476,15 @@
 	  value: true
 	});
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-	
-	exports.default = _propTypes2.default.instanceOf(_leaflet.Map);
+	exports.default = _react.PropTypes.instanceOf(_leaflet.Map);
 
-/***/ }),
-/* 200 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -44221,17 +35504,15 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _controlPosition = __webpack_require__(197);
+	var _controlPosition = __webpack_require__(192);
 	
 	var _controlPosition2 = _interopRequireDefault(_controlPosition);
 	
-	var _MapControl2 = __webpack_require__(201);
+	var _MapControl2 = __webpack_require__(196);
 	
 	var _MapControl3 = _interopRequireDefault(_MapControl2);
 	
@@ -44286,13 +35567,13 @@
 	
 	AttributionControl.propTypes = {
 	  position: _controlPosition2.default,
-	  prefix: _propTypes2.default.string
+	  prefix: _react.PropTypes.string
 	};
 	exports.default = AttributionControl;
 
-/***/ }),
-/* 201 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 196 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -44316,11 +35597,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _controlPosition = __webpack_require__(197);
+	var _controlPosition = __webpack_require__(192);
 	
 	var _controlPosition2 = _interopRequireDefault(_controlPosition);
 	
-	var _map = __webpack_require__(199);
+	var _map = __webpack_require__(194);
 	
 	var _map2 = _interopRequireDefault(_map);
 	
@@ -44415,9 +35696,9 @@
 	};
 	exports.default = MapControl;
 
-/***/ }),
-/* 202 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 197 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -44437,21 +35718,19 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _latlng = __webpack_require__(195);
+	var _latlng = __webpack_require__(190);
 	
 	var _latlng2 = _interopRequireDefault(_latlng);
 	
-	var _Path2 = __webpack_require__(203);
+	var _Path2 = __webpack_require__(198);
 	
 	var _Path3 = _interopRequireDefault(_Path2);
 	
@@ -44527,13 +35806,13 @@
 	Circle.propTypes = {
 	  center: _latlng2.default.isRequired,
 	  children: _children2.default,
-	  radius: _propTypes2.default.number.isRequired
+	  radius: _react.PropTypes.number.isRequired
 	};
 	exports.default = Circle;
 
-/***/ }),
-/* 203 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 198 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -44543,11 +35822,11 @@
 	  value: true
 	});
 	
-	var _pick2 = __webpack_require__(204);
+	var _pick2 = __webpack_require__(199);
 	
 	var _pick3 = _interopRequireDefault(_pick2);
 	
-	var _isEqual2 = __webpack_require__(281);
+	var _isEqual2 = __webpack_require__(276);
 	
 	var _isEqual3 = _interopRequireDefault(_isEqual2);
 	
@@ -44577,15 +35856,13 @@
 	  }
 	};
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _MapLayer2 = __webpack_require__(325);
+	var _MapLayer2 = __webpack_require__(320);
 	
 	var _MapLayer3 = _interopRequireDefault(_MapLayer2);
 	
@@ -44670,18 +35947,18 @@
 	
 	Path.childContextTypes = {
 	  children: _children2.default,
-	  popupContainer: _propTypes2.default.object
+	  popupContainer: _react.PropTypes.object
 	};
 	exports.default = Path;
 
-/***/ }),
-/* 204 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 199 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var basePick = __webpack_require__(205),
-	    flatRest = __webpack_require__(269);
+	var basePick = __webpack_require__(200),
+	    flatRest = __webpack_require__(264);
 	
 	/**
 	 * Creates an object composed of the picked `object` properties.
@@ -44706,14 +35983,14 @@
 	
 	module.exports = pick;
 
-/***/ }),
-/* 205 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 200 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var basePickBy = __webpack_require__(206),
-	    hasIn = __webpack_require__(263);
+	var basePickBy = __webpack_require__(201),
+	    hasIn = __webpack_require__(258);
 	
 	/**
 	 * The base implementation of `_.pick` without support for individual
@@ -44732,15 +36009,15 @@
 	
 	module.exports = basePick;
 
-/***/ }),
-/* 206 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 201 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseGet = __webpack_require__(207),
-	    baseSet = __webpack_require__(258),
-	    castPath = __webpack_require__(208);
+	var baseGet = __webpack_require__(202),
+	    baseSet = __webpack_require__(253),
+	    castPath = __webpack_require__(203);
 	
 	/**
 	 * The base implementation of  `_.pickBy` without support for iteratee shorthands.
@@ -44769,14 +36046,14 @@
 	
 	module.exports = basePickBy;
 
-/***/ }),
-/* 207 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 202 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var castPath = __webpack_require__(208),
-	    toKey = __webpack_require__(257);
+	var castPath = __webpack_require__(203),
+	    toKey = __webpack_require__(252);
 	
 	/**
 	 * The base implementation of `_.get` without support for default values.
@@ -44800,16 +36077,16 @@
 	
 	module.exports = baseGet;
 
-/***/ }),
-/* 208 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 203 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isArray = __webpack_require__(209),
-	    isKey = __webpack_require__(210),
-	    stringToPath = __webpack_require__(219),
-	    toString = __webpack_require__(254);
+	var isArray = __webpack_require__(204),
+	    isKey = __webpack_require__(205),
+	    stringToPath = __webpack_require__(214),
+	    toString = __webpack_require__(249);
 	
 	/**
 	 * Casts `value` to a path array if it's not one.
@@ -44828,9 +36105,9 @@
 	
 	module.exports = castPath;
 
-/***/ }),
-/* 209 */
-/***/ (function(module, exports) {
+/***/ },
+/* 204 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -44861,16 +36138,16 @@
 	
 	module.exports = isArray;
 
-/***/ }),
-/* 210 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 205 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var isArray = __webpack_require__(209),
-	    isSymbol = __webpack_require__(211);
+	var isArray = __webpack_require__(204),
+	    isSymbol = __webpack_require__(206);
 	
 	/** Used to match property names within property paths. */
 	var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
@@ -44897,16 +36174,16 @@
 	
 	module.exports = isKey;
 
-/***/ }),
-/* 211 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 206 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var baseGetTag = __webpack_require__(212),
-	    isObjectLike = __webpack_require__(218);
+	var baseGetTag = __webpack_require__(207),
+	    isObjectLike = __webpack_require__(213);
 	
 	/** `Object#toString` result references. */
 	var symbolTag = '[object Symbol]';
@@ -44934,15 +36211,15 @@
 	
 	module.exports = isSymbol;
 
-/***/ }),
-/* 212 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 207 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _Symbol = __webpack_require__(213),
-	    getRawTag = __webpack_require__(216),
-	    objectToString = __webpack_require__(217);
+	var _Symbol = __webpack_require__(208),
+	    getRawTag = __webpack_require__(211),
+	    objectToString = __webpack_require__(212);
 	
 	/** `Object#toString` result references. */
 	var nullTag = '[object Null]',
@@ -44967,28 +36244,28 @@
 	
 	module.exports = baseGetTag;
 
-/***/ }),
-/* 213 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var root = __webpack_require__(214);
+	var root = __webpack_require__(209);
 	
 	/** Built-in value references. */
 	var _Symbol = root.Symbol;
 	
 	module.exports = _Symbol;
 
-/***/ }),
-/* 214 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var freeGlobal = __webpack_require__(215);
+	var freeGlobal = __webpack_require__(210);
 	
 	/** Detect free variable `self`. */
 	var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
@@ -44998,9 +36275,9 @@
 	
 	module.exports = root;
 
-/***/ }),
-/* 215 */
-/***/ (function(module, exports) {
+/***/ },
+/* 210 */
+/***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
 	
@@ -45012,13 +36289,13 @@
 	module.exports = freeGlobal;
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
-/***/ }),
-/* 216 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _Symbol = __webpack_require__(213);
+	var _Symbol = __webpack_require__(208);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -45065,9 +36342,9 @@
 	
 	module.exports = getRawTag;
 
-/***/ }),
-/* 217 */
-/***/ (function(module, exports) {
+/***/ },
+/* 212 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -45094,9 +36371,9 @@
 	
 	module.exports = objectToString;
 
-/***/ }),
-/* 218 */
-/***/ (function(module, exports) {
+/***/ },
+/* 213 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -45132,13 +36409,13 @@
 	
 	module.exports = isObjectLike;
 
-/***/ }),
-/* 219 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 214 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var memoizeCapped = __webpack_require__(220);
+	var memoizeCapped = __webpack_require__(215);
 	
 	/** Used to match property names within property paths. */
 	var reLeadingDot = /^\./,
@@ -45167,13 +36444,13 @@
 	
 	module.exports = stringToPath;
 
-/***/ }),
-/* 220 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 215 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var memoize = __webpack_require__(221);
+	var memoize = __webpack_require__(216);
 	
 	/** Used as the maximum memoize cache size. */
 	var MAX_MEMOIZE_SIZE = 500;
@@ -45200,13 +36477,13 @@
 	
 	module.exports = memoizeCapped;
 
-/***/ }),
-/* 221 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var MapCache = __webpack_require__(222);
+	var MapCache = __webpack_require__(217);
 	
 	/** Error message constants. */
 	var FUNC_ERROR_TEXT = 'Expected a function';
@@ -45280,17 +36557,17 @@
 	
 	module.exports = memoize;
 
-/***/ }),
-/* 222 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var mapCacheClear = __webpack_require__(223),
-	    mapCacheDelete = __webpack_require__(248),
-	    mapCacheGet = __webpack_require__(251),
-	    mapCacheHas = __webpack_require__(252),
-	    mapCacheSet = __webpack_require__(253);
+	var mapCacheClear = __webpack_require__(218),
+	    mapCacheDelete = __webpack_require__(243),
+	    mapCacheGet = __webpack_require__(246),
+	    mapCacheHas = __webpack_require__(247),
+	    mapCacheSet = __webpack_require__(248);
 	
 	/**
 	 * Creates a map cache object to store key-value pairs.
@@ -45319,15 +36596,15 @@
 	
 	module.exports = MapCache;
 
-/***/ }),
-/* 223 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var Hash = __webpack_require__(224),
-	    ListCache = __webpack_require__(239),
-	    Map = __webpack_require__(247);
+	var Hash = __webpack_require__(219),
+	    ListCache = __webpack_require__(234),
+	    Map = __webpack_require__(242);
 	
 	/**
 	 * Removes all key-value entries from the map.
@@ -45347,17 +36624,17 @@
 	
 	module.exports = mapCacheClear;
 
-/***/ }),
-/* 224 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var hashClear = __webpack_require__(225),
-	    hashDelete = __webpack_require__(235),
-	    hashGet = __webpack_require__(236),
-	    hashHas = __webpack_require__(237),
-	    hashSet = __webpack_require__(238);
+	var hashClear = __webpack_require__(220),
+	    hashDelete = __webpack_require__(230),
+	    hashGet = __webpack_require__(231),
+	    hashHas = __webpack_require__(232),
+	    hashSet = __webpack_require__(233);
 	
 	/**
 	 * Creates a hash object.
@@ -45386,13 +36663,13 @@
 	
 	module.exports = Hash;
 
-/***/ }),
-/* 225 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var nativeCreate = __webpack_require__(226);
+	var nativeCreate = __webpack_require__(221);
 	
 	/**
 	 * Removes all key-value entries from the hash.
@@ -45408,27 +36685,27 @@
 	
 	module.exports = hashClear;
 
-/***/ }),
-/* 226 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 221 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getNative = __webpack_require__(227);
+	var getNative = __webpack_require__(222);
 	
 	/* Built-in method references that are verified to be native. */
 	var nativeCreate = getNative(Object, 'create');
 	
 	module.exports = nativeCreate;
 
-/***/ }),
-/* 227 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 222 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseIsNative = __webpack_require__(228),
-	    getValue = __webpack_require__(234);
+	var baseIsNative = __webpack_require__(223),
+	    getValue = __webpack_require__(229);
 	
 	/**
 	 * Gets the native function at `key` of `object`.
@@ -45445,16 +36722,16 @@
 	
 	module.exports = getNative;
 
-/***/ }),
-/* 228 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 223 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isFunction = __webpack_require__(229),
-	    isMasked = __webpack_require__(231),
-	    isObject = __webpack_require__(230),
-	    toSource = __webpack_require__(233);
+	var isFunction = __webpack_require__(224),
+	    isMasked = __webpack_require__(226),
+	    isObject = __webpack_require__(225),
+	    toSource = __webpack_require__(228);
 	
 	/**
 	 * Used to match `RegExp`
@@ -45496,14 +36773,14 @@
 	
 	module.exports = baseIsNative;
 
-/***/ }),
-/* 229 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseGetTag = __webpack_require__(212),
-	    isObject = __webpack_require__(230);
+	var baseGetTag = __webpack_require__(207),
+	    isObject = __webpack_require__(225);
 	
 	/** `Object#toString` result references. */
 	var asyncTag = '[object AsyncFunction]',
@@ -45540,9 +36817,9 @@
 	
 	module.exports = isFunction;
 
-/***/ }),
-/* 230 */
-/***/ (function(module, exports) {
+/***/ },
+/* 225 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -45580,13 +36857,13 @@
 	
 	module.exports = isObject;
 
-/***/ }),
-/* 231 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var coreJsData = __webpack_require__(232);
+	var coreJsData = __webpack_require__(227);
 	
 	/** Used to detect methods masquerading as native. */
 	var maskSrcKey = function () {
@@ -45607,22 +36884,22 @@
 	
 	module.exports = isMasked;
 
-/***/ }),
-/* 232 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 227 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var root = __webpack_require__(214);
+	var root = __webpack_require__(209);
 	
 	/** Used to detect overreaching core-js shims. */
 	var coreJsData = root['__core-js_shared__'];
 	
 	module.exports = coreJsData;
 
-/***/ }),
-/* 233 */
-/***/ (function(module, exports) {
+/***/ },
+/* 228 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -45653,9 +36930,9 @@
 	
 	module.exports = toSource;
 
-/***/ }),
-/* 234 */
-/***/ (function(module, exports) {
+/***/ },
+/* 229 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -45673,9 +36950,9 @@
 	
 	module.exports = getValue;
 
-/***/ }),
-/* 235 */
-/***/ (function(module, exports) {
+/***/ },
+/* 230 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -45697,13 +36974,13 @@
 	
 	module.exports = hashDelete;
 
-/***/ }),
-/* 236 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 231 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var nativeCreate = __webpack_require__(226);
+	var nativeCreate = __webpack_require__(221);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -45734,13 +37011,13 @@
 	
 	module.exports = hashGet;
 
-/***/ }),
-/* 237 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var nativeCreate = __webpack_require__(226);
+	var nativeCreate = __webpack_require__(221);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -45764,13 +37041,13 @@
 	
 	module.exports = hashHas;
 
-/***/ }),
-/* 238 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var nativeCreate = __webpack_require__(226);
+	var nativeCreate = __webpack_require__(221);
 	
 	/** Used to stand-in for `undefined` hash values. */
 	var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -45794,17 +37071,17 @@
 	
 	module.exports = hashSet;
 
-/***/ }),
-/* 239 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 234 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var listCacheClear = __webpack_require__(240),
-	    listCacheDelete = __webpack_require__(241),
-	    listCacheGet = __webpack_require__(244),
-	    listCacheHas = __webpack_require__(245),
-	    listCacheSet = __webpack_require__(246);
+	var listCacheClear = __webpack_require__(235),
+	    listCacheDelete = __webpack_require__(236),
+	    listCacheGet = __webpack_require__(239),
+	    listCacheHas = __webpack_require__(240),
+	    listCacheSet = __webpack_require__(241);
 	
 	/**
 	 * Creates an list cache object.
@@ -45833,9 +37110,9 @@
 	
 	module.exports = ListCache;
 
-/***/ }),
-/* 240 */
-/***/ (function(module, exports) {
+/***/ },
+/* 235 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -45853,13 +37130,13 @@
 	
 	module.exports = listCacheClear;
 
-/***/ }),
-/* 241 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var assocIndexOf = __webpack_require__(242);
+	var assocIndexOf = __webpack_require__(237);
 	
 	/** Used for built-in method references. */
 	var arrayProto = Array.prototype;
@@ -45895,13 +37172,13 @@
 	
 	module.exports = listCacheDelete;
 
-/***/ }),
-/* 242 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var eq = __webpack_require__(243);
+	var eq = __webpack_require__(238);
 	
 	/**
 	 * Gets the index at which the `key` is found in `array` of key-value pairs.
@@ -45923,9 +37200,9 @@
 	
 	module.exports = assocIndexOf;
 
-/***/ }),
-/* 243 */
-/***/ (function(module, exports) {
+/***/ },
+/* 238 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -45967,13 +37244,13 @@
 	
 	module.exports = eq;
 
-/***/ }),
-/* 244 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var assocIndexOf = __webpack_require__(242);
+	var assocIndexOf = __webpack_require__(237);
 	
 	/**
 	 * Gets the list cache value for `key`.
@@ -45993,13 +37270,13 @@
 	
 	module.exports = listCacheGet;
 
-/***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var assocIndexOf = __webpack_require__(242);
+	var assocIndexOf = __webpack_require__(237);
 	
 	/**
 	 * Checks if a list cache value for `key` exists.
@@ -46016,13 +37293,13 @@
 	
 	module.exports = listCacheHas;
 
-/***/ }),
-/* 246 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var assocIndexOf = __webpack_require__(242);
+	var assocIndexOf = __webpack_require__(237);
 	
 	/**
 	 * Sets the list cache `key` to `value`.
@@ -46049,27 +37326,27 @@
 	
 	module.exports = listCacheSet;
 
-/***/ }),
-/* 247 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getNative = __webpack_require__(227),
-	    root = __webpack_require__(214);
+	var getNative = __webpack_require__(222),
+	    root = __webpack_require__(209);
 	
 	/* Built-in method references that are verified to be native. */
 	var Map = getNative(root, 'Map');
 	
 	module.exports = Map;
 
-/***/ }),
-/* 248 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getMapData = __webpack_require__(249);
+	var getMapData = __webpack_require__(244);
 	
 	/**
 	 * Removes `key` and its value from the map.
@@ -46088,13 +37365,13 @@
 	
 	module.exports = mapCacheDelete;
 
-/***/ }),
-/* 249 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isKeyable = __webpack_require__(250);
+	var isKeyable = __webpack_require__(245);
 	
 	/**
 	 * Gets the data for `map`.
@@ -46111,9 +37388,9 @@
 	
 	module.exports = getMapData;
 
-/***/ }),
-/* 250 */
-/***/ (function(module, exports) {
+/***/ },
+/* 245 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -46133,13 +37410,13 @@
 	
 	module.exports = isKeyable;
 
-/***/ }),
-/* 251 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getMapData = __webpack_require__(249);
+	var getMapData = __webpack_require__(244);
 	
 	/**
 	 * Gets the map value for `key`.
@@ -46156,13 +37433,13 @@
 	
 	module.exports = mapCacheGet;
 
-/***/ }),
-/* 252 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getMapData = __webpack_require__(249);
+	var getMapData = __webpack_require__(244);
 	
 	/**
 	 * Checks if a map value for `key` exists.
@@ -46179,13 +37456,13 @@
 	
 	module.exports = mapCacheHas;
 
-/***/ }),
-/* 253 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getMapData = __webpack_require__(249);
+	var getMapData = __webpack_require__(244);
 	
 	/**
 	 * Sets the map `key` to `value`.
@@ -46208,13 +37485,13 @@
 	
 	module.exports = mapCacheSet;
 
-/***/ }),
-/* 254 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseToString = __webpack_require__(255);
+	var baseToString = __webpack_require__(250);
 	
 	/**
 	 * Converts `value` to a string. An empty string is returned for `null`
@@ -46243,16 +37520,16 @@
 	
 	module.exports = toString;
 
-/***/ }),
-/* 255 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _Symbol = __webpack_require__(213),
-	    arrayMap = __webpack_require__(256),
-	    isArray = __webpack_require__(209),
-	    isSymbol = __webpack_require__(211);
+	var _Symbol = __webpack_require__(208),
+	    arrayMap = __webpack_require__(251),
+	    isArray = __webpack_require__(204),
+	    isSymbol = __webpack_require__(206);
 	
 	/** Used as references for various `Number` constants. */
 	var INFINITY = 1 / 0;
@@ -46287,9 +37564,9 @@
 	
 	module.exports = baseToString;
 
-/***/ }),
-/* 256 */
-/***/ (function(module, exports) {
+/***/ },
+/* 251 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -46315,13 +37592,13 @@
 	
 	module.exports = arrayMap;
 
-/***/ }),
-/* 257 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 252 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isSymbol = __webpack_require__(211);
+	var isSymbol = __webpack_require__(206);
 	
 	/** Used as references for various `Number` constants. */
 	var INFINITY = 1 / 0;
@@ -46343,17 +37620,17 @@
 	
 	module.exports = toKey;
 
-/***/ }),
-/* 258 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var assignValue = __webpack_require__(259),
-	    castPath = __webpack_require__(208),
-	    isIndex = __webpack_require__(262),
-	    isObject = __webpack_require__(230),
-	    toKey = __webpack_require__(257);
+	var assignValue = __webpack_require__(254),
+	    castPath = __webpack_require__(203),
+	    isIndex = __webpack_require__(257),
+	    isObject = __webpack_require__(225),
+	    toKey = __webpack_require__(252);
 	
 	/**
 	 * The base implementation of `_.set`.
@@ -46395,14 +37672,14 @@
 	
 	module.exports = baseSet;
 
-/***/ }),
-/* 259 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseAssignValue = __webpack_require__(260),
-	    eq = __webpack_require__(243);
+	var baseAssignValue = __webpack_require__(255),
+	    eq = __webpack_require__(238);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -46429,13 +37706,13 @@
 	
 	module.exports = assignValue;
 
-/***/ }),
-/* 260 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var defineProperty = __webpack_require__(261);
+	var defineProperty = __webpack_require__(256);
 	
 	/**
 	 * The base implementation of `assignValue` and `assignMergeValue` without
@@ -46461,13 +37738,13 @@
 	
 	module.exports = baseAssignValue;
 
-/***/ }),
-/* 261 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getNative = __webpack_require__(227);
+	var getNative = __webpack_require__(222);
 	
 	var defineProperty = function () {
 	  try {
@@ -46479,9 +37756,9 @@
 	
 	module.exports = defineProperty;
 
-/***/ }),
-/* 262 */
-/***/ (function(module, exports) {
+/***/ },
+/* 257 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -46506,14 +37783,14 @@
 	
 	module.exports = isIndex;
 
-/***/ }),
-/* 263 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseHasIn = __webpack_require__(264),
-	    hasPath = __webpack_require__(265);
+	var baseHasIn = __webpack_require__(259),
+	    hasPath = __webpack_require__(260);
 	
 	/**
 	 * Checks if `path` is a direct or inherited property of `object`.
@@ -46547,9 +37824,9 @@
 	
 	module.exports = hasIn;
 
-/***/ }),
-/* 264 */
-/***/ (function(module, exports) {
+/***/ },
+/* 259 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -46567,18 +37844,18 @@
 	
 	module.exports = baseHasIn;
 
-/***/ }),
-/* 265 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var castPath = __webpack_require__(208),
-	    isArguments = __webpack_require__(266),
-	    isArray = __webpack_require__(209),
-	    isIndex = __webpack_require__(262),
-	    isLength = __webpack_require__(268),
-	    toKey = __webpack_require__(257);
+	var castPath = __webpack_require__(203),
+	    isArguments = __webpack_require__(261),
+	    isArray = __webpack_require__(204),
+	    isIndex = __webpack_require__(257),
+	    isLength = __webpack_require__(263),
+	    toKey = __webpack_require__(252);
 	
 	/**
 	 * Checks if `path` exists on `object`.
@@ -46612,14 +37889,14 @@
 	
 	module.exports = hasPath;
 
-/***/ }),
-/* 266 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseIsArguments = __webpack_require__(267),
-	    isObjectLike = __webpack_require__(218);
+	var baseIsArguments = __webpack_require__(262),
+	    isObjectLike = __webpack_require__(213);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -46656,14 +37933,14 @@
 	
 	module.exports = isArguments;
 
-/***/ }),
-/* 267 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 262 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseGetTag = __webpack_require__(212),
-	    isObjectLike = __webpack_require__(218);
+	var baseGetTag = __webpack_require__(207),
+	    isObjectLike = __webpack_require__(213);
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]';
@@ -46681,9 +37958,9 @@
 	
 	module.exports = baseIsArguments;
 
-/***/ }),
-/* 268 */
-/***/ (function(module, exports) {
+/***/ },
+/* 263 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -46722,15 +37999,15 @@
 	
 	module.exports = isLength;
 
-/***/ }),
-/* 269 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var flatten = __webpack_require__(270),
-	    overRest = __webpack_require__(274),
-	    setToString = __webpack_require__(276);
+	var flatten = __webpack_require__(265),
+	    overRest = __webpack_require__(269),
+	    setToString = __webpack_require__(271);
 	
 	/**
 	 * A specialized version of `baseRest` which flattens the rest array.
@@ -46745,13 +38022,13 @@
 	
 	module.exports = flatRest;
 
-/***/ }),
-/* 270 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseFlatten = __webpack_require__(271);
+	var baseFlatten = __webpack_require__(266);
 	
 	/**
 	 * Flattens `array` a single level deep.
@@ -46774,14 +38051,14 @@
 	
 	module.exports = flatten;
 
-/***/ }),
-/* 271 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var arrayPush = __webpack_require__(272),
-	    isFlattenable = __webpack_require__(273);
+	var arrayPush = __webpack_require__(267),
+	    isFlattenable = __webpack_require__(268);
 	
 	/**
 	 * The base implementation of `_.flatten` with support for restricting flattening.
@@ -46819,9 +38096,9 @@
 	
 	module.exports = baseFlatten;
 
-/***/ }),
-/* 272 */
-/***/ (function(module, exports) {
+/***/ },
+/* 267 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -46846,15 +38123,15 @@
 	
 	module.exports = arrayPush;
 
-/***/ }),
-/* 273 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _Symbol = __webpack_require__(213),
-	    isArguments = __webpack_require__(266),
-	    isArray = __webpack_require__(209);
+	var _Symbol = __webpack_require__(208),
+	    isArguments = __webpack_require__(261),
+	    isArray = __webpack_require__(204);
 	
 	/** Built-in value references. */
 	var spreadableSymbol = _Symbol ? _Symbol.isConcatSpreadable : undefined;
@@ -46872,13 +38149,13 @@
 	
 	module.exports = isFlattenable;
 
-/***/ }),
-/* 274 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var apply = __webpack_require__(275);
+	var apply = __webpack_require__(270);
 	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeMax = Math.max;
@@ -46915,9 +38192,9 @@
 	
 	module.exports = overRest;
 
-/***/ }),
-/* 275 */
-/***/ (function(module, exports) {
+/***/ },
+/* 270 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -46947,14 +38224,14 @@
 	
 	module.exports = apply;
 
-/***/ }),
-/* 276 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseSetToString = __webpack_require__(277),
-	    shortOut = __webpack_require__(280);
+	var baseSetToString = __webpack_require__(272),
+	    shortOut = __webpack_require__(275);
 	
 	/**
 	 * Sets the `toString` method of `func` to return `string`.
@@ -46968,15 +38245,15 @@
 	
 	module.exports = setToString;
 
-/***/ }),
-/* 277 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var constant = __webpack_require__(278),
-	    defineProperty = __webpack_require__(261),
-	    identity = __webpack_require__(279);
+	var constant = __webpack_require__(273),
+	    defineProperty = __webpack_require__(256),
+	    identity = __webpack_require__(274);
 	
 	/**
 	 * The base implementation of `setToString` without support for hot loop shorting.
@@ -46997,9 +38274,9 @@
 	
 	module.exports = baseSetToString;
 
-/***/ }),
-/* 278 */
-/***/ (function(module, exports) {
+/***/ },
+/* 273 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -47030,9 +38307,9 @@
 	
 	module.exports = constant;
 
-/***/ }),
-/* 279 */
-/***/ (function(module, exports) {
+/***/ },
+/* 274 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -47058,9 +38335,9 @@
 	
 	module.exports = identity;
 
-/***/ }),
-/* 280 */
-/***/ (function(module, exports) {
+/***/ },
+/* 275 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -47102,13 +38379,13 @@
 	
 	module.exports = shortOut;
 
-/***/ }),
-/* 281 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseIsEqual = __webpack_require__(282);
+	var baseIsEqual = __webpack_require__(277);
 	
 	/**
 	 * Performs a deep comparison between two values to determine if they are
@@ -47144,14 +38421,14 @@
 	
 	module.exports = isEqual;
 
-/***/ }),
-/* 282 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseIsEqualDeep = __webpack_require__(283),
-	    isObjectLike = __webpack_require__(218);
+	var baseIsEqualDeep = __webpack_require__(278),
+	    isObjectLike = __webpack_require__(213);
 	
 	/**
 	 * The base implementation of `_.isEqual` which supports partial comparisons
@@ -47179,20 +38456,20 @@
 	
 	module.exports = baseIsEqual;
 
-/***/ }),
-/* 283 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var Stack = __webpack_require__(284),
-	    equalArrays = __webpack_require__(290),
-	    equalByTag = __webpack_require__(296),
-	    equalObjects = __webpack_require__(300),
-	    getTag = __webpack_require__(320),
-	    isArray = __webpack_require__(209),
-	    isBuffer = __webpack_require__(309),
-	    isTypedArray = __webpack_require__(311);
+	var Stack = __webpack_require__(279),
+	    equalArrays = __webpack_require__(285),
+	    equalByTag = __webpack_require__(291),
+	    equalObjects = __webpack_require__(295),
+	    getTag = __webpack_require__(315),
+	    isArray = __webpack_require__(204),
+	    isBuffer = __webpack_require__(304),
+	    isTypedArray = __webpack_require__(306);
 	
 	/** Used to compose bitmasks for value comparisons. */
 	var COMPARE_PARTIAL_FLAG = 1;
@@ -47267,18 +38544,18 @@
 	
 	module.exports = baseIsEqualDeep;
 
-/***/ }),
-/* 284 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var ListCache = __webpack_require__(239),
-	    stackClear = __webpack_require__(285),
-	    stackDelete = __webpack_require__(286),
-	    stackGet = __webpack_require__(287),
-	    stackHas = __webpack_require__(288),
-	    stackSet = __webpack_require__(289);
+	var ListCache = __webpack_require__(234),
+	    stackClear = __webpack_require__(280),
+	    stackDelete = __webpack_require__(281),
+	    stackGet = __webpack_require__(282),
+	    stackHas = __webpack_require__(283),
+	    stackSet = __webpack_require__(284);
 	
 	/**
 	 * Creates a stack cache object to store key-value pairs.
@@ -47301,13 +38578,13 @@
 	
 	module.exports = Stack;
 
-/***/ }),
-/* 285 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 280 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var ListCache = __webpack_require__(239);
+	var ListCache = __webpack_require__(234);
 	
 	/**
 	 * Removes all key-value entries from the stack.
@@ -47323,9 +38600,9 @@
 	
 	module.exports = stackClear;
 
-/***/ }),
-/* 286 */
-/***/ (function(module, exports) {
+/***/ },
+/* 281 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -47348,9 +38625,9 @@
 	
 	module.exports = stackDelete;
 
-/***/ }),
-/* 287 */
-/***/ (function(module, exports) {
+/***/ },
+/* 282 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -47369,9 +38646,9 @@
 	
 	module.exports = stackGet;
 
-/***/ }),
-/* 288 */
-/***/ (function(module, exports) {
+/***/ },
+/* 283 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -47390,15 +38667,15 @@
 	
 	module.exports = stackHas;
 
-/***/ }),
-/* 289 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var ListCache = __webpack_require__(239),
-	    Map = __webpack_require__(247),
-	    MapCache = __webpack_require__(222);
+	var ListCache = __webpack_require__(234),
+	    Map = __webpack_require__(242),
+	    MapCache = __webpack_require__(217);
 	
 	/** Used as the size to enable large array optimizations. */
 	var LARGE_ARRAY_SIZE = 200;
@@ -47431,15 +38708,15 @@
 	
 	module.exports = stackSet;
 
-/***/ }),
-/* 290 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var SetCache = __webpack_require__(291),
-	    arraySome = __webpack_require__(294),
-	    cacheHas = __webpack_require__(295);
+	var SetCache = __webpack_require__(286),
+	    arraySome = __webpack_require__(289),
+	    cacheHas = __webpack_require__(290);
 	
 	/** Used to compose bitmasks for value comparisons. */
 	var COMPARE_PARTIAL_FLAG = 1,
@@ -47515,15 +38792,15 @@
 	
 	module.exports = equalArrays;
 
-/***/ }),
-/* 291 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 286 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var MapCache = __webpack_require__(222),
-	    setCacheAdd = __webpack_require__(292),
-	    setCacheHas = __webpack_require__(293);
+	var MapCache = __webpack_require__(217),
+	    setCacheAdd = __webpack_require__(287),
+	    setCacheHas = __webpack_require__(288);
 	
 	/**
 	 *
@@ -47549,9 +38826,9 @@
 	
 	module.exports = SetCache;
 
-/***/ }),
-/* 292 */
-/***/ (function(module, exports) {
+/***/ },
+/* 287 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -47575,9 +38852,9 @@
 	
 	module.exports = setCacheAdd;
 
-/***/ }),
-/* 293 */
-/***/ (function(module, exports) {
+/***/ },
+/* 288 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -47596,9 +38873,9 @@
 	
 	module.exports = setCacheHas;
 
-/***/ }),
-/* 294 */
-/***/ (function(module, exports) {
+/***/ },
+/* 289 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -47626,9 +38903,9 @@
 	
 	module.exports = arraySome;
 
-/***/ }),
-/* 295 */
-/***/ (function(module, exports) {
+/***/ },
+/* 290 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -47646,18 +38923,18 @@
 	
 	module.exports = cacheHas;
 
-/***/ }),
-/* 296 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 291 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _Symbol = __webpack_require__(213),
-	    Uint8Array = __webpack_require__(297),
-	    eq = __webpack_require__(243),
-	    equalArrays = __webpack_require__(290),
-	    mapToArray = __webpack_require__(298),
-	    setToArray = __webpack_require__(299);
+	var _Symbol = __webpack_require__(208),
+	    Uint8Array = __webpack_require__(292),
+	    eq = __webpack_require__(238),
+	    equalArrays = __webpack_require__(285),
+	    mapToArray = __webpack_require__(293),
+	    setToArray = __webpack_require__(294);
 	
 	/** Used to compose bitmasks for value comparisons. */
 	var COMPARE_PARTIAL_FLAG = 1,
@@ -47763,22 +39040,22 @@
 	
 	module.exports = equalByTag;
 
-/***/ }),
-/* 297 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 292 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var root = __webpack_require__(214);
+	var root = __webpack_require__(209);
 	
 	/** Built-in value references. */
 	var Uint8Array = root.Uint8Array;
 	
 	module.exports = Uint8Array;
 
-/***/ }),
-/* 298 */
-/***/ (function(module, exports) {
+/***/ },
+/* 293 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -47801,9 +39078,9 @@
 	
 	module.exports = mapToArray;
 
-/***/ }),
-/* 299 */
-/***/ (function(module, exports) {
+/***/ },
+/* 294 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -47826,13 +39103,13 @@
 	
 	module.exports = setToArray;
 
-/***/ }),
-/* 300 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 295 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getAllKeys = __webpack_require__(301);
+	var getAllKeys = __webpack_require__(296);
 	
 	/** Used to compose bitmasks for value comparisons. */
 	var COMPARE_PARTIAL_FLAG = 1;
@@ -47914,15 +39191,15 @@
 	
 	module.exports = equalObjects;
 
-/***/ }),
-/* 301 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 296 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseGetAllKeys = __webpack_require__(302),
-	    getSymbols = __webpack_require__(303),
-	    keys = __webpack_require__(306);
+	var baseGetAllKeys = __webpack_require__(297),
+	    getSymbols = __webpack_require__(298),
+	    keys = __webpack_require__(301);
 	
 	/**
 	 * Creates an array of own enumerable property names and symbols of `object`.
@@ -47937,14 +39214,14 @@
 	
 	module.exports = getAllKeys;
 
-/***/ }),
-/* 302 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 297 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var arrayPush = __webpack_require__(272),
-	    isArray = __webpack_require__(209);
+	var arrayPush = __webpack_require__(267),
+	    isArray = __webpack_require__(204);
 	
 	/**
 	 * The base implementation of `getAllKeys` and `getAllKeysIn` which uses
@@ -47964,14 +39241,14 @@
 	
 	module.exports = baseGetAllKeys;
 
-/***/ }),
-/* 303 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 298 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var arrayFilter = __webpack_require__(304),
-	    stubArray = __webpack_require__(305);
+	var arrayFilter = __webpack_require__(299),
+	    stubArray = __webpack_require__(300);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -48001,9 +39278,9 @@
 	
 	module.exports = getSymbols;
 
-/***/ }),
-/* 304 */
-/***/ (function(module, exports) {
+/***/ },
+/* 299 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -48033,9 +39310,9 @@
 	
 	module.exports = arrayFilter;
 
-/***/ }),
-/* 305 */
-/***/ (function(module, exports) {
+/***/ },
+/* 300 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -48063,15 +39340,15 @@
 	
 	module.exports = stubArray;
 
-/***/ }),
-/* 306 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 301 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var arrayLikeKeys = __webpack_require__(307),
-	    baseKeys = __webpack_require__(315),
-	    isArrayLike = __webpack_require__(319);
+	var arrayLikeKeys = __webpack_require__(302),
+	    baseKeys = __webpack_require__(310),
+	    isArrayLike = __webpack_require__(314);
 	
 	/**
 	 * Creates an array of the own enumerable property names of `object`.
@@ -48107,18 +39384,18 @@
 	
 	module.exports = keys;
 
-/***/ }),
-/* 307 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 302 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseTimes = __webpack_require__(308),
-	    isArguments = __webpack_require__(266),
-	    isArray = __webpack_require__(209),
-	    isBuffer = __webpack_require__(309),
-	    isIndex = __webpack_require__(262),
-	    isTypedArray = __webpack_require__(311);
+	var baseTimes = __webpack_require__(303),
+	    isArguments = __webpack_require__(261),
+	    isArray = __webpack_require__(204),
+	    isBuffer = __webpack_require__(304),
+	    isIndex = __webpack_require__(257),
+	    isTypedArray = __webpack_require__(306);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -48161,9 +39438,9 @@
 	
 	module.exports = arrayLikeKeys;
 
-/***/ }),
-/* 308 */
-/***/ (function(module, exports) {
+/***/ },
+/* 303 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -48188,16 +39465,16 @@
 	
 	module.exports = baseTimes;
 
-/***/ }),
-/* 309 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 304 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {'use strict';
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var root = __webpack_require__(214),
-	    stubFalse = __webpack_require__(310);
+	var root = __webpack_require__(209),
+	    stubFalse = __webpack_require__(305);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = ( false ? 'undefined' : _typeof(exports)) == 'object' && exports && !exports.nodeType && exports;
@@ -48234,11 +39511,11 @@
 	var isBuffer = nativeIsBuffer || stubFalse;
 	
 	module.exports = isBuffer;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(185)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(188)(module)))
 
-/***/ }),
-/* 310 */
-/***/ (function(module, exports) {
+/***/ },
+/* 305 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -48261,15 +39538,15 @@
 	
 	module.exports = stubFalse;
 
-/***/ }),
-/* 311 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 306 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseIsTypedArray = __webpack_require__(312),
-	    baseUnary = __webpack_require__(313),
-	    nodeUtil = __webpack_require__(314);
+	var baseIsTypedArray = __webpack_require__(307),
+	    baseUnary = __webpack_require__(308),
+	    nodeUtil = __webpack_require__(309);
 	
 	/* Node.js helper references. */
 	var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
@@ -48295,15 +39572,15 @@
 	
 	module.exports = isTypedArray;
 
-/***/ }),
-/* 312 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 307 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseGetTag = __webpack_require__(212),
-	    isLength = __webpack_require__(268),
-	    isObjectLike = __webpack_require__(218);
+	var baseGetTag = __webpack_require__(207),
+	    isLength = __webpack_require__(263),
+	    isObjectLike = __webpack_require__(213);
 	
 	/** `Object#toString` result references. */
 	var argsTag = '[object Arguments]',
@@ -48350,9 +39627,9 @@
 	
 	module.exports = baseIsTypedArray;
 
-/***/ }),
-/* 313 */
-/***/ (function(module, exports) {
+/***/ },
+/* 308 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -48371,15 +39648,15 @@
 	
 	module.exports = baseUnary;
 
-/***/ }),
-/* 314 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 309 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {'use strict';
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var freeGlobal = __webpack_require__(215);
+	var freeGlobal = __webpack_require__(210);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = ( false ? 'undefined' : _typeof(exports)) == 'object' && exports && !exports.nodeType && exports;
@@ -48401,16 +39678,16 @@
 	}();
 	
 	module.exports = nodeUtil;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(185)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(188)(module)))
 
-/***/ }),
-/* 315 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 310 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isPrototype = __webpack_require__(316),
-	    nativeKeys = __webpack_require__(317);
+	var isPrototype = __webpack_require__(311),
+	    nativeKeys = __webpack_require__(312);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -48440,9 +39717,9 @@
 	
 	module.exports = baseKeys;
 
-/***/ }),
-/* 316 */
-/***/ (function(module, exports) {
+/***/ },
+/* 311 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -48465,22 +39742,22 @@
 	
 	module.exports = isPrototype;
 
-/***/ }),
-/* 317 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 312 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var overArg = __webpack_require__(318);
+	var overArg = __webpack_require__(313);
 	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeKeys = overArg(Object.keys, Object);
 	
 	module.exports = nativeKeys;
 
-/***/ }),
-/* 318 */
-/***/ (function(module, exports) {
+/***/ },
+/* 313 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -48500,14 +39777,14 @@
 	
 	module.exports = overArg;
 
-/***/ }),
-/* 319 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 314 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isFunction = __webpack_require__(229),
-	    isLength = __webpack_require__(268);
+	var isFunction = __webpack_require__(224),
+	    isLength = __webpack_require__(263);
 	
 	/**
 	 * Checks if `value` is array-like. A value is considered array-like if it's
@@ -48540,19 +39817,19 @@
 	
 	module.exports = isArrayLike;
 
-/***/ }),
-/* 320 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 315 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var DataView = __webpack_require__(321),
-	    Map = __webpack_require__(247),
-	    Promise = __webpack_require__(322),
-	    Set = __webpack_require__(323),
-	    WeakMap = __webpack_require__(324),
-	    baseGetTag = __webpack_require__(212),
-	    toSource = __webpack_require__(233);
+	var DataView = __webpack_require__(316),
+	    Map = __webpack_require__(242),
+	    Promise = __webpack_require__(317),
+	    Set = __webpack_require__(318),
+	    WeakMap = __webpack_require__(319),
+	    baseGetTag = __webpack_require__(207),
+	    toSource = __webpack_require__(228);
 	
 	/** `Object#toString` result references. */
 	var mapTag = '[object Map]',
@@ -48606,65 +39883,65 @@
 	
 	module.exports = getTag;
 
-/***/ }),
-/* 321 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 316 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getNative = __webpack_require__(227),
-	    root = __webpack_require__(214);
+	var getNative = __webpack_require__(222),
+	    root = __webpack_require__(209);
 	
 	/* Built-in method references that are verified to be native. */
 	var DataView = getNative(root, 'DataView');
 	
 	module.exports = DataView;
 
-/***/ }),
-/* 322 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 317 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getNative = __webpack_require__(227),
-	    root = __webpack_require__(214);
+	var getNative = __webpack_require__(222),
+	    root = __webpack_require__(209);
 	
 	/* Built-in method references that are verified to be native. */
 	var Promise = getNative(root, 'Promise');
 	
 	module.exports = Promise;
 
-/***/ }),
-/* 323 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 318 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getNative = __webpack_require__(227),
-	    root = __webpack_require__(214);
+	var getNative = __webpack_require__(222),
+	    root = __webpack_require__(209);
 	
 	/* Built-in method references that are verified to be native. */
 	var Set = getNative(root, 'Set');
 	
 	module.exports = Set;
 
-/***/ }),
-/* 324 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 319 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var getNative = __webpack_require__(227),
-	    root = __webpack_require__(214);
+	var getNative = __webpack_require__(222),
+	    root = __webpack_require__(209);
 	
 	/* Built-in method references that are verified to be native. */
 	var WeakMap = getNative(root, 'WeakMap');
 	
 	module.exports = WeakMap;
 
-/***/ }),
-/* 325 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 320 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -48700,27 +39977,23 @@
 	  }
 	};
 	
-	var _propTypes = __webpack_require__(192);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _layerContainer = __webpack_require__(198);
+	var _layerContainer = __webpack_require__(193);
 	
 	var _layerContainer2 = _interopRequireDefault(_layerContainer);
 	
-	var _map = __webpack_require__(199);
+	var _map = __webpack_require__(194);
 	
 	var _map2 = _interopRequireDefault(_map);
 	
-	var _MapComponent2 = __webpack_require__(326);
+	var _MapComponent2 = __webpack_require__(321);
 	
 	var _MapComponent3 = _interopRequireDefault(_MapComponent2);
 	
@@ -48820,13 +40093,13 @@
 	MapLayer.contextTypes = {
 	  layerContainer: _layerContainer2.default,
 	  map: _map2.default,
-	  pane: _propTypes2.default.string
+	  pane: _react2.default.PropTypes.string
 	};
 	exports.default = MapLayer;
 
-/***/ }),
-/* 326 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 321 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -48836,19 +40109,19 @@
 	  value: true
 	});
 	
-	var _reduce2 = __webpack_require__(327);
+	var _reduce2 = __webpack_require__(322);
 	
 	var _reduce3 = _interopRequireDefault(_reduce2);
 	
-	var _keys2 = __webpack_require__(306);
+	var _keys2 = __webpack_require__(301);
 	
 	var _keys3 = _interopRequireDefault(_keys2);
 	
-	var _forEach2 = __webpack_require__(346);
+	var _forEach2 = __webpack_require__(341);
 	
 	var _forEach3 = _interopRequireDefault(_forEach2);
 	
-	var _clone2 = __webpack_require__(349);
+	var _clone2 = __webpack_require__(344);
 	
 	var _clone3 = _interopRequireDefault(_clone2);
 	
@@ -49006,17 +40279,17 @@
 	
 	exports.default = MapComponent;
 
-/***/ }),
-/* 327 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 322 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var arrayReduce = __webpack_require__(328),
-	    baseEach = __webpack_require__(329),
-	    baseIteratee = __webpack_require__(334),
-	    baseReduce = __webpack_require__(345),
-	    isArray = __webpack_require__(209);
+	var arrayReduce = __webpack_require__(323),
+	    baseEach = __webpack_require__(324),
+	    baseIteratee = __webpack_require__(329),
+	    baseReduce = __webpack_require__(340),
+	    isArray = __webpack_require__(204);
 	
 	/**
 	 * Reduces `collection` to a value which is the accumulated result of running
@@ -49064,9 +40337,9 @@
 	
 	module.exports = reduce;
 
-/***/ }),
-/* 328 */
-/***/ (function(module, exports) {
+/***/ },
+/* 323 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -49097,14 +40370,14 @@
 	
 	module.exports = arrayReduce;
 
-/***/ }),
-/* 329 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 324 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseForOwn = __webpack_require__(330),
-	    createBaseEach = __webpack_require__(333);
+	var baseForOwn = __webpack_require__(325),
+	    createBaseEach = __webpack_require__(328);
 	
 	/**
 	 * The base implementation of `_.forEach` without support for iteratee shorthands.
@@ -49118,14 +40391,14 @@
 	
 	module.exports = baseEach;
 
-/***/ }),
-/* 330 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 325 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseFor = __webpack_require__(331),
-	    keys = __webpack_require__(306);
+	var baseFor = __webpack_require__(326),
+	    keys = __webpack_require__(301);
 	
 	/**
 	 * The base implementation of `_.forOwn` without support for iteratee shorthands.
@@ -49141,13 +40414,13 @@
 	
 	module.exports = baseForOwn;
 
-/***/ }),
-/* 331 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 326 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var createBaseFor = __webpack_require__(332);
+	var createBaseFor = __webpack_require__(327);
 	
 	/**
 	 * The base implementation of `baseForOwn` which iterates over `object`
@@ -49164,9 +40437,9 @@
 	
 	module.exports = baseFor;
 
-/***/ }),
-/* 332 */
-/***/ (function(module, exports) {
+/***/ },
+/* 327 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -49196,13 +40469,13 @@
 	
 	module.exports = createBaseFor;
 
-/***/ }),
-/* 333 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 328 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isArrayLike = __webpack_require__(319);
+	var isArrayLike = __webpack_require__(314);
 	
 	/**
 	 * Creates a `baseEach` or `baseEachRight` function.
@@ -49235,19 +40508,19 @@
 	
 	module.exports = createBaseEach;
 
-/***/ }),
-/* 334 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 329 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var baseMatches = __webpack_require__(335),
-	    baseMatchesProperty = __webpack_require__(340),
-	    identity = __webpack_require__(279),
-	    isArray = __webpack_require__(209),
-	    property = __webpack_require__(342);
+	var baseMatches = __webpack_require__(330),
+	    baseMatchesProperty = __webpack_require__(335),
+	    identity = __webpack_require__(274),
+	    isArray = __webpack_require__(204),
+	    property = __webpack_require__(337);
 	
 	/**
 	 * The base implementation of `_.iteratee`.
@@ -49273,15 +40546,15 @@
 	
 	module.exports = baseIteratee;
 
-/***/ }),
-/* 335 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 330 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseIsMatch = __webpack_require__(336),
-	    getMatchData = __webpack_require__(337),
-	    matchesStrictComparable = __webpack_require__(339);
+	var baseIsMatch = __webpack_require__(331),
+	    getMatchData = __webpack_require__(332),
+	    matchesStrictComparable = __webpack_require__(334);
 	
 	/**
 	 * The base implementation of `_.matches` which doesn't clone `source`.
@@ -49302,14 +40575,14 @@
 	
 	module.exports = baseMatches;
 
-/***/ }),
-/* 336 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 331 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var Stack = __webpack_require__(284),
-	    baseIsEqual = __webpack_require__(282);
+	var Stack = __webpack_require__(279),
+	    baseIsEqual = __webpack_require__(277);
 	
 	/** Used to compose bitmasks for value comparisons. */
 	var COMPARE_PARTIAL_FLAG = 1,
@@ -49365,14 +40638,14 @@
 	
 	module.exports = baseIsMatch;
 
-/***/ }),
-/* 337 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 332 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isStrictComparable = __webpack_require__(338),
-	    keys = __webpack_require__(306);
+	var isStrictComparable = __webpack_require__(333),
+	    keys = __webpack_require__(301);
 	
 	/**
 	 * Gets the property names, values, and compare flags of `object`.
@@ -49396,13 +40669,13 @@
 	
 	module.exports = getMatchData;
 
-/***/ }),
-/* 338 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 333 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isObject = __webpack_require__(230);
+	var isObject = __webpack_require__(225);
 	
 	/**
 	 * Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
@@ -49418,9 +40691,9 @@
 	
 	module.exports = isStrictComparable;
 
-/***/ }),
-/* 339 */
-/***/ (function(module, exports) {
+/***/ },
+/* 334 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -49444,19 +40717,19 @@
 	
 	module.exports = matchesStrictComparable;
 
-/***/ }),
-/* 340 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 335 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseIsEqual = __webpack_require__(282),
-	    get = __webpack_require__(341),
-	    hasIn = __webpack_require__(263),
-	    isKey = __webpack_require__(210),
-	    isStrictComparable = __webpack_require__(338),
-	    matchesStrictComparable = __webpack_require__(339),
-	    toKey = __webpack_require__(257);
+	var baseIsEqual = __webpack_require__(277),
+	    get = __webpack_require__(336),
+	    hasIn = __webpack_require__(258),
+	    isKey = __webpack_require__(205),
+	    isStrictComparable = __webpack_require__(333),
+	    matchesStrictComparable = __webpack_require__(334),
+	    toKey = __webpack_require__(252);
 	
 	/** Used to compose bitmasks for value comparisons. */
 	var COMPARE_PARTIAL_FLAG = 1,
@@ -49482,13 +40755,13 @@
 	
 	module.exports = baseMatchesProperty;
 
-/***/ }),
-/* 341 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 336 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseGet = __webpack_require__(207);
+	var baseGet = __webpack_require__(202);
 	
 	/**
 	 * Gets the value at `path` of `object`. If the resolved value is
@@ -49522,16 +40795,16 @@
 	
 	module.exports = get;
 
-/***/ }),
-/* 342 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 337 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseProperty = __webpack_require__(343),
-	    basePropertyDeep = __webpack_require__(344),
-	    isKey = __webpack_require__(210),
-	    toKey = __webpack_require__(257);
+	var baseProperty = __webpack_require__(338),
+	    basePropertyDeep = __webpack_require__(339),
+	    isKey = __webpack_require__(205),
+	    toKey = __webpack_require__(252);
 	
 	/**
 	 * Creates a function that returns the value at `path` of a given object.
@@ -49561,9 +40834,9 @@
 	
 	module.exports = property;
 
-/***/ }),
-/* 343 */
-/***/ (function(module, exports) {
+/***/ },
+/* 338 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -49582,13 +40855,13 @@
 	
 	module.exports = baseProperty;
 
-/***/ }),
-/* 344 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 339 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseGet = __webpack_require__(207);
+	var baseGet = __webpack_require__(202);
 	
 	/**
 	 * A specialized version of `baseProperty` which supports deep paths.
@@ -49605,9 +40878,9 @@
 	
 	module.exports = basePropertyDeep;
 
-/***/ }),
-/* 345 */
-/***/ (function(module, exports) {
+/***/ },
+/* 340 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -49633,16 +40906,16 @@
 	
 	module.exports = baseReduce;
 
-/***/ }),
-/* 346 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 341 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var arrayEach = __webpack_require__(347),
-	    baseEach = __webpack_require__(329),
-	    castFunction = __webpack_require__(348),
-	    isArray = __webpack_require__(209);
+	var arrayEach = __webpack_require__(342),
+	    baseEach = __webpack_require__(324),
+	    castFunction = __webpack_require__(343),
+	    isArray = __webpack_require__(204);
 	
 	/**
 	 * Iterates over elements of `collection` and invokes `iteratee` for each element.
@@ -49681,9 +40954,9 @@
 	
 	module.exports = forEach;
 
-/***/ }),
-/* 347 */
-/***/ (function(module, exports) {
+/***/ },
+/* 342 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -49710,13 +40983,13 @@
 	
 	module.exports = arrayEach;
 
-/***/ }),
-/* 348 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 343 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var identity = __webpack_require__(279);
+	var identity = __webpack_require__(274);
 	
 	/**
 	 * Casts `value` to `identity` if it's not a function.
@@ -49731,13 +41004,13 @@
 	
 	module.exports = castFunction;
 
-/***/ }),
-/* 349 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 344 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseClone = __webpack_require__(350);
+	var baseClone = __webpack_require__(345);
 	
 	/** Used to compose bitmasks for cloning. */
 	var CLONE_SYMBOLS_FLAG = 4;
@@ -49774,31 +41047,31 @@
 	
 	module.exports = clone;
 
-/***/ }),
-/* 350 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 345 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var Stack = __webpack_require__(284),
-	    arrayEach = __webpack_require__(347),
-	    assignValue = __webpack_require__(259),
-	    baseAssign = __webpack_require__(351),
-	    baseAssignIn = __webpack_require__(353),
-	    cloneBuffer = __webpack_require__(357),
-	    copyArray = __webpack_require__(358),
-	    copySymbols = __webpack_require__(359),
-	    copySymbolsIn = __webpack_require__(360),
-	    getAllKeys = __webpack_require__(301),
-	    getAllKeysIn = __webpack_require__(363),
-	    getTag = __webpack_require__(320),
-	    initCloneArray = __webpack_require__(364),
-	    initCloneByTag = __webpack_require__(365),
-	    initCloneObject = __webpack_require__(375),
-	    isArray = __webpack_require__(209),
-	    isBuffer = __webpack_require__(309),
-	    isObject = __webpack_require__(230),
-	    keys = __webpack_require__(306);
+	var Stack = __webpack_require__(279),
+	    arrayEach = __webpack_require__(342),
+	    assignValue = __webpack_require__(254),
+	    baseAssign = __webpack_require__(346),
+	    baseAssignIn = __webpack_require__(348),
+	    cloneBuffer = __webpack_require__(352),
+	    copyArray = __webpack_require__(353),
+	    copySymbols = __webpack_require__(354),
+	    copySymbolsIn = __webpack_require__(355),
+	    getAllKeys = __webpack_require__(296),
+	    getAllKeysIn = __webpack_require__(358),
+	    getTag = __webpack_require__(315),
+	    initCloneArray = __webpack_require__(359),
+	    initCloneByTag = __webpack_require__(360),
+	    initCloneObject = __webpack_require__(370),
+	    isArray = __webpack_require__(204),
+	    isBuffer = __webpack_require__(304),
+	    isObject = __webpack_require__(225),
+	    keys = __webpack_require__(301);
 	
 	/** Used to compose bitmasks for cloning. */
 	var CLONE_DEEP_FLAG = 1,
@@ -49919,14 +41192,14 @@
 	
 	module.exports = baseClone;
 
-/***/ }),
-/* 351 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 346 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var copyObject = __webpack_require__(352),
-	    keys = __webpack_require__(306);
+	var copyObject = __webpack_require__(347),
+	    keys = __webpack_require__(301);
 	
 	/**
 	 * The base implementation of `_.assign` without support for multiple sources
@@ -49943,14 +41216,14 @@
 	
 	module.exports = baseAssign;
 
-/***/ }),
-/* 352 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 347 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var assignValue = __webpack_require__(259),
-	    baseAssignValue = __webpack_require__(260);
+	var assignValue = __webpack_require__(254),
+	    baseAssignValue = __webpack_require__(255);
 	
 	/**
 	 * Copies properties of `source` to `object`.
@@ -49988,14 +41261,14 @@
 	
 	module.exports = copyObject;
 
-/***/ }),
-/* 353 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 348 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var copyObject = __webpack_require__(352),
-	    keysIn = __webpack_require__(354);
+	var copyObject = __webpack_require__(347),
+	    keysIn = __webpack_require__(349);
 	
 	/**
 	 * The base implementation of `_.assignIn` without support for multiple sources
@@ -50012,15 +41285,15 @@
 	
 	module.exports = baseAssignIn;
 
-/***/ }),
-/* 354 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var arrayLikeKeys = __webpack_require__(307),
-	    baseKeysIn = __webpack_require__(355),
-	    isArrayLike = __webpack_require__(319);
+	var arrayLikeKeys = __webpack_require__(302),
+	    baseKeysIn = __webpack_require__(350),
+	    isArrayLike = __webpack_require__(314);
 	
 	/**
 	 * Creates an array of the own and inherited enumerable property names of `object`.
@@ -50051,15 +41324,15 @@
 	
 	module.exports = keysIn;
 
-/***/ }),
-/* 355 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 350 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isObject = __webpack_require__(230),
-	    isPrototype = __webpack_require__(316),
-	    nativeKeysIn = __webpack_require__(356);
+	var isObject = __webpack_require__(225),
+	    isPrototype = __webpack_require__(311),
+	    nativeKeysIn = __webpack_require__(351);
 	
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
@@ -50091,9 +41364,9 @@
 	
 	module.exports = baseKeysIn;
 
-/***/ }),
-/* 356 */
-/***/ (function(module, exports) {
+/***/ },
+/* 351 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -50118,15 +41391,15 @@
 	
 	module.exports = nativeKeysIn;
 
-/***/ }),
-/* 357 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 352 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(module) {'use strict';
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var root = __webpack_require__(214);
+	var root = __webpack_require__(209);
 	
 	/** Detect free variable `exports`. */
 	var freeExports = ( false ? 'undefined' : _typeof(exports)) == 'object' && exports && !exports.nodeType && exports;
@@ -50161,11 +41434,11 @@
 	}
 	
 	module.exports = cloneBuffer;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(185)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(188)(module)))
 
-/***/ }),
-/* 358 */
-/***/ (function(module, exports) {
+/***/ },
+/* 353 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -50190,14 +41463,14 @@
 	
 	module.exports = copyArray;
 
-/***/ }),
-/* 359 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 354 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var copyObject = __webpack_require__(352),
-	    getSymbols = __webpack_require__(303);
+	var copyObject = __webpack_require__(347),
+	    getSymbols = __webpack_require__(298);
 	
 	/**
 	 * Copies own symbols of `source` to `object`.
@@ -50213,14 +41486,14 @@
 	
 	module.exports = copySymbols;
 
-/***/ }),
-/* 360 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 355 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var copyObject = __webpack_require__(352),
-	    getSymbolsIn = __webpack_require__(361);
+	var copyObject = __webpack_require__(347),
+	    getSymbolsIn = __webpack_require__(356);
 	
 	/**
 	 * Copies own and inherited symbols of `source` to `object`.
@@ -50236,16 +41509,16 @@
 	
 	module.exports = copySymbolsIn;
 
-/***/ }),
-/* 361 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 356 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var arrayPush = __webpack_require__(272),
-	    getPrototype = __webpack_require__(362),
-	    getSymbols = __webpack_require__(303),
-	    stubArray = __webpack_require__(305);
+	var arrayPush = __webpack_require__(267),
+	    getPrototype = __webpack_require__(357),
+	    getSymbols = __webpack_require__(298),
+	    stubArray = __webpack_require__(300);
 	
 	/* Built-in method references for those with the same name as other `lodash` methods. */
 	var nativeGetSymbols = Object.getOwnPropertySymbols;
@@ -50268,28 +41541,28 @@
 	
 	module.exports = getSymbolsIn;
 
-/***/ }),
-/* 362 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 357 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var overArg = __webpack_require__(318);
+	var overArg = __webpack_require__(313);
 	
 	/** Built-in value references. */
 	var getPrototype = overArg(Object.getPrototypeOf, Object);
 	
 	module.exports = getPrototype;
 
-/***/ }),
-/* 363 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 358 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseGetAllKeys = __webpack_require__(302),
-	    getSymbolsIn = __webpack_require__(361),
-	    keysIn = __webpack_require__(354);
+	var baseGetAllKeys = __webpack_require__(297),
+	    getSymbolsIn = __webpack_require__(356),
+	    keysIn = __webpack_require__(349);
 	
 	/**
 	 * Creates an array of own and inherited enumerable property names and
@@ -50305,9 +41578,9 @@
 	
 	module.exports = getAllKeysIn;
 
-/***/ }),
-/* 364 */
-/***/ (function(module, exports) {
+/***/ },
+/* 359 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -50338,19 +41611,19 @@
 	
 	module.exports = initCloneArray;
 
-/***/ }),
-/* 365 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 360 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var cloneArrayBuffer = __webpack_require__(366),
-	    cloneDataView = __webpack_require__(367),
-	    cloneMap = __webpack_require__(368),
-	    cloneRegExp = __webpack_require__(370),
-	    cloneSet = __webpack_require__(371),
-	    cloneSymbol = __webpack_require__(373),
-	    cloneTypedArray = __webpack_require__(374);
+	var cloneArrayBuffer = __webpack_require__(361),
+	    cloneDataView = __webpack_require__(362),
+	    cloneMap = __webpack_require__(363),
+	    cloneRegExp = __webpack_require__(365),
+	    cloneSet = __webpack_require__(366),
+	    cloneSymbol = __webpack_require__(368),
+	    cloneTypedArray = __webpack_require__(369);
 	
 	/** `Object#toString` result references. */
 	var boolTag = '[object Boolean]',
@@ -50425,13 +41698,13 @@
 	
 	module.exports = initCloneByTag;
 
-/***/ }),
-/* 366 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 361 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var Uint8Array = __webpack_require__(297);
+	var Uint8Array = __webpack_require__(292);
 	
 	/**
 	 * Creates a clone of `arrayBuffer`.
@@ -50448,13 +41721,13 @@
 	
 	module.exports = cloneArrayBuffer;
 
-/***/ }),
-/* 367 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 362 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var cloneArrayBuffer = __webpack_require__(366);
+	var cloneArrayBuffer = __webpack_require__(361);
 	
 	/**
 	 * Creates a clone of `dataView`.
@@ -50471,15 +41744,15 @@
 	
 	module.exports = cloneDataView;
 
-/***/ }),
-/* 368 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 363 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var addMapEntry = __webpack_require__(369),
-	    arrayReduce = __webpack_require__(328),
-	    mapToArray = __webpack_require__(298);
+	var addMapEntry = __webpack_require__(364),
+	    arrayReduce = __webpack_require__(323),
+	    mapToArray = __webpack_require__(293);
 	
 	/** Used to compose bitmasks for cloning. */
 	var CLONE_DEEP_FLAG = 1;
@@ -50500,9 +41773,9 @@
 	
 	module.exports = cloneMap;
 
-/***/ }),
-/* 369 */
-/***/ (function(module, exports) {
+/***/ },
+/* 364 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -50522,9 +41795,9 @@
 	
 	module.exports = addMapEntry;
 
-/***/ }),
-/* 370 */
-/***/ (function(module, exports) {
+/***/ },
+/* 365 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -50546,15 +41819,15 @@
 	
 	module.exports = cloneRegExp;
 
-/***/ }),
-/* 371 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 366 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var addSetEntry = __webpack_require__(372),
-	    arrayReduce = __webpack_require__(328),
-	    setToArray = __webpack_require__(299);
+	var addSetEntry = __webpack_require__(367),
+	    arrayReduce = __webpack_require__(323),
+	    setToArray = __webpack_require__(294);
 	
 	/** Used to compose bitmasks for cloning. */
 	var CLONE_DEEP_FLAG = 1;
@@ -50575,9 +41848,9 @@
 	
 	module.exports = cloneSet;
 
-/***/ }),
-/* 372 */
-/***/ (function(module, exports) {
+/***/ },
+/* 367 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -50597,13 +41870,13 @@
 	
 	module.exports = addSetEntry;
 
-/***/ }),
-/* 373 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 368 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _Symbol = __webpack_require__(213);
+	var _Symbol = __webpack_require__(208);
 	
 	/** Used to convert symbols to primitives and strings. */
 	var symbolProto = _Symbol ? _Symbol.prototype : undefined,
@@ -50622,13 +41895,13 @@
 	
 	module.exports = cloneSymbol;
 
-/***/ }),
-/* 374 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 369 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var cloneArrayBuffer = __webpack_require__(366);
+	var cloneArrayBuffer = __webpack_require__(361);
 	
 	/**
 	 * Creates a clone of `typedArray`.
@@ -50645,15 +41918,15 @@
 	
 	module.exports = cloneTypedArray;
 
-/***/ }),
-/* 375 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 370 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseCreate = __webpack_require__(376),
-	    getPrototype = __webpack_require__(362),
-	    isPrototype = __webpack_require__(316);
+	var baseCreate = __webpack_require__(371),
+	    getPrototype = __webpack_require__(357),
+	    isPrototype = __webpack_require__(311);
 	
 	/**
 	 * Initializes an object clone.
@@ -50668,13 +41941,13 @@
 	
 	module.exports = initCloneObject;
 
-/***/ }),
-/* 376 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 371 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isObject = __webpack_require__(230);
+	var isObject = __webpack_require__(225);
 	
 	/** Built-in value references. */
 	var objectCreate = Object.create;
@@ -50705,9 +41978,9 @@
 	
 	module.exports = baseCreate;
 
-/***/ }),
-/* 377 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 372 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -50727,21 +42000,19 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _latlng = __webpack_require__(195);
+	var _latlng = __webpack_require__(190);
 	
 	var _latlng2 = _interopRequireDefault(_latlng);
 	
-	var _Path2 = __webpack_require__(203);
+	var _Path2 = __webpack_require__(198);
 	
 	var _Path3 = _interopRequireDefault(_Path2);
 	
@@ -50816,13 +42087,13 @@
 	CircleMarker.propTypes = {
 	  center: _latlng2.default.isRequired,
 	  children: _children2.default,
-	  radius: _propTypes2.default.number
+	  radius: _react.PropTypes.number
 	};
 	exports.default = CircleMarker;
 
-/***/ }),
-/* 378 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 373 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -50858,21 +42129,19 @@
 	  }
 	};
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _layerContainer = __webpack_require__(198);
+	var _layerContainer = __webpack_require__(193);
 	
 	var _layerContainer2 = _interopRequireDefault(_layerContainer);
 	
-	var _Path2 = __webpack_require__(203);
+	var _Path2 = __webpack_require__(198);
 	
 	var _Path3 = _interopRequireDefault(_Path2);
 	
@@ -50942,13 +42211,13 @@
 	FeatureGroup.childContextTypes = {
 	  children: _children2.default,
 	  layerContainer: _layerContainer2.default,
-	  popupContainer: _propTypes2.default.object
+	  popupContainer: _react.PropTypes.object
 	};
 	exports.default = FeatureGroup;
 
-/***/ }),
-/* 379 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 374 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -50958,7 +42227,7 @@
 	  value: true
 	});
 	
-	var _isFunction2 = __webpack_require__(229);
+	var _isFunction2 = __webpack_require__(224);
 	
 	var _isFunction3 = _interopRequireDefault(_isFunction2);
 	
@@ -50972,17 +42241,15 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _Path2 = __webpack_require__(203);
+	var _Path2 = __webpack_require__(198);
 	
 	var _Path3 = _interopRequireDefault(_Path2);
 	
@@ -51055,13 +42322,13 @@
 	
 	GeoJSON.propTypes = {
 	  children: _children2.default,
-	  data: _propTypes2.default.oneOfType([_propTypes2.default.array, _propTypes2.default.object]).isRequired
+	  data: _react.PropTypes.oneOfType([_react.PropTypes.array, _react.PropTypes.object]).isRequired
 	};
 	exports.default = GeoJSON;
 
-/***/ }),
-/* 380 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 375 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -51107,17 +42374,15 @@
 	  }
 	};
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _MapLayer2 = __webpack_require__(325);
+	var _MapLayer2 = __webpack_require__(320);
 	
 	var _MapLayer3 = _interopRequireDefault(_MapLayer2);
 	
@@ -51200,14 +42465,14 @@
 	
 	GridLayer.propTypes = {
 	  children: _children2.default,
-	  opacity: _propTypes2.default.number,
-	  zIndex: _propTypes2.default.number
+	  opacity: _react.PropTypes.number,
+	  zIndex: _react.PropTypes.number
 	};
 	exports.default = GridLayer;
 
-/***/ }),
-/* 381 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 376 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -51227,21 +42492,19 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _bounds = __webpack_require__(191);
+	var _bounds = __webpack_require__(186);
 	
 	var _bounds2 = _interopRequireDefault(_bounds);
 	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _MapLayer2 = __webpack_require__(325);
+	var _MapLayer2 = __webpack_require__(320);
 	
 	var _MapLayer3 = _interopRequireDefault(_MapLayer2);
 	
@@ -51322,20 +42585,20 @@
 	}(_MapLayer3.default);
 	
 	ImageOverlay.propTypes = {
-	  attribution: _propTypes2.default.string,
+	  attribution: _react.PropTypes.string,
 	  bounds: _bounds2.default.isRequired,
 	  children: _children2.default,
-	  opacity: _propTypes2.default.number,
-	  url: _propTypes2.default.string.isRequired
+	  opacity: _react.PropTypes.number,
+	  url: _react.PropTypes.string.isRequired
 	};
 	ImageOverlay.childContextTypes = {
-	  popupContainer: _propTypes2.default.object
+	  popupContainer: _react.PropTypes.object
 	};
 	exports.default = ImageOverlay;
 
-/***/ }),
-/* 382 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 377 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -51355,13 +42618,13 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _layerContainer = __webpack_require__(198);
+	var _layerContainer = __webpack_require__(193);
 	
 	var _layerContainer2 = _interopRequireDefault(_layerContainer);
 	
-	var _MapLayer2 = __webpack_require__(325);
+	var _MapLayer2 = __webpack_require__(320);
 	
 	var _MapLayer3 = _interopRequireDefault(_MapLayer2);
 	
@@ -51426,9 +42689,9 @@
 	};
 	exports.default = LayerGroup;
 
-/***/ }),
-/* 383 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 378 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -51474,33 +42737,29 @@
 	  }return target;
 	};
 	
-	var _leaflet = __webpack_require__(184);
-	
-	var _propTypes = __webpack_require__(192);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
+	var _leaflet = __webpack_require__(187);
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _children2 = __webpack_require__(196);
+	var _children2 = __webpack_require__(191);
 	
 	var _children3 = _interopRequireDefault(_children2);
 	
-	var _controlPosition = __webpack_require__(197);
+	var _controlPosition = __webpack_require__(192);
 	
 	var _controlPosition2 = _interopRequireDefault(_controlPosition);
 	
-	var _layerContainer = __webpack_require__(198);
+	var _layerContainer = __webpack_require__(193);
 	
 	var _layerContainer2 = _interopRequireDefault(_layerContainer);
 	
-	var _map = __webpack_require__(199);
+	var _map = __webpack_require__(194);
 	
 	var _map2 = _interopRequireDefault(_map);
 	
-	var _MapControl2 = __webpack_require__(201);
+	var _MapControl2 = __webpack_require__(196);
 	
 	var _MapControl3 = _interopRequireDefault(_MapControl2);
 	
@@ -51541,16 +42800,16 @@
 	}
 	
 	var baseControlledLayerPropTypes = {
-	  checked: _propTypes2.default.bool,
-	  children: _propTypes2.default.node.isRequired,
-	  removeLayer: _propTypes2.default.func,
-	  removeLayerControl: _propTypes2.default.func
+	  checked: _react.PropTypes.bool,
+	  children: _react.PropTypes.node.isRequired,
+	  removeLayer: _react.PropTypes.func,
+	  removeLayerControl: _react.PropTypes.func
 	};
 	
 	var controlledLayerPropTypes = _extends({}, baseControlledLayerPropTypes, {
-	  addBaseLayer: _propTypes2.default.func,
-	  addOverlay: _propTypes2.default.func,
-	  name: _propTypes2.default.string.isRequired
+	  addBaseLayer: _react.PropTypes.func,
+	  addOverlay: _react.PropTypes.func,
+	  name: _react.PropTypes.string.isRequired
 	});
 	
 	// Abtract class for layer container, extended by BaseLayer and Overlay
@@ -51756,9 +43015,9 @@
 	}(_MapControl3.default);
 	
 	LayersControl.propTypes = {
-	  baseLayers: _propTypes2.default.object,
+	  baseLayers: _react.PropTypes.object,
 	  children: _children3.default,
-	  overlays: _propTypes2.default.object,
+	  overlays: _react.PropTypes.object,
 	  position: _controlPosition2.default
 	};
 	LayersControl.contextTypes = {
@@ -51770,9 +43029,9 @@
 	LayersControl.BaseLayer = BaseLayer;
 	LayersControl.Overlay = Overlay;
 
-/***/ }),
-/* 384 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 379 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -51782,11 +43041,11 @@
 	  value: true
 	});
 	
-	var _omit2 = __webpack_require__(385);
+	var _omit2 = __webpack_require__(380);
 	
 	var _omit3 = _interopRequireDefault(_omit2);
 	
-	var _isUndefined2 = __webpack_require__(392);
+	var _isUndefined2 = __webpack_require__(387);
 	
 	var _isUndefined3 = _interopRequireDefault(_isUndefined2);
 	
@@ -51816,39 +43075,35 @@
 	  }
 	};
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
 	var _leaflet2 = _interopRequireDefault(_leaflet);
-	
-	var _propTypes = __webpack_require__(192);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
 	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _bounds = __webpack_require__(191);
+	var _bounds = __webpack_require__(186);
 	
 	var _bounds2 = _interopRequireDefault(_bounds);
 	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _latlng = __webpack_require__(195);
+	var _latlng = __webpack_require__(190);
 	
 	var _latlng2 = _interopRequireDefault(_latlng);
 	
-	var _layerContainer = __webpack_require__(198);
+	var _layerContainer = __webpack_require__(193);
 	
 	var _layerContainer2 = _interopRequireDefault(_layerContainer);
 	
-	var _map = __webpack_require__(199);
+	var _map = __webpack_require__(194);
 	
 	var _map2 = _interopRequireDefault(_map);
 	
-	var _MapComponent2 = __webpack_require__(326);
+	var _MapComponent2 = __webpack_require__(321);
 	
 	var _MapComponent3 = _interopRequireDefault(_MapComponent2);
 	
@@ -52016,19 +43271,19 @@
 	}(_MapComponent3.default);
 	
 	Map.propTypes = {
-	  animate: _propTypes2.default.bool,
+	  animate: _react.PropTypes.bool,
 	  bounds: _bounds2.default,
-	  boundsOptions: _propTypes2.default.object,
+	  boundsOptions: _react.PropTypes.object,
 	  center: _latlng2.default,
 	  children: _children2.default,
-	  className: _propTypes2.default.string,
-	  id: _propTypes2.default.string,
+	  className: _react.PropTypes.string,
+	  id: _react.PropTypes.string,
 	  maxBounds: _bounds2.default,
-	  maxZoom: _propTypes2.default.number,
-	  minZoom: _propTypes2.default.number,
-	  style: _propTypes2.default.object,
-	  useFlyTo: _propTypes2.default.bool,
-	  zoom: _propTypes2.default.number
+	  maxZoom: _react.PropTypes.number,
+	  minZoom: _react.PropTypes.number,
+	  style: _react.PropTypes.object,
+	  useFlyTo: _react.PropTypes.bool,
+	  zoom: _react.PropTypes.number
 	};
 	Map.defaultProps = {
 	  animate: false,
@@ -52040,20 +43295,20 @@
 	};
 	exports.default = Map;
 
-/***/ }),
-/* 385 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 380 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var arrayMap = __webpack_require__(256),
-	    baseClone = __webpack_require__(350),
-	    baseUnset = __webpack_require__(386),
-	    castPath = __webpack_require__(208),
-	    copyObject = __webpack_require__(352),
-	    customOmitClone = __webpack_require__(390),
-	    flatRest = __webpack_require__(269),
-	    getAllKeysIn = __webpack_require__(363);
+	var arrayMap = __webpack_require__(251),
+	    baseClone = __webpack_require__(345),
+	    baseUnset = __webpack_require__(381),
+	    castPath = __webpack_require__(203),
+	    copyObject = __webpack_require__(347),
+	    customOmitClone = __webpack_require__(385),
+	    flatRest = __webpack_require__(264),
+	    getAllKeysIn = __webpack_require__(358);
 	
 	/** Used to compose bitmasks for cloning. */
 	var CLONE_DEEP_FLAG = 1,
@@ -52104,16 +43359,16 @@
 	
 	module.exports = omit;
 
-/***/ }),
-/* 386 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 381 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var castPath = __webpack_require__(208),
-	    last = __webpack_require__(387),
-	    parent = __webpack_require__(388),
-	    toKey = __webpack_require__(257);
+	var castPath = __webpack_require__(203),
+	    last = __webpack_require__(382),
+	    parent = __webpack_require__(383),
+	    toKey = __webpack_require__(252);
 	
 	/**
 	 * The base implementation of `_.unset`.
@@ -52131,9 +43386,9 @@
 	
 	module.exports = baseUnset;
 
-/***/ }),
-/* 387 */
-/***/ (function(module, exports) {
+/***/ },
+/* 382 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -52158,14 +43413,14 @@
 	
 	module.exports = last;
 
-/***/ }),
-/* 388 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 383 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseGet = __webpack_require__(207),
-	    baseSlice = __webpack_require__(389);
+	var baseGet = __webpack_require__(202),
+	    baseSlice = __webpack_require__(384);
 	
 	/**
 	 * Gets the parent value at `path` of `object`.
@@ -52181,9 +43436,9 @@
 	
 	module.exports = parent;
 
-/***/ }),
-/* 389 */
-/***/ (function(module, exports) {
+/***/ },
+/* 384 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -52219,13 +43474,13 @@
 	
 	module.exports = baseSlice;
 
-/***/ }),
-/* 390 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 385 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var isPlainObject = __webpack_require__(391);
+	var isPlainObject = __webpack_require__(386);
 	
 	/**
 	 * Used by `_.omit` to customize its `_.cloneDeep` use to only clone plain
@@ -52242,15 +43497,15 @@
 	
 	module.exports = customOmitClone;
 
-/***/ }),
-/* 391 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 386 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var baseGetTag = __webpack_require__(212),
-	    getPrototype = __webpack_require__(362),
-	    isObjectLike = __webpack_require__(218);
+	var baseGetTag = __webpack_require__(207),
+	    getPrototype = __webpack_require__(357),
+	    isObjectLike = __webpack_require__(213);
 	
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -52310,9 +43565,9 @@
 	
 	module.exports = isPlainObject;
 
-/***/ }),
-/* 392 */
-/***/ (function(module, exports) {
+/***/ },
+/* 387 */
+/***/ function(module, exports) {
 
 	"use strict";
 	
@@ -52339,9 +43594,9 @@
 	
 	module.exports = isUndefined;
 
-/***/ }),
-/* 393 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 388 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -52361,21 +43616,19 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _latlng = __webpack_require__(195);
+	var _latlng = __webpack_require__(190);
 	
 	var _latlng2 = _interopRequireDefault(_latlng);
 	
-	var _MapLayer2 = __webpack_require__(325);
+	var _MapLayer2 = __webpack_require__(320);
 	
 	var _MapLayer3 = _interopRequireDefault(_MapLayer2);
 	
@@ -52469,19 +43722,19 @@
 	
 	Marker.propTypes = {
 	  children: _children2.default,
-	  icon: _propTypes2.default.instanceOf(_leaflet.Icon),
-	  opacity: _propTypes2.default.number,
+	  icon: _react.PropTypes.instanceOf(_leaflet.Icon),
+	  opacity: _react.PropTypes.number,
 	  position: _latlng2.default.isRequired,
-	  zIndexOffset: _propTypes2.default.number
+	  zIndexOffset: _react.PropTypes.number
 	};
 	Marker.childContextTypes = {
-	  popupContainer: _propTypes2.default.object
+	  popupContainer: _react.PropTypes.object
 	};
 	exports.default = Marker;
 
-/***/ }),
-/* 394 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 389 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
@@ -52491,15 +43744,15 @@
 	  value: true
 	});
 	
-	var _uniqueId2 = __webpack_require__(395);
+	var _uniqueId2 = __webpack_require__(390);
 	
 	var _uniqueId3 = _interopRequireDefault(_uniqueId2);
 	
-	var _omit2 = __webpack_require__(385);
+	var _omit2 = __webpack_require__(380);
 	
 	var _omit3 = _interopRequireDefault(_omit2);
 	
-	var _forEach2 = __webpack_require__(346);
+	var _forEach2 = __webpack_require__(341);
 	
 	var _forEach3 = _interopRequireDefault(_forEach2);
 	
@@ -52517,19 +43770,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _propTypes = __webpack_require__(192);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _warning = __webpack_require__(396);
+	var _warning = __webpack_require__(391);
 	
 	var _warning2 = _interopRequireDefault(_warning);
 	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _map = __webpack_require__(199);
+	var _map = __webpack_require__(194);
 	
 	var _map2 = _interopRequireDefault(_map);
 	
@@ -52715,30 +43964,30 @@
 	}(_react.Component);
 	
 	Pane.propTypes = {
-	  name: _propTypes2.default.string,
+	  name: _react.PropTypes.string,
 	  children: _children2.default,
 	  map: _map2.default,
-	  className: _propTypes2.default.string,
-	  style: _propTypes2.default.object,
-	  pane: _propTypes2.default.string
+	  className: _react.PropTypes.string,
+	  style: _react.PropTypes.object,
+	  pane: _react.PropTypes.string
 	};
 	Pane.contextTypes = {
 	  map: _map2.default,
-	  pane: _propTypes2.default.string
+	  pane: _react.PropTypes.string
 	};
 	Pane.childContextTypes = {
-	  pane: _propTypes2.default.string
+	  pane: _react.PropTypes.string
 	};
 	exports.default = Pane;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 395 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 390 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var toString = __webpack_require__(254);
+	var toString = __webpack_require__(249);
 	
 	/** Used to generate unique IDs. */
 	var idCounter = 0;
@@ -52767,9 +44016,9 @@
 	
 	module.exports = uniqueId;
 
-/***/ }),
-/* 396 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 391 */
+/***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
 	 * Copyright 2014-2015, Facebook, Inc.
@@ -52826,9 +44075,9 @@
 	module.exports = warning;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
-/***/ }),
-/* 397 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 392 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -52848,21 +44097,19 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _latlngList = __webpack_require__(194);
+	var _latlngList = __webpack_require__(189);
 	
 	var _latlngList2 = _interopRequireDefault(_latlngList);
 	
-	var _Path2 = __webpack_require__(203);
+	var _Path2 = __webpack_require__(198);
 	
 	var _Path3 = _interopRequireDefault(_Path2);
 	
@@ -52902,7 +44149,7 @@
 	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass);
 	}
 	
-	var multiLatLngListType = _propTypes2.default.arrayOf(_latlngList2.default);
+	var multiLatLngListType = _react.PropTypes.arrayOf(_latlngList2.default);
 	
 	var Polygon = function (_Path) {
 	  _inherits(Polygon, _Path);
@@ -52936,14 +44183,14 @@
 	
 	Polygon.propTypes = {
 	  children: _children2.default,
-	  popupContainer: _propTypes2.default.object,
-	  positions: _propTypes2.default.oneOfType([_latlngList2.default, multiLatLngListType, _propTypes2.default.arrayOf(multiLatLngListType)]).isRequired
+	  popupContainer: _react.PropTypes.object,
+	  positions: _react.PropTypes.oneOfType([_latlngList2.default, multiLatLngListType, _react.PropTypes.arrayOf(multiLatLngListType)]).isRequired
 	};
 	exports.default = Polygon;
 
-/***/ }),
-/* 398 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 393 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -52963,21 +44210,19 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _latlngList = __webpack_require__(194);
+	var _latlngList = __webpack_require__(189);
 	
 	var _latlngList2 = _interopRequireDefault(_latlngList);
 	
-	var _Path2 = __webpack_require__(203);
+	var _Path2 = __webpack_require__(198);
 	
 	var _Path3 = _interopRequireDefault(_Path2);
 	
@@ -53049,13 +44294,13 @@
 	
 	Polyline.propTypes = {
 	  children: _children2.default,
-	  positions: _propTypes2.default.oneOfType([_latlngList2.default, _propTypes2.default.arrayOf(_latlngList2.default)]).isRequired
+	  positions: _react.PropTypes.oneOfType([_latlngList2.default, _react.PropTypes.arrayOf(_latlngList2.default)]).isRequired
 	};
 	exports.default = Polyline;
 
-/***/ }),
-/* 399 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 394 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -53091,25 +44336,21 @@
 	  }
 	};
 	
-	var _leaflet = __webpack_require__(184);
-	
-	var _propTypes = __webpack_require__(192);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
+	var _leaflet = __webpack_require__(187);
 	
 	var _react = __webpack_require__(1);
 	
-	var _reactDom = __webpack_require__(36);
+	var _reactDom = __webpack_require__(32);
 	
-	var _latlng = __webpack_require__(195);
+	var _latlng = __webpack_require__(190);
 	
 	var _latlng2 = _interopRequireDefault(_latlng);
 	
-	var _map = __webpack_require__(199);
+	var _map = __webpack_require__(194);
 	
 	var _map2 = _interopRequireDefault(_map);
 	
-	var _MapComponent2 = __webpack_require__(326);
+	var _MapComponent2 = __webpack_require__(321);
 	
 	var _MapComponent3 = _interopRequireDefault(_MapComponent2);
 	
@@ -53266,19 +44507,19 @@
 	}(_MapComponent3.default);
 	
 	Popup.propTypes = {
-	  children: _propTypes2.default.node,
+	  children: _react.PropTypes.node,
 	  position: _latlng2.default
 	};
 	Popup.contextTypes = {
 	  map: _map2.default,
-	  popupContainer: _propTypes2.default.object,
-	  pane: _propTypes2.default.string
+	  popupContainer: _react.PropTypes.object,
+	  pane: _react.PropTypes.string
 	};
 	exports.default = Popup;
 
-/***/ }),
-/* 400 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 395 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -53298,21 +44539,19 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _bounds = __webpack_require__(191);
+	var _bounds = __webpack_require__(186);
 	
 	var _bounds2 = _interopRequireDefault(_bounds);
 	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _Path2 = __webpack_require__(203);
+	var _Path2 = __webpack_require__(198);
 	
 	var _Path3 = _interopRequireDefault(_Path2);
 	
@@ -53385,13 +44624,13 @@
 	Rectangle.propTypes = {
 	  children: _children2.default,
 	  bounds: _bounds2.default.isRequired,
-	  popupContainer: _propTypes2.default.object
+	  popupContainer: _react.PropTypes.object
 	};
 	exports.default = Rectangle;
 
-/***/ }),
-/* 401 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 396 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -53411,17 +44650,15 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _controlPosition = __webpack_require__(197);
+	var _controlPosition = __webpack_require__(192);
 	
 	var _controlPosition2 = _interopRequireDefault(_controlPosition);
 	
-	var _MapControl2 = __webpack_require__(201);
+	var _MapControl2 = __webpack_require__(196);
 	
 	var _MapControl3 = _interopRequireDefault(_MapControl2);
 	
@@ -53475,17 +44712,17 @@
 	}(_MapControl3.default);
 	
 	ScaleControl.propTypes = {
-	  imperial: _propTypes2.default.bool,
-	  maxWidth: _propTypes2.default.number,
-	  metric: _propTypes2.default.bool,
+	  imperial: _react.PropTypes.bool,
+	  maxWidth: _react.PropTypes.number,
+	  metric: _react.PropTypes.bool,
 	  position: _controlPosition2.default,
-	  updateWhenIdle: _propTypes2.default.bool
+	  updateWhenIdle: _react.PropTypes.bool
 	};
 	exports.default = ScaleControl;
 
-/***/ }),
-/* 402 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 397 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -53521,17 +44758,15 @@
 	  }
 	};
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _GridLayer2 = __webpack_require__(380);
+	var _GridLayer2 = __webpack_require__(375);
 	
 	var _GridLayer3 = _interopRequireDefault(_GridLayer2);
 	
@@ -53603,15 +44838,15 @@
 	
 	TileLayer.propTypes = {
 	  children: _children2.default,
-	  opacity: _propTypes2.default.number,
-	  url: _propTypes2.default.string.isRequired,
-	  zIndex: _propTypes2.default.number
+	  opacity: _react.PropTypes.number,
+	  url: _react.PropTypes.string.isRequired,
+	  zIndex: _react.PropTypes.number
 	};
 	exports.default = TileLayer;
 
-/***/ }),
-/* 403 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 398 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -53647,21 +44882,17 @@
 	  }
 	};
 	
-	var _leaflet = __webpack_require__(184);
-	
-	var _propTypes = __webpack_require__(192);
-	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
+	var _leaflet = __webpack_require__(187);
 	
 	var _react = __webpack_require__(1);
 	
-	var _reactDom = __webpack_require__(36);
+	var _reactDom = __webpack_require__(32);
 	
-	var _map = __webpack_require__(199);
+	var _map = __webpack_require__(194);
 	
 	var _map2 = _interopRequireDefault(_map);
 	
-	var _MapComponent2 = __webpack_require__(326);
+	var _MapComponent2 = __webpack_require__(321);
 	
 	var _MapComponent3 = _interopRequireDefault(_MapComponent2);
 	
@@ -53793,18 +45024,18 @@
 	}(_MapComponent3.default);
 	
 	Tooltip.propTypes = {
-	  children: _propTypes2.default.node
+	  children: _react.PropTypes.node
 	};
 	Tooltip.contextTypes = {
 	  map: _map2.default,
-	  popupContainer: _propTypes2.default.object,
-	  pane: _propTypes2.default.string
+	  popupContainer: _react.PropTypes.object,
+	  pane: _react.PropTypes.string
 	};
 	exports.default = Tooltip;
 
-/***/ }),
-/* 404 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 399 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -53814,7 +45045,7 @@
 	  value: true
 	});
 	
-	var _isEqual2 = __webpack_require__(281);
+	var _isEqual2 = __webpack_require__(276);
 	
 	var _isEqual3 = _interopRequireDefault(_isEqual2);
 	
@@ -53844,17 +45075,15 @@
 	  }
 	};
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _children = __webpack_require__(196);
+	var _children = __webpack_require__(191);
 	
 	var _children2 = _interopRequireDefault(_children);
 	
-	var _GridLayer2 = __webpack_require__(380);
+	var _GridLayer2 = __webpack_require__(375);
 	
 	var _GridLayer3 = _interopRequireDefault(_GridLayer2);
 	
@@ -53940,15 +45169,15 @@
 	
 	WMSTileLayer.propTypes = {
 	  children: _children2.default,
-	  opacity: _propTypes2.default.number,
-	  url: _propTypes2.default.string.isRequired,
-	  zIndex: _propTypes2.default.number
+	  opacity: _react.PropTypes.number,
+	  url: _react.PropTypes.string.isRequired,
+	  zIndex: _react.PropTypes.number
 	};
 	exports.default = WMSTileLayer;
 
-/***/ }),
-/* 405 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 400 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -53968,19 +45197,17 @@
 	  };
 	}();
 	
-	var _leaflet = __webpack_require__(184);
+	var _leaflet = __webpack_require__(187);
 	
-	var _propTypes = __webpack_require__(192);
+	var _react = __webpack_require__(1);
 	
-	var _propTypes2 = _interopRequireDefault(_propTypes);
-	
-	var _controlPosition = __webpack_require__(197);
-	
-	var _controlPosition2 = _interopRequireDefault(_controlPosition);
-	
-	var _MapControl2 = __webpack_require__(201);
+	var _MapControl2 = __webpack_require__(196);
 	
 	var _MapControl3 = _interopRequireDefault(_MapControl2);
+	
+	var _controlPosition = __webpack_require__(192);
+	
+	var _controlPosition2 = _interopRequireDefault(_controlPosition);
 	
 	function _interopRequireDefault(obj) {
 	  return obj && obj.__esModule ? obj : { default: obj };
@@ -54033,21 +45260,21 @@
 	
 	ZoomControl.propTypes = {
 	  position: _controlPosition2.default,
-	  zoomInText: _propTypes2.default.string,
-	  zoomInTitle: _propTypes2.default.string,
-	  zoomOutText: _propTypes2.default.string,
-	  zoomOutTitle: _propTypes2.default.string
+	  zoomInText: _react.PropTypes.string,
+	  zoomInTitle: _react.PropTypes.string,
+	  zoomOutText: _react.PropTypes.string,
+	  zoomOutTitle: _react.PropTypes.string
 	};
 	exports.default = ZoomControl;
 
-/***/ }),
-/* 406 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ },
+/* 401 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-					value: true
+		value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -54056,9 +45283,9 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactLeaflet = __webpack_require__(189);
+	var _reactLeaflet = __webpack_require__(184);
 	
-	__webpack_require__(407);
+	__webpack_require__(402);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -54069,98 +45296,94 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var StationLayer = function (_React$Component) {
-					_inherits(StationLayer, _React$Component);
+		_inherits(StationLayer, _React$Component);
 	
-					function StationLayer(props) {
-									_classCallCheck(this, StationLayer);
+		function StationLayer(props) {
+			_classCallCheck(this, StationLayer);
 	
-									var _this = _possibleConstructorReturn(this, (StationLayer.__proto__ || Object.getPrototypeOf(StationLayer)).call(this, props));
+			var _this = _possibleConstructorReturn(this, (StationLayer.__proto__ || Object.getPrototypeOf(StationLayer)).call(this, props));
 	
-									_this.state = {
-													stations: []
-									};
+			_this.state = {
+				stations: []
+			};
+			return _this;
+		}
 	
-									return _this;
+		_createClass(StationLayer, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				var _this2 = this;
+	
+				//fetch data again?
+				this.getData();
+				setInterval(function () {
+					_this2.getData();
+				}, 120000);
+			}
+		}, {
+			key: 'componentDidUpdate',
+			value: function componentDidUpdate() {
+				console.log("updated");
+			}
+		}, {
+			key: 'getData',
+			value: function getData() {
+				var _this3 = this;
+	
+				fetch("/stations").then(function (response) {
+					return response.json();
+				}).then(function (json) {
+					if (!!json && json.stations) {
+						_this3.setState({ stations: json.stations });
 					}
+				});
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var _this4 = this;
 	
-					_createClass(StationLayer, [{
-									key: 'componentDidMount',
-									value: function componentDidMount() {
-													var _this2 = this;
+				var markers = this.state.stations.map(function (station) {
+					return _react2.default.createElement(
+						_reactLeaflet.CircleMarker,
+						{ center: [station.lat, station.lon], color: _this4.props.view == "Bike Angels" ? station.status_color : station.score_color, fillColor: _this4.props.view == "Bike Angels" ? station.score_color : station.status_color, fillOpacity: '1', radius: 5 },
+						_react2.default.createElement(
+							_reactLeaflet.Popup,
+							null,
+							_react2.default.createElement(
+								'span',
+								null,
+								station.name,
+								_react2.default.createElement('br', null),
+								'Available: ',
+								station.num_bikes_available,
+								_react2.default.createElement('br', null),
+								'Capacity: ',
+								station.capacity,
+								_react2.default.createElement('br', null),
+								'Bike Angels Score: ',
+								station.score
+							)
+						)
+					);
+				});
 	
-													//fetch data again?
-													this.getData();
-													console.log("station layer mounted");
-													setInterval(function () {
-																	_this2.getData();
-													}, 120000);
-									}
-					}, {
-									key: 'componentDidUpdate',
-									value: function componentDidUpdate() {
-													console.log("updated");
-													//console.log(this.state.stations);
-									}
-					}, {
-									key: 'getData',
-									value: function getData() {
-													var _this3 = this;
+				return _react2.default.createElement(
+					'div',
+					null,
+					markers
+				);
+			}
+		}]);
 	
-													console.log("Fetching station data");
-													fetch("/stations").then(function (response) {
-																	return response.json();
-													}).then(function (json) {
-																	//TODO check if valid json
-																	if (!!json && json.stations) {
-																					_this3.setState({ stations: json.stations });
-																	}
-													});
-									}
-					}, {
-									key: 'render',
-									value: function render() {
-													console.log("Constructing station layer");
-													var markers = this.state.stations.map(function (station) {
-																	return _react2.default.createElement(
-																					_reactLeaflet.CircleMarker,
-																					{ center: [station.lat, station.lon], color: station.status_color, fillColor: station.score_color, fillOpacity: '1', radius: 5 },
-																					_react2.default.createElement(
-																									_reactLeaflet.Popup,
-																									null,
-																									_react2.default.createElement(
-																													'span',
-																													null,
-																													station.name,
-																													_react2.default.createElement('br', null),
-																													'Available: ',
-																													station.num_bikes_available,
-																													_react2.default.createElement('br', null),
-																													'Capacity: ',
-																													station.capacity,
-																													_react2.default.createElement('br', null),
-																													'Bike Angels Score: ',
-																													station.score
-																									)
-																					)
-																	);
-													});
-	
-													return _react2.default.createElement(
-																	'div',
-																	null,
-																	markers
-													);
-									}
-					}]);
-	
-					return StationLayer;
+		return StationLayer;
 	}(_react2.default.Component);
 	
 	exports.default = StationLayer;
 
-/***/ }),
-/* 407 */
-/***/ (function(module, exports) {
+/***/ },
+/* 402 */
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -54622,6 +45845,1533 @@
 	  self.fetch.polyfill = true;
 	})(typeof self !== 'undefined' ? self : undefined);
 
-/***/ })
+/***/ },
+/* 403 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactLeaflet = __webpack_require__(184);
+	
+	var _reactToggle = __webpack_require__(424);
+	
+	var _reactToggle2 = _interopRequireDefault(_reactToggle);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var svgMarkerAttbs = '<svg width="50px" height="60px"><g>\n<path stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#000" fill-opacity="1" fill-rule="evenodd"  stroke="#f71e00" stroke-opacity="1"  d="M15,15a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0"></path>\n<path stroke="#459c00" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-opacity="1" fill-rule="evenodd" d="M15,45a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0"></path>\n</g></svg>';
+	
+	var Legend = function (_React$Component) {
+		_inherits(Legend, _React$Component);
+	
+		function Legend(props) {
+			_classCallCheck(this, Legend);
+	
+			var _this = _possibleConstructorReturn(this, (Legend.__proto__ || Object.getPrototypeOf(Legend)).call(this, props));
+	
+			_this.handleToggleChange = _this.handleToggleChange.bind(_this);
+			return _this;
+		}
+	
+		_createClass(Legend, [{
+			key: 'handleToggleChange',
+			value: function handleToggleChange() {
+	
+				this.props.changeView();
+				console.log("button toggled", this.props.view);
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'legend' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'toggleWrap' },
+						_react2.default.createElement(
+							'label',
+							null,
+							_react2.default.createElement(_reactToggle2.default, {
+								defaultChecked: this.props.view == "Bike Angels",
+								icons: false,
+								onChange: this.handleToggleChange }),
+							_react2.default.createElement(
+								'span',
+								{ className: 'viewType' },
+								' ',
+								this.props.view
+							)
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'hacked_svg' },
+						_react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: svgMarkerAttbs } })
+					)
+				);
+			}
+		}]);
+	
+		return Legend;
+	}(_react2.default.Component);
+	
+	exports.default = Legend;
+
+/***/ },
+/* 404 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
+	
+	var _createStore = __webpack_require__(405);
+	
+	var _createStore2 = _interopRequireDefault(_createStore);
+	
+	var _combineReducers = __webpack_require__(419);
+	
+	var _combineReducers2 = _interopRequireDefault(_combineReducers);
+	
+	var _bindActionCreators = __webpack_require__(421);
+	
+	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
+	
+	var _applyMiddleware = __webpack_require__(422);
+	
+	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
+	
+	var _compose = __webpack_require__(423);
+	
+	var _compose2 = _interopRequireDefault(_compose);
+	
+	var _warning = __webpack_require__(420);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	/*
+	* This is a dummy function to check if the function name has been altered by minification.
+	* If the function has been minified and NODE_ENV !== 'production', warn the user.
+	*/
+	function isCrushed() {}
+	
+	if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+	  (0, _warning2['default'])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
+	}
+	
+	exports.createStore = _createStore2['default'];
+	exports.combineReducers = _combineReducers2['default'];
+	exports.bindActionCreators = _bindActionCreators2['default'];
+	exports.applyMiddleware = _applyMiddleware2['default'];
+	exports.compose = _compose2['default'];
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 405 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	exports.__esModule = true;
+	exports.ActionTypes = undefined;
+	exports['default'] = createStore;
+	
+	var _isPlainObject = __webpack_require__(406);
+	
+	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+	
+	var _symbolObservable = __webpack_require__(416);
+	
+	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	/**
+	 * These are private action types reserved by Redux.
+	 * For any unknown actions, you must return the current state.
+	 * If the current state is undefined, you must return the initial state.
+	 * Do not reference these action types directly in your code.
+	 */
+	var ActionTypes = exports.ActionTypes = {
+	  INIT: '@@redux/INIT'
+	};
+	
+	/**
+	 * Creates a Redux store that holds the state tree.
+	 * The only way to change the data in the store is to call `dispatch()` on it.
+	 *
+	 * There should only be a single store in your app. To specify how different
+	 * parts of the state tree respond to actions, you may combine several reducers
+	 * into a single reducer function by using `combineReducers`.
+	 *
+	 * @param {Function} reducer A function that returns the next state tree, given
+	 * the current state tree and the action to handle.
+	 *
+	 * @param {any} [preloadedState] The initial state. You may optionally specify it
+	 * to hydrate the state from the server in universal apps, or to restore a
+	 * previously serialized user session.
+	 * If you use `combineReducers` to produce the root reducer function, this must be
+	 * an object with the same shape as `combineReducers` keys.
+	 *
+	 * @param {Function} enhancer The store enhancer. You may optionally specify it
+	 * to enhance the store with third-party capabilities such as middleware,
+	 * time travel, persistence, etc. The only store enhancer that ships with Redux
+	 * is `applyMiddleware()`.
+	 *
+	 * @returns {Store} A Redux store that lets you read the state, dispatch actions
+	 * and subscribe to changes.
+	 */
+	function createStore(reducer, preloadedState, enhancer) {
+	  var _ref2;
+	
+	  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
+	    enhancer = preloadedState;
+	    preloadedState = undefined;
+	  }
+	
+	  if (typeof enhancer !== 'undefined') {
+	    if (typeof enhancer !== 'function') {
+	      throw new Error('Expected the enhancer to be a function.');
+	    }
+	
+	    return enhancer(createStore)(reducer, preloadedState);
+	  }
+	
+	  if (typeof reducer !== 'function') {
+	    throw new Error('Expected the reducer to be a function.');
+	  }
+	
+	  var currentReducer = reducer;
+	  var currentState = preloadedState;
+	  var currentListeners = [];
+	  var nextListeners = currentListeners;
+	  var isDispatching = false;
+	
+	  function ensureCanMutateNextListeners() {
+	    if (nextListeners === currentListeners) {
+	      nextListeners = currentListeners.slice();
+	    }
+	  }
+	
+	  /**
+	   * Reads the state tree managed by the store.
+	   *
+	   * @returns {any} The current state tree of your application.
+	   */
+	  function getState() {
+	    return currentState;
+	  }
+	
+	  /**
+	   * Adds a change listener. It will be called any time an action is dispatched,
+	   * and some part of the state tree may potentially have changed. You may then
+	   * call `getState()` to read the current state tree inside the callback.
+	   *
+	   * You may call `dispatch()` from a change listener, with the following
+	   * caveats:
+	   *
+	   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
+	   * If you subscribe or unsubscribe while the listeners are being invoked, this
+	   * will not have any effect on the `dispatch()` that is currently in progress.
+	   * However, the next `dispatch()` call, whether nested or not, will use a more
+	   * recent snapshot of the subscription list.
+	   *
+	   * 2. The listener should not expect to see all state changes, as the state
+	   * might have been updated multiple times during a nested `dispatch()` before
+	   * the listener is called. It is, however, guaranteed that all subscribers
+	   * registered before the `dispatch()` started will be called with the latest
+	   * state by the time it exits.
+	   *
+	   * @param {Function} listener A callback to be invoked on every dispatch.
+	   * @returns {Function} A function to remove this change listener.
+	   */
+	  function subscribe(listener) {
+	    if (typeof listener !== 'function') {
+	      throw new Error('Expected listener to be a function.');
+	    }
+	
+	    var isSubscribed = true;
+	
+	    ensureCanMutateNextListeners();
+	    nextListeners.push(listener);
+	
+	    return function unsubscribe() {
+	      if (!isSubscribed) {
+	        return;
+	      }
+	
+	      isSubscribed = false;
+	
+	      ensureCanMutateNextListeners();
+	      var index = nextListeners.indexOf(listener);
+	      nextListeners.splice(index, 1);
+	    };
+	  }
+	
+	  /**
+	   * Dispatches an action. It is the only way to trigger a state change.
+	   *
+	   * The `reducer` function, used to create the store, will be called with the
+	   * current state tree and the given `action`. Its return value will
+	   * be considered the **next** state of the tree, and the change listeners
+	   * will be notified.
+	   *
+	   * The base implementation only supports plain object actions. If you want to
+	   * dispatch a Promise, an Observable, a thunk, or something else, you need to
+	   * wrap your store creating function into the corresponding middleware. For
+	   * example, see the documentation for the `redux-thunk` package. Even the
+	   * middleware will eventually dispatch plain object actions using this method.
+	   *
+	   * @param {Object} action A plain object representing “what changed”. It is
+	   * a good idea to keep actions serializable so you can record and replay user
+	   * sessions, or use the time travelling `redux-devtools`. An action must have
+	   * a `type` property which may not be `undefined`. It is a good idea to use
+	   * string constants for action types.
+	   *
+	   * @returns {Object} For convenience, the same action object you dispatched.
+	   *
+	   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
+	   * return something else (for example, a Promise you can await).
+	   */
+	  function dispatch(action) {
+	    if (!(0, _isPlainObject2['default'])(action)) {
+	      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
+	    }
+	
+	    if (typeof action.type === 'undefined') {
+	      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
+	    }
+	
+	    if (isDispatching) {
+	      throw new Error('Reducers may not dispatch actions.');
+	    }
+	
+	    try {
+	      isDispatching = true;
+	      currentState = currentReducer(currentState, action);
+	    } finally {
+	      isDispatching = false;
+	    }
+	
+	    var listeners = currentListeners = nextListeners;
+	    for (var i = 0; i < listeners.length; i++) {
+	      listeners[i]();
+	    }
+	
+	    return action;
+	  }
+	
+	  /**
+	   * Replaces the reducer currently used by the store to calculate the state.
+	   *
+	   * You might need this if your app implements code splitting and you want to
+	   * load some of the reducers dynamically. You might also need this if you
+	   * implement a hot reloading mechanism for Redux.
+	   *
+	   * @param {Function} nextReducer The reducer for the store to use instead.
+	   * @returns {void}
+	   */
+	  function replaceReducer(nextReducer) {
+	    if (typeof nextReducer !== 'function') {
+	      throw new Error('Expected the nextReducer to be a function.');
+	    }
+	
+	    currentReducer = nextReducer;
+	    dispatch({ type: ActionTypes.INIT });
+	  }
+	
+	  /**
+	   * Interoperability point for observable/reactive libraries.
+	   * @returns {observable} A minimal observable of state changes.
+	   * For more information, see the observable proposal:
+	   * https://github.com/zenparsing/es-observable
+	   */
+	  function observable() {
+	    var _ref;
+	
+	    var outerSubscribe = subscribe;
+	    return _ref = {
+	      /**
+	       * The minimal observable subscription method.
+	       * @param {Object} observer Any object that can be used as an observer.
+	       * The observer object should have a `next` method.
+	       * @returns {subscription} An object with an `unsubscribe` method that can
+	       * be used to unsubscribe the observable from the store, and prevent further
+	       * emission of values from the observable.
+	       */
+	      subscribe: function subscribe(observer) {
+	        if ((typeof observer === 'undefined' ? 'undefined' : _typeof(observer)) !== 'object') {
+	          throw new TypeError('Expected the observer to be an object.');
+	        }
+	
+	        function observeState() {
+	          if (observer.next) {
+	            observer.next(getState());
+	          }
+	        }
+	
+	        observeState();
+	        var unsubscribe = outerSubscribe(observeState);
+	        return { unsubscribe: unsubscribe };
+	      }
+	    }, _ref[_symbolObservable2['default']] = function () {
+	      return this;
+	    }, _ref;
+	  }
+	
+	  // When a store is created, an "INIT" action is dispatched so that every
+	  // reducer returns their initial state. This effectively populates
+	  // the initial state tree.
+	  dispatch({ type: ActionTypes.INIT });
+	
+	  return _ref2 = {
+	    dispatch: dispatch,
+	    subscribe: subscribe,
+	    getState: getState,
+	    replaceReducer: replaceReducer
+	  }, _ref2[_symbolObservable2['default']] = observable, _ref2;
+	}
+
+/***/ },
+/* 406 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var baseGetTag = __webpack_require__(407),
+	    getPrototype = __webpack_require__(413),
+	    isObjectLike = __webpack_require__(415);
+	
+	/** `Object#toString` result references. */
+	var objectTag = '[object Object]';
+	
+	/** Used for built-in method references. */
+	var funcProto = Function.prototype,
+	    objectProto = Object.prototype;
+	
+	/** Used to resolve the decompiled source of functions. */
+	var funcToString = funcProto.toString;
+	
+	/** Used to check objects for own properties. */
+	var hasOwnProperty = objectProto.hasOwnProperty;
+	
+	/** Used to infer the `Object` constructor. */
+	var objectCtorString = funcToString.call(Object);
+	
+	/**
+	 * Checks if `value` is a plain object, that is, an object created by the
+	 * `Object` constructor or one with a `[[Prototype]]` of `null`.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 0.8.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
+	 * @example
+	 *
+	 * function Foo() {
+	 *   this.a = 1;
+	 * }
+	 *
+	 * _.isPlainObject(new Foo);
+	 * // => false
+	 *
+	 * _.isPlainObject([1, 2, 3]);
+	 * // => false
+	 *
+	 * _.isPlainObject({ 'x': 0, 'y': 0 });
+	 * // => true
+	 *
+	 * _.isPlainObject(Object.create(null));
+	 * // => true
+	 */
+	function isPlainObject(value) {
+	  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
+	    return false;
+	  }
+	  var proto = getPrototype(value);
+	  if (proto === null) {
+	    return true;
+	  }
+	  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
+	  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
+	}
+	
+	module.exports = isPlainObject;
+
+/***/ },
+/* 407 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _Symbol = __webpack_require__(408),
+	    getRawTag = __webpack_require__(411),
+	    objectToString = __webpack_require__(412);
+	
+	/** `Object#toString` result references. */
+	var nullTag = '[object Null]',
+	    undefinedTag = '[object Undefined]';
+	
+	/** Built-in value references. */
+	var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+	
+	/**
+	 * The base implementation of `getTag` without fallbacks for buggy environments.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the `toStringTag`.
+	 */
+	function baseGetTag(value) {
+	    if (value == null) {
+	        return value === undefined ? undefinedTag : nullTag;
+	    }
+	    return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
+	}
+	
+	module.exports = baseGetTag;
+
+/***/ },
+/* 408 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var root = __webpack_require__(409);
+	
+	/** Built-in value references. */
+	var _Symbol = root.Symbol;
+	
+	module.exports = _Symbol;
+
+/***/ },
+/* 409 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	var freeGlobal = __webpack_require__(410);
+	
+	/** Detect free variable `self`. */
+	var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
+	
+	/** Used as a reference to the global object. */
+	var root = freeGlobal || freeSelf || Function('return this')();
+	
+	module.exports = root;
+
+/***/ },
+/* 410 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	/** Detect free variable `global` from Node.js. */
+	var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
+	
+	module.exports = freeGlobal;
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 411 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _Symbol = __webpack_require__(408);
+	
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+	
+	/** Used to check objects for own properties. */
+	var hasOwnProperty = objectProto.hasOwnProperty;
+	
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+	
+	/** Built-in value references. */
+	var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+	
+	/**
+	 * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {string} Returns the raw `toStringTag`.
+	 */
+	function getRawTag(value) {
+	  var isOwn = hasOwnProperty.call(value, symToStringTag),
+	      tag = value[symToStringTag];
+	
+	  try {
+	    value[symToStringTag] = undefined;
+	    var unmasked = true;
+	  } catch (e) {}
+	
+	  var result = nativeObjectToString.call(value);
+	  if (unmasked) {
+	    if (isOwn) {
+	      value[symToStringTag] = tag;
+	    } else {
+	      delete value[symToStringTag];
+	    }
+	  }
+	  return result;
+	}
+	
+	module.exports = getRawTag;
+
+/***/ },
+/* 412 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	/** Used for built-in method references. */
+	var objectProto = Object.prototype;
+	
+	/**
+	 * Used to resolve the
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * of values.
+	 */
+	var nativeObjectToString = objectProto.toString;
+	
+	/**
+	 * Converts `value` to a string using `Object.prototype.toString`.
+	 *
+	 * @private
+	 * @param {*} value The value to convert.
+	 * @returns {string} Returns the converted string.
+	 */
+	function objectToString(value) {
+	  return nativeObjectToString.call(value);
+	}
+	
+	module.exports = objectToString;
+
+/***/ },
+/* 413 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var overArg = __webpack_require__(414);
+	
+	/** Built-in value references. */
+	var getPrototype = overArg(Object.getPrototypeOf, Object);
+	
+	module.exports = getPrototype;
+
+/***/ },
+/* 414 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	/**
+	 * Creates a unary function that invokes `func` with its argument transformed.
+	 *
+	 * @private
+	 * @param {Function} func The function to wrap.
+	 * @param {Function} transform The argument transform.
+	 * @returns {Function} Returns the new function.
+	 */
+	function overArg(func, transform) {
+	  return function (arg) {
+	    return func(transform(arg));
+	  };
+	}
+	
+	module.exports = overArg;
+
+/***/ },
+/* 415 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	/**
+	 * Checks if `value` is object-like. A value is object-like if it's not `null`
+	 * and has a `typeof` result of "object".
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.0.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+	 * @example
+	 *
+	 * _.isObjectLike({});
+	 * // => true
+	 *
+	 * _.isObjectLike([1, 2, 3]);
+	 * // => true
+	 *
+	 * _.isObjectLike(_.noop);
+	 * // => false
+	 *
+	 * _.isObjectLike(null);
+	 * // => false
+	 */
+	function isObjectLike(value) {
+	  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
+	}
+	
+	module.exports = isObjectLike;
+
+/***/ },
+/* 416 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	module.exports = __webpack_require__(417);
+
+/***/ },
+/* 417 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _ponyfill = __webpack_require__(418);
+	
+	var _ponyfill2 = _interopRequireDefault(_ponyfill);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	var root; /* global window */
+	
+	if (typeof self !== 'undefined') {
+	  root = self;
+	} else if (typeof window !== 'undefined') {
+	  root = window;
+	} else if (typeof global !== 'undefined') {
+	  root = global;
+	} else if (true) {
+	  root = module;
+	} else {
+	  root = Function('return this')();
+	}
+	
+	var result = (0, _ponyfill2['default'])(root);
+	exports['default'] = result;
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(188)(module)))
+
+/***/ },
+/* 418 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports['default'] = symbolObservablePonyfill;
+	function symbolObservablePonyfill(root) {
+		var result;
+		var _Symbol = root.Symbol;
+	
+		if (typeof _Symbol === 'function') {
+			if (_Symbol.observable) {
+				result = _Symbol.observable;
+			} else {
+				result = _Symbol('observable');
+				_Symbol.observable = result;
+			}
+		} else {
+			result = '@@observable';
+		}
+	
+		return result;
+	};
+
+/***/ },
+/* 419 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	
+	exports.__esModule = true;
+	exports['default'] = combineReducers;
+	
+	var _createStore = __webpack_require__(405);
+	
+	var _isPlainObject = __webpack_require__(406);
+	
+	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
+	
+	var _warning = __webpack_require__(420);
+	
+	var _warning2 = _interopRequireDefault(_warning);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	function getUndefinedStateErrorMessage(key, action) {
+	  var actionType = action && action.type;
+	  var actionName = actionType && '"' + actionType.toString() + '"' || 'an action';
+	
+	  return 'Given action ' + actionName + ', reducer "' + key + '" returned undefined. ' + 'To ignore an action, you must explicitly return the previous state.';
+	}
+	
+	function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
+	  var reducerKeys = Object.keys(reducers);
+	  var argumentName = action && action.type === _createStore.ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
+	
+	  if (reducerKeys.length === 0) {
+	    return 'Store does not have a valid reducer. Make sure the argument passed ' + 'to combineReducers is an object whose values are reducers.';
+	  }
+	
+	  if (!(0, _isPlainObject2['default'])(inputState)) {
+	    return 'The ' + argumentName + ' has unexpected type of "' + {}.toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] + '". Expected argument to be an object with the following ' + ('keys: "' + reducerKeys.join('", "') + '"');
+	  }
+	
+	  var unexpectedKeys = Object.keys(inputState).filter(function (key) {
+	    return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key];
+	  });
+	
+	  unexpectedKeys.forEach(function (key) {
+	    unexpectedKeyCache[key] = true;
+	  });
+	
+	  if (unexpectedKeys.length > 0) {
+	    return 'Unexpected ' + (unexpectedKeys.length > 1 ? 'keys' : 'key') + ' ' + ('"' + unexpectedKeys.join('", "') + '" found in ' + argumentName + '. ') + 'Expected to find one of the known reducer keys instead: ' + ('"' + reducerKeys.join('", "') + '". Unexpected keys will be ignored.');
+	  }
+	}
+	
+	function assertReducerSanity(reducers) {
+	  Object.keys(reducers).forEach(function (key) {
+	    var reducer = reducers[key];
+	    var initialState = reducer(undefined, { type: _createStore.ActionTypes.INIT });
+	
+	    if (typeof initialState === 'undefined') {
+	      throw new Error('Reducer "' + key + '" returned undefined during initialization. ' + 'If the state passed to the reducer is undefined, you must ' + 'explicitly return the initial state. The initial state may ' + 'not be undefined.');
+	    }
+	
+	    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
+	    if (typeof reducer(undefined, { type: type }) === 'undefined') {
+	      throw new Error('Reducer "' + key + '" returned undefined when probed with a random type. ' + ('Don\'t try to handle ' + _createStore.ActionTypes.INIT + ' or other actions in "redux/*" ') + 'namespace. They are considered private. Instead, you must return the ' + 'current state for any unknown actions, unless it is undefined, ' + 'in which case you must return the initial state, regardless of the ' + 'action type. The initial state may not be undefined.');
+	    }
+	  });
+	}
+	
+	/**
+	 * Turns an object whose values are different reducer functions, into a single
+	 * reducer function. It will call every child reducer, and gather their results
+	 * into a single state object, whose keys correspond to the keys of the passed
+	 * reducer functions.
+	 *
+	 * @param {Object} reducers An object whose values correspond to different
+	 * reducer functions that need to be combined into one. One handy way to obtain
+	 * it is to use ES6 `import * as reducers` syntax. The reducers may never return
+	 * undefined for any action. Instead, they should return their initial state
+	 * if the state passed to them was undefined, and the current state for any
+	 * unrecognized action.
+	 *
+	 * @returns {Function} A reducer function that invokes every reducer inside the
+	 * passed object, and builds a state object with the same shape.
+	 */
+	function combineReducers(reducers) {
+	  var reducerKeys = Object.keys(reducers);
+	  var finalReducers = {};
+	  for (var i = 0; i < reducerKeys.length; i++) {
+	    var key = reducerKeys[i];
+	
+	    if (process.env.NODE_ENV !== 'production') {
+	      if (typeof reducers[key] === 'undefined') {
+	        (0, _warning2['default'])('No reducer provided for key "' + key + '"');
+	      }
+	    }
+	
+	    if (typeof reducers[key] === 'function') {
+	      finalReducers[key] = reducers[key];
+	    }
+	  }
+	  var finalReducerKeys = Object.keys(finalReducers);
+	
+	  if (process.env.NODE_ENV !== 'production') {
+	    var unexpectedKeyCache = {};
+	  }
+	
+	  var sanityError;
+	  try {
+	    assertReducerSanity(finalReducers);
+	  } catch (e) {
+	    sanityError = e;
+	  }
+	
+	  return function combination() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	    var action = arguments[1];
+	
+	    if (sanityError) {
+	      throw sanityError;
+	    }
+	
+	    if (process.env.NODE_ENV !== 'production') {
+	      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
+	      if (warningMessage) {
+	        (0, _warning2['default'])(warningMessage);
+	      }
+	    }
+	
+	    var hasChanged = false;
+	    var nextState = {};
+	    for (var i = 0; i < finalReducerKeys.length; i++) {
+	      var key = finalReducerKeys[i];
+	      var reducer = finalReducers[key];
+	      var previousStateForKey = state[key];
+	      var nextStateForKey = reducer(previousStateForKey, action);
+	      if (typeof nextStateForKey === 'undefined') {
+	        var errorMessage = getUndefinedStateErrorMessage(key, action);
+	        throw new Error(errorMessage);
+	      }
+	      nextState[key] = nextStateForKey;
+	      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+	    }
+	    return hasChanged ? nextState : state;
+	  };
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 420 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	exports['default'] = warning;
+	/**
+	 * Prints a warning in the console if it exists.
+	 *
+	 * @param {String} message The warning message.
+	 * @returns {void}
+	 */
+	function warning(message) {
+	  /* eslint-disable no-console */
+	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+	    console.error(message);
+	  }
+	  /* eslint-enable no-console */
+	  try {
+	    // This error was thrown as a convenience so that if you enable
+	    // "break on all exceptions" in your console,
+	    // it would pause the execution at this line.
+	    throw new Error(message);
+	    /* eslint-disable no-empty */
+	  } catch (e) {}
+	  /* eslint-enable no-empty */
+	}
+
+/***/ },
+/* 421 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	exports.__esModule = true;
+	exports['default'] = bindActionCreators;
+	function bindActionCreator(actionCreator, dispatch) {
+	  return function () {
+	    return dispatch(actionCreator.apply(undefined, arguments));
+	  };
+	}
+	
+	/**
+	 * Turns an object whose values are action creators, into an object with the
+	 * same keys, but with every function wrapped into a `dispatch` call so they
+	 * may be invoked directly. This is just a convenience method, as you can call
+	 * `store.dispatch(MyActionCreators.doSomething())` yourself just fine.
+	 *
+	 * For convenience, you can also pass a single function as the first argument,
+	 * and get a function in return.
+	 *
+	 * @param {Function|Object} actionCreators An object whose values are action
+	 * creator functions. One handy way to obtain it is to use ES6 `import * as`
+	 * syntax. You may also pass a single function.
+	 *
+	 * @param {Function} dispatch The `dispatch` function available on your Redux
+	 * store.
+	 *
+	 * @returns {Function|Object} The object mimicking the original object, but with
+	 * every action creator wrapped into the `dispatch` call. If you passed a
+	 * function as `actionCreators`, the return value will also be a single
+	 * function.
+	 */
+	function bindActionCreators(actionCreators, dispatch) {
+	  if (typeof actionCreators === 'function') {
+	    return bindActionCreator(actionCreators, dispatch);
+	  }
+	
+	  if ((typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) !== 'object' || actionCreators === null) {
+	    throw new Error('bindActionCreators expected an object or a function, instead received ' + (actionCreators === null ? 'null' : typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) + '. ' + 'Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
+	  }
+	
+	  var keys = Object.keys(actionCreators);
+	  var boundActionCreators = {};
+	  for (var i = 0; i < keys.length; i++) {
+	    var key = keys[i];
+	    var actionCreator = actionCreators[key];
+	    if (typeof actionCreator === 'function') {
+	      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch);
+	    }
+	  }
+	  return boundActionCreators;
+	}
+
+/***/ },
+/* 422 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	
+	var _extends = Object.assign || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }return target;
+	};
+	
+	exports['default'] = applyMiddleware;
+	
+	var _compose = __webpack_require__(423);
+	
+	var _compose2 = _interopRequireDefault(_compose);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+	
+	/**
+	 * Creates a store enhancer that applies middleware to the dispatch method
+	 * of the Redux store. This is handy for a variety of tasks, such as expressing
+	 * asynchronous actions in a concise manner, or logging every action payload.
+	 *
+	 * See `redux-thunk` package as an example of the Redux middleware.
+	 *
+	 * Because middleware is potentially asynchronous, this should be the first
+	 * store enhancer in the composition chain.
+	 *
+	 * Note that each middleware will be given the `dispatch` and `getState` functions
+	 * as named arguments.
+	 *
+	 * @param {...Function} middlewares The middleware chain to be applied.
+	 * @returns {Function} A store enhancer applying the middleware.
+	 */
+	function applyMiddleware() {
+	  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
+	    middlewares[_key] = arguments[_key];
+	  }
+	
+	  return function (createStore) {
+	    return function (reducer, preloadedState, enhancer) {
+	      var store = createStore(reducer, preloadedState, enhancer);
+	      var _dispatch = store.dispatch;
+	      var chain = [];
+	
+	      var middlewareAPI = {
+	        getState: store.getState,
+	        dispatch: function dispatch(action) {
+	          return _dispatch(action);
+	        }
+	      };
+	      chain = middlewares.map(function (middleware) {
+	        return middleware(middlewareAPI);
+	      });
+	      _dispatch = _compose2['default'].apply(undefined, chain)(store.dispatch);
+	
+	      return _extends({}, store, {
+	        dispatch: _dispatch
+	      });
+	    };
+	  };
+	}
+
+/***/ },
+/* 423 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	exports.__esModule = true;
+	exports["default"] = compose;
+	/**
+	 * Composes single-argument functions from right to left. The rightmost
+	 * function can take multiple arguments as it provides the signature for
+	 * the resulting composite function.
+	 *
+	 * @param {...Function} funcs The functions to compose.
+	 * @returns {Function} A function obtained by composing the argument functions
+	 * from right to left. For example, compose(f, g, h) is identical to doing
+	 * (...args) => f(g(h(...args))).
+	 */
+	
+	function compose() {
+	  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
+	    funcs[_key] = arguments[_key];
+	  }
+	
+	  if (funcs.length === 0) {
+	    return function (arg) {
+	      return arg;
+	    };
+	  }
+	
+	  if (funcs.length === 1) {
+	    return funcs[0];
+	  }
+	
+	  var last = funcs[funcs.length - 1];
+	  var rest = funcs.slice(0, -1);
+	  return function () {
+	    return rest.reduceRight(function (composed, f) {
+	      return f(composed);
+	    }, last.apply(undefined, arguments));
+	  };
+	}
+
+/***/ },
+/* 424 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) {
+	  for (var i = 1; i < arguments.length; i++) {
+	    var source = arguments[i];for (var key in source) {
+	      if (Object.prototype.hasOwnProperty.call(source, key)) {
+	        target[key] = source[key];
+	      }
+	    }
+	  }return target;
+	};
+	
+	var _createClass = function () {
+	  function defineProperties(target, props) {
+	    for (var i = 0; i < props.length; i++) {
+	      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+	    }
+	  }return function (Constructor, protoProps, staticProps) {
+	    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	  };
+	}();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(425);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _check = __webpack_require__(427);
+	
+	var _check2 = _interopRequireDefault(_check);
+	
+	var _x = __webpack_require__(428);
+	
+	var _x2 = _interopRequireDefault(_x);
+	
+	var _util = __webpack_require__(429);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+	
+	function _objectWithoutProperties(obj, keys) {
+	  var target = {};for (var i in obj) {
+	    if (keys.indexOf(i) >= 0) continue;if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;target[i] = obj[i];
+	  }return target;
+	}
+	
+	function _classCallCheck(instance, Constructor) {
+	  if (!(instance instanceof Constructor)) {
+	    throw new TypeError("Cannot call a class as a function");
+	  }
+	}
+	
+	function _possibleConstructorReturn(self, call) {
+	  if (!self) {
+	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	  }return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+	}
+	
+	function _inherits(subClass, superClass) {
+	  if (typeof superClass !== "function" && superClass !== null) {
+	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	}
+	
+	var Toggle = function (_PureComponent) {
+	  _inherits(Toggle, _PureComponent);
+	
+	  function Toggle(props) {
+	    _classCallCheck(this, Toggle);
+	
+	    var _this = _possibleConstructorReturn(this, (Toggle.__proto__ || Object.getPrototypeOf(Toggle)).call(this, props));
+	
+	    _this.handleClick = _this.handleClick.bind(_this);
+	    _this.handleTouchStart = _this.handleTouchStart.bind(_this);
+	    _this.handleTouchMove = _this.handleTouchMove.bind(_this);
+	    _this.handleTouchEnd = _this.handleTouchEnd.bind(_this);
+	    _this.handleFocus = _this.setState.bind(_this, { hasFocus: true }, function () {});
+	    _this.handleBlur = _this.setState.bind(_this, { hasFocus: false }, function () {});
+	    _this.previouslyChecked = !!(props.checked || props.defaultChecked);
+	    _this.state = {
+	      checked: !!(props.checked || props.defaultChecked),
+	      hasFocus: false
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(Toggle, [{
+	    key: 'componentWillReceiveProps',
+	    value: function componentWillReceiveProps(nextProps) {
+	      if ('checked' in nextProps) {
+	        this.setState({ checked: !!nextProps.checked });
+	      }
+	    }
+	  }, {
+	    key: 'handleClick',
+	    value: function handleClick(event) {
+	      var checkbox = this.input;
+	      if (event.target !== checkbox && !this.moved) {
+	        this.previouslyChecked = checkbox.checked;
+	        event.preventDefault();
+	        checkbox.focus();
+	        checkbox.click();
+	        return;
+	      }
+	
+	      this.setState({ checked: checkbox.checked });
+	    }
+	  }, {
+	    key: 'handleTouchStart',
+	    value: function handleTouchStart(event) {
+	      this.startX = (0, _util.pointerCoord)(event).x;
+	      this.activated = true;
+	    }
+	  }, {
+	    key: 'handleTouchMove',
+	    value: function handleTouchMove(event) {
+	      if (!this.activated) return;
+	      this.moved = true;
+	
+	      if (this.startX) {
+	        var currentX = (0, _util.pointerCoord)(event).x;
+	        if (this.state.checked && currentX + 15 < this.startX) {
+	          this.setState({ checked: false });
+	          this.startX = currentX;
+	          this.activated = true;
+	        } else if (currentX - 15 > this.startX) {
+	          this.setState({ checked: true });
+	          this.startX = currentX;
+	          this.activated = currentX < this.startX + 5;
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'handleTouchEnd',
+	    value: function handleTouchEnd(event) {
+	      if (!this.moved) return;
+	      var checkbox = this.input;
+	      event.preventDefault();
+	
+	      if (this.startX) {
+	        var endX = (0, _util.pointerCoord)(event).x;
+	        if (this.previouslyChecked === true && this.startX + 4 > endX) {
+	          if (this.previouslyChecked !== this.state.checked) {
+	            this.setState({ checked: false });
+	            this.previouslyChecked = this.state.checked;
+	            checkbox.click();
+	          }
+	        } else if (this.startX - 4 < endX) {
+	          if (this.previouslyChecked !== this.state.checked) {
+	            this.setState({ checked: true });
+	            this.previouslyChecked = this.state.checked;
+	            checkbox.click();
+	          }
+	        }
+	
+	        this.activated = false;
+	        this.startX = null;
+	        this.moved = false;
+	      }
+	    }
+	  }, {
+	    key: 'getIcon',
+	    value: function getIcon(type) {
+	      var icons = this.props.icons;
+	
+	      if (!icons) {
+	        return null;
+	      }
+	      return icons[type] === undefined ? Toggle.defaultProps.icons[type] : icons[type];
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var _props = this.props;
+	      var className = _props.className;
+	      var _icons = _props.icons;
+	
+	      var inputProps = _objectWithoutProperties(_props, ['className', 'icons']);
+	
+	      var classes = (0, _classnames2.default)('react-toggle', {
+	        'react-toggle--checked': this.state.checked,
+	        'react-toggle--focus': this.state.hasFocus,
+	        'react-toggle--disabled': this.props.disabled
+	      }, className);
+	
+	      return _react2.default.createElement('div', { className: classes,
+	        onClick: this.handleClick,
+	        onTouchStart: this.handleTouchStart,
+	        onTouchMove: this.handleTouchMove,
+	        onTouchEnd: this.handleTouchEnd }, _react2.default.createElement('div', { className: 'react-toggle-track' }, _react2.default.createElement('div', { className: 'react-toggle-track-check' }, this.getIcon('checked')), _react2.default.createElement('div', { className: 'react-toggle-track-x' }, this.getIcon('unchecked'))), _react2.default.createElement('div', { className: 'react-toggle-thumb' }), _react2.default.createElement('input', _extends({}, inputProps, {
+	        ref: function ref(_ref) {
+	          _this2.input = _ref;
+	        },
+	        onFocus: this.handleFocus,
+	        onBlur: this.handleBlur,
+	        className: 'react-toggle-screenreader-only',
+	        type: 'checkbox' })));
+	    }
+	  }]);
+	
+	  return Toggle;
+	}(_react.PureComponent);
+	
+	exports.default = Toggle;
+	
+	Toggle.displayName = 'Toggle';
+	
+	Toggle.defaultProps = {
+	  icons: {
+	    checked: _react2.default.createElement(_check2.default, null),
+	    unchecked: _react2.default.createElement(_x2.default, null)
+	  }
+	};
+	
+	Toggle.propTypes = {
+	  checked: _react.PropTypes.bool,
+	  disabled: _react.PropTypes.bool,
+	  defaultChecked: _react.PropTypes.bool,
+	  onChange: _react.PropTypes.func,
+	  className: _react.PropTypes.string,
+	  name: _react.PropTypes.string,
+	  value: _react.PropTypes.string,
+	  id: _react.PropTypes.string,
+	  'aria-labelledby': _react.PropTypes.string,
+	  'aria-label': _react.PropTypes.string,
+	  icons: _react.PropTypes.oneOfType([_react.PropTypes.bool, _react.PropTypes.shape({
+	    checked: _react.PropTypes.node,
+	    unchecked: _react.PropTypes.node
+	  })])
+	};
+
+/***/ },
+/* 425 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
+	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	
+	/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+	
+	(function () {
+		'use strict';
+	
+		var hasOwn = {}.hasOwnProperty;
+	
+		function classNames() {
+			var classes = [];
+	
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+	
+				var argType = typeof arg === 'undefined' ? 'undefined' : _typeof(arg);
+	
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+	
+			return classes.join(' ');
+		}
+	
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if ("function" === 'function' && _typeof(__webpack_require__(426)) === 'object' && __webpack_require__(426)) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	})();
+
+/***/ },
+/* 426 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, {}))
+
+/***/ },
+/* 427 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+	
+	exports.default = function () {
+	  return _react2.default.createElement('svg', { width: '14', height: '11', viewBox: '0 0 14 11' }, _react2.default.createElement('title', null, 'switch-check'), _react2.default.createElement('path', { d: 'M11.264 0L5.26 6.004 2.103 2.847 0 4.95l5.26 5.26 8.108-8.107L11.264 0', fill: '#fff', fillRule: 'evenodd' }));
+	};
+
+/***/ },
+/* 428 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) {
+	  return obj && obj.__esModule ? obj : { default: obj };
+	}
+	
+	exports.default = function () {
+	  return _react2.default.createElement('svg', { width: '10', height: '10', viewBox: '0 0 10 10' }, _react2.default.createElement('title', null, 'switch-x'), _react2.default.createElement('path', { d: 'M9.9 2.12L7.78 0 4.95 2.828 2.12 0 0 2.12l2.83 2.83L0 7.776 2.123 9.9 4.95 7.07 7.78 9.9 9.9 7.776 7.072 4.95 9.9 2.12', fill: '#fff', fillRule: 'evenodd' }));
+	};
+
+/***/ },
+/* 429 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.pointerCoord = pointerCoord;
+	// Copyright 2015-present Drifty Co.
+	// http://drifty.com/
+	// from: https://github.com/driftyco/ionic/blob/master/src/util/dom.ts
+	
+	function pointerCoord(event) {
+	  // get coordinates for either a mouse click
+	  // or a touch depending on the given event
+	  if (event) {
+	    var changedTouches = event.changedTouches;
+	    if (changedTouches && changedTouches.length > 0) {
+	      var touch = changedTouches[0];
+	      return { x: touch.clientX, y: touch.clientY };
+	    }
+	    var pageX = event.pageX;
+	    if (pageX !== undefined) {
+	      return { x: pageX, y: event.pageY };
+	    }
+	  }
+	  return { x: 0, y: 0 };
+	}
+
+/***/ }
 /******/ ]);
 //# sourceMappingURL=main.js.map
