@@ -27,11 +27,11 @@ class StationLayer extends React.Component {
 	  getData() {
 	  	fetch("/stations").then( (response) => {
         	return response.json() })   
-                .then( (json) => {
+				.then( (json) => {
 					if(!!json && json.stations){
 						this.setState({stations: json.stations});
 					} 
-                });
+				});
 	  }
      
     render() {
