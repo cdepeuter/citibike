@@ -12,7 +12,7 @@ class StationLayer extends React.Component {
 	  }
 
 	  componentDidMount() {
-	  	//fetch data again?
+	  	// grab data immediately, again every 2 mins
 	  	this.getData();
 		setInterval(
 			() => { this.getData(); },
@@ -21,7 +21,8 @@ class StationLayer extends React.Component {
 	  }
 
 	  componentDidUpdate(){
-	  	console.log("updated");
+	  	console.log("updated, view:", this.props.view);
+
 	  }
 
 	  getData() {
@@ -36,13 +37,16 @@ class StationLayer extends React.Component {
      
     render() {
        let markers = this.state.stations.map((station) =>
-	       	<CircleMarker center={[station.lat, station.lon]} color={ this.props.view == "Bike Angels" ? station.status_color : station.score_color} fillColor={ this.props.view == "Bike Angels" ? station.score_color : station.status_color} fillOpacity="1" radius={5}>
+	       	<CircleMarker center={[station.lat, station.lon]} color={ this.props.view == "Bike Angels" ? station.status_color : station.prediction_color} fillColor={ this.props.view == "Bike Angels" ? station.score_color : station.status_color} fillOpacity="1" radius={5}>
 	          <Popup>
-	            <span>{station.name}
+
+	            <span>{station.name} - {station.station_id}
 	            <br/>
 	           	Available: {station.num_bikes_available}
 	           	<br/>
 	           	Capacity: {station.capacity}
+	           	<br/>
+	           	Predicted Stock: {station.future_stock}
 	           	<br/>
 	           	Bike Angels Score: {station.score}
 	           	</span>

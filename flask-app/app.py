@@ -27,6 +27,12 @@ with app.app_context():
 	stations = pd.DataFrame.from_records(stations_array)
 	stations.drop(['region_id', 'rental_methods', "eightd_has_key_dispenser"], axis=1, inplace=True)
 
+	# get predictions
+	#preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/poisson_preds.csv")
+	preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/poisson_preds.csv")
+	preds["station_id"] = preds.station_id.astype('str')
+	preds["bike_delta"] = preds["avg(in_count)"] - preds["avg(out_count)"]
+	
 	# get color range for station status and bike angels
 	red = Color("red")
 	black = Color("black")
@@ -42,7 +48,17 @@ def map():
 	return render_template('leaflet.html')
 
 
-class Stations(Resource):
+def boundRoundPercentage(x):
+		# for a percentage, make sure its >= 0, <= 100, an integer
+		x = round(x)
+		if x < 0:
+			x = 0
+		if x > 100:
+			x = 100
+
+		return x
+
+class Stations(Resource):	
 	@cache.cached(timeout=50)
 	def get(self):
 		# get current status and merge that with stations
@@ -68,13 +84,36 @@ class Stations(Resource):
 		station_status = station_status.merge(angels_stations_df, on = 'station_id',  how='left')
 		station_status.score.fillna(0, inplace=True)
 
-		# get color for dashboard
+		# merge predictions
+		today = datetime.datetime.today()
+		thisHour = today.hour
+		thisWeekday = today.weekday() < 6
+
+		relevant_preds = preds[(preds["weekday"] == thisWeekday) & (preds["hour"] == thisHour)].copy()
+
+		relevant_preds.drop(["weekday", "hour"], inplace=True, axis=1)
+		station_status = station_status.merge(relevant_preds, on = 'station_id',  how='left')
+
+		station_status["avg(out_count)"].fillna(0, inplace=True)
+		station_status["avg(in_count)"].fillna(0, inplace=True)
+		station_status["bike_delta"].fillna(0, inplace=True)
+
+		station_status["future_stock"] = station_status["num_bikes_available"] + station_status["bike_delta"]
+
+		station_status["future_pct_available"] = 100 * station_status["future_stock"] / station_status["capacity"]
+		station_status["future_pct_available"].fillna(0, inplace=True)
+		station_status["future_pct_available"] = station_status["future_pct_available"].map(boundRoundPercentage)	
+		
+
 		station_status["pct_available"] = 100 * station_status["num_bikes_available"] / station_status["capacity"]
-		station_status.loc[station_status["pct_available"] > 100, "pct_available"] = 100
 		station_status.pct_available.fillna(0, inplace=True)
-		station_status["pct_available"] = station_status["pct_available"].map(round)		
+		station_status["pct_available"] = station_status["pct_available"].map(boundRoundPercentage)	
+
+		# get color for dashboard
 		station_status["status_color"] = station_status["pct_available"].map(lambda x: colors[int(x)].hex)
 		station_status["score_color"] = station_status["score"].map(lambda x: score_colors[int(x)+2].hex)
+		station_status["prediction_color"] = station_status["future_pct_available"].map(lambda x: colors[int(x)].hex)
+
 
 		response_json = {"time" : datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "stations" : station_status.to_dict(orient='records')}
 
