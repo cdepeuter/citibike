@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Map, CircleMarker, Popup} from 'react-leaflet'
+import { Map, CircleMarker, Popup, GeoJson} from 'react-leaflet'
 import 'whatwg-fetch'; 
 
-class StationLayer extends React.Component {
+export default class StationLayer extends React.Component {
 
     constructor(props) {
 	    super(props);
@@ -21,7 +21,7 @@ class StationLayer extends React.Component {
 	  }
 
 	  componentDidUpdate(){
-	  	console.log("updated, view:", this.props.view);
+	  	//console.log("updated, view:", this.props.view);
 
 	  }
 
@@ -34,10 +34,10 @@ class StationLayer extends React.Component {
 					} 
 				});
 	  }
-     
+
     render() {
        let markers = this.state.stations.map((station) =>
-	       	<CircleMarker center={[station.lat, station.lon]} color={ this.props.view == "Bike Angels" ? station.status_color : station.prediction_color} fillColor={ this.props.view == "Bike Angels" ? station.score_color : station.status_color} fillOpacity="1" radius={5}>
+	       	<CircleMarker center={[station.lat, station.lon]} color={ this.props.view == "Bike Angels" ? station.status_color : station.prediction_color} fillColor={ this.props.view == "Bike Angels" ? station.score_color : station.cluster_color} fillOpacity="1" radius={5}>
 	          <Popup>
 
 	            <span>{station.name} - {station.station_id}
@@ -49,10 +49,13 @@ class StationLayer extends React.Component {
 	           	Predicted Stock: {station.future_stock}
 	           	<br/>
 	           	Bike Angels Score: {station.score}
+	           	<br/>
+	           	Cluster: {station.cluster}
 	           	</span>
 	          </Popup>
 	        </CircleMarker>
        );
+        
 
         return (
         	<div>
@@ -62,5 +65,3 @@ class StationLayer extends React.Component {
       )
     }
 }
-
-export default StationLayer;

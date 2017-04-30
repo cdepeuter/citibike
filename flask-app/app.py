@@ -9,6 +9,9 @@ import datetime
 from colour import Color
 import datetime
 from predictions import Predictions
+import random
+from scipy.spatial import ConvexHull
+
 
 app = Flask(__name__)
 
@@ -33,10 +36,17 @@ with app.app_context():
 	preds["station_id"] = preds.station_id.astype('str')
 	preds["bike_delta"] = preds["avg(in_count)"] - preds["avg(out_count)"]
 	
+	# get cluster assignments
+	clusters = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/clusters.csv")
+	clusters["ID"] = clusters.ID.astype('str')
+	clusters.drop(["end_latitude", "end_longitude", "ind"], inplace=True, axis=1)
+	
 	# get color range for station status and bike angels
 	red = Color("red")
 	black = Color("black")
 	colors = list(red.range_to(Color("green"),101))
+	cluster_colors = list(Color('yellow').range_to(Color('blue'), len(set(clusters["cluster"])) + 1 ))
+	random.shuffle(cluster_colors)
 	score_colors = list(black.range_to(Color("white"),5))
 
 @app.route('/')
@@ -57,6 +67,22 @@ def boundRoundPercentage(x):
 			x = 100
 
 		return x
+
+# get convex hull for points
+def get_hull(x):
+    #print(x)
+    points = list(zip(x["lat"].values, x["lon"].values))
+    thisHull = ConvexHull(points)
+    coords = [[points[p][1],points[p][0]] for p in reversed(thisHull.vertices) ]
+    print(x)
+    # complete loop
+    coords.append(coords[0])
+    respData = {"type": "Feature", 'id': x['station_id'].values[0], "properties": {'name': x["name"].values[0]}, "geometry": {"type": "Polygon","coordinates": [coords]}}
+    
+    # dont want to return hull of not clustered points
+    if thisHull.area > .2:
+        respData["remove"] = True
+    return respData
 
 class Stations(Resource):	
 	@cache.cached(timeout=50)
@@ -109,19 +135,41 @@ class Stations(Resource):
 		station_status.pct_available.fillna(0, inplace=True)
 		station_status["pct_available"] = station_status["pct_available"].map(boundRoundPercentage)	
 
+
+		# add cluster assignemnt
+		station_status = station_status.merge(clusters, left_on="station_id", right_on="ID", how='left')
+		station_status.cluster.fillna(0, inplace=True)
+		station_status.ID.fillna(0, inplace=True)
+
 		# get color for dashboard
 		station_status["status_color"] = station_status["pct_available"].map(lambda x: colors[int(x)].hex)
 		station_status["score_color"] = station_status["score"].map(lambda x: score_colors[int(x)+2].hex)
 		station_status["prediction_color"] = station_status["future_pct_available"].map(lambda x: colors[int(x)].hex)
-
+		station_status["cluster_color"] = station_status["cluster"].map(lambda x: cluster_colors[int(x)].hex)
 
 		response_json = {"time" : datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "stations" : station_status.to_dict(orient='records')}
 
 		return response_json
 
 
+class GeoJSON(Resource):
+
+	def get(self):
+		# merge clusers with statuions
+		stations_clusters = stations.merge(clusters, left_on="station_id", right_on="ID", how='left')
+		stations_clusters.fillna(0, inplace=True)
+
+		hulls = stations_clusters.groupby('cluster').apply(get_hull)
+		goodHulls = [h for h in hulls if not h.get("remove")]
+		response = {"type": "FeatureCollection", "features": goodHulls}
+		
+
+		return response
+
+
 api.add_resource(Predictions, '/predictions')
 api.add_resource(Stations, '/stations')
+api.add_resource(GeoJSON, '/clusters')
 
 if __name__ == "__main__":
     #app.run(debug=True) # for dev

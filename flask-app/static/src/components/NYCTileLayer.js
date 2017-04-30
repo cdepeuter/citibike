@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import { Map, TileLayer, WMSTileLayer } from 'react-leaflet';
+import { Map, TileLayer, GeoJson} from 'react-leaflet';
 import StationLayer from './StationLayer';
 import Legend from './Legend';
-import { createStore } from 'redux'
+import ClusterLayer from './ClusterLayer';
+import { createStore } from 'redux';
 
 // light bg
 //const leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA"
 
 //dark bg
 const leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/dark-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA"
-
 // get state, use for showing predictions vs bike angels
 // window.store = createStore();
 // store.subscribe(() =>{
@@ -23,7 +23,7 @@ export default class NYCTileLayer extends Component {
     super(props);
       this.state = {
         lat: 40.736255,
-        lng: -73.9690297,
+        lng: -73.9890297,
         zoom: 12,
         bluemarble: false,
         view: 'Bike Angels'
@@ -41,6 +41,13 @@ export default class NYCTileLayer extends Component {
     console.log("Tile layer mounted");
   }
 
+
+  componentDidUpdate(){
+    console.log("updated, view:", this.state);
+  }
+  
+
+
   render () {
     return (
       <Map
@@ -51,8 +58,9 @@ export default class NYCTileLayer extends Component {
           layers={this.state.bluemarble ? 'nasa:bluemarble' : 'ne:ne'}
           url={leafletUrl}
         />
-        <StationLayer view={this.state.view} />
         <Legend view={this.state.view} changeView={this.handleViewChange} />
+        { this.state.view === 'Bike Angels' ? <StationLayer view={this.state.view} /> : <ClusterLayer /> }
+        
       </Map>
     )
   }

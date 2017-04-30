@@ -21871,6 +21871,10 @@
 	
 	var _Legend2 = _interopRequireDefault(_Legend);
 	
+	var _ClusterLayer = __webpack_require__(430);
+	
+	var _ClusterLayer2 = _interopRequireDefault(_ClusterLayer);
+	
 	var _redux = __webpack_require__(410);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -21886,7 +21890,6 @@
 	
 	//dark bg
 	var leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/dark-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA";
-	
 	// get state, use for showing predictions vs bike angels
 	// window.store = createStore();
 	// store.subscribe(() =>{
@@ -21904,7 +21907,7 @@
 	
 	    _this.state = {
 	      lat: 40.736255,
-	      lng: -73.9690297,
+	      lng: -73.9890297,
 	      zoom: 12,
 	      bluemarble: false,
 	      view: 'Bike Angels'
@@ -21926,6 +21929,11 @@
 	      console.log("Tile layer mounted");
 	    }
 	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      console.log("updated, view:", this.state);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -21938,8 +21946,8 @@
 	          layers: this.state.bluemarble ? 'nasa:bluemarble' : 'ne:ne',
 	          url: leafletUrl
 	        }),
-	        _react2.default.createElement(_StationLayer2.default, { view: this.state.view }),
-	        _react2.default.createElement(_Legend2.default, { view: this.state.view, changeView: this.handleViewChange })
+	        _react2.default.createElement(_Legend2.default, { view: this.state.view, changeView: this.handleViewChange }),
+	        this.state.view === 'Bike Angels' ? _react2.default.createElement(_StationLayer2.default, { view: this.state.view }) : _react2.default.createElement(_ClusterLayer2.default, null)
 	      );
 	    }
 	  }]);
@@ -45323,7 +45331,8 @@
 		}, {
 			key: 'componentDidUpdate',
 			value: function componentDidUpdate() {
-				console.log("updated, view:", this.props.view);
+				//console.log("updated, view:", this.props.view);
+	
 			}
 		}, {
 			key: 'getData',
@@ -45346,7 +45355,7 @@
 				var markers = this.state.stations.map(function (station) {
 					return _react2.default.createElement(
 						_reactLeaflet.CircleMarker,
-						{ center: [station.lat, station.lon], color: _this4.props.view == "Bike Angels" ? station.status_color : station.prediction_color, fillColor: _this4.props.view == "Bike Angels" ? station.score_color : station.status_color, fillOpacity: '1', radius: 5 },
+						{ center: [station.lat, station.lon], color: _this4.props.view == "Bike Angels" ? station.status_color : station.prediction_color, fillColor: _this4.props.view == "Bike Angels" ? station.score_color : station.cluster_color, fillOpacity: '1', radius: 5 },
 						_react2.default.createElement(
 							_reactLeaflet.Popup,
 							null,
@@ -45367,7 +45376,10 @@
 								station.future_stock,
 								_react2.default.createElement('br', null),
 								'Bike Angels Score: ',
-								station.score
+								station.score,
+								_react2.default.createElement('br', null),
+								'Cluster: ',
+								station.cluster
 							)
 						)
 					);
@@ -45872,6 +45884,10 @@
 	
 	var _reactToggle2 = _interopRequireDefault(_reactToggle);
 	
+	var _ModelExplainer = __webpack_require__(433);
+	
+	var _ModelExplainer2 = _interopRequireDefault(_ModelExplainer);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -45890,45 +45906,68 @@
 	
 			var _this = _possibleConstructorReturn(this, (Legend.__proto__ || Object.getPrototypeOf(Legend)).call(this, props));
 	
+			_this.state = {
+				stations: []
+			};
+	
 			_this.handleToggleChange = _this.handleToggleChange.bind(_this);
+			_this.showLegend = _this.showLegend.bind(_this);
 			return _this;
 		}
 	
 		_createClass(Legend, [{
 			key: 'handleToggleChange',
 			value: function handleToggleChange() {
-	
 				this.props.changeView();
 				console.log("button toggled", this.props.view);
+			}
+		}, {
+			key: 'showLegend',
+			value: function showLegend() {
+				this.setState({ showLegend: !this.state.showLegend });
 			}
 		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					{ className: 'legend' },
+					{ className: 'overlay' },
 					_react2.default.createElement(
 						'div',
-						{ className: 'toggleWrap' },
+						{ className: 'legend' },
 						_react2.default.createElement(
-							'label',
-							null,
-							_react2.default.createElement(_reactToggle2.default, {
-								defaultChecked: this.props.view == "Bike Angels",
-								icons: false,
-								onChange: this.handleToggleChange }),
+							'div',
+							{ className: 'toggleWrap' },
 							_react2.default.createElement(
-								'span',
-								{ className: 'viewType' },
-								' ',
-								this.props.view
+								'label',
+								null,
+								_react2.default.createElement(_reactToggle2.default, {
+									defaultChecked: this.props.view == "Bike Angels",
+									icons: false,
+									onChange: this.handleToggleChange }),
+								_react2.default.createElement(
+									'span',
+									{ className: 'viewType' },
+									' ',
+									this.props.view
+								)
 							)
+						),
+						_react2.default.createElement(
+							'span',
+							{ onClick: this.showLegend },
+							' Models \u2753'
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'hacked_svg' },
+							_react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: svgMarkerAttbs } })
 						)
 					),
 					_react2.default.createElement(
 						'div',
-						{ className: 'hacked_svg' },
-						_react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: svgMarkerAttbs } })
+						null,
+						this.state.showLegend ? _react2.default.createElement(_ModelExplainer2.default, { closeLegend: this.showLegend }) : null
 					)
 				);
 			}
@@ -47376,6 +47415,1289 @@
 	    }, last.apply(undefined, arguments));
 	  };
 	}
+
+/***/ },
+/* 430 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactLeaflet = __webpack_require__(184);
+	
+	var _clusters = __webpack_require__(432);
+	
+	var _clusters2 = _interopRequireDefault(_clusters);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ClusterLayer = function (_React$Component) {
+		_inherits(ClusterLayer, _React$Component);
+	
+		function ClusterLayer(props) {
+			_classCallCheck(this, ClusterLayer);
+	
+			var _this = _possibleConstructorReturn(this, (ClusterLayer.__proto__ || Object.getPrototypeOf(ClusterLayer)).call(this, props));
+	
+			_this.state = {
+				//geodata: {features:[{"id": "119", "geometry": {"coordinates": [[[-73.9842844, 40.69221589], [-73.97790759801863, 40.68506807308177], [-73.96922273, 40.68415748], [-73.96751037, 40.69610226], [-73.97100056, 40.70531194], [-73.98656928, 40.7014851], [-73.9842844, 40.69221589]]], "type": "Polygon"}, "properties": {"name": "Park Ave & St Edwards St"}, "type": "Feature"}], type:"FeatureCollection"}
+				geodata: _clusters2.default
+			};
+	
+			_this.getStyle = _this.getStyle.bind(_this);
+	
+			return _this;
+		}
+	
+		// getClusters(){
+		// 	fetch("/clusters").then( (response) => {
+		// 		return response.json() })   
+		// 		.then( (json) => {
+		// 			console.log("got geo json", json)
+		// 			this.setState({geodata: json});
+		// 	});
+		//  	}	
+	
+		_createClass(ClusterLayer, [{
+			key: 'getStyle',
+			value: function getStyle(feature, layer) {
+				return {
+					color: '#006400',
+					weight: 5,
+					opacity: 0.65
+				};
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				console.log("doing things");
+	
+				return _react2.default.createElement(_reactLeaflet.GeoJSON, { data: this.state.geodata });
+			}
+		}]);
+	
+		return ClusterLayer;
+	}(_react2.default.Component);
+	
+	exports.default = ClusterLayer;
+
+/***/ },
+/* 431 */,
+/* 432 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"features": [
+			{
+				"id": "119",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.9842844,
+								40.69221589
+							],
+							[
+								-73.97790759801863,
+								40.68506807308177
+							],
+							[
+								-73.96922273,
+								40.68415748
+							],
+							[
+								-73.96751037,
+								40.69610226
+							],
+							[
+								-73.97100056,
+								40.70531194
+							],
+							[
+								-73.98656928,
+								40.7014851
+							],
+							[
+								-73.9842844,
+								40.69221589
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Park Ave & St Edwards St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "120",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.94977,
+								40.68402
+							],
+							[
+								-73.94954908,
+								40.69539817
+							],
+							[
+								-73.95238108,
+								40.69527008
+							],
+							[
+								-73.958089,
+								40.694528
+							],
+							[
+								-73.96223558,
+								40.69363137
+							],
+							[
+								-73.96536851,
+								40.69196035
+							],
+							[
+								-73.96563307,
+								40.68650065
+							],
+							[
+								-73.964915,
+								40.683048
+							],
+							[
+								-73.9557689392,
+								40.680342423
+							],
+							[
+								-73.9500479759,
+								40.6809833854
+							],
+							[
+								-73.94977,
+								40.68402
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Lexington Ave & Classon Ave"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "127",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.99404649,
+								40.72903917
+							],
+							[
+								-73.99510132,
+								40.73331967
+							],
+							[
+								-73.99704374,
+								40.73649403
+							],
+							[
+								-74.00618026,
+								40.73652889
+							],
+							[
+								-74.00859207,
+								40.7361967
+							],
+							[
+								-74.01129573583603,
+								40.7277140777778
+							],
+							[
+								-74.00965965,
+								40.72405549
+							],
+							[
+								-74.00771779,
+								40.72185379
+							],
+							[
+								-74.00234737,
+								40.72165481
+							],
+							[
+								-73.99379025,
+								40.72743423
+							],
+							[
+								-73.99404649,
+								40.72903917
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Barrow St & Hudson St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "82",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.989111,
+								40.722055
+							],
+							[
+								-73.99069656,
+								40.72502876
+							],
+							[
+								-73.99600982666016,
+								40.72430527250332
+							],
+							[
+								-74.00247214,
+								40.71939226
+							],
+							[
+								-74.00234482,
+								40.71494807
+							],
+							[
+								-74.00016545,
+								40.71117416
+							],
+							[
+								-73.99014892,
+								40.69597683
+							],
+							[
+								-73.9870295,
+								40.71559509
+							],
+							[
+								-73.989111,
+								40.722055
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "St James Pl & Pearl St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "116",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-74.005226,
+								40.751396
+							],
+							[
+								-74.007756,
+								40.746745
+							],
+							[
+								-74.00803013,
+								40.74195138
+							],
+							[
+								-74.00513872504234,
+								40.73997354103409
+							],
+							[
+								-73.99994661,
+								40.73781509
+							],
+							[
+								-73.99456405,
+								40.73971301
+							],
+							[
+								-73.99144871,
+								40.74395411
+							],
+							[
+								-73.99138152,
+								40.75466591
+							],
+							[
+								-74.0021163,
+								40.75594159
+							],
+							[
+								-74.005226,
+								40.751396
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "W 17 St & 8 Ave"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "79",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-74.00670227,
+								40.70355377
+							],
+							[
+								-74.00167,
+								40.707873
+							],
+							[
+								-74.005549,
+								40.717571
+							],
+							[
+								-74.00666661,
+								40.71911552
+							],
+							[
+								-74.010065,
+								40.721319
+							],
+							[
+								-74.03852552175522,
+								40.7124188237569
+							],
+							[
+								-74.01234218,
+								40.70122128
+							],
+							[
+								-74.00670227,
+								40.70355377
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Franklin St & W Broadway"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "174",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.98057249,
+								40.72955361
+							],
+							[
+								-73.97573881,
+								40.73314259
+							],
+							[
+								-73.97738662,
+								40.7381765
+							],
+							[
+								-73.97973776,
+								40.73912601
+							],
+							[
+								-73.98915076,
+								40.7423543
+							],
+							[
+								-73.99453948,
+								40.73543934
+							],
+							[
+								-73.98978041,
+								40.7262807
+							],
+							[
+								-73.98057249,
+								40.72955361
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "E 25 St & 1 Ave"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "150",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.984844,
+								40.713126
+							],
+							[
+								-73.97948148,
+								40.71219906
+							],
+							[
+								-73.960876,
+								40.710451
+							],
+							[
+								-73.97422494,
+								40.72580614
+							],
+							[
+								-73.97772429,
+								40.72938685
+							],
+							[
+								-73.98783413,
+								40.72467721
+							],
+							[
+								-73.984844,
+								40.713126
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "E 2 St & Avenue C"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "167",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.98848395,
+								40.74901271
+							],
+							[
+								-73.98855723,
+								40.7462009
+							],
+							[
+								-73.98683077,
+								40.7451677
+							],
+							[
+								-73.976806,
+								40.739445
+							],
+							[
+								-73.97121214,
+								40.744219
+							],
+							[
+								-73.96592976,
+								40.75455731
+							],
+							[
+								-73.98765428,
+								40.75097711
+							],
+							[
+								-73.98848395,
+								40.74901271
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "E 39 St & 3 Ave"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "83",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.97363831,
+								40.668132
+							],
+							[
+								-73.97087984,
+								40.6729679
+							],
+							[
+								-73.97111473,
+								40.6750207
+							],
+							[
+								-73.97632328,
+								40.68382604
+							],
+							[
+								-73.98258555,
+								40.6827549
+							],
+							[
+								-73.98765474557877,
+								40.67909799721684
+							],
+							[
+								-73.99333264,
+								40.6685455
+							],
+							[
+								-73.97945255041122,
+								40.6610633719006
+							],
+							[
+								-73.97363831,
+								40.668132
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Atlantic Ave & Fort Greene Pl"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "398",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.98901629,
+								40.6843549
+							],
+							[
+								-73.99063168,
+								40.6867443
+							],
+							[
+								-73.9999786,
+								40.69165183
+							],
+							[
+								-74.00242364,
+								40.6859296
+							],
+							[
+								-74.00348559,
+								40.6830456
+							],
+							[
+								-73.99785768,
+								40.6746957
+							],
+							[
+								-73.99331394,
+								40.6724811
+							],
+							[
+								-73.99037292,
+								40.6786115
+							],
+							[
+								-73.98901629,
+								40.6843549
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Atlantic Ave & Furman St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "143",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.98302136,
+								40.6853761
+							],
+							[
+								-73.98036181926727,
+								40.68680820503432
+							],
+							[
+								-73.98476437,
+								40.69766564
+							],
+							[
+								-73.98765762,
+								40.70281858
+							],
+							[
+								-73.99383605,
+								40.70277159
+							],
+							[
+								-73.99712,
+								40.69878
+							],
+							[
+								-73.99612349,
+								40.69089272
+							],
+							[
+								-73.98620772,
+								40.6849668
+							],
+							[
+								-73.98302136,
+								40.6853761
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Clinton St & Joralemon St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "3326",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-74.00324957,
+								40.6763744
+							],
+							[
+								-74.00860912,
+								40.6812117
+							],
+							[
+								-74.015665,
+								40.677236
+							],
+							[
+								-74.01612847,
+								40.6747844
+							],
+							[
+								-74.0087952464819,
+								40.67267243410948
+							],
+							[
+								-74.00494695,
+								40.6725058
+							],
+							[
+								-74.00194698,
+								40.67434
+							],
+							[
+								-74.00324957,
+								40.6763744
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Clinton St & Centre St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "3096",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.95782357,
+								40.72153267
+							],
+							[
+								-73.95242,
+								40.71924
+							],
+							[
+								-73.94885390996933,
+								40.71915571696044
+							],
+							[
+								-73.94308,
+								40.72325
+							],
+							[
+								-73.94434,
+								40.72557
+							],
+							[
+								-73.95411749,
+								40.74232744
+							],
+							[
+								-73.96161892,
+								40.73165141
+							],
+							[
+								-73.95782357,
+								40.72153267
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Union Ave & N 12 St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "144",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.95796783,
+								40.70708701
+							],
+							[
+								-73.95608,
+								40.70934
+							],
+							[
+								-73.95600096,
+								40.71774592
+							],
+							[
+								-73.95852515,
+								40.7190095
+							],
+							[
+								-73.96165072917938,
+								40.72036775298455
+							],
+							[
+								-73.98068914,
+								40.69839895
+							],
+							[
+								-73.95796783,
+								40.70708701
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Nassau St & Navy St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "3065",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.94016171,
+								40.70767788
+							],
+							[
+								-73.94100005,
+								40.71247661
+							],
+							[
+								-73.94223690032959,
+								40.71907891179564
+							],
+							[
+								-73.94500379,
+								40.71929301
+							],
+							[
+								-73.94882,
+								40.71764
+							],
+							[
+								-73.952029,
+								40.7160751
+							],
+							[
+								-73.95441667,
+								40.70691254
+							],
+							[
+								-73.95032283,
+								40.70029511
+							],
+							[
+								-73.94708417,
+								40.69957608
+							],
+							[
+								-73.940636,
+								40.7031724
+							],
+							[
+								-73.94016171,
+								40.70767788
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Union Ave & Wallabout St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "72",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.97982001304626,
+								40.76132983124814
+							],
+							[
+								-73.98192338,
+								40.7652654
+							],
+							[
+								-73.99392888,
+								40.76727216
+							],
+							[
+								-74.00277668,
+								40.76087502
+							],
+							[
+								-73.993934,
+								40.751551
+							],
+							[
+								-73.98808416,
+								40.74854862
+							],
+							[
+								-73.97791,
+								40.751581
+							],
+							[
+								-73.97982001304626,
+								40.76132983124814
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "W 52 St & 11 Ave"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "3135",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.95348296,
+								40.76663814
+							],
+							[
+								-73.94446054,
+								40.77518615
+							],
+							[
+								-73.946041,
+								40.7779453
+							],
+							[
+								-73.9521667,
+								40.7806284
+							],
+							[
+								-73.95939,
+								40.78307
+							],
+							[
+								-73.96685276,
+								40.77282817
+							],
+							[
+								-73.95818491,
+								40.76500525
+							],
+							[
+								-73.95348296,
+								40.76663814
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "E 75 St & 3 Ave"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "164",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.97805914282799,
+								40.75724567911726
+							],
+							[
+								-73.97282625,
+								40.75255434
+							],
+							[
+								-73.97032517,
+								40.75323098
+							],
+							[
+								-73.959223,
+								40.759107
+							],
+							[
+								-73.96224617958069,
+								40.76712840349542
+							],
+							[
+								-73.96703464,
+								40.7691572
+							],
+							[
+								-73.97634151,
+								40.76590936
+							],
+							[
+								-73.97805914282799,
+								40.75724567911726
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "E 47 St & 2 Ave"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "3168",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.96961715,
+								40.78472675
+							],
+							[
+								-73.96186,
+								40.795346
+							],
+							[
+								-73.9605909006,
+								40.7981856
+							],
+							[
+								-73.9621128676,
+								40.7997568
+							],
+							[
+								-73.96699104,
+								40.804213
+							],
+							[
+								-73.9711457439,
+								40.8013434
+							],
+							[
+								-73.9786022901535,
+								40.79181171501097
+							],
+							[
+								-73.977112,
+								40.7867947
+							],
+							[
+								-73.97137,
+								40.78275
+							],
+							[
+								-73.96961715,
+								40.78472675
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Central Park West & W 85 St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "3120",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.93561,
+								40.743
+							],
+							[
+								-73.93540375,
+								40.74469738
+							],
+							[
+								-73.94073717,
+								40.75110165
+							],
+							[
+								-73.94335788,
+								40.75325964
+							],
+							[
+								-73.9521,
+								40.74966
+							],
+							[
+								-73.96044,
+								40.74161
+							],
+							[
+								-73.93561,
+								40.743
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "Center Blvd & Borden Ave"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "3292",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.955327,
+								40.7835016
+							],
+							[
+								-73.94965589046478,
+								40.78112229934166
+							],
+							[
+								-73.94594,
+								40.7817212
+							],
+							[
+								-73.93956237,
+								40.7892529
+							],
+							[
+								-73.9432083,
+								40.79329668
+							],
+							[
+								-73.94782145,
+								40.7961535
+							],
+							[
+								-73.955613,
+								40.799484
+							],
+							[
+								-73.957481,
+								40.7857851
+							],
+							[
+								-73.955327,
+								40.7835016
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "5 Ave & E 93 St"
+				},
+				"type": "Feature"
+			},
+			{
+				"id": "422",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.97667321,
+								40.78524672
+							],
+							[
+								-73.98128127,
+								40.78720869
+							],
+							[
+								-73.98888587951659,
+								40.777507027547976
+							],
+							[
+								-73.990541,
+								40.771522
+							],
+							[
+								-73.988639,
+								40.768254
+							],
+							[
+								-73.98169333,
+								40.76695317
+							],
+							[
+								-73.97374737,
+								40.77896784
+							],
+							[
+								-73.97667321,
+								40.78524672
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"name": "W 59 St & 10 Ave"
+				},
+				"type": "Feature"
+			}
+		],
+		"type": "FeatureCollection"
+	};
+
+/***/ },
+/* 433 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ModelExplainer = function (_React$Component) {
+	    _inherits(ModelExplainer, _React$Component);
+	
+	    function ModelExplainer(props) {
+	        _classCallCheck(this, ModelExplainer);
+	
+	        return _possibleConstructorReturn(this, (ModelExplainer.__proto__ || Object.getPrototypeOf(ModelExplainer)).call(this, props));
+	    }
+	
+	    _createClass(ModelExplainer, [{
+	        key: "render",
+	        value: function render() {
+	
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "explain" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { onClick: this.props.closeLegend, className: "close" },
+	                    "\u2716"
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "explain-content" },
+	                    _react2.default.createElement(
+	                        "h3",
+	                        null,
+	                        "Station Model"
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        null,
+	                        "Poisson Model"
+	                    ),
+	                    _react2.default.createElement(
+	                        "h3",
+	                        null,
+	                        "Neighborhood Model"
+	                    ),
+	                    _react2.default.createElement(
+	                        "div",
+	                        null,
+	                        " Clustering!"
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return ModelExplainer;
+	}(_react2.default.Component);
+	
+	exports.default = ModelExplainer;
 
 /***/ }
 /******/ ]);

@@ -1,5 +1,4 @@
 .legend{
-
 	position: absolute;
 	right: 0px;
 	width: 20%;
@@ -9,6 +8,25 @@
 	border-radius: 15px;
 }
 
+.explain{
+  width: 60%;
+  height: 60%;
+  opacity: .75;
+  border-radius: 15px;
+  background-color: #ffffff;
+  margin: auto;
+  position: relative;
+  z-index: 999;
+}
+.explain-content{
+  margin: 10 10 10 10;
+}
+
+.close{
+    right: 10px;
+    position: absolute;
+    margin-top: 10px;
+}
 .toggleWrap{
 	margin: 10 10;
 }
