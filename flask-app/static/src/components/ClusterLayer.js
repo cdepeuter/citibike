@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Map, CircleMarker, Popup, GeoJSON} from 'react-leaflet'
 
-
-
 // function onEachFeature (component, feature, layer) {
 // console.log(arguments);
 //   layer.on({
@@ -11,8 +9,6 @@ import { Map, CircleMarker, Popup, GeoJSON} from 'react-leaflet'
 //     click: zoomToFeature
 //   });
 // }
-
-
 
 class ClusterLayer extends React.Component {
 	constructor(props) {
@@ -27,6 +23,7 @@ class ClusterLayer extends React.Component {
 	
 	getStyle(feature, layer) {
 		console.log("get style", this.props.stat, this.props.stat === "Predictions")
+		console.log(this.state)
 		return {
 			fillColor: this.props.stat === "Predictions" ? feature.properties.predcolor : feature.properties.statuscolor,
 		    weight: 2,

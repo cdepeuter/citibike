@@ -39,7 +39,8 @@ with app.app_context():
 	ar_preds = pd.read_csv("../preds/ar_preds.csv")
 
 	# get cluster assignments
-	clusters = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/ar_preds.csv")
+	ar_preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/ar_preds.csv")
+	clusters = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/clusters.csv")
 	clusters["ID"] = clusters.ID.astype('str')
 	clusters.drop(["end_latitude", "end_longitude", "ind"], inplace=True, axis=1)
 	
@@ -123,7 +124,7 @@ class Stations(Resource):
 		angels_station_array = angels_status_json["features"]
 		angels_stations = [{"station_id" : str(stat["properties"]["id"]), "score": stat["properties"]["score"]}  for stat in angels_station_array]
 		angels_stations_df = pd.DataFrame.from_records(angels_stations)
-		print("max score", angels_stations_df.score.max(), angels_stations_df.score.min())
+		#print("max score", angels_stations_df.score.max(), angels_stations_df.score.min())
 		# create colors for angels here cuz max score varies
 		score_colors = list(black.range_to(Color("white"),angels_stations_df.score.max() + 1 - angels_stations_df.score.min()))
 
@@ -201,7 +202,7 @@ class GeoJSON(Resource):
 		thisWeekday = today.weekday() < 6
 
 		relevant_preds = ar_preds[(ar_preds["weekday"] == thisWeekday) & (ar_preds["hour"] == thisHour)].copy()
-		print(relevant_preds.shape)
+		#print(relevant_preds.shape)
 
 
 		# merge clusers with statuions
@@ -225,3 +226,4 @@ api.add_resource(GeoJSON, '/clusters')
 if __name__ == "__main__":
     #app.run(debug=True) # for dev
     app.run(host='0.0.0.0') # for prod
+

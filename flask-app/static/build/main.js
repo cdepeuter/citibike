@@ -45943,7 +45943,7 @@
 			var _this = _possibleConstructorReturn(this, (Legend.__proto__ || Object.getPrototypeOf(Legend)).call(this, props));
 	
 			_this.state = {
-				stations: []
+				radioOptions: ["Status", "Predictions"]
 			};
 	
 			_this.handleToggleChange = _this.handleToggleChange.bind(_this);
@@ -46534,7 +46534,6 @@
 	//   });
 	// }
 	
-	
 	var ClusterLayer = function (_React$Component) {
 		_inherits(ClusterLayer, _React$Component);
 	
@@ -46555,6 +46554,7 @@
 			key: 'getStyle',
 			value: function getStyle(feature, layer) {
 				console.log("get style", this.props.stat, this.props.stat === "Predictions");
+				console.log(this.state);
 				return {
 					fillColor: this.props.stat === "Predictions" ? feature.properties.predcolor : feature.properties.statuscolor,
 					weight: 2,
@@ -46586,12 +46586,16 @@
 /***/ function(module, exports) {
 
 	module.exports = {
+		"type": "FeatureCollection",
 		"features": [
 			{
-				"style": {
-					"fill": "#a2b800"
+				"properties": {
+					"capacity": "678",
+					"available": "383",
+					"statuscolor": "#a2b800",
+					"expected": "383.0",
+					"predcolor": "#a2b800"
 				},
-				"type": "Feature",
 				"id": "119",
 				"geometry": {
 					"coordinates": [
@@ -46628,19 +46632,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#a2b800",
-					"expected": "377.0",
-					"capacity": "678",
-					"available": "377",
-					"predcolor": "#a2b800"
+				"type": "Feature",
+				"style": {
+					"fill": "#a2b800"
 				}
 			},
 			{
-				"style": {
-					"fill": "#70aa00"
+				"properties": {
+					"capacity": "517",
+					"available": "341",
+					"statuscolor": "#74ab00",
+					"expected": "341.0",
+					"predcolor": "#74ab00"
 				},
-				"type": "Feature",
 				"id": "120",
 				"geometry": {
 					"coordinates": [
@@ -46693,19 +46697,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#74ab00",
-					"expected": "345.447065924",
-					"capacity": "517",
-					"available": "342",
-					"predcolor": "#70aa00"
+				"type": "Feature",
+				"style": {
+					"fill": "#74ab00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#cca300"
+				"properties": {
+					"capacity": "914",
+					"available": "366",
+					"statuscolor": "#cca300",
+					"expected": "366.0",
+					"predcolor": "#cca300"
 				},
-				"type": "Feature",
 				"id": "127",
 				"geometry": {
 					"coordinates": [
@@ -46758,19 +46762,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#cca300",
-					"expected": "362.0",
-					"capacity": "914",
-					"available": "362",
-					"predcolor": "#cca300"
+				"type": "Feature",
+				"style": {
+					"fill": "#cca300"
 				}
 			},
 			{
-				"style": {
-					"fill": "#c3b800"
+				"properties": {
+					"capacity": "921",
+					"available": "448",
+					"statuscolor": "#c1bd00",
+					"expected": "448.0",
+					"predcolor": "#c1bd00"
 				},
-				"type": "Feature",
 				"id": "82",
 				"geometry": {
 					"coordinates": [
@@ -46815,19 +46819,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#c3b800",
-					"expected": "433.0",
-					"capacity": "921",
-					"available": "433",
-					"predcolor": "#c3b800"
+				"type": "Feature",
+				"style": {
+					"fill": "#c1bd00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#e85400"
+				"properties": {
+					"capacity": "1084",
+					"available": "198",
+					"statuscolor": "#e85400",
+					"expected": "198.0",
+					"predcolor": "#e85400"
 				},
-				"type": "Feature",
 				"id": "116",
 				"geometry": {
 					"coordinates": [
@@ -46876,19 +46880,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#e85400",
-					"expected": "194.0",
-					"capacity": "1084",
-					"available": "194",
-					"predcolor": "#e85400"
+				"type": "Feature",
+				"style": {
+					"fill": "#e85400"
 				}
 			},
 			{
-				"style": {
-					"fill": "#ec4700"
+				"properties": {
+					"capacity": "1236",
+					"available": "183",
+					"statuscolor": "#ec4700",
+					"expected": "183.0",
+					"predcolor": "#ec4700"
 				},
-				"type": "Feature",
 				"id": "79",
 				"geometry": {
 					"coordinates": [
@@ -46929,19 +46933,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#ec4700",
-					"expected": "180.0",
-					"capacity": "1236",
-					"available": "180",
-					"predcolor": "#ec4700"
+				"type": "Feature",
+				"style": {
+					"fill": "#ec4700"
 				}
 			},
 			{
-				"style": {
-					"fill": "#cf9d00"
+				"properties": {
+					"capacity": "1121",
+					"available": "439",
+					"statuscolor": "#cda000",
+					"expected": "439.0",
+					"predcolor": "#cda000"
 				},
-				"type": "Feature",
 				"id": "174",
 				"geometry": {
 					"coordinates": [
@@ -46982,19 +46986,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#cf9d00",
-					"expected": "421.0",
-					"capacity": "1121",
-					"available": "421",
-					"predcolor": "#cf9d00"
+				"type": "Feature",
+				"style": {
+					"fill": "#cda000"
 				}
 			},
 			{
-				"style": {
-					"fill": "#108800"
+				"properties": {
+					"capacity": "650",
+					"available": "596",
+					"statuscolor": "#168a00",
+					"expected": "596.0",
+					"predcolor": "#168a00"
 				},
-				"type": "Feature",
 				"id": "150",
 				"geometry": {
 					"coordinates": [
@@ -47031,19 +47035,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#198b00",
-					"expected": "607.997353062",
-					"capacity": "650",
-					"available": "592",
-					"predcolor": "#108800"
+				"type": "Feature",
+				"style": {
+					"fill": "#168a00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#f23000"
+				"properties": {
+					"capacity": "887",
+					"available": "85",
+					"statuscolor": "#f23000",
+					"expected": "85.0",
+					"predcolor": "#f23000"
 				},
-				"type": "Feature",
 				"id": "167",
 				"geometry": {
 					"coordinates": [
@@ -47084,19 +47088,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#f42c00",
-					"expected": "84.9859083952",
-					"capacity": "887",
-					"available": "80",
-					"predcolor": "#f23000"
+				"type": "Feature",
+				"style": {
+					"fill": "#f23000"
 				}
 			},
 			{
-				"style": {
-					"fill": "#70aa00"
+				"properties": {
+					"capacity": "1026",
+					"available": "676",
+					"statuscolor": "#74ab00",
+					"expected": "676.339075428",
+					"predcolor": "#74ab00"
 				},
-				"type": "Feature",
 				"id": "83",
 				"geometry": {
 					"coordinates": [
@@ -47141,19 +47145,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#70aa00",
-					"expected": "685.437059768",
-					"capacity": "1026",
-					"available": "685",
-					"predcolor": "#70aa00"
+				"type": "Feature",
+				"style": {
+					"fill": "#74ab00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#3a9800"
+				"properties": {
+					"capacity": "574",
+					"available": "445",
+					"statuscolor": "#459c00",
+					"expected": "446.557495704",
+					"predcolor": "#459c00"
 				},
-				"type": "Feature",
 				"id": "398",
 				"geometry": {
 					"coordinates": [
@@ -47198,19 +47202,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#3a9800",
-					"expected": "465.0",
-					"capacity": "574",
-					"available": "465",
-					"predcolor": "#3a9800"
+				"type": "Feature",
+				"style": {
+					"fill": "#459c00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#cda000"
+				"properties": {
+					"capacity": "814",
+					"available": "294",
+					"statuscolor": "#d19700",
+					"expected": "294.0",
+					"predcolor": "#d19700"
 				},
-				"type": "Feature",
 				"id": "143",
 				"geometry": {
 					"coordinates": [
@@ -47255,19 +47259,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#cda000",
-					"expected": "315.0",
-					"capacity": "814",
-					"available": "315",
-					"predcolor": "#cda000"
+				"type": "Feature",
+				"style": {
+					"fill": "#d19700"
 				}
 			},
 			{
-				"style": {
-					"fill": "#3d9900"
+				"properties": {
+					"capacity": "310",
+					"available": "249",
+					"statuscolor": "#3d9900",
+					"expected": "249.0",
+					"predcolor": "#3d9900"
 				},
-				"type": "Feature",
 				"id": "3326",
 				"geometry": {
 					"coordinates": [
@@ -47308,19 +47312,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#3d9900",
-					"expected": "248.0",
-					"capacity": "310",
-					"available": "248",
-					"predcolor": "#3d9900"
+				"type": "Feature",
+				"style": {
+					"fill": "#3d9900"
 				}
 			},
 			{
-				"style": {
-					"fill": "#c2ba00"
+				"properties": {
+					"capacity": "663",
+					"available": "314",
+					"statuscolor": "#c3b800",
+					"expected": "314.0",
+					"predcolor": "#c3b800"
 				},
-				"type": "Feature",
 				"id": "3096",
 				"geometry": {
 					"coordinates": [
@@ -47361,19 +47365,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#c2ba00",
-					"expected": "321.462713301",
-					"capacity": "663",
-					"available": "316",
-					"predcolor": "#c2ba00"
+				"type": "Feature",
+				"style": {
+					"fill": "#c3b800"
 				}
 			},
 			{
-				"style": {
-					"fill": "#c2ba00"
+				"properties": {
+					"capacity": "472",
+					"available": "225",
+					"statuscolor": "#c2ba00",
+					"expected": "225.0",
+					"predcolor": "#c2ba00"
 				},
-				"type": "Feature",
 				"id": "144",
 				"geometry": {
 					"coordinates": [
@@ -47410,19 +47414,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#c1bd00",
-					"expected": "227.177272049",
-					"capacity": "472",
-					"available": "232",
-					"predcolor": "#c2ba00"
+				"type": "Feature",
+				"style": {
+					"fill": "#c2ba00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#babe00"
+				"properties": {
+					"capacity": "611",
+					"available": "316",
+					"statuscolor": "#b5bd00",
+					"expected": "316.0",
+					"predcolor": "#b5bd00"
 				},
-				"type": "Feature",
 				"id": "3065",
 				"geometry": {
 					"coordinates": [
@@ -47475,19 +47479,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#babe00",
-					"expected": "311.907260377",
-					"capacity": "611",
-					"available": "309",
-					"predcolor": "#babe00"
+				"type": "Feature",
+				"style": {
+					"fill": "#b5bd00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#d70"
+				"properties": {
+					"capacity": "1412",
+					"available": "390",
+					"statuscolor": "#db7b00",
+					"expected": "390.0",
+					"predcolor": "#db7b00"
 				},
-				"type": "Feature",
 				"id": "72",
 				"geometry": {
 					"coordinates": [
@@ -47528,19 +47532,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#de7300",
-					"expected": "375.522304655",
-					"capacity": "1412",
-					"available": "366",
-					"predcolor": "#d70"
+				"type": "Feature",
+				"style": {
+					"fill": "#db7b00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#d98200"
+				"properties": {
+					"capacity": "1062",
+					"available": "326",
+					"statuscolor": "#d88600",
+					"expected": "326.0",
+					"predcolor": "#d88600"
 				},
-				"type": "Feature",
 				"id": "3135",
 				"geometry": {
 					"coordinates": [
@@ -47581,19 +47585,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#d98200",
-					"expected": "318.0",
-					"capacity": "1062",
-					"available": "318",
-					"predcolor": "#d98200"
+				"type": "Feature",
+				"style": {
+					"fill": "#d88600"
 				}
 			},
 			{
-				"style": {
-					"fill": "#fa1400"
+				"properties": {
+					"capacity": "1042",
+					"available": "21",
+					"statuscolor": "#fc0a00",
+					"expected": "21.0",
+					"predcolor": "#fc0a00"
 				},
-				"type": "Feature",
 				"id": "164",
 				"geometry": {
 					"coordinates": [
@@ -47634,19 +47638,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#fc0a00",
-					"expected": "39.1107917988",
-					"capacity": "1042",
-					"available": "22",
-					"predcolor": "#fa1400"
+				"type": "Feature",
+				"style": {
+					"fill": "#fc0a00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#cda000"
+				"properties": {
+					"capacity": "1004",
+					"available": "426",
+					"statuscolor": "#caa900",
+					"expected": "426.0",
+					"predcolor": "#caa900"
 				},
-				"type": "Feature",
 				"id": "3168",
 				"geometry": {
 					"coordinates": [
@@ -47695,19 +47699,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#cda000",
-					"expected": "396.0",
-					"capacity": "1004",
-					"available": "396",
-					"predcolor": "#cda000"
+				"type": "Feature",
+				"style": {
+					"fill": "#caa900"
 				}
 			},
 			{
-				"style": {
-					"fill": "#bfbf00"
+				"properties": {
+					"capacity": "336",
+					"available": "171",
+					"statuscolor": "#babe00",
+					"expected": "171.0",
+					"predcolor": "#babe00"
 				},
-				"type": "Feature",
 				"id": "3120",
 				"geometry": {
 					"coordinates": [
@@ -47744,19 +47748,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#bfbf00",
-					"expected": "169.0",
-					"capacity": "336",
-					"available": "169",
-					"predcolor": "#bfbf00"
+				"type": "Feature",
+				"style": {
+					"fill": "#babe00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#c7af00"
+				"properties": {
+					"capacity": "716",
+					"available": "314",
+					"statuscolor": "#c7af00",
+					"expected": "314.0",
+					"predcolor": "#c7af00"
 				},
-				"type": "Feature",
 				"id": "3292",
 				"geometry": {
 					"coordinates": [
@@ -47801,19 +47805,19 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#c7af00",
-					"expected": "314.0",
-					"capacity": "716",
-					"available": "314",
-					"predcolor": "#c7af00"
+				"type": "Feature",
+				"style": {
+					"fill": "#c7af00"
 				}
 			},
 			{
-				"style": {
-					"fill": "#c2ba00"
+				"properties": {
+					"capacity": "952",
+					"available": "463",
+					"statuscolor": "#c1bd00",
+					"expected": "463.0",
+					"predcolor": "#c1bd00"
 				},
-				"type": "Feature",
 				"id": "422",
 				"geometry": {
 					"coordinates": [
@@ -47854,16 +47858,12 @@
 					],
 					"type": "Polygon"
 				},
-				"properties": {
-					"statuscolor": "#c2ba00",
-					"expected": "455.0",
-					"capacity": "952",
-					"available": "455",
-					"predcolor": "#c2ba00"
+				"type": "Feature",
+				"style": {
+					"fill": "#c1bd00"
 				}
 			}
-		],
-		"type": "FeatureCollection"
+		]
 	};
 
 /***/ }
