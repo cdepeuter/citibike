@@ -46015,7 +46015,7 @@
 						_react2.default.createElement(
 							'span',
 							{ className: 'modelExplain', onClick: this.showLegend },
-							' Models?'
+							'Our Models'
 						)
 					),
 					_react2.default.createElement(
@@ -46469,7 +46469,7 @@
 	                    { className: "explain-content" },
 	                    _react2.default.createElement(
 	                        "h3",
-	                        null,
+	                        { className: "exp-header" },
 	                        "Station Model"
 	                    ),
 	                    _react2.default.createElement(

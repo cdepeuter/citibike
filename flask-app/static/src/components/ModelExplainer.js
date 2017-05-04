@@ -16,7 +16,7 @@ class ModelExplainer extends React.Component {
         <div className="explain">
         	<div onClick={this.props.closeLegend} className="close">&#10006;</div>
         	<div className="explain-content">
-	            <h3>Station Model</h3>
+	            <h3 className="exp-header">Station Model</h3>
 	            <div>Poisson Model</div>
 
 

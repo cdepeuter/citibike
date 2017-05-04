@@ -60,7 +60,7 @@ export default class Legend extends React.Component {
 						</label>
 					</div>
 
-					<span className="modelExplain" onClick={this.showLegend}> Models?</span>
+					<span className="modelExplain" onClick={this.showLegend}>Our Models</span>
 		  
 		        </div>
 

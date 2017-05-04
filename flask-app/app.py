@@ -36,8 +36,6 @@ with app.app_context():
 	preds["station_id"] = preds.station_id.astype('str')
 	preds["bike_delta"] = preds["avg(in_count)"] - preds["avg(out_count)"]
 	
-	ar_preds = pd.read_csv("../preds/ar_preds.csv")
-
 	# get cluster assignments
 	ar_preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/ar_preds.csv")
 	clusters = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/clusters.csv")
