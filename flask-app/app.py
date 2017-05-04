@@ -54,7 +54,7 @@ with app.app_context():
 
 @app.route('/')
 def index():
-    return "hi this is the index"
+    return render_template('leaflet.html')
 
 @app.route("/map")
 def map():

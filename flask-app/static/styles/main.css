@@ -36,6 +36,8 @@
 }
 .toggleWrap{
 	margin: 10 10;
+  text-align: center;
+  vertical-align: middle;
 }
 
 span.viewType{
@@ -97,10 +99,10 @@ span.viewType{
 .react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
   background-color: #000000;
 }
-
+/*
 .react-toggle--checked .react-toggle-track {
   background-color: #19AB27;
-}
+}*/
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
   background-color: #128D15;
