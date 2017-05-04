@@ -21,7 +21,7 @@ export default class StationLayer extends React.Component {
 	  }
 
 	  componentDidUpdate(){
-	  	//console.log("updated, view:", this.props.view);
+	  	console.log("updated stations view:", this.props.stat === "Status", this.props);
 
 	  }
 
@@ -53,7 +53,7 @@ export default class StationLayer extends React.Component {
 	           	Cluster: {station.cluster}
 	           	</span>
 	          </Popup>
-	        </CircleMarker>
+	        </CircleMarker> 
        );
         
 

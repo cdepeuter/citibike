@@ -91,13 +91,16 @@ def get_hull(x):
                 "properties": { "capacity" : str(capacity), "available":str(available), 
                                "predcolor":colors[expected_pct].hex,
                                "statuscolor":colors[avaliable_pct].hex, 
-                               "expected": str(expected)},
+                               "expected": str(expected),
+                               "rate":str(expected_change),
+                               "id": x['station_id'].values[0],},
+                               
                 "geometry": {"type": "Polygon","coordinates": [coords]},
                 "style" : {"fill":colors[expected_pct].hex}
                }
     
     # dont want to return hull of not clustered points
-    if thisHull.area > .2:
+    if thisHull.area > .4:
         respData["remove"] = True
         
     return respData

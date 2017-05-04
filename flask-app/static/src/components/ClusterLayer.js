@@ -19,7 +19,7 @@ class ClusterLayer extends React.Component {
 		this.getStyle = this.getStyle.bind(this);
 		console.log(this.props)
 	}
-	
+
 	componentDidUpdate(){
 	    console.log("updated, view:", this.state);
 	 }  
@@ -41,7 +41,7 @@ class ClusterLayer extends React.Component {
         return (
         	<GeoJSON data={this.state.geodata} 
         	 style={this.getStyle} 
-        	  onEachFeature={(feature, layer) => layer.bindPopup('<div>Available: ' + feature.properties.available + '</br> Capacity:' + feature.properties.capacity +'</br> Expected: '  + feature.properties.expected +' </div>')}
+        	  onEachFeature={(feature, layer) => layer.bindPopup('<div>Available: ' + feature.properties.available + '</br> Capacity:' + feature.properties.capacity +'</br> Expected: '  + feature.properties.expected +'</br>id:' + feature.properties.id + ' </div>')}
              />
       )
     }

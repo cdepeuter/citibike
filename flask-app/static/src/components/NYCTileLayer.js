@@ -82,7 +82,7 @@ export default class NYCTileLayer extends Component {
           url={leafletUrl}
         />
         <Legend stat={this.state.stat} view={this.state.view} changeView={this.handleViewChange} changeStat={this.handleStatChange} />
-        { this.state.view === 'Stations' ? <StationLayer view={this.state.view} /> : <ClusterLayer data={this.state.geojson} stat={this.state.stat} /> }
+        { this.state.view === 'Stations' ? <StationLayer stat={this.state.stat} view={this.state.view} /> : <ClusterLayer data={this.state.geojson} stat={this.state.stat} /> }
         
       </Map>
     )
