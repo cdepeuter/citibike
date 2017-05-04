@@ -3,8 +3,8 @@ import { Map, TileLayer, GeoJson} from 'react-leaflet';
 import StationLayer from './StationLayer';
 import Legend from './Legend';
 import ClusterLayer from './ClusterLayer';
-import { createStore } from 'redux';
 
+import geojson from 'json!./clusters.geojson';
 // light bg
 //const leafletUrl = "https://api.mapbox.com/styles/v1/mapbox/streets-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY2RlcGV1dGVyIiwiYSI6ImNqMWUyOXVubTAwMDQycXVzYnNrcGtmdnAifQ.7fCYPAnsWbjiR5RW4tyRKA"
 
@@ -26,26 +26,49 @@ export default class NYCTileLayer extends Component {
         lng: -73.9890297,
         zoom: 12,
         bluemarble: false,
-        view: 'Bike Angels'
+        view: 'Neighborhoods',
+        stat: 'Status',
+        geojson:geojson
       }
       this.handleViewChange = this.handleViewChange.bind(this);
+      this.handleStatChange = this.handleStatChange.bind(this);
+
   }
 
   handleViewChange(){
     this.setState({
-      view: this.state.view === 'Bike Angels' ? 'Predictions' : 'Bike Angels'
+      view: this.state.view === 'Neighborhoods' ? 'Stations' : 'Neighborhoods'
+    })
+  }
+
+  handleStatChange(){
+    this.setState({
+      stat: this.state.stat === 'Status' ? 'Predictions' : 'Status'
     })
   }
   
   componentDidMount() {
-    console.log("Tile layer mounted");
+    this.getData();
+      setInterval(
+        () => { this.getData(); },
+        120000 
+    );
   }
-
 
   componentDidUpdate(){
     console.log("updated, view:", this.state);
-  }
-  
+  }  
+
+  getData() {
+      fetch("/clusters").then( (response) => {
+          return response.json() })   
+          .then( (json) => {
+            console.log(json)
+            if(!!json){
+              this.setState({geojson: json});
+            } 
+          });
+    }
 
 
   render () {
@@ -58,8 +81,8 @@ export default class NYCTileLayer extends Component {
           layers={this.state.bluemarble ? 'nasa:bluemarble' : 'ne:ne'}
           url={leafletUrl}
         />
-        <Legend view={this.state.view} changeView={this.handleViewChange} />
-        { this.state.view === 'Bike Angels' ? <StationLayer view={this.state.view} /> : <ClusterLayer /> }
+        <Legend stat={this.state.stat} view={this.state.view} changeView={this.handleViewChange} changeStat={this.handleStatChange} />
+        { this.state.view === 'Stations' ? <StationLayer view={this.state.view} /> : <ClusterLayer data={this.state.geojson} stat={this.state.stat} /> }
         
       </Map>
     )

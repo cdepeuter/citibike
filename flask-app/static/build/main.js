@@ -21871,11 +21871,13 @@
 	
 	var _Legend2 = _interopRequireDefault(_Legend);
 	
-	var _ClusterLayer = __webpack_require__(430);
+	var _ClusterLayer = __webpack_require__(411);
 	
 	var _ClusterLayer2 = _interopRequireDefault(_ClusterLayer);
 	
-	var _redux = __webpack_require__(410);
+	var _clusters = __webpack_require__(412);
+	
+	var _clusters2 = _interopRequireDefault(_clusters);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -21910,9 +21912,13 @@
 	      lng: -73.9890297,
 	      zoom: 12,
 	      bluemarble: false,
-	      view: 'Bike Angels'
+	      view: 'Neighborhoods',
+	      stat: 'Status',
+	      geojson: _clusters2.default
 	    };
 	    _this.handleViewChange = _this.handleViewChange.bind(_this);
+	    _this.handleStatChange = _this.handleStatChange.bind(_this);
+	
 	    return _this;
 	  }
 	
@@ -21920,18 +21926,44 @@
 	    key: 'handleViewChange',
 	    value: function handleViewChange() {
 	      this.setState({
-	        view: this.state.view === 'Bike Angels' ? 'Predictions' : 'Bike Angels'
+	        view: this.state.view === 'Neighborhoods' ? 'Stations' : 'Neighborhoods'
+	      });
+	    }
+	  }, {
+	    key: 'handleStatChange',
+	    value: function handleStatChange() {
+	      this.setState({
+	        stat: this.state.stat === 'Status' ? 'Predictions' : 'Status'
 	      });
 	    }
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      console.log("Tile layer mounted");
+	      var _this2 = this;
+	
+	      this.getData();
+	      setInterval(function () {
+	        _this2.getData();
+	      }, 120000);
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
 	      console.log("updated, view:", this.state);
+	    }
+	  }, {
+	    key: 'getData',
+	    value: function getData() {
+	      var _this3 = this;
+	
+	      fetch("/clusters").then(function (response) {
+	        return response.json();
+	      }).then(function (json) {
+	        console.log(json);
+	        if (!!json) {
+	          _this3.setState({ geojson: json });
+	        }
+	      });
 	    }
 	  }, {
 	    key: 'render',
@@ -21946,8 +21978,8 @@
 	          layers: this.state.bluemarble ? 'nasa:bluemarble' : 'ne:ne',
 	          url: leafletUrl
 	        }),
-	        _react2.default.createElement(_Legend2.default, { view: this.state.view, changeView: this.handleViewChange }),
-	        this.state.view === 'Bike Angels' ? _react2.default.createElement(_StationLayer2.default, { view: this.state.view }) : _react2.default.createElement(_ClusterLayer2.default, null)
+	        _react2.default.createElement(_Legend2.default, { stat: this.state.stat, view: this.state.view, changeView: this.handleViewChange, changeStat: this.handleStatChange }),
+	        this.state.view === 'Stations' ? _react2.default.createElement(_StationLayer2.default, { view: this.state.view }) : _react2.default.createElement(_ClusterLayer2.default, { data: this.state.geojson, stat: this.state.stat })
 	      );
 	    }
 	  }]);
@@ -45355,7 +45387,7 @@
 				var markers = this.state.stations.map(function (station) {
 					return _react2.default.createElement(
 						_reactLeaflet.CircleMarker,
-						{ center: [station.lat, station.lon], color: _this4.props.view == "Bike Angels" ? station.status_color : station.prediction_color, fillColor: _this4.props.view == "Bike Angels" ? station.score_color : station.cluster_color, fillOpacity: '1', radius: 5 },
+						{ center: [station.lat, station.lon], color: _this4.props.stat == "Status" ? station.status_color : station.prediction_color, fillColor: _this4.props.stat == "Status" ? station.status_color : station.prediction_color, fillOpacity: '1', radius: 5 },
 						_react2.default.createElement(
 							_reactLeaflet.Popup,
 							null,
@@ -45884,7 +45916,7 @@
 	
 	var _reactToggle2 = _interopRequireDefault(_reactToggle);
 	
-	var _ModelExplainer = __webpack_require__(433);
+	var _ModelExplainer = __webpack_require__(410);
 	
 	var _ModelExplainer2 = _interopRequireDefault(_ModelExplainer);
 	
@@ -45896,7 +45928,11 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var svgMarkerAttbs = '<svg width="50px" height="60px"><g>\n<path stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#000" fill-opacity="1" fill-rule="evenodd"  stroke="#f71e00" stroke-opacity="1"  d="M15,15a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0"></path>\n<path stroke="#459c00" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-opacity="1" fill-rule="evenodd" d="M15,45a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0"></path>\n</g></svg>';
+	// const svgMarkerAttbs  = `<svg width="50px" height="60px"><g>
+	// <path stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#000" fill-opacity="1" fill-rule="evenodd"  stroke="#f71e00" stroke-opacity="1"  d="M15,15a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0"></path>
+	// <path stroke="#459c00" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#fff" fill-opacity="1" fill-rule="evenodd" d="M15,45a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0"></path>
+	// </g></svg>`
+	
 	
 	var Legend = function (_React$Component) {
 		_inherits(Legend, _React$Component);
@@ -45911,6 +45947,7 @@
 			};
 	
 			_this.handleToggleChange = _this.handleToggleChange.bind(_this);
+			_this.handleStatChange = _this.handleStatChange.bind(_this);
 			_this.showLegend = _this.showLegend.bind(_this);
 			return _this;
 		}
@@ -45920,6 +45957,12 @@
 			value: function handleToggleChange() {
 				this.props.changeView();
 				console.log("button toggled", this.props.view);
+			}
+		}, {
+			key: 'handleStatChange',
+			value: function handleStatChange() {
+				this.props.changeStat();
+				console.log("button toggled", this.props.stat);
 			}
 		}, {
 			key: 'showLegend',
@@ -45942,7 +45985,7 @@
 								'label',
 								null,
 								_react2.default.createElement(_reactToggle2.default, {
-									defaultChecked: this.props.view == "Bike Angels",
+									defaultChecked: this.props.view == "Neighborhoods",
 									icons: false,
 									onChange: this.handleToggleChange }),
 								_react2.default.createElement(
@@ -45954,14 +45997,27 @@
 							)
 						),
 						_react2.default.createElement(
+							'div',
+							{ className: 'toggleWrap' },
+							_react2.default.createElement(
+								'label',
+								null,
+								_react2.default.createElement(_reactToggle2.default, {
+									defaultChecked: this.props.stats == "Predictions",
+									icons: false,
+									onChange: this.handleStatChange }),
+								_react2.default.createElement(
+									'span',
+									{ className: 'viewType' },
+									' ',
+									this.props.stat
+								)
+							)
+						),
+						_react2.default.createElement(
 							'span',
 							{ onClick: this.showLegend },
 							' Models \u2753'
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'hacked_svg' },
-							_react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: svgMarkerAttbs } })
 						)
 					),
 					_react2.default.createElement(
@@ -46369,2262 +46425,6 @@
 /* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
-	exports.__esModule = true;
-	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
-	
-	var _createStore = __webpack_require__(411);
-	
-	var _createStore2 = _interopRequireDefault(_createStore);
-	
-	var _combineReducers = __webpack_require__(425);
-	
-	var _combineReducers2 = _interopRequireDefault(_combineReducers);
-	
-	var _bindActionCreators = __webpack_require__(427);
-	
-	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
-	
-	var _applyMiddleware = __webpack_require__(428);
-	
-	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
-	
-	var _compose = __webpack_require__(429);
-	
-	var _compose2 = _interopRequireDefault(_compose);
-	
-	var _warning = __webpack_require__(426);
-	
-	var _warning2 = _interopRequireDefault(_warning);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	/*
-	* This is a dummy function to check if the function name has been altered by minification.
-	* If the function has been minified and NODE_ENV !== 'production', warn the user.
-	*/
-	function isCrushed() {}
-	
-	if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
-	  (0, _warning2['default'])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
-	}
-	
-	exports.createStore = _createStore2['default'];
-	exports.combineReducers = _combineReducers2['default'];
-	exports.bindActionCreators = _bindActionCreators2['default'];
-	exports.applyMiddleware = _applyMiddleware2['default'];
-	exports.compose = _compose2['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 411 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
-	exports.__esModule = true;
-	exports.ActionTypes = undefined;
-	exports['default'] = createStore;
-	
-	var _isPlainObject = __webpack_require__(412);
-	
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-	
-	var _symbolObservable = __webpack_require__(422);
-	
-	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	/**
-	 * These are private action types reserved by Redux.
-	 * For any unknown actions, you must return the current state.
-	 * If the current state is undefined, you must return the initial state.
-	 * Do not reference these action types directly in your code.
-	 */
-	var ActionTypes = exports.ActionTypes = {
-	  INIT: '@@redux/INIT'
-	};
-	
-	/**
-	 * Creates a Redux store that holds the state tree.
-	 * The only way to change the data in the store is to call `dispatch()` on it.
-	 *
-	 * There should only be a single store in your app. To specify how different
-	 * parts of the state tree respond to actions, you may combine several reducers
-	 * into a single reducer function by using `combineReducers`.
-	 *
-	 * @param {Function} reducer A function that returns the next state tree, given
-	 * the current state tree and the action to handle.
-	 *
-	 * @param {any} [preloadedState] The initial state. You may optionally specify it
-	 * to hydrate the state from the server in universal apps, or to restore a
-	 * previously serialized user session.
-	 * If you use `combineReducers` to produce the root reducer function, this must be
-	 * an object with the same shape as `combineReducers` keys.
-	 *
-	 * @param {Function} enhancer The store enhancer. You may optionally specify it
-	 * to enhance the store with third-party capabilities such as middleware,
-	 * time travel, persistence, etc. The only store enhancer that ships with Redux
-	 * is `applyMiddleware()`.
-	 *
-	 * @returns {Store} A Redux store that lets you read the state, dispatch actions
-	 * and subscribe to changes.
-	 */
-	function createStore(reducer, preloadedState, enhancer) {
-	  var _ref2;
-	
-	  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
-	    enhancer = preloadedState;
-	    preloadedState = undefined;
-	  }
-	
-	  if (typeof enhancer !== 'undefined') {
-	    if (typeof enhancer !== 'function') {
-	      throw new Error('Expected the enhancer to be a function.');
-	    }
-	
-	    return enhancer(createStore)(reducer, preloadedState);
-	  }
-	
-	  if (typeof reducer !== 'function') {
-	    throw new Error('Expected the reducer to be a function.');
-	  }
-	
-	  var currentReducer = reducer;
-	  var currentState = preloadedState;
-	  var currentListeners = [];
-	  var nextListeners = currentListeners;
-	  var isDispatching = false;
-	
-	  function ensureCanMutateNextListeners() {
-	    if (nextListeners === currentListeners) {
-	      nextListeners = currentListeners.slice();
-	    }
-	  }
-	
-	  /**
-	   * Reads the state tree managed by the store.
-	   *
-	   * @returns {any} The current state tree of your application.
-	   */
-	  function getState() {
-	    return currentState;
-	  }
-	
-	  /**
-	   * Adds a change listener. It will be called any time an action is dispatched,
-	   * and some part of the state tree may potentially have changed. You may then
-	   * call `getState()` to read the current state tree inside the callback.
-	   *
-	   * You may call `dispatch()` from a change listener, with the following
-	   * caveats:
-	   *
-	   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
-	   * If you subscribe or unsubscribe while the listeners are being invoked, this
-	   * will not have any effect on the `dispatch()` that is currently in progress.
-	   * However, the next `dispatch()` call, whether nested or not, will use a more
-	   * recent snapshot of the subscription list.
-	   *
-	   * 2. The listener should not expect to see all state changes, as the state
-	   * might have been updated multiple times during a nested `dispatch()` before
-	   * the listener is called. It is, however, guaranteed that all subscribers
-	   * registered before the `dispatch()` started will be called with the latest
-	   * state by the time it exits.
-	   *
-	   * @param {Function} listener A callback to be invoked on every dispatch.
-	   * @returns {Function} A function to remove this change listener.
-	   */
-	  function subscribe(listener) {
-	    if (typeof listener !== 'function') {
-	      throw new Error('Expected listener to be a function.');
-	    }
-	
-	    var isSubscribed = true;
-	
-	    ensureCanMutateNextListeners();
-	    nextListeners.push(listener);
-	
-	    return function unsubscribe() {
-	      if (!isSubscribed) {
-	        return;
-	      }
-	
-	      isSubscribed = false;
-	
-	      ensureCanMutateNextListeners();
-	      var index = nextListeners.indexOf(listener);
-	      nextListeners.splice(index, 1);
-	    };
-	  }
-	
-	  /**
-	   * Dispatches an action. It is the only way to trigger a state change.
-	   *
-	   * The `reducer` function, used to create the store, will be called with the
-	   * current state tree and the given `action`. Its return value will
-	   * be considered the **next** state of the tree, and the change listeners
-	   * will be notified.
-	   *
-	   * The base implementation only supports plain object actions. If you want to
-	   * dispatch a Promise, an Observable, a thunk, or something else, you need to
-	   * wrap your store creating function into the corresponding middleware. For
-	   * example, see the documentation for the `redux-thunk` package. Even the
-	   * middleware will eventually dispatch plain object actions using this method.
-	   *
-	   * @param {Object} action A plain object representing “what changed”. It is
-	   * a good idea to keep actions serializable so you can record and replay user
-	   * sessions, or use the time travelling `redux-devtools`. An action must have
-	   * a `type` property which may not be `undefined`. It is a good idea to use
-	   * string constants for action types.
-	   *
-	   * @returns {Object} For convenience, the same action object you dispatched.
-	   *
-	   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
-	   * return something else (for example, a Promise you can await).
-	   */
-	  function dispatch(action) {
-	    if (!(0, _isPlainObject2['default'])(action)) {
-	      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
-	    }
-	
-	    if (typeof action.type === 'undefined') {
-	      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
-	    }
-	
-	    if (isDispatching) {
-	      throw new Error('Reducers may not dispatch actions.');
-	    }
-	
-	    try {
-	      isDispatching = true;
-	      currentState = currentReducer(currentState, action);
-	    } finally {
-	      isDispatching = false;
-	    }
-	
-	    var listeners = currentListeners = nextListeners;
-	    for (var i = 0; i < listeners.length; i++) {
-	      listeners[i]();
-	    }
-	
-	    return action;
-	  }
-	
-	  /**
-	   * Replaces the reducer currently used by the store to calculate the state.
-	   *
-	   * You might need this if your app implements code splitting and you want to
-	   * load some of the reducers dynamically. You might also need this if you
-	   * implement a hot reloading mechanism for Redux.
-	   *
-	   * @param {Function} nextReducer The reducer for the store to use instead.
-	   * @returns {void}
-	   */
-	  function replaceReducer(nextReducer) {
-	    if (typeof nextReducer !== 'function') {
-	      throw new Error('Expected the nextReducer to be a function.');
-	    }
-	
-	    currentReducer = nextReducer;
-	    dispatch({ type: ActionTypes.INIT });
-	  }
-	
-	  /**
-	   * Interoperability point for observable/reactive libraries.
-	   * @returns {observable} A minimal observable of state changes.
-	   * For more information, see the observable proposal:
-	   * https://github.com/zenparsing/es-observable
-	   */
-	  function observable() {
-	    var _ref;
-	
-	    var outerSubscribe = subscribe;
-	    return _ref = {
-	      /**
-	       * The minimal observable subscription method.
-	       * @param {Object} observer Any object that can be used as an observer.
-	       * The observer object should have a `next` method.
-	       * @returns {subscription} An object with an `unsubscribe` method that can
-	       * be used to unsubscribe the observable from the store, and prevent further
-	       * emission of values from the observable.
-	       */
-	      subscribe: function subscribe(observer) {
-	        if ((typeof observer === 'undefined' ? 'undefined' : _typeof(observer)) !== 'object') {
-	          throw new TypeError('Expected the observer to be an object.');
-	        }
-	
-	        function observeState() {
-	          if (observer.next) {
-	            observer.next(getState());
-	          }
-	        }
-	
-	        observeState();
-	        var unsubscribe = outerSubscribe(observeState);
-	        return { unsubscribe: unsubscribe };
-	      }
-	    }, _ref[_symbolObservable2['default']] = function () {
-	      return this;
-	    }, _ref;
-	  }
-	
-	  // When a store is created, an "INIT" action is dispatched so that every
-	  // reducer returns their initial state. This effectively populates
-	  // the initial state tree.
-	  dispatch({ type: ActionTypes.INIT });
-	
-	  return _ref2 = {
-	    dispatch: dispatch,
-	    subscribe: subscribe,
-	    getState: getState,
-	    replaceReducer: replaceReducer
-	  }, _ref2[_symbolObservable2['default']] = observable, _ref2;
-	}
-
-/***/ },
-/* 412 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var baseGetTag = __webpack_require__(413),
-	    getPrototype = __webpack_require__(419),
-	    isObjectLike = __webpack_require__(421);
-	
-	/** `Object#toString` result references. */
-	var objectTag = '[object Object]';
-	
-	/** Used for built-in method references. */
-	var funcProto = Function.prototype,
-	    objectProto = Object.prototype;
-	
-	/** Used to resolve the decompiled source of functions. */
-	var funcToString = funcProto.toString;
-	
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-	
-	/** Used to infer the `Object` constructor. */
-	var objectCtorString = funcToString.call(Object);
-	
-	/**
-	 * Checks if `value` is a plain object, that is, an object created by the
-	 * `Object` constructor or one with a `[[Prototype]]` of `null`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 0.8.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
-	 * @example
-	 *
-	 * function Foo() {
-	 *   this.a = 1;
-	 * }
-	 *
-	 * _.isPlainObject(new Foo);
-	 * // => false
-	 *
-	 * _.isPlainObject([1, 2, 3]);
-	 * // => false
-	 *
-	 * _.isPlainObject({ 'x': 0, 'y': 0 });
-	 * // => true
-	 *
-	 * _.isPlainObject(Object.create(null));
-	 * // => true
-	 */
-	function isPlainObject(value) {
-	  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
-	    return false;
-	  }
-	  var proto = getPrototype(value);
-	  if (proto === null) {
-	    return true;
-	  }
-	  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-	  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
-	}
-	
-	module.exports = isPlainObject;
-
-/***/ },
-/* 413 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _Symbol = __webpack_require__(414),
-	    getRawTag = __webpack_require__(417),
-	    objectToString = __webpack_require__(418);
-	
-	/** `Object#toString` result references. */
-	var nullTag = '[object Null]',
-	    undefinedTag = '[object Undefined]';
-	
-	/** Built-in value references. */
-	var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
-	
-	/**
-	 * The base implementation of `getTag` without fallbacks for buggy environments.
-	 *
-	 * @private
-	 * @param {*} value The value to query.
-	 * @returns {string} Returns the `toStringTag`.
-	 */
-	function baseGetTag(value) {
-	    if (value == null) {
-	        return value === undefined ? undefinedTag : nullTag;
-	    }
-	    return symToStringTag && symToStringTag in Object(value) ? getRawTag(value) : objectToString(value);
-	}
-	
-	module.exports = baseGetTag;
-
-/***/ },
-/* 414 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var root = __webpack_require__(415);
-	
-	/** Built-in value references. */
-	var _Symbol = root.Symbol;
-	
-	module.exports = _Symbol;
-
-/***/ },
-/* 415 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
-	var freeGlobal = __webpack_require__(416);
-	
-	/** Detect free variable `self`. */
-	var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
-	
-	/** Used as a reference to the global object. */
-	var root = freeGlobal || freeSelf || Function('return this')();
-	
-	module.exports = root;
-
-/***/ },
-/* 416 */
-/***/ function(module, exports) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
-	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
-	/** Detect free variable `global` from Node.js. */
-	var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
-	
-	module.exports = freeGlobal;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 417 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var _Symbol = __webpack_require__(414);
-	
-	/** Used for built-in method references. */
-	var objectProto = Object.prototype;
-	
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-	
-	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var nativeObjectToString = objectProto.toString;
-	
-	/** Built-in value references. */
-	var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
-	
-	/**
-	 * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
-	 *
-	 * @private
-	 * @param {*} value The value to query.
-	 * @returns {string} Returns the raw `toStringTag`.
-	 */
-	function getRawTag(value) {
-	  var isOwn = hasOwnProperty.call(value, symToStringTag),
-	      tag = value[symToStringTag];
-	
-	  try {
-	    value[symToStringTag] = undefined;
-	    var unmasked = true;
-	  } catch (e) {}
-	
-	  var result = nativeObjectToString.call(value);
-	  if (unmasked) {
-	    if (isOwn) {
-	      value[symToStringTag] = tag;
-	    } else {
-	      delete value[symToStringTag];
-	    }
-	  }
-	  return result;
-	}
-	
-	module.exports = getRawTag;
-
-/***/ },
-/* 418 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	/** Used for built-in method references. */
-	var objectProto = Object.prototype;
-	
-	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var nativeObjectToString = objectProto.toString;
-	
-	/**
-	 * Converts `value` to a string using `Object.prototype.toString`.
-	 *
-	 * @private
-	 * @param {*} value The value to convert.
-	 * @returns {string} Returns the converted string.
-	 */
-	function objectToString(value) {
-	  return nativeObjectToString.call(value);
-	}
-	
-	module.exports = objectToString;
-
-/***/ },
-/* 419 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var overArg = __webpack_require__(420);
-	
-	/** Built-in value references. */
-	var getPrototype = overArg(Object.getPrototypeOf, Object);
-	
-	module.exports = getPrototype;
-
-/***/ },
-/* 420 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	/**
-	 * Creates a unary function that invokes `func` with its argument transformed.
-	 *
-	 * @private
-	 * @param {Function} func The function to wrap.
-	 * @param {Function} transform The argument transform.
-	 * @returns {Function} Returns the new function.
-	 */
-	function overArg(func, transform) {
-	  return function (arg) {
-	    return func(transform(arg));
-	  };
-	}
-	
-	module.exports = overArg;
-
-/***/ },
-/* 421 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
-	/**
-	 * Checks if `value` is object-like. A value is object-like if it's not `null`
-	 * and has a `typeof` result of "object".
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 4.0.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 * @example
-	 *
-	 * _.isObjectLike({});
-	 * // => true
-	 *
-	 * _.isObjectLike([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObjectLike(_.noop);
-	 * // => false
-	 *
-	 * _.isObjectLike(null);
-	 * // => false
-	 */
-	function isObjectLike(value) {
-	  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
-	}
-	
-	module.exports = isObjectLike;
-
-/***/ },
-/* 422 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	module.exports = __webpack_require__(423);
-
-/***/ },
-/* 423 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _ponyfill = __webpack_require__(424);
-	
-	var _ponyfill2 = _interopRequireDefault(_ponyfill);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	var root; /* global window */
-	
-	if (typeof self !== 'undefined') {
-	  root = self;
-	} else if (typeof window !== 'undefined') {
-	  root = window;
-	} else if (typeof global !== 'undefined') {
-	  root = global;
-	} else if (true) {
-	  root = module;
-	} else {
-	  root = Function('return this')();
-	}
-	
-	var result = (0, _ponyfill2['default'])(root);
-	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(188)(module)))
-
-/***/ },
-/* 424 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports['default'] = symbolObservablePonyfill;
-	function symbolObservablePonyfill(root) {
-		var result;
-		var _Symbol = root.Symbol;
-	
-		if (typeof _Symbol === 'function') {
-			if (_Symbol.observable) {
-				result = _Symbol.observable;
-			} else {
-				result = _Symbol('observable');
-				_Symbol.observable = result;
-			}
-		} else {
-			result = '@@observable';
-		}
-	
-		return result;
-	};
-
-/***/ },
-/* 425 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-	
-	exports.__esModule = true;
-	exports['default'] = combineReducers;
-	
-	var _createStore = __webpack_require__(411);
-	
-	var _isPlainObject = __webpack_require__(412);
-	
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-	
-	var _warning = __webpack_require__(426);
-	
-	var _warning2 = _interopRequireDefault(_warning);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	function getUndefinedStateErrorMessage(key, action) {
-	  var actionType = action && action.type;
-	  var actionName = actionType && '"' + actionType.toString() + '"' || 'an action';
-	
-	  return 'Given action ' + actionName + ', reducer "' + key + '" returned undefined. ' + 'To ignore an action, you must explicitly return the previous state.';
-	}
-	
-	function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
-	  var reducerKeys = Object.keys(reducers);
-	  var argumentName = action && action.type === _createStore.ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
-	
-	  if (reducerKeys.length === 0) {
-	    return 'Store does not have a valid reducer. Make sure the argument passed ' + 'to combineReducers is an object whose values are reducers.';
-	  }
-	
-	  if (!(0, _isPlainObject2['default'])(inputState)) {
-	    return 'The ' + argumentName + ' has unexpected type of "' + {}.toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] + '". Expected argument to be an object with the following ' + ('keys: "' + reducerKeys.join('", "') + '"');
-	  }
-	
-	  var unexpectedKeys = Object.keys(inputState).filter(function (key) {
-	    return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key];
-	  });
-	
-	  unexpectedKeys.forEach(function (key) {
-	    unexpectedKeyCache[key] = true;
-	  });
-	
-	  if (unexpectedKeys.length > 0) {
-	    return 'Unexpected ' + (unexpectedKeys.length > 1 ? 'keys' : 'key') + ' ' + ('"' + unexpectedKeys.join('", "') + '" found in ' + argumentName + '. ') + 'Expected to find one of the known reducer keys instead: ' + ('"' + reducerKeys.join('", "') + '". Unexpected keys will be ignored.');
-	  }
-	}
-	
-	function assertReducerSanity(reducers) {
-	  Object.keys(reducers).forEach(function (key) {
-	    var reducer = reducers[key];
-	    var initialState = reducer(undefined, { type: _createStore.ActionTypes.INIT });
-	
-	    if (typeof initialState === 'undefined') {
-	      throw new Error('Reducer "' + key + '" returned undefined during initialization. ' + 'If the state passed to the reducer is undefined, you must ' + 'explicitly return the initial state. The initial state may ' + 'not be undefined.');
-	    }
-	
-	    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
-	    if (typeof reducer(undefined, { type: type }) === 'undefined') {
-	      throw new Error('Reducer "' + key + '" returned undefined when probed with a random type. ' + ('Don\'t try to handle ' + _createStore.ActionTypes.INIT + ' or other actions in "redux/*" ') + 'namespace. They are considered private. Instead, you must return the ' + 'current state for any unknown actions, unless it is undefined, ' + 'in which case you must return the initial state, regardless of the ' + 'action type. The initial state may not be undefined.');
-	    }
-	  });
-	}
-	
-	/**
-	 * Turns an object whose values are different reducer functions, into a single
-	 * reducer function. It will call every child reducer, and gather their results
-	 * into a single state object, whose keys correspond to the keys of the passed
-	 * reducer functions.
-	 *
-	 * @param {Object} reducers An object whose values correspond to different
-	 * reducer functions that need to be combined into one. One handy way to obtain
-	 * it is to use ES6 `import * as reducers` syntax. The reducers may never return
-	 * undefined for any action. Instead, they should return their initial state
-	 * if the state passed to them was undefined, and the current state for any
-	 * unrecognized action.
-	 *
-	 * @returns {Function} A reducer function that invokes every reducer inside the
-	 * passed object, and builds a state object with the same shape.
-	 */
-	function combineReducers(reducers) {
-	  var reducerKeys = Object.keys(reducers);
-	  var finalReducers = {};
-	  for (var i = 0; i < reducerKeys.length; i++) {
-	    var key = reducerKeys[i];
-	
-	    if (process.env.NODE_ENV !== 'production') {
-	      if (typeof reducers[key] === 'undefined') {
-	        (0, _warning2['default'])('No reducer provided for key "' + key + '"');
-	      }
-	    }
-	
-	    if (typeof reducers[key] === 'function') {
-	      finalReducers[key] = reducers[key];
-	    }
-	  }
-	  var finalReducerKeys = Object.keys(finalReducers);
-	
-	  if (process.env.NODE_ENV !== 'production') {
-	    var unexpectedKeyCache = {};
-	  }
-	
-	  var sanityError;
-	  try {
-	    assertReducerSanity(finalReducers);
-	  } catch (e) {
-	    sanityError = e;
-	  }
-	
-	  return function combination() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	    var action = arguments[1];
-	
-	    if (sanityError) {
-	      throw sanityError;
-	    }
-	
-	    if (process.env.NODE_ENV !== 'production') {
-	      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
-	      if (warningMessage) {
-	        (0, _warning2['default'])(warningMessage);
-	      }
-	    }
-	
-	    var hasChanged = false;
-	    var nextState = {};
-	    for (var i = 0; i < finalReducerKeys.length; i++) {
-	      var key = finalReducerKeys[i];
-	      var reducer = finalReducers[key];
-	      var previousStateForKey = state[key];
-	      var nextStateForKey = reducer(previousStateForKey, action);
-	      if (typeof nextStateForKey === 'undefined') {
-	        var errorMessage = getUndefinedStateErrorMessage(key, action);
-	        throw new Error(errorMessage);
-	      }
-	      nextState[key] = nextStateForKey;
-	      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
-	    }
-	    return hasChanged ? nextState : state;
-	  };
-	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ },
-/* 426 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	exports['default'] = warning;
-	/**
-	 * Prints a warning in the console if it exists.
-	 *
-	 * @param {String} message The warning message.
-	 * @returns {void}
-	 */
-	function warning(message) {
-	  /* eslint-disable no-console */
-	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
-	    console.error(message);
-	  }
-	  /* eslint-enable no-console */
-	  try {
-	    // This error was thrown as a convenience so that if you enable
-	    // "break on all exceptions" in your console,
-	    // it would pause the execution at this line.
-	    throw new Error(message);
-	    /* eslint-disable no-empty */
-	  } catch (e) {}
-	  /* eslint-enable no-empty */
-	}
-
-/***/ },
-/* 427 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-	
-	exports.__esModule = true;
-	exports['default'] = bindActionCreators;
-	function bindActionCreator(actionCreator, dispatch) {
-	  return function () {
-	    return dispatch(actionCreator.apply(undefined, arguments));
-	  };
-	}
-	
-	/**
-	 * Turns an object whose values are action creators, into an object with the
-	 * same keys, but with every function wrapped into a `dispatch` call so they
-	 * may be invoked directly. This is just a convenience method, as you can call
-	 * `store.dispatch(MyActionCreators.doSomething())` yourself just fine.
-	 *
-	 * For convenience, you can also pass a single function as the first argument,
-	 * and get a function in return.
-	 *
-	 * @param {Function|Object} actionCreators An object whose values are action
-	 * creator functions. One handy way to obtain it is to use ES6 `import * as`
-	 * syntax. You may also pass a single function.
-	 *
-	 * @param {Function} dispatch The `dispatch` function available on your Redux
-	 * store.
-	 *
-	 * @returns {Function|Object} The object mimicking the original object, but with
-	 * every action creator wrapped into the `dispatch` call. If you passed a
-	 * function as `actionCreators`, the return value will also be a single
-	 * function.
-	 */
-	function bindActionCreators(actionCreators, dispatch) {
-	  if (typeof actionCreators === 'function') {
-	    return bindActionCreator(actionCreators, dispatch);
-	  }
-	
-	  if ((typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) !== 'object' || actionCreators === null) {
-	    throw new Error('bindActionCreators expected an object or a function, instead received ' + (actionCreators === null ? 'null' : typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) + '. ' + 'Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
-	  }
-	
-	  var keys = Object.keys(actionCreators);
-	  var boundActionCreators = {};
-	  for (var i = 0; i < keys.length; i++) {
-	    var key = keys[i];
-	    var actionCreator = actionCreators[key];
-	    if (typeof actionCreator === 'function') {
-	      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch);
-	    }
-	  }
-	  return boundActionCreators;
-	}
-
-/***/ },
-/* 428 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	
-	var _extends = Object.assign || function (target) {
-	  for (var i = 1; i < arguments.length; i++) {
-	    var source = arguments[i];for (var key in source) {
-	      if (Object.prototype.hasOwnProperty.call(source, key)) {
-	        target[key] = source[key];
-	      }
-	    }
-	  }return target;
-	};
-	
-	exports['default'] = applyMiddleware;
-	
-	var _compose = __webpack_require__(429);
-	
-	var _compose2 = _interopRequireDefault(_compose);
-	
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-	
-	/**
-	 * Creates a store enhancer that applies middleware to the dispatch method
-	 * of the Redux store. This is handy for a variety of tasks, such as expressing
-	 * asynchronous actions in a concise manner, or logging every action payload.
-	 *
-	 * See `redux-thunk` package as an example of the Redux middleware.
-	 *
-	 * Because middleware is potentially asynchronous, this should be the first
-	 * store enhancer in the composition chain.
-	 *
-	 * Note that each middleware will be given the `dispatch` and `getState` functions
-	 * as named arguments.
-	 *
-	 * @param {...Function} middlewares The middleware chain to be applied.
-	 * @returns {Function} A store enhancer applying the middleware.
-	 */
-	function applyMiddleware() {
-	  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
-	    middlewares[_key] = arguments[_key];
-	  }
-	
-	  return function (createStore) {
-	    return function (reducer, preloadedState, enhancer) {
-	      var store = createStore(reducer, preloadedState, enhancer);
-	      var _dispatch = store.dispatch;
-	      var chain = [];
-	
-	      var middlewareAPI = {
-	        getState: store.getState,
-	        dispatch: function dispatch(action) {
-	          return _dispatch(action);
-	        }
-	      };
-	      chain = middlewares.map(function (middleware) {
-	        return middleware(middlewareAPI);
-	      });
-	      _dispatch = _compose2['default'].apply(undefined, chain)(store.dispatch);
-	
-	      return _extends({}, store, {
-	        dispatch: _dispatch
-	      });
-	    };
-	  };
-	}
-
-/***/ },
-/* 429 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	exports.__esModule = true;
-	exports["default"] = compose;
-	/**
-	 * Composes single-argument functions from right to left. The rightmost
-	 * function can take multiple arguments as it provides the signature for
-	 * the resulting composite function.
-	 *
-	 * @param {...Function} funcs The functions to compose.
-	 * @returns {Function} A function obtained by composing the argument functions
-	 * from right to left. For example, compose(f, g, h) is identical to doing
-	 * (...args) => f(g(h(...args))).
-	 */
-	
-	function compose() {
-	  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
-	    funcs[_key] = arguments[_key];
-	  }
-	
-	  if (funcs.length === 0) {
-	    return function (arg) {
-	      return arg;
-	    };
-	  }
-	
-	  if (funcs.length === 1) {
-	    return funcs[0];
-	  }
-	
-	  var last = funcs[funcs.length - 1];
-	  var rest = funcs.slice(0, -1);
-	  return function () {
-	    return rest.reduceRight(function (composed, f) {
-	      return f(composed);
-	    }, last.apply(undefined, arguments));
-	  };
-	}
-
-/***/ },
-/* 430 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactLeaflet = __webpack_require__(184);
-	
-	var _clusters = __webpack_require__(432);
-	
-	var _clusters2 = _interopRequireDefault(_clusters);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var ClusterLayer = function (_React$Component) {
-		_inherits(ClusterLayer, _React$Component);
-	
-		function ClusterLayer(props) {
-			_classCallCheck(this, ClusterLayer);
-	
-			var _this = _possibleConstructorReturn(this, (ClusterLayer.__proto__ || Object.getPrototypeOf(ClusterLayer)).call(this, props));
-	
-			_this.state = {
-				//geodata: {features:[{"id": "119", "geometry": {"coordinates": [[[-73.9842844, 40.69221589], [-73.97790759801863, 40.68506807308177], [-73.96922273, 40.68415748], [-73.96751037, 40.69610226], [-73.97100056, 40.70531194], [-73.98656928, 40.7014851], [-73.9842844, 40.69221589]]], "type": "Polygon"}, "properties": {"name": "Park Ave & St Edwards St"}, "type": "Feature"}], type:"FeatureCollection"}
-				geodata: _clusters2.default
-			};
-	
-			_this.getStyle = _this.getStyle.bind(_this);
-	
-			return _this;
-		}
-	
-		// getClusters(){
-		// 	fetch("/clusters").then( (response) => {
-		// 		return response.json() })   
-		// 		.then( (json) => {
-		// 			console.log("got geo json", json)
-		// 			this.setState({geodata: json});
-		// 	});
-		//  	}	
-	
-		_createClass(ClusterLayer, [{
-			key: 'getStyle',
-			value: function getStyle(feature, layer) {
-				return {
-					color: '#006400',
-					weight: 5,
-					opacity: 0.65
-				};
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-				console.log("doing things");
-	
-				return _react2.default.createElement(_reactLeaflet.GeoJSON, { data: this.state.geodata });
-			}
-		}]);
-	
-		return ClusterLayer;
-	}(_react2.default.Component);
-	
-	exports.default = ClusterLayer;
-
-/***/ },
-/* 431 */,
-/* 432 */
-/***/ function(module, exports) {
-
-	module.exports = {
-		"features": [
-			{
-				"id": "119",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.9842844,
-								40.69221589
-							],
-							[
-								-73.97790759801863,
-								40.68506807308177
-							],
-							[
-								-73.96922273,
-								40.68415748
-							],
-							[
-								-73.96751037,
-								40.69610226
-							],
-							[
-								-73.97100056,
-								40.70531194
-							],
-							[
-								-73.98656928,
-								40.7014851
-							],
-							[
-								-73.9842844,
-								40.69221589
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Park Ave & St Edwards St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "120",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.94977,
-								40.68402
-							],
-							[
-								-73.94954908,
-								40.69539817
-							],
-							[
-								-73.95238108,
-								40.69527008
-							],
-							[
-								-73.958089,
-								40.694528
-							],
-							[
-								-73.96223558,
-								40.69363137
-							],
-							[
-								-73.96536851,
-								40.69196035
-							],
-							[
-								-73.96563307,
-								40.68650065
-							],
-							[
-								-73.964915,
-								40.683048
-							],
-							[
-								-73.9557689392,
-								40.680342423
-							],
-							[
-								-73.9500479759,
-								40.6809833854
-							],
-							[
-								-73.94977,
-								40.68402
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Lexington Ave & Classon Ave"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "127",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.99404649,
-								40.72903917
-							],
-							[
-								-73.99510132,
-								40.73331967
-							],
-							[
-								-73.99704374,
-								40.73649403
-							],
-							[
-								-74.00618026,
-								40.73652889
-							],
-							[
-								-74.00859207,
-								40.7361967
-							],
-							[
-								-74.01129573583603,
-								40.7277140777778
-							],
-							[
-								-74.00965965,
-								40.72405549
-							],
-							[
-								-74.00771779,
-								40.72185379
-							],
-							[
-								-74.00234737,
-								40.72165481
-							],
-							[
-								-73.99379025,
-								40.72743423
-							],
-							[
-								-73.99404649,
-								40.72903917
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Barrow St & Hudson St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "82",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.989111,
-								40.722055
-							],
-							[
-								-73.99069656,
-								40.72502876
-							],
-							[
-								-73.99600982666016,
-								40.72430527250332
-							],
-							[
-								-74.00247214,
-								40.71939226
-							],
-							[
-								-74.00234482,
-								40.71494807
-							],
-							[
-								-74.00016545,
-								40.71117416
-							],
-							[
-								-73.99014892,
-								40.69597683
-							],
-							[
-								-73.9870295,
-								40.71559509
-							],
-							[
-								-73.989111,
-								40.722055
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "St James Pl & Pearl St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "116",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-74.005226,
-								40.751396
-							],
-							[
-								-74.007756,
-								40.746745
-							],
-							[
-								-74.00803013,
-								40.74195138
-							],
-							[
-								-74.00513872504234,
-								40.73997354103409
-							],
-							[
-								-73.99994661,
-								40.73781509
-							],
-							[
-								-73.99456405,
-								40.73971301
-							],
-							[
-								-73.99144871,
-								40.74395411
-							],
-							[
-								-73.99138152,
-								40.75466591
-							],
-							[
-								-74.0021163,
-								40.75594159
-							],
-							[
-								-74.005226,
-								40.751396
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "W 17 St & 8 Ave"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "79",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-74.00670227,
-								40.70355377
-							],
-							[
-								-74.00167,
-								40.707873
-							],
-							[
-								-74.005549,
-								40.717571
-							],
-							[
-								-74.00666661,
-								40.71911552
-							],
-							[
-								-74.010065,
-								40.721319
-							],
-							[
-								-74.03852552175522,
-								40.7124188237569
-							],
-							[
-								-74.01234218,
-								40.70122128
-							],
-							[
-								-74.00670227,
-								40.70355377
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Franklin St & W Broadway"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "174",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.98057249,
-								40.72955361
-							],
-							[
-								-73.97573881,
-								40.73314259
-							],
-							[
-								-73.97738662,
-								40.7381765
-							],
-							[
-								-73.97973776,
-								40.73912601
-							],
-							[
-								-73.98915076,
-								40.7423543
-							],
-							[
-								-73.99453948,
-								40.73543934
-							],
-							[
-								-73.98978041,
-								40.7262807
-							],
-							[
-								-73.98057249,
-								40.72955361
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "E 25 St & 1 Ave"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "150",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.984844,
-								40.713126
-							],
-							[
-								-73.97948148,
-								40.71219906
-							],
-							[
-								-73.960876,
-								40.710451
-							],
-							[
-								-73.97422494,
-								40.72580614
-							],
-							[
-								-73.97772429,
-								40.72938685
-							],
-							[
-								-73.98783413,
-								40.72467721
-							],
-							[
-								-73.984844,
-								40.713126
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "E 2 St & Avenue C"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "167",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.98848395,
-								40.74901271
-							],
-							[
-								-73.98855723,
-								40.7462009
-							],
-							[
-								-73.98683077,
-								40.7451677
-							],
-							[
-								-73.976806,
-								40.739445
-							],
-							[
-								-73.97121214,
-								40.744219
-							],
-							[
-								-73.96592976,
-								40.75455731
-							],
-							[
-								-73.98765428,
-								40.75097711
-							],
-							[
-								-73.98848395,
-								40.74901271
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "E 39 St & 3 Ave"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "83",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.97363831,
-								40.668132
-							],
-							[
-								-73.97087984,
-								40.6729679
-							],
-							[
-								-73.97111473,
-								40.6750207
-							],
-							[
-								-73.97632328,
-								40.68382604
-							],
-							[
-								-73.98258555,
-								40.6827549
-							],
-							[
-								-73.98765474557877,
-								40.67909799721684
-							],
-							[
-								-73.99333264,
-								40.6685455
-							],
-							[
-								-73.97945255041122,
-								40.6610633719006
-							],
-							[
-								-73.97363831,
-								40.668132
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Atlantic Ave & Fort Greene Pl"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "398",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.98901629,
-								40.6843549
-							],
-							[
-								-73.99063168,
-								40.6867443
-							],
-							[
-								-73.9999786,
-								40.69165183
-							],
-							[
-								-74.00242364,
-								40.6859296
-							],
-							[
-								-74.00348559,
-								40.6830456
-							],
-							[
-								-73.99785768,
-								40.6746957
-							],
-							[
-								-73.99331394,
-								40.6724811
-							],
-							[
-								-73.99037292,
-								40.6786115
-							],
-							[
-								-73.98901629,
-								40.6843549
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Atlantic Ave & Furman St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "143",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.98302136,
-								40.6853761
-							],
-							[
-								-73.98036181926727,
-								40.68680820503432
-							],
-							[
-								-73.98476437,
-								40.69766564
-							],
-							[
-								-73.98765762,
-								40.70281858
-							],
-							[
-								-73.99383605,
-								40.70277159
-							],
-							[
-								-73.99712,
-								40.69878
-							],
-							[
-								-73.99612349,
-								40.69089272
-							],
-							[
-								-73.98620772,
-								40.6849668
-							],
-							[
-								-73.98302136,
-								40.6853761
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Clinton St & Joralemon St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "3326",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-74.00324957,
-								40.6763744
-							],
-							[
-								-74.00860912,
-								40.6812117
-							],
-							[
-								-74.015665,
-								40.677236
-							],
-							[
-								-74.01612847,
-								40.6747844
-							],
-							[
-								-74.0087952464819,
-								40.67267243410948
-							],
-							[
-								-74.00494695,
-								40.6725058
-							],
-							[
-								-74.00194698,
-								40.67434
-							],
-							[
-								-74.00324957,
-								40.6763744
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Clinton St & Centre St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "3096",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.95782357,
-								40.72153267
-							],
-							[
-								-73.95242,
-								40.71924
-							],
-							[
-								-73.94885390996933,
-								40.71915571696044
-							],
-							[
-								-73.94308,
-								40.72325
-							],
-							[
-								-73.94434,
-								40.72557
-							],
-							[
-								-73.95411749,
-								40.74232744
-							],
-							[
-								-73.96161892,
-								40.73165141
-							],
-							[
-								-73.95782357,
-								40.72153267
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Union Ave & N 12 St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "144",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.95796783,
-								40.70708701
-							],
-							[
-								-73.95608,
-								40.70934
-							],
-							[
-								-73.95600096,
-								40.71774592
-							],
-							[
-								-73.95852515,
-								40.7190095
-							],
-							[
-								-73.96165072917938,
-								40.72036775298455
-							],
-							[
-								-73.98068914,
-								40.69839895
-							],
-							[
-								-73.95796783,
-								40.70708701
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Nassau St & Navy St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "3065",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.94016171,
-								40.70767788
-							],
-							[
-								-73.94100005,
-								40.71247661
-							],
-							[
-								-73.94223690032959,
-								40.71907891179564
-							],
-							[
-								-73.94500379,
-								40.71929301
-							],
-							[
-								-73.94882,
-								40.71764
-							],
-							[
-								-73.952029,
-								40.7160751
-							],
-							[
-								-73.95441667,
-								40.70691254
-							],
-							[
-								-73.95032283,
-								40.70029511
-							],
-							[
-								-73.94708417,
-								40.69957608
-							],
-							[
-								-73.940636,
-								40.7031724
-							],
-							[
-								-73.94016171,
-								40.70767788
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Union Ave & Wallabout St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "72",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.97982001304626,
-								40.76132983124814
-							],
-							[
-								-73.98192338,
-								40.7652654
-							],
-							[
-								-73.99392888,
-								40.76727216
-							],
-							[
-								-74.00277668,
-								40.76087502
-							],
-							[
-								-73.993934,
-								40.751551
-							],
-							[
-								-73.98808416,
-								40.74854862
-							],
-							[
-								-73.97791,
-								40.751581
-							],
-							[
-								-73.97982001304626,
-								40.76132983124814
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "W 52 St & 11 Ave"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "3135",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.95348296,
-								40.76663814
-							],
-							[
-								-73.94446054,
-								40.77518615
-							],
-							[
-								-73.946041,
-								40.7779453
-							],
-							[
-								-73.9521667,
-								40.7806284
-							],
-							[
-								-73.95939,
-								40.78307
-							],
-							[
-								-73.96685276,
-								40.77282817
-							],
-							[
-								-73.95818491,
-								40.76500525
-							],
-							[
-								-73.95348296,
-								40.76663814
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "E 75 St & 3 Ave"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "164",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.97805914282799,
-								40.75724567911726
-							],
-							[
-								-73.97282625,
-								40.75255434
-							],
-							[
-								-73.97032517,
-								40.75323098
-							],
-							[
-								-73.959223,
-								40.759107
-							],
-							[
-								-73.96224617958069,
-								40.76712840349542
-							],
-							[
-								-73.96703464,
-								40.7691572
-							],
-							[
-								-73.97634151,
-								40.76590936
-							],
-							[
-								-73.97805914282799,
-								40.75724567911726
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "E 47 St & 2 Ave"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "3168",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.96961715,
-								40.78472675
-							],
-							[
-								-73.96186,
-								40.795346
-							],
-							[
-								-73.9605909006,
-								40.7981856
-							],
-							[
-								-73.9621128676,
-								40.7997568
-							],
-							[
-								-73.96699104,
-								40.804213
-							],
-							[
-								-73.9711457439,
-								40.8013434
-							],
-							[
-								-73.9786022901535,
-								40.79181171501097
-							],
-							[
-								-73.977112,
-								40.7867947
-							],
-							[
-								-73.97137,
-								40.78275
-							],
-							[
-								-73.96961715,
-								40.78472675
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Central Park West & W 85 St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "3120",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.93561,
-								40.743
-							],
-							[
-								-73.93540375,
-								40.74469738
-							],
-							[
-								-73.94073717,
-								40.75110165
-							],
-							[
-								-73.94335788,
-								40.75325964
-							],
-							[
-								-73.9521,
-								40.74966
-							],
-							[
-								-73.96044,
-								40.74161
-							],
-							[
-								-73.93561,
-								40.743
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "Center Blvd & Borden Ave"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "3292",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.955327,
-								40.7835016
-							],
-							[
-								-73.94965589046478,
-								40.78112229934166
-							],
-							[
-								-73.94594,
-								40.7817212
-							],
-							[
-								-73.93956237,
-								40.7892529
-							],
-							[
-								-73.9432083,
-								40.79329668
-							],
-							[
-								-73.94782145,
-								40.7961535
-							],
-							[
-								-73.955613,
-								40.799484
-							],
-							[
-								-73.957481,
-								40.7857851
-							],
-							[
-								-73.955327,
-								40.7835016
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "5 Ave & E 93 St"
-				},
-				"type": "Feature"
-			},
-			{
-				"id": "422",
-				"geometry": {
-					"coordinates": [
-						[
-							[
-								-73.97667321,
-								40.78524672
-							],
-							[
-								-73.98128127,
-								40.78720869
-							],
-							[
-								-73.98888587951659,
-								40.777507027547976
-							],
-							[
-								-73.990541,
-								40.771522
-							],
-							[
-								-73.988639,
-								40.768254
-							],
-							[
-								-73.98169333,
-								40.76695317
-							],
-							[
-								-73.97374737,
-								40.77896784
-							],
-							[
-								-73.97667321,
-								40.78524672
-							]
-						]
-					],
-					"type": "Polygon"
-				},
-				"properties": {
-					"name": "W 59 St & 10 Ave"
-				},
-				"type": "Feature"
-			}
-		],
-		"type": "FeatureCollection"
-	};
-
-/***/ },
-/* 433 */
-/***/ function(module, exports, __webpack_require__) {
-
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
@@ -48698,6 +46498,1373 @@
 	}(_react2.default.Component);
 	
 	exports.default = ModelExplainer;
+
+/***/ },
+/* 411 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactLeaflet = __webpack_require__(184);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// function onEachFeature (component, feature, layer) {
+	// console.log(arguments);
+	//   layer.on({
+	//     mouseover: highlightFeature,
+	//     mouseout: resetHighlight.bind(null, component),
+	//     click: zoomToFeature
+	//   });
+	// }
+	
+	
+	var ClusterLayer = function (_React$Component) {
+		_inherits(ClusterLayer, _React$Component);
+	
+		function ClusterLayer(props) {
+			_classCallCheck(this, ClusterLayer);
+	
+			var _this = _possibleConstructorReturn(this, (ClusterLayer.__proto__ || Object.getPrototypeOf(ClusterLayer)).call(this, props));
+	
+			_this.state = {
+				geodata: props.data
+			};
+			_this.getStyle = _this.getStyle.bind(_this);
+			console.log(_this.props);
+			return _this;
+		}
+	
+		_createClass(ClusterLayer, [{
+			key: 'getStyle',
+			value: function getStyle(feature, layer) {
+				console.log("get style", this.props.stat, this.props.stat === "Predictions");
+				return {
+					fillColor: this.props.stat === "Predictions" ? feature.properties.predcolor : feature.properties.statuscolor,
+					weight: 2,
+					opacity: 1,
+					color: 'white',
+					dashArray: '3',
+					fillOpacity: 0.7
+				};
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(_reactLeaflet.GeoJSON, { data: this.state.geodata,
+					style: this.getStyle,
+					onEachFeature: function onEachFeature(feature, layer) {
+						return layer.bindPopup('<div>Available: ' + feature.properties.available + '</br> Capacity:' + feature.properties.capacity + '</br> Expected: ' + feature.properties.expected + ' </div>');
+					}
+				});
+			}
+		}]);
+	
+		return ClusterLayer;
+	}(_react2.default.Component);
+	
+	exports.default = ClusterLayer;
+
+/***/ },
+/* 412 */
+/***/ function(module, exports) {
+
+	module.exports = {
+		"features": [
+			{
+				"style": {
+					"fill": "#a2b800"
+				},
+				"type": "Feature",
+				"id": "119",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.9842844,
+								40.69221589
+							],
+							[
+								-73.97790759801863,
+								40.68506807308177
+							],
+							[
+								-73.96922273,
+								40.68415748
+							],
+							[
+								-73.96751037,
+								40.69610226
+							],
+							[
+								-73.97100056,
+								40.70531194
+							],
+							[
+								-73.98656928,
+								40.7014851
+							],
+							[
+								-73.9842844,
+								40.69221589
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#a2b800",
+					"expected": "377.0",
+					"capacity": "678",
+					"available": "377",
+					"predcolor": "#a2b800"
+				}
+			},
+			{
+				"style": {
+					"fill": "#70aa00"
+				},
+				"type": "Feature",
+				"id": "120",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.94977,
+								40.68402
+							],
+							[
+								-73.94954908,
+								40.69539817
+							],
+							[
+								-73.95238108,
+								40.69527008
+							],
+							[
+								-73.958089,
+								40.694528
+							],
+							[
+								-73.96223558,
+								40.69363137
+							],
+							[
+								-73.96536851,
+								40.69196035
+							],
+							[
+								-73.96563307,
+								40.68650065
+							],
+							[
+								-73.964915,
+								40.683048
+							],
+							[
+								-73.9557689392,
+								40.680342423
+							],
+							[
+								-73.9500479759,
+								40.6809833854
+							],
+							[
+								-73.94977,
+								40.68402
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#74ab00",
+					"expected": "345.447065924",
+					"capacity": "517",
+					"available": "342",
+					"predcolor": "#70aa00"
+				}
+			},
+			{
+				"style": {
+					"fill": "#cca300"
+				},
+				"type": "Feature",
+				"id": "127",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.99404649,
+								40.72903917
+							],
+							[
+								-73.99510132,
+								40.73331967
+							],
+							[
+								-73.99704374,
+								40.73649403
+							],
+							[
+								-74.00618026,
+								40.73652889
+							],
+							[
+								-74.00859207,
+								40.7361967
+							],
+							[
+								-74.01129573583603,
+								40.7277140777778
+							],
+							[
+								-74.00965965,
+								40.72405549
+							],
+							[
+								-74.00771779,
+								40.72185379
+							],
+							[
+								-74.00234737,
+								40.72165481
+							],
+							[
+								-73.99379025,
+								40.72743423
+							],
+							[
+								-73.99404649,
+								40.72903917
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#cca300",
+					"expected": "362.0",
+					"capacity": "914",
+					"available": "362",
+					"predcolor": "#cca300"
+				}
+			},
+			{
+				"style": {
+					"fill": "#c3b800"
+				},
+				"type": "Feature",
+				"id": "82",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.989111,
+								40.722055
+							],
+							[
+								-73.99069656,
+								40.72502876
+							],
+							[
+								-73.99600982666016,
+								40.72430527250332
+							],
+							[
+								-74.00247214,
+								40.71939226
+							],
+							[
+								-74.00234482,
+								40.71494807
+							],
+							[
+								-74.00016545,
+								40.71117416
+							],
+							[
+								-73.99014892,
+								40.69597683
+							],
+							[
+								-73.9870295,
+								40.71559509
+							],
+							[
+								-73.989111,
+								40.722055
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#c3b800",
+					"expected": "433.0",
+					"capacity": "921",
+					"available": "433",
+					"predcolor": "#c3b800"
+				}
+			},
+			{
+				"style": {
+					"fill": "#e85400"
+				},
+				"type": "Feature",
+				"id": "116",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-74.005226,
+								40.751396
+							],
+							[
+								-74.007756,
+								40.746745
+							],
+							[
+								-74.00803013,
+								40.74195138
+							],
+							[
+								-74.00513872504234,
+								40.73997354103409
+							],
+							[
+								-73.99994661,
+								40.73781509
+							],
+							[
+								-73.99456405,
+								40.73971301
+							],
+							[
+								-73.99144871,
+								40.74395411
+							],
+							[
+								-73.99138152,
+								40.75466591
+							],
+							[
+								-74.0021163,
+								40.75594159
+							],
+							[
+								-74.005226,
+								40.751396
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#e85400",
+					"expected": "194.0",
+					"capacity": "1084",
+					"available": "194",
+					"predcolor": "#e85400"
+				}
+			},
+			{
+				"style": {
+					"fill": "#ec4700"
+				},
+				"type": "Feature",
+				"id": "79",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-74.00670227,
+								40.70355377
+							],
+							[
+								-74.00167,
+								40.707873
+							],
+							[
+								-74.005549,
+								40.717571
+							],
+							[
+								-74.00666661,
+								40.71911552
+							],
+							[
+								-74.010065,
+								40.721319
+							],
+							[
+								-74.03852552175522,
+								40.7124188237569
+							],
+							[
+								-74.01234218,
+								40.70122128
+							],
+							[
+								-74.00670227,
+								40.70355377
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#ec4700",
+					"expected": "180.0",
+					"capacity": "1236",
+					"available": "180",
+					"predcolor": "#ec4700"
+				}
+			},
+			{
+				"style": {
+					"fill": "#cf9d00"
+				},
+				"type": "Feature",
+				"id": "174",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.98057249,
+								40.72955361
+							],
+							[
+								-73.97573881,
+								40.73314259
+							],
+							[
+								-73.97738662,
+								40.7381765
+							],
+							[
+								-73.97973776,
+								40.73912601
+							],
+							[
+								-73.98915076,
+								40.7423543
+							],
+							[
+								-73.99453948,
+								40.73543934
+							],
+							[
+								-73.98978041,
+								40.7262807
+							],
+							[
+								-73.98057249,
+								40.72955361
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#cf9d00",
+					"expected": "421.0",
+					"capacity": "1121",
+					"available": "421",
+					"predcolor": "#cf9d00"
+				}
+			},
+			{
+				"style": {
+					"fill": "#108800"
+				},
+				"type": "Feature",
+				"id": "150",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.984844,
+								40.713126
+							],
+							[
+								-73.97948148,
+								40.71219906
+							],
+							[
+								-73.960876,
+								40.710451
+							],
+							[
+								-73.97422494,
+								40.72580614
+							],
+							[
+								-73.97772429,
+								40.72938685
+							],
+							[
+								-73.98783413,
+								40.72467721
+							],
+							[
+								-73.984844,
+								40.713126
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#198b00",
+					"expected": "607.997353062",
+					"capacity": "650",
+					"available": "592",
+					"predcolor": "#108800"
+				}
+			},
+			{
+				"style": {
+					"fill": "#f23000"
+				},
+				"type": "Feature",
+				"id": "167",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.98848395,
+								40.74901271
+							],
+							[
+								-73.98855723,
+								40.7462009
+							],
+							[
+								-73.98683077,
+								40.7451677
+							],
+							[
+								-73.976806,
+								40.739445
+							],
+							[
+								-73.97121214,
+								40.744219
+							],
+							[
+								-73.96592976,
+								40.75455731
+							],
+							[
+								-73.98765428,
+								40.75097711
+							],
+							[
+								-73.98848395,
+								40.74901271
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#f42c00",
+					"expected": "84.9859083952",
+					"capacity": "887",
+					"available": "80",
+					"predcolor": "#f23000"
+				}
+			},
+			{
+				"style": {
+					"fill": "#70aa00"
+				},
+				"type": "Feature",
+				"id": "83",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.97363831,
+								40.668132
+							],
+							[
+								-73.97087984,
+								40.6729679
+							],
+							[
+								-73.97111473,
+								40.6750207
+							],
+							[
+								-73.97632328,
+								40.68382604
+							],
+							[
+								-73.98258555,
+								40.6827549
+							],
+							[
+								-73.98765474557877,
+								40.67909799721684
+							],
+							[
+								-73.99333264,
+								40.6685455
+							],
+							[
+								-73.97945255041122,
+								40.6610633719006
+							],
+							[
+								-73.97363831,
+								40.668132
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#70aa00",
+					"expected": "685.437059768",
+					"capacity": "1026",
+					"available": "685",
+					"predcolor": "#70aa00"
+				}
+			},
+			{
+				"style": {
+					"fill": "#3a9800"
+				},
+				"type": "Feature",
+				"id": "398",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.98901629,
+								40.6843549
+							],
+							[
+								-73.99063168,
+								40.6867443
+							],
+							[
+								-73.9999786,
+								40.69165183
+							],
+							[
+								-74.00242364,
+								40.6859296
+							],
+							[
+								-74.00348559,
+								40.6830456
+							],
+							[
+								-73.99785768,
+								40.6746957
+							],
+							[
+								-73.99331394,
+								40.6724811
+							],
+							[
+								-73.99037292,
+								40.6786115
+							],
+							[
+								-73.98901629,
+								40.6843549
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#3a9800",
+					"expected": "465.0",
+					"capacity": "574",
+					"available": "465",
+					"predcolor": "#3a9800"
+				}
+			},
+			{
+				"style": {
+					"fill": "#cda000"
+				},
+				"type": "Feature",
+				"id": "143",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.98302136,
+								40.6853761
+							],
+							[
+								-73.98036181926727,
+								40.68680820503432
+							],
+							[
+								-73.98476437,
+								40.69766564
+							],
+							[
+								-73.98765762,
+								40.70281858
+							],
+							[
+								-73.99383605,
+								40.70277159
+							],
+							[
+								-73.99712,
+								40.69878
+							],
+							[
+								-73.99612349,
+								40.69089272
+							],
+							[
+								-73.98620772,
+								40.6849668
+							],
+							[
+								-73.98302136,
+								40.6853761
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#cda000",
+					"expected": "315.0",
+					"capacity": "814",
+					"available": "315",
+					"predcolor": "#cda000"
+				}
+			},
+			{
+				"style": {
+					"fill": "#3d9900"
+				},
+				"type": "Feature",
+				"id": "3326",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-74.00324957,
+								40.6763744
+							],
+							[
+								-74.00860912,
+								40.6812117
+							],
+							[
+								-74.015665,
+								40.677236
+							],
+							[
+								-74.01612847,
+								40.6747844
+							],
+							[
+								-74.0087952464819,
+								40.67267243410948
+							],
+							[
+								-74.00494695,
+								40.6725058
+							],
+							[
+								-74.00194698,
+								40.67434
+							],
+							[
+								-74.00324957,
+								40.6763744
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#3d9900",
+					"expected": "248.0",
+					"capacity": "310",
+					"available": "248",
+					"predcolor": "#3d9900"
+				}
+			},
+			{
+				"style": {
+					"fill": "#c2ba00"
+				},
+				"type": "Feature",
+				"id": "3096",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.95782357,
+								40.72153267
+							],
+							[
+								-73.95242,
+								40.71924
+							],
+							[
+								-73.94885390996933,
+								40.71915571696044
+							],
+							[
+								-73.94308,
+								40.72325
+							],
+							[
+								-73.94434,
+								40.72557
+							],
+							[
+								-73.95411749,
+								40.74232744
+							],
+							[
+								-73.96161892,
+								40.73165141
+							],
+							[
+								-73.95782357,
+								40.72153267
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#c2ba00",
+					"expected": "321.462713301",
+					"capacity": "663",
+					"available": "316",
+					"predcolor": "#c2ba00"
+				}
+			},
+			{
+				"style": {
+					"fill": "#c2ba00"
+				},
+				"type": "Feature",
+				"id": "144",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.95796783,
+								40.70708701
+							],
+							[
+								-73.95608,
+								40.70934
+							],
+							[
+								-73.95600096,
+								40.71774592
+							],
+							[
+								-73.95852515,
+								40.7190095
+							],
+							[
+								-73.96165072917938,
+								40.72036775298455
+							],
+							[
+								-73.98068914,
+								40.69839895
+							],
+							[
+								-73.95796783,
+								40.70708701
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#c1bd00",
+					"expected": "227.177272049",
+					"capacity": "472",
+					"available": "232",
+					"predcolor": "#c2ba00"
+				}
+			},
+			{
+				"style": {
+					"fill": "#babe00"
+				},
+				"type": "Feature",
+				"id": "3065",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.94016171,
+								40.70767788
+							],
+							[
+								-73.94100005,
+								40.71247661
+							],
+							[
+								-73.94223690032959,
+								40.71907891179564
+							],
+							[
+								-73.94500379,
+								40.71929301
+							],
+							[
+								-73.94882,
+								40.71764
+							],
+							[
+								-73.952029,
+								40.7160751
+							],
+							[
+								-73.95441667,
+								40.70691254
+							],
+							[
+								-73.95032283,
+								40.70029511
+							],
+							[
+								-73.94708417,
+								40.69957608
+							],
+							[
+								-73.940636,
+								40.7031724
+							],
+							[
+								-73.94016171,
+								40.70767788
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#babe00",
+					"expected": "311.907260377",
+					"capacity": "611",
+					"available": "309",
+					"predcolor": "#babe00"
+				}
+			},
+			{
+				"style": {
+					"fill": "#d70"
+				},
+				"type": "Feature",
+				"id": "72",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.97982001304626,
+								40.76132983124814
+							],
+							[
+								-73.98192338,
+								40.7652654
+							],
+							[
+								-73.99392888,
+								40.76727216
+							],
+							[
+								-74.00277668,
+								40.76087502
+							],
+							[
+								-73.993934,
+								40.751551
+							],
+							[
+								-73.98808416,
+								40.74854862
+							],
+							[
+								-73.97791,
+								40.751581
+							],
+							[
+								-73.97982001304626,
+								40.76132983124814
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#de7300",
+					"expected": "375.522304655",
+					"capacity": "1412",
+					"available": "366",
+					"predcolor": "#d70"
+				}
+			},
+			{
+				"style": {
+					"fill": "#d98200"
+				},
+				"type": "Feature",
+				"id": "3135",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.95348296,
+								40.76663814
+							],
+							[
+								-73.94446054,
+								40.77518615
+							],
+							[
+								-73.946041,
+								40.7779453
+							],
+							[
+								-73.9521667,
+								40.7806284
+							],
+							[
+								-73.95939,
+								40.78307
+							],
+							[
+								-73.96685276,
+								40.77282817
+							],
+							[
+								-73.95818491,
+								40.76500525
+							],
+							[
+								-73.95348296,
+								40.76663814
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#d98200",
+					"expected": "318.0",
+					"capacity": "1062",
+					"available": "318",
+					"predcolor": "#d98200"
+				}
+			},
+			{
+				"style": {
+					"fill": "#fa1400"
+				},
+				"type": "Feature",
+				"id": "164",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.97805914282799,
+								40.75724567911726
+							],
+							[
+								-73.97282625,
+								40.75255434
+							],
+							[
+								-73.97032517,
+								40.75323098
+							],
+							[
+								-73.959223,
+								40.759107
+							],
+							[
+								-73.96224617958069,
+								40.76712840349542
+							],
+							[
+								-73.96703464,
+								40.7691572
+							],
+							[
+								-73.97634151,
+								40.76590936
+							],
+							[
+								-73.97805914282799,
+								40.75724567911726
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#fc0a00",
+					"expected": "39.1107917988",
+					"capacity": "1042",
+					"available": "22",
+					"predcolor": "#fa1400"
+				}
+			},
+			{
+				"style": {
+					"fill": "#cda000"
+				},
+				"type": "Feature",
+				"id": "3168",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.96961715,
+								40.78472675
+							],
+							[
+								-73.96186,
+								40.795346
+							],
+							[
+								-73.9605909006,
+								40.7981856
+							],
+							[
+								-73.9621128676,
+								40.7997568
+							],
+							[
+								-73.96699104,
+								40.804213
+							],
+							[
+								-73.9711457439,
+								40.8013434
+							],
+							[
+								-73.9786022901535,
+								40.79181171501097
+							],
+							[
+								-73.977112,
+								40.7867947
+							],
+							[
+								-73.97137,
+								40.78275
+							],
+							[
+								-73.96961715,
+								40.78472675
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#cda000",
+					"expected": "396.0",
+					"capacity": "1004",
+					"available": "396",
+					"predcolor": "#cda000"
+				}
+			},
+			{
+				"style": {
+					"fill": "#bfbf00"
+				},
+				"type": "Feature",
+				"id": "3120",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.93561,
+								40.743
+							],
+							[
+								-73.93540375,
+								40.74469738
+							],
+							[
+								-73.94073717,
+								40.75110165
+							],
+							[
+								-73.94335788,
+								40.75325964
+							],
+							[
+								-73.9521,
+								40.74966
+							],
+							[
+								-73.96044,
+								40.74161
+							],
+							[
+								-73.93561,
+								40.743
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#bfbf00",
+					"expected": "169.0",
+					"capacity": "336",
+					"available": "169",
+					"predcolor": "#bfbf00"
+				}
+			},
+			{
+				"style": {
+					"fill": "#c7af00"
+				},
+				"type": "Feature",
+				"id": "3292",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.955327,
+								40.7835016
+							],
+							[
+								-73.94965589046478,
+								40.78112229934166
+							],
+							[
+								-73.94594,
+								40.7817212
+							],
+							[
+								-73.93956237,
+								40.7892529
+							],
+							[
+								-73.9432083,
+								40.79329668
+							],
+							[
+								-73.94782145,
+								40.7961535
+							],
+							[
+								-73.955613,
+								40.799484
+							],
+							[
+								-73.957481,
+								40.7857851
+							],
+							[
+								-73.955327,
+								40.7835016
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#c7af00",
+					"expected": "314.0",
+					"capacity": "716",
+					"available": "314",
+					"predcolor": "#c7af00"
+				}
+			},
+			{
+				"style": {
+					"fill": "#c2ba00"
+				},
+				"type": "Feature",
+				"id": "422",
+				"geometry": {
+					"coordinates": [
+						[
+							[
+								-73.97667321,
+								40.78524672
+							],
+							[
+								-73.98128127,
+								40.78720869
+							],
+							[
+								-73.98888587951659,
+								40.777507027547976
+							],
+							[
+								-73.990541,
+								40.771522
+							],
+							[
+								-73.988639,
+								40.768254
+							],
+							[
+								-73.98169333,
+								40.76695317
+							],
+							[
+								-73.97374737,
+								40.77896784
+							],
+							[
+								-73.97667321,
+								40.78524672
+							]
+						]
+					],
+					"type": "Polygon"
+				},
+				"properties": {
+					"statuscolor": "#c2ba00",
+					"expected": "455.0",
+					"capacity": "952",
+					"available": "455",
+					"predcolor": "#c2ba00"
+				}
+			}
+		],
+		"type": "FeatureCollection"
+	};
 
 /***/ }
 /******/ ]);

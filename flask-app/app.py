@@ -36,8 +36,10 @@ with app.app_context():
 	preds["station_id"] = preds.station_id.astype('str')
 	preds["bike_delta"] = preds["avg(in_count)"] - preds["avg(out_count)"]
 	
+	ar_preds = pd.read_csv("../preds/ar_preds.csv")
+
 	# get cluster assignments
-	clusters = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/clusters.csv")
+	clusters = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/ar_preds.csv")
 	clusters["ID"] = clusters.ID.astype('str')
 	clusters.drop(["end_latitude", "end_longitude", "ind"], inplace=True, axis=1)
 	
@@ -47,7 +49,7 @@ with app.app_context():
 	colors = list(red.range_to(Color("green"),101))
 	cluster_colors = list(Color('yellow').range_to(Color('blue'), len(set(clusters["cluster"])) + 1 ))
 	random.shuffle(cluster_colors)
-	score_colors = list(black.range_to(Color("white"),5))
+
 
 @app.route('/')
 def index():
@@ -70,18 +72,35 @@ def boundRoundPercentage(x):
 
 # get convex hull for points
 def get_hull(x):
-    #print(x)
+    #print(x.columns)
     points = list(zip(x["lat"].values, x["lon"].values))
     thisHull = ConvexHull(points)
     coords = [[points[p][1],points[p][0]] for p in reversed(thisHull.vertices) ]
-    print(x)
     # complete loop
     coords.append(coords[0])
-    respData = {"type": "Feature", 'id': x['station_id'].values[0], "properties": {'name': x["name"].values[0]}, "geometry": {"type": "Polygon","coordinates": [coords]}}
+    
+    capacity = sum(x["capacity"])
+    available = sum(x["num_bikes_available"])
+    expected_change = x["in_rate"].values[0] - x["out_rate"].values[0]
+    expected = available + expected_change
+    expected_pct = int(boundRoundPercentage(100 * expected / capacity))
+    avaliable_pct = int(boundRoundPercentage(100* available / capacity))
+    
+
+    respData = {
+                "type": "Feature", 'id': x['station_id'].values[0], 
+                "properties": { "capacity" : str(capacity), "available":str(available), 
+                               "predcolor":colors[expected_pct].hex,
+                               "statuscolor":colors[avaliable_pct].hex, 
+                               "expected": str(expected)},
+                "geometry": {"type": "Polygon","coordinates": [coords]},
+                "style" : {"fill":colors[expected_pct].hex}
+               }
     
     # dont want to return hull of not clustered points
     if thisHull.area > .2:
         respData["remove"] = True
+        
     return respData
 
 class Stations(Resource):	
@@ -104,7 +123,10 @@ class Stations(Resource):
 		angels_station_array = angels_status_json["features"]
 		angels_stations = [{"station_id" : str(stat["properties"]["id"]), "score": stat["properties"]["score"]}  for stat in angels_station_array]
 		angels_stations_df = pd.DataFrame.from_records(angels_stations)
-		
+		print("max score", angels_stations_df.score.max(), angels_stations_df.score.min())
+		# create colors for angels here cuz max score varies
+		score_colors = list(black.range_to(Color("white"),angels_stations_df.score.max() + 1 - angels_stations_df.score.min()))
+
 		# merge stations and scores
 		station_status = station_status.merge(stations, on = 'station_id')
 		station_status = station_status.merge(angels_stations_df, on = 'station_id',  how='left')
@@ -130,11 +152,9 @@ class Stations(Resource):
 		station_status["future_pct_available"].fillna(0, inplace=True)
 		station_status["future_pct_available"] = station_status["future_pct_available"].map(boundRoundPercentage)	
 		
-
 		station_status["pct_available"] = 100 * station_status["num_bikes_available"] / station_status["capacity"]
 		station_status.pct_available.fillna(0, inplace=True)
 		station_status["pct_available"] = station_status["pct_available"].map(boundRoundPercentage)	
-
 
 		# add cluster assignemnt
 		station_status = station_status.merge(clusters, left_on="station_id", right_on="ID", how='left')
@@ -142,8 +162,9 @@ class Stations(Resource):
 		station_status.ID.fillna(0, inplace=True)
 
 		# get color for dashboard
+		negative_colors = -1 * angels_stations_df.score.min()
 		station_status["status_color"] = station_status["pct_available"].map(lambda x: colors[int(x)].hex)
-		station_status["score_color"] = station_status["score"].map(lambda x: score_colors[int(x)+2].hex)
+		station_status["score_color"] = station_status["score"].map(lambda x: score_colors[int(x)+negative_colors].hex)
 		station_status["prediction_color"] = station_status["future_pct_available"].map(lambda x: colors[int(x)].hex)
 		station_status["cluster_color"] = station_status["cluster"].map(lambda x: cluster_colors[int(x)].hex)
 
@@ -155,14 +176,44 @@ class Stations(Resource):
 class GeoJSON(Resource):
 
 	def get(self):
+
+		status_url = "https://gbfs.citibikenyc.com/gbfs/en/station_status.json"
+		status_req = requests.get(status_url)
+		status_json = json.loads(status_req.text)
+		station_status_array = status_json["data"]["stations"]
+
+		# put into data frame
+		station_status = pd.DataFrame.from_records(station_status_array)
+		station_status.drop(["eightd_has_available_keys", "last_reported", "is_installed", "is_renting", "is_returning"], axis=1, inplace=True)
+
+		# merge stations and scores
+		station_status = station_status.merge(stations, on = 'station_id')
+		station_status.drop(['num_bikes_disabled', 'num_docks_available', 'num_docks_disabled', "name", "short_name"], axis=1, inplace=True)
+		# merge predictions
+		today = datetime.datetime.today()
+		thisHour = today.hour
+		thisWeekday = today.weekday() < 6
+
+	
+		# merge predictions
+		today = datetime.datetime.today()
+		thisHour = today.hour
+		thisWeekday = today.weekday() < 6
+
+		relevant_preds = ar_preds[(ar_preds["weekday"] == thisWeekday) & (ar_preds["hour"] == thisHour)].copy()
+		print(relevant_preds.shape)
+
+
 		# merge clusers with statuions
-		stations_clusters = stations.merge(clusters, left_on="station_id", right_on="ID", how='left')
+		stations_clusters = station_status.merge(clusters, left_on="station_id", right_on="ID", how='left')
+		stations_clusters = stations_clusters.merge(relevant_preds, on='cluster', how='outer')
+		
 		stations_clusters.fillna(0, inplace=True)
+		stations_clusters.cluster.astype(int, inplace=True)
 
 		hulls = stations_clusters.groupby('cluster').apply(get_hull)
 		goodHulls = [h for h in hulls if not h.get("remove")]
 		response = {"type": "FeatureCollection", "features": goodHulls}
-		
 
 		return response
 

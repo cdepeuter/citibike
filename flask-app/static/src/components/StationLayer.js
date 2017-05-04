@@ -37,7 +37,7 @@ export default class StationLayer extends React.Component {
 
     render() {
        let markers = this.state.stations.map((station) =>
-	       	<CircleMarker center={[station.lat, station.lon]} color={ this.props.view == "Bike Angels" ? station.status_color : station.prediction_color} fillColor={ this.props.view == "Bike Angels" ? station.score_color : station.cluster_color} fillOpacity="1" radius={5}>
+	       	<CircleMarker center={[station.lat, station.lon]} color={ this.props.stat == "Status" ? station.status_color : station.prediction_color} fillColor={ this.props.stat == "Status" ? station.status_color : station.prediction_color} fillOpacity="1" radius={5}>
 	          <Popup>
 
 	            <span>{station.name} - {station.station_id}
