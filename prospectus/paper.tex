@@ -25,6 +25,20 @@ This problem is relevant to the course because we would like to build a system t
 \section{Data}
 \subsection{Sources}
 
+\subsection{CitiBike Data}
+
+\subsubsection{Historical Trips}
+CitiBike provides trip-level data from 2013-2016.
+
+\subsubsection{Live Status}
+CitiBike provides an API to get real-time status at each station. Citibike also provides API access to its Bike Angels incentive programs' current status.
+
+\subsection{Weather Data}
+
+Weather data was collected using the Weather Underground API. Using hourly METAR measurements, we were able to get rainfall and temperature levels hourly from 2013 - 2016. This data was parsed and cleaned before integrating into models.
+
+
+
 \subsection{Cleaning}
 
 
@@ -35,8 +49,14 @@ This problem is relevant to the course because we would like to build a system t
 \subsection{Neighborhood-based}
 
 
-\section{Web Stack}
+\section{Live Predictions on the Web}
 
+
+\subsection{Server and API}
+The web server was built using the Flask framework in Python. We forgo a SQL layer in favor of Pandas, 
+
+\subsection{Front End}
+The front end was built using React
 
 \section{Impact}
 
