@@ -1,4 +1,4 @@
-import React, { Component, Button } from 'react';
+import React, { Component } from 'react';
 import { Map, CircleMarker, Popup} from 'react-leaflet'
 import Toggle from 'react-toggle'
 import ModelExplainer from './ModelExplainer';
@@ -60,7 +60,8 @@ export default class Legend extends React.Component {
 
 						</label>
 					</div>
-					<span onClick={this.showLegend}> Models &#10067;</span>
+
+					<span className="modelExplain" onClick={this.showLegend}> Models &#10067;</span>
 		  
 		        </div>
 		        <div>

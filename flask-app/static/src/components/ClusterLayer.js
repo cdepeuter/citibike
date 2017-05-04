@@ -18,8 +18,11 @@ class ClusterLayer extends React.Component {
 	    }
 		this.getStyle = this.getStyle.bind(this);
 		console.log(this.props)
-	  }
+	}
 	
+	componentDidUpdate(){
+	    console.log("updated, view:", this.state);
+	 }  
 	
 	getStyle(feature, layer) {
 		console.log("get style", this.props.stat, this.props.stat === "Predictions")

@@ -8,6 +8,13 @@
 	border-radius: 15px;
 }
 
+.modelExplain{
+  font-size: 20px;
+  margin: auto;
+  height:30px;
+  margin-left:40%;
+}
+
 .explain{
   width: 60%;
   height: 60%;
