@@ -22,56 +22,24 @@ Our work will focus on integrating more realistic methods to predict demand in c
 This problem is relevant to the course because we would like to build a system that can do this analysis in real-time. The current literature focuses on offline analysis and making these methods more efficient. Our goal is to integrate the current methods into one system that could potentially be used as a tool by bike-sharing systems to make decisions. 
 
 
-\section{One Sentence Summary}
+\section{Data}
+\subsection{Sources}
+
+\subsection{Cleaning}
 
 
-We will use methods to predict demand of CitiBike in New York City and use the results to improve rebalancing by using more realistic predictions. Our hypothesis is that incorporating predictions and operations in one system will improve efficiency. 
+\section{Models}
+\subsection{Station-based}
+\subsection{Baseline}
 
-\section{Audience and Needs}
-
-This project will impact the academic community as well as decision makers of bike sharing systems. The community will benefit because our work will validate currently proposed methods to predict demand and allocate resources optimally. 
-
-Decision makers at CitiBike will benefit from having a fully integrated system that includes predictions of demand as well as suggestions on how to allocate resources. Additionally, we hope to create a dashboard visualizing our results in real-time which provides an interface for decision-makers to use. Finally, a major focus of this project is to design the architecture to make this analysis scalable. 
-
-\section{Approach}
-
-\begin{enumerate}
-\item We will implement methods to predict demand of riders that relies on historical data. These methods include basic time-series models (ARIMA) as well as more advanced methods that include clustering and gradient boosting trees. 
-\item We will evaluate these prediction methods to see which one provides the best predictions in an efficient manner.
-\item With our predictive model in place, we will modify current methods to measure imbalance and optimize resource allocation to use our predicted demand rather than a fixed demand. 
-\item We will also evaluate the CitiBike bike angels program. This gives incentives to people who take trips to balance the system. 
-\item We will then build a dashboard to view both historical demand and live demand using CitiBike's live data stream.
-\end{enumerate}
-
-\section{(Best Case) Impact}
+\subsection{Neighborhood-based}
 
 
-In the best case scenario we are able to identify methods which accurately predict demand in the system. In addition we will be able to provide insight which may improve CitiBike's resource allocation. Finally, we build and publish online an all-inclusive dashboard which clearly shows all predictions and the effectiveness of rebalancing strategies both historically and in real-time.
+\section{Web Stack}
 
-\section{Milestones}
 
-\begin{enumerate}
-  \item Train models using algorithms from literataure and CitiBike's open data to predict demand in the system, using historical data as validation.
-  \item Incorporating predicted demand levels into resource optimization models from literature we will evaluate CitiBike's current resource allocation methods
-  \item Set up Spark Streaming infrastructure using CitiBike's live feed, and use trained models in real-time predict areas where demand may not be met
-  \item Build dashboard showing historical and real-time system allocation
-  \item Evaluate CitiBike's angels program using methods from literature
-\end{enumerate}
+\section{Impact}
 
-\section{Obstacles}
-
-\subsection{Major obstacles} 
-
-\begin{itemize}
-  \item A major obstacle would be if the models we use do not accurately predict system imbalances. If the prediction methods we implement from literature do not accurately predict demand, then we will not be able to go forward with the optimization evaluation. In this scenario we will still be able to build a live-web dashboard showing resource allocation across the city.
-\end{itemize}
-
-\subsection{Minor obstacles}
-
-\begin{itemize}
- \item We do not have any control over the restocking strategies CitiBike uses, thus we can only evaluate how they are doing compared to hypothetical system layouts we simulate. We are unable to see the true effectiveness of various restocking strategies from literature.
-  \item Running a large scale optimization problem may require proprietary software.
-\end{itemize}
 
 
 \section{Additional Resources}
@@ -82,7 +50,7 @@ In the best case scenario we are able to identify methods which accurately predi
   \item We will need to use some cloud computing infrastructure to complete this project. In addition we will need to have Spark Streaming working.
  \end{itemize}
  
-\section{Literature Review}
+\section{Related Literature}
 
 
 \begin{itemize}
