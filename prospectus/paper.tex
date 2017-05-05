@@ -57,7 +57,7 @@ Weather data was collected using the Weather Underground API. Using hourly METAR
 \subsection{Baseline}
 
 \subsection{Station-based}
-The first model we attempted was a simple AR model, with a lag period of 1 week. We used the first 75\% of each month to predict the last 25\%. As you can see in the figures below, the high traffic stations were modeled fairly accurately by these models, but the low traffic stations had less-consistent trends and were harder to predict. Stations were generally much harder to model than neighborhoods as they have high variance. Also, this simple AR model doesn't take weather/holidays into account, which may have a large affect on station usage.The RMSLogE for the station models, using the first 75\% of  was .75689 
+The first model we attempted was a simple AR model, with a lag period of 1 week. We used the first 75\% of each month to predict the last 25\%. As you can see in the figures below, the high traffic stations were modeled fairly accurately by these models, but the low traffic stations had less-consistent trends and were harder to predict. Stations were generally much harder to model than neighborhoods as they have high variance. Also, this simple AR model doesn't take weather/holidays into account, which may have a large affect on station usage.The RMSLogE for the station models, using the first 75\% of  was .7569. 
 
 \begin{figure}[!hbt]
 	\begin{center}
@@ -77,7 +77,7 @@ The first model we attempted was a simple AR model, with a lag period of 1 week.
 
 
 \subsection{Neighborhood-based}
-
+Our baseline models for Neighborhood clustering were also AR models with a lag period of 1 week, trained in the same way as the simple station-based AR models. The RMSLogE for the cluster models was .9784.
 
 
 \begin{figure}[!hbt]
@@ -93,25 +93,29 @@ The first model we attempted was a simple AR model, with a lag period of 1 week.
 	\end{center}
 \end{figure}
 
+\begin{figure}[!hbt]
+	\begin{center}
+	\includegraphics[width=\columnwidth]{cluster_ar_scatter.png}
+	\caption{Simple AR for neighborhood-based models}
+	\end{center}
+\end{figure}
+
 
 \subsection{Bike Angels Program}
 
 
 \section{Live Predictions on the Web}
-A live dashboard showing both the AR predictions we make and current system status is available to view at http://live.status.bike/. We include views for both Neighborhood level predictions and status as well as station-level. The predictions update every hour, and the current status updates as quickly as Citi Bike updates their live status. The web server was built using the Flask framework in Python. We forgo a SQL layer in favor of the Python Pandas for a lightweight way to merge the different data sources and format the output JSON in an easy-to-digest manner for the front end. The main function of the Flask app is to build API's for both the cluster and station-level predictions. The output of the /clusters api is GeoJSON, which integrates easily into the front end. The output of the /stations api is regular JSON. Both APIs give statuses and predictions for the entities they describe, and are cached every 50 seconds to improve performance and scalability. The Flask app also returns the HTML template for the map, but all of the HTML rendering is done on the client. The front end was built using React in ES6 and transpiled to browser-readable Javascript using Babel and Webpack. The whole web-stack (Node + Python) is created by a Docker image and is hosted on AWS, so deployment is very simple.
+A live dashboard showing both the AR predictions we make and current system status is available to view at http://live.status.bike/. We include views for both Neighborhood level predictions and status as well as station-level. The predictions update every hour, and the current status updates as quickly as Citi Bike updates their live status. The web server was built using the Flask framework in Python. We forgo a SQL layer in favor of the Python Pandas for a lightweight way to merge the different data sources and format the output JSON in an easy-to-digest manner for the front end. The main function of the Flask app is to build API's for both the cluster and station-level predictions. The output of the /clusters api is GeoJSON, which integrates easily into the front end. The output of the /stations api is regular JSON. Both APIs give statuses and predictions for the entities they describe, and are cached every 50 seconds to improve performance and scalability. The Flask app also returns the a small html file for the map, but all of the HTML rendering is done on the client. The front end was built using React in ES6 and transpiled to browser-readable Javascript using Babel and Webpack. The maps are build using the react-leaflet module. The whole web-stack (Node + Python) is created by a Docker image and is hosted on AWS Elastic Beanstalk, so deployment is very simple. In the current set up the predictions are using the current month of the previous year. Citi Bike publishes trip data quarterly. Because Citi Bike's live feed only includes system status, not current trips, we are not able to use the previous weeks' data to predict the current, and we felt using the current month of the previous year would give the best accuracy as opposed to data from up to 3 months before the current time. With this system models are rebuilt every month, and the new predictions are uploaded. If we had Citi Bike's live trip data to incorporate we would automate the process of re-building the models in a separate container, which would have the sole purpose of retraining models with an interval we determine, and uploading the data to the web so the prediction API's can display the new predictions seamlessly.
+
 
 \section{Impact}
 Live predictions can help with both Citi Bike and their restocking, as well as system users for trip planning.
 
 
-\section{Additional Resources}
+\section{Future Work}
+Going forward we would like to extend our analysis to other cities with similar bike share programs and open data. As long as a city has a similar current status feed and historical trip data, the analysis and website are easily extendible.
 
-\begin{itemize}
-  \item Some computational time to run our optimizer algorithm to generate some query plans.
-  \item Access to a machine where we can install and run experiments using our current database prototype.
-  \item We will need to use some cloud computing infrastructure to complete this project. In addition we will need to have Spark Streaming working.
- \end{itemize}
- 
+
 \section{Related Literature}
 
 
