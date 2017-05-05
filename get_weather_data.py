@@ -15,7 +15,7 @@ def getWeatherData(date):
         json_data=open(file_name).read()
 
     else:
-        url_str = "http://api.wunderground.com/api/8569324e20ad844f/history_{}/q/40.72548,-73.9818847.json".format(date)
+        url_str = "http://api.wunderground.com/api/cf36c356f04ca3e0/history_{}/q/40.72548,-73.9818847.json".format(date)
         print("getting from url", url_str)
         req = requests.get(url_str)
         json_data = req.text

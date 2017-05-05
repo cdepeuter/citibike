@@ -32,7 +32,8 @@ with app.app_context():
 
 	# get predictions
 	#preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/poisson_preds.csv")
-	preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/poisson_preds.csv")
+	#preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/poisson_preds.csv")
+	preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/station_ar_preds.csv")
 	preds["station_id"] = preds.station_id.astype('str')
 	preds["bike_delta"] = preds["avg(in_count)"] - preds["avg(out_count)"]
 	
@@ -81,7 +82,7 @@ def get_hull(x):
     capacity = sum(x["capacity"])
     available = sum(x["num_bikes_available"])
     expected_change = x["in_rate"].values[0] - x["out_rate"].values[0]
-    expected = available + expected_change
+    expected = int(available + expected_change)
     expected_pct = int(boundRoundPercentage(100 * expected / capacity))
     avaliable_pct = int(boundRoundPercentage(100* available / capacity))
     
@@ -176,7 +177,7 @@ class Stations(Resource):
 
 
 class GeoJSON(Resource):
-
+	@cache.cached(timeout=50)
 	def get(self):
 
 		status_url = "https://gbfs.citibikenyc.com/gbfs/en/station_status.json"

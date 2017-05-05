@@ -61,14 +61,14 @@ export default class Legend extends React.Component {
 					</div>
 
 					<span className="modelExplain" onClick={this.showLegend}>Our Models</span>
-		  
+			  		 <div>
+			        	{this.state.showLegend ? <ModelExplainer closeLegend={this.showLegend} /> : null}
+			        	
+		       		 </div>
 		        </div>
-
+			
 		       
-		        <div>
-		        	{this.state.showLegend ? <ModelExplainer closeLegend={this.showLegend} /> : null}
-		        	
-	       		 </div>
+		       
 	       </div>
       )
     }

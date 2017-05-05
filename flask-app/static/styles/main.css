@@ -17,9 +17,6 @@
 }
 
 .explain{
-  width: 60%;
-  height: 60%;
-  opacity: .75;
   border-radius: 15px;
   background-color: #ffffff;
   margin: auto;
@@ -27,14 +24,13 @@
   z-index: 999;
 }
 .explain-content{
-  margin: 10 10 10 10;
   margin-top: 0px !important; 
   padding: 10;
-
-}
-
-.exp-header{
-  margin-top: 0px !important;
+  width: 200%;
+  float: right;
+  overflow: visible;
+  background-color: #ffffff;
+  border-radius: 15px;
 }
 
 .close{

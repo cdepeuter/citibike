@@ -20,6 +20,7 @@ class ClusterLayer extends React.Component {
 		console.log(this.props)
 	}
 
+
 	componentDidUpdate(){
 	    console.log("updated, view:", this.state);
 	 }  
