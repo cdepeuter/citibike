@@ -1,6 +1,15 @@
 \documentclass{proc}
 \usepackage{url}
 
+\usepackage{graphicx}   
+
+
+\usepackage{subfigure} 
+\usepackage{url}       
+\usepackage{stfloats}  
+\usepackage{amsmath}   
+
+
 \begin{document}
 
 \title{Implementation of methods to predict demand, shortages, and evaluation of Resource allocation in the CitiBike System}
@@ -43,23 +52,56 @@ Weather data was collected using the Weather Underground API. Using hourly METAR
 
 
 \section{Models}
-\subsection{Station-based}
+
+
 \subsection{Baseline}
+
+\subsection{Station-based}
+The first model we attempted was a simple AR model, with a lag period of 1 week. We used the first 75\% of each month to predict the last 25\%. As you can see in the figures below, the high traffic stations were modeled fairly accurately by these models, but the low traffic stations had less-consistent trends and were harder to predict. Stations were generally much harder to model than neighborhoods as they have high variance. Also, this simple AR model doesn't take weather/holidays into account, which may have a large affect on station usage.The RMSLogE for the station models, using the first 75\% of  was .75689 
+
+\begin{figure}[!hbt]
+	\begin{center}
+	\includegraphics[width=\columnwidth]{station_229ar.png}
+	\caption{At the Great Jones St stationthe daily trends were consistent and easy to model}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+	\includegraphics[width=\columnwidth]{station_150ar.png}
+	\caption{At the E 2 St \& Avenue C station the trends were less consistent and not as easy to model}
+	\end{center}
+\end{figure}
+
+
+
+
 
 \subsection{Neighborhood-based}
 
 
+
+\begin{figure}[!hbt]
+	\begin{center}
+	\includegraphics[width=\columnwidth]{cluster_24ar.png}
+	\caption{Modeling at a high use cluster}
+	\end{center}
+\end{figure}
+\begin{figure}[!hbt]
+	\begin{center}
+	\includegraphics[width=\columnwidth]{cluster_11ar.png}
+	\caption{Lower traffic clusters were not as easy to model}
+	\end{center}
+\end{figure}
+
+
+\subsection{Bike Angels Program}
+
+
 \section{Live Predictions on the Web}
-
-
-\subsection{Server and API}
-The web server was built using the Flask framework in Python. We forgo a SQL layer in favor of Pandas, 
-
-\subsection{Front End}
-The front end was built using React
+A live dashboard showing both the AR predictions we make and current system status is available to view at http://live.status.bike/. We include views for both Neighborhood level predictions and status as well as station-level. The predictions update every hour, and the current status updates as quickly as Citi Bike updates their live status. The web server was built using the Flask framework in Python. We forgo a SQL layer in favor of the Python Pandas for a lightweight way to merge the different data sources and format the output JSON in an easy-to-digest manner for the front end. The main function of the Flask app is to build API's for both the cluster and station-level predictions. The output of the /clusters api is GeoJSON, which integrates easily into the front end. The output of the /stations api is regular JSON. Both APIs give statuses and predictions for the entities they describe, and are cached every 50 seconds to improve performance and scalability. The Flask app also returns the HTML template for the map, but all of the HTML rendering is done on the client. The front end was built using React in ES6 and transpiled to browser-readable Javascript using Babel and Webpack. The whole web-stack (Node + Python) is created by a Docker image and is hosted on AWS, so deployment is very simple.
 
 \section{Impact}
-
+Live predictions can help with both Citi Bike and their restocking, as well as system users for trip planning.
 
 
 \section{Additional Resources}
