@@ -21875,6 +21875,8 @@
 	
 	var _ClusterLayer2 = _interopRequireDefault(_ClusterLayer);
 	
+	__webpack_require__(402);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46459,7 +46461,7 @@
 																					_react2.default.createElement(
 																									"h3",
 																									{ className: "exp-header" },
-																									"Poisson!"
+																									"Time Series"
 																					),
 																					"Both models on diplay are ",
 																					_react2.default.createElement(

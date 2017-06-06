@@ -30,6 +30,9 @@ with app.app_context():
 	stations = pd.DataFrame.from_records(stations_array)
 	stations.drop(['region_id', 'rental_methods', "eightd_has_key_dispenser"], axis=1, inplace=True)
 
+	# remove stations with no capacity
+	stations = stations[stations["capacity"] != 0]
+	
 	# get predictions
 	#preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/poisson_preds.csv")
 	#preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/poisson_preds.csv")
@@ -39,9 +42,9 @@ with app.app_context():
 	
 	# get cluster assignments
 	ar_preds = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/ar_preds.csv")
-	clusters = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/clusters.csv")
+	clusters = pd.read_csv("https://raw.githubusercontent.com/cdepeuter/citibike/master/preds/clusters_new.csv")
 	clusters["ID"] = clusters.ID.astype('str')
-	clusters.drop(["end_latitude", "end_longitude", "ind"], inplace=True, axis=1)
+	clusters.drop(["end_latitude", "end_longitude"], inplace=True, axis=1)
 	
 	# get color range for station status and bike angels
 	red = Color("red")
@@ -54,6 +57,7 @@ with app.app_context():
 @app.route('/')
 def index():
     return render_template('leaflet.html')
+
 
 @app.route("/map")
 def map():
@@ -70,22 +74,26 @@ def boundRoundPercentage(x):
 
 		return x
 
+
 # get convex hull for points
 def get_hull(x):
     #print(x.columns)
     points = list(zip(x["lat"].values, x["lon"].values))
+
+    # if not enough points for a hull just return (will remove)
+    if len(points) <= 3:
+    	return {"remove": True}
+
     thisHull = ConvexHull(points)
     coords = [[points[p][1],points[p][0]] for p in reversed(thisHull.vertices) ]
     # complete loop
     coords.append(coords[0])
-    
     capacity = sum(x["capacity"])
     available = sum(x["num_bikes_available"])
     expected_change = x["in_rate"].values[0] - x["out_rate"].values[0]
     expected = int(available + expected_change)
     expected_pct = int(boundRoundPercentage(100 * expected / capacity))
     avaliable_pct = int(boundRoundPercentage(100* available / capacity))
-    
 
     respData = {
                 "type": "Feature", 'id': x['station_id'].values[0], 
@@ -103,8 +111,9 @@ def get_hull(x):
     # dont want to return hull of not clustered points
     if thisHull.area > .4:
         respData["remove"] = True
-        
+      
     return respData
+
 
 class Stations(Resource):	
 	@cache.cached(timeout=50)
@@ -120,20 +129,20 @@ class Stations(Resource):
 		station_status.drop(["eightd_has_available_keys", "last_reported", "is_installed", "is_renting", "is_returning"], axis=1, inplace=True)
 
 		# add bike angels score, put into data frame
-		bike_angels_url = "https://bikeangels-api.citibikenyc.com/bikeangels/v1/geojson_scores"
-		angels_status_req = requests.get(bike_angels_url)
-		angels_status_json = json.loads(angels_status_req.text)
-		angels_station_array = angels_status_json["features"]
-		angels_stations = [{"station_id" : str(stat["properties"]["id"]), "score": stat["properties"]["score"]}  for stat in angels_station_array]
-		angels_stations_df = pd.DataFrame.from_records(angels_stations)
+		# bike_angels_url = "https://bikeangels-api.citibikenyc.com/bikeangels/v1/geojson_scores"
+		# angels_status_req = requests.get(bike_angels_url)
+		# angels_status_json = json.loads(angels_status_req.text)
+		# angels_station_array = angels_status_json["features"]
+		# angels_stations = [{"station_id" : str(stat["properties"]["id"]), "score": stat["properties"]["score"]}  for stat in angels_station_array]
+		# angels_stations_df = pd.DataFrame.from_records(angels_stations)
 		#print("max score", angels_stations_df.score.max(), angels_stations_df.score.min())
 		# create colors for angels here cuz max score varies
-		score_colors = list(black.range_to(Color("white"),angels_stations_df.score.max() + 1 - angels_stations_df.score.min()))
+		#sscore_colors = list(black.range_to(Color("white"),angels_stations_df.score.max() + 1 - angels_stations_df.score.min()))
 
 		# merge stations and scores
 		station_status = station_status.merge(stations, on = 'station_id')
-		station_status = station_status.merge(angels_stations_df, on = 'station_id',  how='left')
-		station_status.score.fillna(0, inplace=True)
+		# station_status = station_status.merge(angels_stations_df, on = 'station_id',  how='left')
+		#station_status.score.fillna(0, inplace=True)
 
 		# merge predictions
 		today = datetime.datetime.today()
@@ -165,9 +174,9 @@ class Stations(Resource):
 		station_status.ID.fillna(0, inplace=True)
 
 		# get color for dashboard
-		negative_colors = -1 * angels_stations_df.score.min()
+		#negative_colors = -1 * angels_stations_df.score.min()
 		station_status["status_color"] = station_status["pct_available"].map(lambda x: colors[int(x)].hex)
-		station_status["score_color"] = station_status["score"].map(lambda x: score_colors[int(x)+negative_colors].hex)
+		#station_status["score_color"] = station_status["score"].map(lambda x: score_colors[int(x)+negative_colors].hex)
 		station_status["prediction_color"] = station_status["future_pct_available"].map(lambda x: colors[int(x)].hex)
 		station_status["cluster_color"] = station_status["cluster"].map(lambda x: cluster_colors[int(x)].hex)
 
@@ -205,8 +214,6 @@ class GeoJSON(Resource):
 
 		relevant_preds = ar_preds[(ar_preds["weekday"] == thisWeekday) & (ar_preds["hour"] == thisHour)].copy()
 		#print(relevant_preds.shape)
-
-
 		# merge clusers with statuions
 		stations_clusters = station_status.merge(clusters, left_on="station_id", right_on="ID", how='left')
 		stations_clusters = stations_clusters.merge(relevant_preds, on='cluster', how='outer')

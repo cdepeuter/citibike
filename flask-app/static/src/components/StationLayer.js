@@ -48,8 +48,6 @@ export default class StationLayer extends React.Component {
 	           	<br/>
 	           	Predicted Stock: {station.future_stock}
 	           	<br/>
-	           	Bike Angels Score: {station.score}
-	           	<br/>
 	           	Cluster: {station.cluster}
 	           	</span>
 	          </Popup>

@@ -16,7 +16,7 @@ class ModelExplainer extends React.Component {
         <div className="explain">
         	<div onClick={this.props.closeLegend} className="close">&#10006;</div>
         	<div className="explain-content">
-	            <h3 className="exp-header">Poisson!</h3>
+	            <h3 className="exp-header">Time Series</h3>
 	            Both models on diplay are <a href="https://en.wikipedia.org/wiki/Autoregressive_model">AR</a> models, with one model fit for incoming rate, and
 	            one model for outgoing rate, both hourly, fit on data from this month last year.
 	            The expected station stock is the expected level an hour from the current time.
