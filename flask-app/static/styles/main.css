@@ -1,3 +1,6 @@
+
+
+
 .legend{
 	position: absolute;
 	right: 0px;
@@ -8,6 +11,21 @@
 	border-radius: 15px;
   text-align: center;
   vertical-align: middle;
+}
+
+
+@media screen and (max-width : 700px) {
+  .legend{
+    position: absolute;
+    right: 0px;
+    width: 20%;
+    background-color: #ffffff;
+    z-index: 1000;
+    opacity: .75;
+    border-radius: 15px;
+    text-align: center;
+    vertical-align: middle;
+  }
 }
 
 .modelExplain{
@@ -163,11 +181,9 @@ span.viewType{
   border: 1px solid #4D4D4D;
   border-radius: 50%;
   background-color: #FAFAFA;
-
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   transition: all 0.25s ease;

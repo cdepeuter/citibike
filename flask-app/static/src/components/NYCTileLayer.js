@@ -16,9 +16,9 @@ export default class NYCTileLayer extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        lat: 40.71,
+        lat: 40.725,
         lng: -73.9890297,
-        zoom: 12,
+        zoom: window.innerWidth < 600 ? 11 : 12,
         bluemarble: false,
         view: 'Neighborhoods',
         stat: 'Status',
