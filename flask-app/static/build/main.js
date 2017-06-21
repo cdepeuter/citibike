@@ -45968,49 +45968,66 @@
 					_react2.default.createElement(
 						'div',
 						{ className: 'legend' },
-						_react2.default.createElement(_reactBootstrapToggle2.default, {
-							onClick: this.handleToggleChange,
-							on: _react2.default.createElement(
-								'h2',
-								null,
-								'Stations'
-							),
-							off: _react2.default.createElement(
-								'h2',
-								null,
-								'Neighborhood'
-							),
-							size: 'sm',
-							offstyle: 'success',
-							onstyle: 'primary',
-							active: this.state.toggleActive
-						}),
-						_react2.default.createElement(_reactBootstrapToggle2.default, {
-							onClick: this.handleStatChange,
-							on: _react2.default.createElement(
-								'h2',
-								null,
-								'Status'
-							),
-							off: _react2.default.createElement(
-								'h2',
-								null,
-								'Predictions'
-							),
-							size: 'sm',
-							offstyle: 'success',
-							onstyle: 'primary',
-							active: this.state.stat
-						}),
 						_react2.default.createElement(
-							'span',
-							{ className: 'modelExplain', onClick: this.showLegend },
-							'Our Models'
+							'div',
+							{ className: 'tog' },
+							_react2.default.createElement(_reactBootstrapToggle2.default, {
+								onClick: this.handleToggleChange,
+								on: _react2.default.createElement(
+									'h2',
+									null,
+									'Stations'
+								),
+								off: _react2.default.createElement(
+									'h2',
+									null,
+									'Clusters'
+								),
+								size: 'lg',
+								offstyle: 'default',
+								onstyle: 'default',
+								active: this.state.toggleActive
+							})
 						),
 						_react2.default.createElement(
 							'div',
-							null,
-							this.state.showLegend ? _react2.default.createElement(_ModelExplainer2.default, { closeLegend: this.showLegend }) : null
+							{ className: 'toggle_exp' },
+							_react2.default.createElement(
+								'span',
+								null,
+								'\u2190'
+							),
+							_react2.default.createElement(
+								'span',
+								null,
+								'Swipe to Change'
+							),
+							_react2.default.createElement(
+								'span',
+								null,
+								'\u2192'
+							)
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'tog stattype' },
+							_react2.default.createElement(_reactBootstrapToggle2.default, {
+								onClick: this.handleStatChange,
+								on: _react2.default.createElement(
+									'h2',
+									null,
+									'Status'
+								),
+								off: _react2.default.createElement(
+									'h2',
+									null,
+									'Predictions'
+								),
+								size: 'lg',
+								offstyle: 'default',
+								onstyle: 'default',
+								active: this.state.stat
+							})
 						)
 					)
 				);

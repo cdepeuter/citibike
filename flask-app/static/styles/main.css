@@ -8,23 +8,50 @@
 	background-color: #ffffff;
 	z-index: 1000;
 	opacity: .75;
-	border-radius: 15px;
+	
   text-align: center;
   vertical-align: middle;
 }
 
+@media screen and (min-width : 701px) {
+  .legend{
+    border-radius: 15px;
+  }
+  .legend .tog{
+    margin-top:10px;
+    font-size:20px;
+  }
+}
 
 @media screen and (max-width : 700px) {
   .legend{
     position: absolute;
-    right: 0px;
-    width: 20%;
+    width: 100%;
+    bottom: 0px;
     background-color: #ffffff;
     z-index: 1000;
     opacity: .75;
-    border-radius: 15px;
     text-align: center;
     vertical-align: middle;
+  }
+  .legend .tog{
+    float: left;
+    height: 50px !important;
+    width: 150px !important;
+  }
+
+  .toggle_exp{
+    width:20px;
+    float:left;
+    margin-left: 10px;
+  }
+  .legend .tog.stattype{
+    float: right;
+  }
+  .legend h2{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size:20px;
   }
 }
 
