@@ -3,8 +3,7 @@
 
 .legend{
 	position: absolute;
-	right: 0px;
-	width: 10%;
+	width: 28%;
 	background-color: #ffffff;
 	z-index: 1000;
 	opacity: .75;
@@ -16,10 +15,17 @@
 @media screen and (min-width : 701px) {
   .legend{
     border-radius: 15px;
+    margin-top:12px;
+    left: 50px;
   }
   .legend .tog{
-    margin-top:10px;
+    margin-left: 10px;
+    height: 60px;
+    float:left;
     font-size:20px;
+  }
+  .toggle.btn{
+    max-height: 60px;
   }
 }
 
@@ -37,7 +43,7 @@
   .legend .tog{
     float: left;
     height: 50px !important;
-    width: 150px !important;
+    width: 180px !important;
   }
 
   .toggle_exp{
@@ -52,6 +58,9 @@
     margin-top: 0;
     margin-bottom: 0;
     font-size:20px;
+  }
+  .toggle.btn{
+    min-width: 180px;
   }
 }
 

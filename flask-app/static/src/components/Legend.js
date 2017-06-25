@@ -48,15 +48,13 @@ export default class Legend extends React.Component {
 				          on={<h2>Stations</h2>}
 				          off={<h2>Clusters</h2>}
 				          size="lg"
-				          offstyle="default"
+				          offstyle="primary"
 				          onstyle="default"
 				          active={this.state.toggleActive}
 				        />		
 					</div>
 					<div className="toggle_exp">
-						<span>&larr;</span>
-						<span>Swipe to Change</span>
-						<span>&rarr;</span>
+
 					</div>
 
 					<div className="tog stattype">  
@@ -65,7 +63,7 @@ export default class Legend extends React.Component {
 						  on={<h2>Status</h2>}
 						  off={<h2>Predictions</h2>}
 						  size="lg"
-						  offstyle="default"
+						  offstyle="primary"
 						  onstyle="default"
 						  active={this.state.stat}
 						/>

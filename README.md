@@ -1,11 +1,7 @@
-## Citibike exploration
+## Predicting Citi Bike Demand 
 
-Work for Columbia Computer Systems for Data Sci W4121
+This repo contains the code a Flask API + React live dashboard of Citi Bike demand.
 
-To run Flask App, navigate to /flask-app
+Work for Columbia Computer Systems for Data Science W4121
 
-`$ python3 app.py`
-
-http://localhost:5000/map?city=nyc
-
-http://localhost:5000/map?city=dc
+http://live.status.bike/

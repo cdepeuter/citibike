@@ -45984,30 +45984,12 @@
 									'Clusters'
 								),
 								size: 'lg',
-								offstyle: 'default',
+								offstyle: 'primary',
 								onstyle: 'default',
 								active: this.state.toggleActive
 							})
 						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'toggle_exp' },
-							_react2.default.createElement(
-								'span',
-								null,
-								'\u2190'
-							),
-							_react2.default.createElement(
-								'span',
-								null,
-								'Swipe to Change'
-							),
-							_react2.default.createElement(
-								'span',
-								null,
-								'\u2192'
-							)
-						),
+						_react2.default.createElement('div', { className: 'toggle_exp' }),
 						_react2.default.createElement(
 							'div',
 							{ className: 'tog stattype' },
@@ -46024,7 +46006,7 @@
 									'Predictions'
 								),
 								size: 'lg',
-								offstyle: 'default',
+								offstyle: 'primary',
 								onstyle: 'default',
 								active: this.state.stat
 							})
