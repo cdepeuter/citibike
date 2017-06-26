@@ -42,33 +42,30 @@ export default class Legend extends React.Component {
         return (
         	<div className="overlay">
 		        <div className="legend">
-		        	<div className="tog">      
-					    <Toggle
-				          onClick={this.handleToggleChange}
-				          on={<h2>Stations</h2>}
-				          off={<h2>Clusters</h2>}
-				          size="lg"
-				          offstyle="primary"
-				          onstyle="default"
-				          active={this.state.toggleActive}
-				        />		
+		        	<div className="togggleWrap">
+						<div className="tog stattype">  
+							<Toggle
+							  onClick={this.handleStatChange}
+							  on={<h2>Status</h2>}
+							  off={<h2>Forecast</h2>}
+							  size="lg"
+							  offstyle="primary"
+							  onstyle="default"
+							  active={this.state.stat}
+							/>
+						</div>
+			        	<div className="tog">      
+						    <Toggle
+					          onClick={this.handleToggleChange}
+					          on={<h2>Stations</h2>}
+					          off={<h2>Clusters</h2>}
+					          size="lg"
+					          offstyle="primary"
+					          onstyle="default"
+					          active={this.state.toggleActive}
+					        />		
+						</div>
 					</div>
-					<div className="toggle_exp">
-
-					</div>
-
-					<div className="tog stattype">  
-						<Toggle
-						  onClick={this.handleStatChange}
-						  on={<h2>Status</h2>}
-						  off={<h2>Predictions</h2>}
-						  size="lg"
-						  offstyle="primary"
-						  onstyle="default"
-						  active={this.state.stat}
-						/>
-					</div>
-
 		        </div>   
 	       </div>
       )

@@ -1,9 +1,6 @@
-
-
-
 .legend{
 	position: absolute;
-	width: 28%;
+	width: 23.42%;
 	background-color: #ffffff;
 	z-index: 1000;
 	opacity: .75;
@@ -17,15 +14,17 @@
     border-radius: 15px;
     margin-top:12px;
     left: 50px;
+    width: 320px;
   }
   .legend .tog{
-    margin-left: 10px;
     height: 60px;
     float:left;
     font-size:20px;
   }
+
   .toggle.btn{
     max-height: 60px;
+    width: 160px !important;
   }
 }
 

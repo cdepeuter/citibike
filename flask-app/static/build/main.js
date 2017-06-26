@@ -45970,46 +45970,49 @@
 						{ className: 'legend' },
 						_react2.default.createElement(
 							'div',
-							{ className: 'tog' },
-							_react2.default.createElement(_reactBootstrapToggle2.default, {
-								onClick: this.handleToggleChange,
-								on: _react2.default.createElement(
-									'h2',
-									null,
-									'Stations'
-								),
-								off: _react2.default.createElement(
-									'h2',
-									null,
-									'Clusters'
-								),
-								size: 'lg',
-								offstyle: 'primary',
-								onstyle: 'default',
-								active: this.state.toggleActive
-							})
-						),
-						_react2.default.createElement('div', { className: 'toggle_exp' }),
-						_react2.default.createElement(
-							'div',
-							{ className: 'tog stattype' },
-							_react2.default.createElement(_reactBootstrapToggle2.default, {
-								onClick: this.handleStatChange,
-								on: _react2.default.createElement(
-									'h2',
-									null,
-									'Status'
-								),
-								off: _react2.default.createElement(
-									'h2',
-									null,
-									'Predictions'
-								),
-								size: 'lg',
-								offstyle: 'primary',
-								onstyle: 'default',
-								active: this.state.stat
-							})
+							{ className: 'togggleWrap' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'tog stattype' },
+								_react2.default.createElement(_reactBootstrapToggle2.default, {
+									onClick: this.handleStatChange,
+									on: _react2.default.createElement(
+										'h2',
+										null,
+										'Status'
+									),
+									off: _react2.default.createElement(
+										'h2',
+										null,
+										'Forecast'
+									),
+									size: 'lg',
+									offstyle: 'primary',
+									onstyle: 'default',
+									active: this.state.stat
+								})
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'tog' },
+								_react2.default.createElement(_reactBootstrapToggle2.default, {
+									onClick: this.handleToggleChange,
+									on: _react2.default.createElement(
+										'h2',
+										null,
+										'Stations'
+									),
+									off: _react2.default.createElement(
+										'h2',
+										null,
+										'Clusters'
+									),
+									size: 'lg',
+									offstyle: 'primary',
+									onstyle: 'default',
+									active: this.state.toggleActive
+								})
+							)
 						)
 					)
 				);
